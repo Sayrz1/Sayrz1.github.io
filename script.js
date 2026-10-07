@@ -272,6 +272,15 @@
     }
   }));
 
+  /* ---------- Crumbwell preview: render the demo at desktop width, scaled to fit ---------- */
+  const siteFrame = $("#site-frame");
+  if (siteFrame && "ResizeObserver" in window) {
+    new ResizeObserver(([e]) => {
+      const w = e.contentRect.width;
+      if (w) siteFrame.style.setProperty("--s", (w / 1280).toFixed(4));
+    }).observe(siteFrame);
+  }
+
   /* ---------- Work accordion ---------- */
   const panels = $$("[data-panel]");
   const desktopAcc = window.matchMedia("(min-width: 961px)");

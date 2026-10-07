@@ -285,7 +285,7 @@ em { font-family: var(--serif); font-style: italic; font-weight: 500; letter-spa
 
 /* ---------- Work accordion ---------- */
 .accordion { display: flex; gap: 12px; height: clamp(620px, 80vh, 720px); }
-.panel { position: relative; flex: 0 0 76px; border: 1.5px solid var(--line); border-radius: var(--radius); background: var(--surface); overflow: hidden; transition: flex-grow .8s var(--ease), flex-basis .8s var(--ease), border-color .3s; }
+.panel { position: relative; flex: 0 0 60px; border: 1.5px solid var(--line); border-radius: var(--radius); background: var(--surface); overflow: hidden; transition: flex-grow .8s var(--ease), flex-basis .8s var(--ease), border-color .3s; }
 .panel.is-open { flex: 1 1 0; border-color: var(--ink); }
 .panel:not(.is-open):hover { border-color: var(--ink); }
 .panel-tab { all: unset; box-sizing: border-box; cursor: pointer; position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 22px 0; transition: opacity .3s; }
@@ -294,7 +294,7 @@ em { font-family: var(--serif); font-style: italic; font-weight: 500; letter-spa
 .panel-title { writing-mode: vertical-rl; transform: rotate(180deg); font-size: 1.25rem; font-weight: 650; letter-spacing: -0.02em; white-space: nowrap; }
 .panel-tab i { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 999px; background: var(--ink); color: var(--bg); font-size: 16px; }
 .panel.is-open .panel-tab { opacity: 0; pointer-events: none; }
-.panel-body { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(20px, 3vw, 40px); padding: clamp(24px, 3vw, 40px); min-width: 760px; opacity: 0; visibility: hidden; transition: opacity .3s, visibility 0s .3s; }
+.panel-body { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(20px, 3vw, 40px); padding: clamp(24px, 3vw, 40px); min-width: 700px; opacity: 0; visibility: hidden; transition: opacity .3s, visibility 0s .3s; }
 .panel.is-open .panel-body { opacity: 1; visibility: visible; transition: opacity .6s .3s, visibility 0s; }
 .panel-copy { display: flex; flex-direction: column; overflow: auto; }
 .panel-copy > p:not(.meta) { color: var(--muted); margin: 0 0 14px; max-width: 52ch; font-size: 16px; }
@@ -343,6 +343,16 @@ em { font-family: var(--serif); font-style: italic; font-weight: 500; letter-spa
 .bits span.flip { animation: flash .6s var(--ease); }
 @keyframes flash { from { background: var(--ink); color: var(--bg); border-radius: 3px; } }
 .visual-maze { background: var(--ink); }
+.pitch { color: var(--ink) !important; font-weight: 550; }
+.visual-site { display: flex; flex-direction: column; align-self: center; padding: 0; place-items: stretch; text-decoration: none; color: inherit; border: 1.5px solid var(--line); background: var(--surface); }
+.site-bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; border-bottom: 1.5px solid var(--line); font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.site-bar > span { width: 10px; height: 10px; border-radius: 999px; background: var(--line); }
+.site-bar b { font-weight: 400; margin-left: 10px; }
+.site-frame { position: relative; aspect-ratio: 16 / 10; overflow: hidden; }
+.site-frame iframe { position: absolute; top: 0; left: 0; width: 1280px; height: 800px; border: 0; transform: scale(var(--s, .4)); transform-origin: 0 0; pointer-events: none; background: #ecebe4; }
+.site-open { position: absolute; right: 14px; bottom: 14px; display: inline-flex; gap: 8px; align-items: center; padding: 10px 16px; border-radius: 999px; background: var(--accent); color: var(--on-accent); font-weight: 550; font-size: 14px; box-shadow: 0 10px 24px -10px rgb(var(--shadow) / .5); transition: transform .35s var(--ease); }
+.visual-site:hover .site-open { transform: translateY(-2px); }
+.visual-site:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 .maze { display: grid; grid-template-columns: repeat(20, 1fr); width: 100%; max-width: 440px; aspect-ratio: 20 / 15; position: relative; }
 .maze i { background: var(--bg); opacity: .9; }
 .maze i.o { background: transparent; }
