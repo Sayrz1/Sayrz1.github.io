@@ -273,12 +273,12 @@
   }));
 
   /* ---------- Crumbwell preview: render the demo at desktop width, scaled to fit ---------- */
-  const siteFrame = $("#site-frame");
-  if (siteFrame && "ResizeObserver" in window) {
-    new ResizeObserver(([e]) => {
+  if ("ResizeObserver" in window) {
+    const fit = new ResizeObserver((entries) => entries.forEach((e) => {
       const w = e.contentRect.width;
-      if (w) siteFrame.style.setProperty("--s", (w / 1280).toFixed(4));
-    }).observe(siteFrame);
+      if (w) e.target.style.setProperty("--s", (w / 1280).toFixed(4));
+    }));
+    $$(".site-frame").forEach((f) => fit.observe(f));
   }
 
   /* ---------- Work accordion ---------- */
