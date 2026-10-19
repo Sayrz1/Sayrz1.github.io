@@ -10,7 +10,8 @@ then open http://localhost:5173
 
 ## Sections
 Hero (talking, waving cartoon avatar) · About (flipping ID card on a lanyard) · Skills (periodic table with family filters) ·
-Work (project accordion with a live LexiLift demo) · Certifications · Education & experience (timeline) ·
+Work (project accordion with a live LexiLift demo) ·
+Motion (four voiced motion graphics demos in `assets/motion/`, muted autoplay in view, one with sound at a time) · Certifications · Education & experience (timeline) ·
 Achievements (sideways scroll with count-up numbers) · Contact
 
 Mini Sama (`mascot.js`) is a chibi mascot that follows you down the page, swaps props per section, naps when idle and shares facts when clicked. Visitors can hide her.

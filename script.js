@@ -116,7 +116,7 @@
       navMap.get(sectionFor[e.target.id] || e.target.id)?.classList.add("active");
     });
   }, { rootMargin: "-45% 0px -50% 0px" });
-  ["about", "skills", "work", "certifications", "experience", "achievements", "contact"].forEach((id) => {
+  ["about", "skills", "work", "motion", "certifications", "experience", "achievements", "contact"].forEach((id) => {
     const s = document.getElementById(id);
     if (s) navObs.observe(s);
   });
@@ -544,4 +544,31 @@
     });
     document.fonts?.ready.then(() => ScrollTrigger.refresh());
   }
+})();
+
+/* ---------- Motion reels: play muted while on screen, one with sound at a time ---------- */
+(function () {
+  const vids = Array.from(document.querySelectorAll(".reel video"));
+  if (!vids.length) return;
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const quiet = (v) => {
+    v.muted = true; v.loop = true; v.controls = false; delete v.dataset.sound;
+    v.closest(".reel").classList.remove("has-sound");
+  };
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(({ target: v, isIntersecting }) => {
+      if (!isIntersecting) { v.pause(); return; }
+      if (!reduce && !v.dataset.sound) v.play().catch(() => {});
+    });
+  }, { threshold: 0.35 });
+  vids.forEach((v) => obs.observe(v));
+  document.querySelectorAll(".reel-sound").forEach((btn) => btn.addEventListener("click", () => {
+    const v = btn.closest(".reel").querySelector("video");
+    vids.forEach((o) => { if (o !== v && o.dataset.sound) { quiet(o); o.pause(); } });
+    v.dataset.sound = "1"; v.muted = false; v.loop = false; v.controls = true; v.currentTime = 0;
+    btn.closest(".reel").classList.add("has-sound");
+    v.play().catch(() => {});
+    v.focus({ preventScroll: true });
+  }));
+  vids.forEach((v) => v.addEventListener("ended", () => { if (v.dataset.sound) quiet(v); }));
 })();
