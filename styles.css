@@ -671,6 +671,61 @@ em { font-family: var(--serif); font-style: italic; font-weight: 500; letter-spa
 .reel.has-sound .reel-sound, .reel.has-sound figcaption { opacity: 0; pointer-events: none; }
 .motion-foot { margin-top: clamp(24px, 3vw, 36px); display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 14px 32px; }
 .motion-foot .pitch { margin: 0; }
+
+/* Drive card: the way into the full-length work */
+.drive-card {
+  position: relative; margin-top: clamp(20px, 2.6vw, 32px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 46%); align-items: center; gap: 24px;
+  padding: clamp(24px, 3.4vw, 44px); border-radius: calc(var(--radius) + 6px); overflow: hidden; isolation: isolate;
+  background: #1a120d; color: #fbf7f0; text-decoration: none;
+  box-shadow: 0 24px 60px -28px rgb(var(--shadow) / .55);
+  transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+}
+.drive-card::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(60% 90% at 85% 50%, rgb(234 88 12 / .38), transparent 70%), radial-gradient(40% 60% at 0% 100%, rgb(154 52 18 / .45), transparent 70%);
+}
+.drive-card:hover { transform: translateY(-4px); box-shadow: 0 34px 70px -26px rgb(var(--shadow) / .6); }
+.drive-card:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+.dc-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+.dc-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: #fdba74; }
+.dc-eyebrow i { font-size: 18px; }
+.dc-title { font-family: var(--display); font-size: clamp(2.2rem, 4.6vw, 3.8rem); line-height: 1; letter-spacing: -0.02em; }
+.dc-title em { font-family: var(--serif); font-style: italic; font-weight: 500; color: #fdba74; }
+.dc-sub { max-width: 42ch; color: rgb(251 247 240 / .78); line-height: 1.55; }
+.dc-btn {
+  margin-top: 6px; display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 22px; border-radius: 999px;
+  background: #fbf7f0; color: #1c1917; font-weight: 650; transition: background-color .3s, gap .3s var(--ease);
+}
+.dc-btn i { transition: transform .3s var(--ease); }
+.drive-card:hover .dc-btn { background: #fff; gap: 12px; }
+.drive-card:hover .dc-btn i { transform: translate(2px, -2px); }
+.dc-stack { position: relative; height: clamp(260px, 26vw, 340px); }
+.dc-tile {
+  position: absolute; top: 50%; left: 50%; width: clamp(110px, 10.5vw, 150px); aspect-ratio: 9 / 16; border-radius: 12px; overflow: hidden;
+  background: #0d0a08; border: 2px solid rgb(251 247 240 / .9); box-shadow: 0 18px 36px -14px rgb(0 0 0 / .7);
+  transform: translate(-50%, -50%) translateX(var(--x)) rotate(var(--r)); transition: transform .6s var(--ease);
+}
+.dc-tile video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.dc-tile:nth-child(1) { --x: -98%; --r: -9deg; --hx: -128%; --hr: -12deg; z-index: 1; }
+.dc-tile:nth-child(2) { --x: -33%;  --r: -3deg; --hx: -43%;  --hr: -4deg;  z-index: 2; }
+.dc-tile:nth-child(3) { --x: 33%;   --r: 3deg;  --hx: 43%;   --hr: 4deg;   z-index: 3; }
+.dc-tile:nth-child(4) { --x: 98%;  --r: 9deg;  --hx: 128%;  --hr: 12deg;  z-index: 4; }
+.drive-card:hover .dc-tile, .drive-card:focus-visible .dc-tile { transform: translate(-50%, -54%) translateX(var(--hx)) rotate(var(--hr)); }
+@media (max-width: 860px) {
+  .drive-card { grid-template-columns: 1fr; }
+  .dc-stack { height: 250px; order: -1; }
+  .dc-tile { width: 96px; }
+  .dc-tile:nth-child(1) { --x: -108%; --hx: -112%; }
+  .dc-tile:nth-child(4) { --x: 108%;  --hx: 112%; }
+  .dc-btn { width: 100%; justify-content: center; }
+}
+
+/* Nav: Motion gets a live dot so it reads as the thing to see */
+.nav-links a.nav-hot { color: var(--ink); font-weight: 600; gap: 8px; }
+.hot-dot { position: relative; width: 7px; height: 7px; border-radius: 50%; background: #ea580c; flex: none; }
+.hot-dot::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: inherit; animation: hot-ping 1.8s var(--ease) infinite; }
+.nav-links a.nav-hot.active .hot-dot { background: var(--on-accent); }
+@keyframes hot-ping { 0% { transform: scale(1); opacity: .7; } 80%, 100% { transform: scale(2.8); opacity: 0; } }
 .rs-short { display: none; }
 @media (max-width: 860px) {
   .reels { grid-template-columns: 1fr 1fr; grid-template-areas: "b b" "a d" "c c"; }
