@@ -585,3 +585,13 @@
   }));
   vids.forEach((v) => v.addEventListener("ended", () => { if (v.dataset.sound) quiet(v); }));
 })();
+
+/* ---------- Drive card: preview loops play while the card is on screen ---------- */
+(function () {
+  const card = document.querySelector(".drive-card");
+  if (!card || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const vids = Array.from(card.querySelectorAll("video"));
+  new IntersectionObserver(([e]) => {
+    vids.forEach((v) => (e.isIntersecting ? v.play().catch(() => {}) : v.pause()));
+  }, { threshold: 0.3 }).observe(card);
+})();
