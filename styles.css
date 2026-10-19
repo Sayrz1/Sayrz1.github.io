@@ -39,6 +39,7 @@
 /* ---------- Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: var(--nav-h); }
+html.js { scroll-behavior: auto; } /* JS scrolls in-page links smoothly; see script.js */
 body {
   margin: 0; background: var(--bg); color: var(--ink);
   font-family: var(--sans); font-size: 17px; line-height: 1.6;
