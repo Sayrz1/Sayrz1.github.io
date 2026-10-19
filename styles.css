@@ -669,7 +669,8 @@ em { font-family: var(--serif); font-style: italic; font-weight: 500; letter-spa
 .reel-sound { position: absolute; top: 12px; right: 12px; display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border: 0; border-radius: 999px; cursor: pointer; background: rgb(255 255 255 / .92); color: #1c1917; font-family: var(--mono); font-size: 12px; transition: transform .3s var(--ease), background-color .3s; }
 .reel-sound:hover { transform: translateY(-1px); background: #fff; }
 .reel.has-sound .reel-sound, .reel.has-sound figcaption { opacity: 0; pointer-events: none; }
-.motion-pitch { margin: clamp(24px, 3vw, 36px) 0 0; }
+.motion-foot { margin-top: clamp(24px, 3vw, 36px); display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 14px 32px; }
+.motion-foot .pitch { margin: 0; }
 .rs-short { display: none; }
 @media (max-width: 860px) {
   .reels { grid-template-columns: 1fr 1fr; grid-template-areas: "b b" "a d" "c c"; }
