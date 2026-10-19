@@ -514,6 +514,19 @@
     });
   }
 
+  /* ---------- Smooth in-page links ----------
+     CSS scroll-behavior: smooth is off once JS runs (html.js): it made ScrollTrigger measure mid-scroll, so the
+     Achievements pin landed over Experience whenever the page loaded scrolled (a #link or a reload). */
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a || a.classList.contains("skip") || e.defaultPrevented) return;
+    const target = a.getAttribute("href") === "#top" ? document.body : document.querySelector(a.getAttribute("href"));
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
+    history.pushState(null, "", a.getAttribute("href"));
+  });
+
   /* ---------- GSAP: scroll-linked motion ---------- */
   if (window.gsap && window.ScrollTrigger && !reduce) {
     gsap.registerPlugin(ScrollTrigger);
