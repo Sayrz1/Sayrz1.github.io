@@ -653,6 +653,33 @@ em { font-family: var(--serif); font-style: italic; font-weight: 500; letter-spa
   .x-kind { float: none; display: inline-block; margin-left: 8px; }
 }
 
+/* ---------- Motion reels ---------- */
+.reels { display: grid; gap: clamp(12px, 1.6vw, 20px); grid-template-columns: 1fr 1.58fr 1fr; grid-template-areas: "a b d" "a c d"; }
+.reel { margin: 0; min-width: 0; display: flex; }
+.reel-frame { position: relative; flex: 1; border-radius: var(--radius); overflow: hidden; border: 1.5px solid var(--line); background: #0d0a08; transition: border-color .3s, transform .5s var(--ease); }
+.reel:hover .reel-frame { border-color: var(--ink); }
+.reel-wide .reel-frame { aspect-ratio: 16 / 9; }
+.reel-tall .reel-frame { min-height: 100%; }
+.reel video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.reel figcaption { position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; padding: 48px 16px 14px; color: #fff; background: linear-gradient(transparent, rgb(0 0 0 / .75)); pointer-events: none; transition: opacity .3s; }
+.reel-num { font-family: var(--mono); font-size: 12px; opacity: .75; }
+.reel-name { font-weight: 650; letter-spacing: -0.01em; }
+.reel-meta { flex-basis: 100%; font-family: var(--mono); font-size: 12px; opacity: .85; }
+.reel-sound { position: absolute; top: 12px; right: 12px; display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border: 0; border-radius: 999px; cursor: pointer; background: rgb(255 255 255 / .92); color: #1c1917; font-family: var(--mono); font-size: 12px; transition: transform .3s var(--ease), background-color .3s; }
+.reel-sound:hover { transform: translateY(-1px); background: #fff; }
+.reel.has-sound .reel-sound, .reel.has-sound figcaption { opacity: 0; pointer-events: none; }
+.motion-pitch { margin: clamp(24px, 3vw, 36px) 0 0; }
+.rs-short { display: none; }
+@media (max-width: 860px) {
+  .reels { grid-template-columns: 1fr 1fr; grid-template-areas: "b b" "a d" "c c"; }
+  .reel-tall .reel-frame { aspect-ratio: 9 / 16; min-height: 0; }
+  .reel figcaption { padding: 36px 12px 10px; gap: 2px 8px; }
+  .reel-name { font-size: 15px; }
+  .reel-meta { font-size: 11px; }
+  .reel-sound { top: 8px; right: 8px; padding: 6px 10px; font-size: 11px; }
+  .rs-long { display: none; } .rs-short { display: inline; }
+}
+
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
