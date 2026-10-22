@@ -283,7 +283,6 @@
 
   /* ---------- Work accordion ---------- */
   const panels = $$("[data-panel]");
-  const desktopAcc = window.matchMedia("(min-width: 961px)");
   function openPanel(p) {
     panels.forEach((x) => {
       const open = x === p;
@@ -292,16 +291,18 @@
     });
   }
   panels.forEach((p) => {
-    $(".panel-tab", p).addEventListener("click", () => {
-      if (!desktopAcc.matches && p.classList.contains("is-open")) { p.classList.remove("is-open"); $(".panel-tab", p).setAttribute("aria-expanded", "false"); return; }
+    const tab = $(".panel-tab", p);
+    tab.addEventListener("click", () => {
+      if (p.classList.contains("is-open")) { p.classList.remove("is-open"); tab.setAttribute("aria-expanded", "false"); return; }
       openPanel(p);
     });
-    let hoverT = null;
-    p.addEventListener("mouseenter", () => {
-      if (!desktopAcc.matches || !finePointer) return;
-      hoverT = setTimeout(() => openPanel(p), 220);
+    $(".panel-drawer", p).addEventListener("transitionend", (e) => {
+      if (e.target !== e.currentTarget || e.propertyName !== "grid-template-rows") return;
+      // A panel above may have collapsed and pushed this tab off screen.
+      if (p.classList.contains("is-open") && tab.getBoundingClientRect().top < 0) tab.scrollIntoView({ block: "start" });
+      // The section's height changed, so pinned sections below need new positions.
+      if (window.ScrollTrigger) ScrollTrigger.refresh();
     });
-    p.addEventListener("mouseleave", () => clearTimeout(hoverT));
   });
 
   /* ---------- LexiLift demo ---------- */
