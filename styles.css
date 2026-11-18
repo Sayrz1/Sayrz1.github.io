@@ -137,8 +137,9 @@ em { font-family: var(--serif); font-style: italic; font-weight: 500; letter-spa
 .hero-cta { grid-column: 3; grid-row: 1; display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; position: relative; padding-bottom: 6px; }
 .pause-btn { position: absolute; right: var(--gutter); top: calc(var(--nav-h) + 16px); z-index: 2; }
 .js .hero-copy .eyebrow, .js .hero-sub, .js .hero-cta, .js .hero-figure, .js .pause-btn { animation: rise 1.1s var(--ease) both; }
-.js .hero-figure { animation-delay: .15s; } .js .hero-sub { animation-delay: .45s; } .js .hero-cta { animation-delay: .6s; } .js .pause-btn { animation-delay: .8s; }
+.js .hero-figure { animation-name: riseFig; animation-delay: 0s; } .js .hero-sub { animation-delay: .45s; } .js .hero-cta { animation-delay: .6s; } .js .pause-btn { animation-delay: .8s; }
 @keyframes rise { from { opacity: 0; transform: translateY(28px); } }
+@keyframes riseFig { from { transform: translateY(28px); } }
 
 .bubble {
   position: absolute; z-index: 4; top: -3%; left: 68%;
