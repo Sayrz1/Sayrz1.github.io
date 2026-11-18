@@ -116,7 +116,7 @@
       navMap.get(sectionFor[e.target.id] || e.target.id)?.classList.add("active");
     });
   }, { rootMargin: "-45% 0px -50% 0px" });
-  ["about", "skills", "work", "motion", "certifications", "experience", "achievements", "contact"].forEach((id) => {
+  ["about", "skills", "work", "motion", "copy", "certifications", "experience", "achievements", "contact"].forEach((id) => {
     const s = document.getElementById(id);
     if (s) navObs.observe(s);
   });
@@ -487,7 +487,7 @@
       };
       requestAnimationFrame(tick);
     });
-  }, { threshold: 0.6 });
+  }, { threshold: 0.4 });
   $$("[data-count]").forEach((el) => countObs.observe(el));
 
   /* ---------- Copy email ---------- */
@@ -560,39 +560,202 @@
   }
 })();
 
-/* ---------- Motion reels: play muted while on screen, one with sound at a time ---------- */
+/* ---------- Motion section: one controller for every film on the page ---------- */
 (function () {
-  const vids = Array.from(document.querySelectorAll(".reel video"));
-  if (!vids.length) return;
+  const section = document.getElementById("motion");
+  if (!section) return;
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const quiet = (v) => {
-    v.muted = true; v.loop = true; v.controls = false; delete v.dataset.sound;
-    v.closest(".reel").classList.remove("has-sound");
-  };
-  const obs = new IntersectionObserver((entries) => {
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+
+  // Only one film plays with sound at a time, across reels, the series and the Drive dialog.
+  const stopOthers = new Set();
+  const hushAll = (except) => stopOthers.forEach((fn) => fn !== except && fn());
+
+  // Muted loops play while on screen and pause when they leave.
+  const loopObs = new IntersectionObserver((entries) => {
     entries.forEach(({ target: v, isIntersecting }) => {
       if (!isIntersecting) { v.pause(); return; }
       if (!reduce && !v.dataset.sound) v.play().catch(() => {});
     });
   }, { threshold: 0.35 });
-  vids.forEach((v) => obs.observe(v));
-  document.querySelectorAll(".reel-sound").forEach((btn) => btn.addEventListener("click", () => {
+
+  /* Reels for small shops */
+  const reelVids = $$(".reel video", section);
+  const quiet = (v) => {
+    v.muted = true; v.loop = true; v.controls = false; delete v.dataset.sound;
+    v.closest(".reel").classList.remove("has-sound");
+  };
+  reelVids.forEach((v) => {
+    loopObs.observe(v);
+    const bar = v.closest(".reel").querySelector(".reel-progress span");
+    let raf = 0;
+    const tick = () => {
+      if (v.duration) bar.style.transform = `scaleX(${v.currentTime / v.duration})`;
+      raf = requestAnimationFrame(tick);
+    };
+    v.addEventListener("play", () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(tick); });
+    v.addEventListener("pause", () => cancelAnimationFrame(raf));
+    v.addEventListener("ended", () => { if (v.dataset.sound) quiet(v); v.play().catch(() => {}); });
+  });
+  const hushReels = () => reelVids.forEach((o) => { if (o.dataset.sound) quiet(o); });
+  stopOthers.add(hushReels);
+  $$(".reel-sound", section).forEach((btn) => btn.addEventListener("click", () => {
     const v = btn.closest(".reel").querySelector("video");
-    vids.forEach((o) => { if (o !== v && o.dataset.sound) { quiet(o); o.pause(); } });
+    hushAll(hushReels);
+    reelVids.forEach((o) => { if (o !== v && o.dataset.sound) quiet(o); });
     v.dataset.sound = "1"; v.muted = false; v.loop = false; v.controls = true; v.currentTime = 0;
     btn.closest(".reel").classList.add("has-sound");
     v.play().catch(() => {});
     v.focus({ preventScroll: true });
   }));
-  vids.forEach((v) => v.addEventListener("ended", () => { if (v.dataset.sound) quiet(v); }));
+
+  /* Series (In My World, How so?): the cover strip picks the episode */
+  $$(".series", section).forEach((ser) => {
+    const video = ser.querySelector(".ser-video");
+    const playBtn = ser.querySelector(".ser-play");
+    const title = ser.querySelector(".ser-now-title");
+    const rule = ser.querySelector(".ser-now-rule span");
+    const meta = ser.querySelector(".ser-now-meta");
+    const prefix = ser.querySelector(".ser-eps").dataset.prefix;
+    const eps = $$(".ser-ep", ser);
+    const hush = () => { if (!video.paused) video.pause(); };
+    stopOthers.add(hush);
+    const start = () => {
+      hushAll(hush);
+      ser.classList.add("playing");
+      video.controls = true;
+      video.play().catch(() => {});
+    };
+    playBtn.addEventListener("click", start);
+    video.addEventListener("play", () => { hushAll(hush); ser.classList.add("playing"); video.controls = true; });
+    eps.forEach((ep) => ep.addEventListener("click", () => {
+      eps.forEach((o) => o.removeAttribute("aria-current"));
+      ep.setAttribute("aria-current", "true");
+      video.src = ep.dataset.src;
+      video.poster = ep.dataset.poster;
+      video.setAttribute("aria-label", `${prefix}, ${ep.dataset.title}`);
+      title.textContent = ep.dataset.title;
+      rule.textContent = ep.dataset.rule;
+      meta.textContent = ep.dataset.meta;
+      playBtn.querySelector("span").textContent = "Watch " + ep.dataset.title.split(" · ")[0];
+      start();
+      const box = video.getBoundingClientRect();
+      if (box.top < 60 || box.bottom > window.innerHeight) video.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+    }));
+  });
+
+  /* Experiments: loops in the cards, the full film in a dialog (Drive's player or a local file) */
+  const dialog = document.getElementById("film-dialog");
+  const frame = dialog?.querySelector("iframe");
+  const filmVideo = dialog ? document.createElement("video") : null;
+  if (filmVideo) {
+    filmVideo.className = "fd-video"; filmVideo.controls = true; filmVideo.playsInline = true;
+    frame.after(filmVideo);
+  }
+  const dfVids = $$(".df video", section);
+  dfVids.forEach((v) => loopObs.observe(v));
+  let opener = null;
+  const closeFilm = () => { if (dialog?.open) dialog.close(); };
+  stopOthers.add(closeFilm);
+  $$(".df-frame", section).forEach((btn) => btn.addEventListener("click", () => {
+    const local = btn.dataset.video;
+    if (!dialog || typeof dialog.showModal !== "function") {
+      window.open(local || `https://drive.google.com/file/d/${btn.dataset.drive}/view`, "_blank", "noopener");
+      return;
+    }
+    hushAll(closeFilm);
+    opener = btn;
+    dialog.querySelector(".fd-title").textContent = btn.dataset.title;
+    dialog.classList.toggle("is-local", Boolean(local));
+    if (local) {
+      filmVideo.src = local;
+      filmVideo.setAttribute("aria-label", btn.dataset.title + ", full film");
+    } else {
+      frame.title = btn.dataset.title + ", full film";
+      frame.src = `https://drive.google.com/file/d/${btn.dataset.drive}/preview`;
+    }
+    dialog.showModal();
+    if (local) filmVideo.play().catch(() => {});
+  }));
+  dialog?.addEventListener("close", () => {
+    frame.src = "about:blank";
+    filmVideo.pause(); filmVideo.removeAttribute("src"); filmVideo.load();
+    opener?.focus({ preventScroll: true });
+  });
+  dialog?.addEventListener("click", (e) => { if (e.target === dialog) closeFilm(); });
+  document.getElementById("film-dialog-close")?.addEventListener("click", closeFilm);
+
+  /* Scroll-linked motion: timecode, pipeline and the shutter on the reels */
+  const tc = document.getElementById("motion-tc");
+  const pipeline = section.querySelector(".pipeline");
+  const steps = pipeline ? $$("li", pipeline) : [];
+  const TOTAL = 2177; // seconds of film in this section
+  const fmt = (t) => {
+    const s = Math.floor(t), f = Math.floor((t - s) * 24);
+    const p = (n) => String(n).padStart(2, "0");
+    return `${p(Math.floor(s / 3600))}:${p(Math.floor(s / 60) % 60)}:${p(s % 60)}:${p(f)}`;
+  };
+  if (reduce || !window.gsap || !window.ScrollTrigger) {
+    if (tc) tc.textContent = fmt(TOTAL);
+    steps.forEach((li) => li.classList.add("lit"));
+    if (pipeline) pipeline.style.setProperty("--fill", 1);
+    return;
+  }
+  gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.create({
+    trigger: section, start: "top 80%", end: "bottom bottom",
+    onUpdate: (self) => { tc.textContent = fmt(self.progress * TOTAL); },
+  });
+  if (pipeline) {
+    ScrollTrigger.create({
+      trigger: pipeline, start: "top 85%", end: "top 40%", scrub: true,
+      onUpdate: (self) => {
+        const p = self.progress;
+        pipeline.style.setProperty("--fill", p.toFixed(3));
+        steps.forEach((li, i) => li.classList.toggle("lit", p >= i / (steps.length - 1) - 0.02));
+      },
+    });
+  }
+  const mm = gsap.matchMedia();
+  mm.add("(min-width: 861px)", () => {
+    $$(".reel-frame", section).forEach((el, i) => {
+      gsap.fromTo(el,
+        { clipPath: "inset(14% 10% 14% 10% round 16px)" },
+        { clipPath: "inset(0% 0% 0% 0% round 16px)", ease: "none",
+          scrollTrigger: { trigger: section.querySelector(".reels"), start: `top ${92 - i * 4}%`, end: `top ${45 - i * 4}%`, scrub: 0.6 } });
+      const v = el.querySelector("video");
+      gsap.fromTo(v, { scale: 1.18 }, { scale: 1, ease: "none",
+        scrollTrigger: { trigger: section.querySelector(".reels"), start: `top ${92 - i * 4}%`, end: `top ${45 - i * 4}%`, scrub: 0.6 } });
+    });
+    $$(".series", section).forEach((ser, i) => {
+      const tilt = i % 2 ? 2 : -2;
+      gsap.fromTo(ser.querySelector(".ser-screen"), { yPercent: 8, rotate: tilt }, { yPercent: -4, rotate: 0, ease: "none",
+        scrollTrigger: { trigger: ser, start: "top bottom", end: "bottom 30%", scrub: true } });
+    });
+  });
 })();
 
-/* ---------- Drive card: preview loops play while the card is on screen ---------- */
+/* ---------- Copywriting: before and after ---------- */
 (function () {
-  const card = document.querySelector(".drive-card");
-  if (!card || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  const vids = Array.from(card.querySelectorAll("video"));
-  new IntersectionObserver(([e]) => {
-    vids.forEach((v) => (e.isIntersecting ? v.play().catch(() => {}) : v.pause()));
-  }, { threshold: 0.3 }).observe(card);
+  const ads = [...document.querySelectorAll(".rw")];
+  if (!ads.length) return;
+  const set = (ad, v) => {
+    ad.dataset.state = v;
+    ad.querySelectorAll(".rw-toggle button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.v === v)));
+    ad.querySelector(".rw-before")?.setAttribute("aria-hidden", String(v !== "before"));
+    ad.querySelector(".rw-after")?.setAttribute("aria-hidden", String(v !== "after"));
+  };
+  ads.forEach((ad) => ad.querySelectorAll(".rw-toggle button").forEach((b) => b.addEventListener("click", () => {
+    ad.dataset.touched = "1";
+    set(ad, b.dataset.v);
+  })));
+  // Show the "before" first, then flip once to the rewrite while it's on screen.
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(({ target: ad, isIntersecting }) => {
+      if (!isIntersecting) return;
+      obs.unobserve(ad);
+      setTimeout(() => { if (!ad.dataset.touched) set(ad, "after"); }, 1800);
+    });
+  }, { threshold: 0.4 });
+  ads.forEach((ad) => obs.observe(ad));
 })();
