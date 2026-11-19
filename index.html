@@ -244,8 +244,41 @@
         </article>
 
         <article class="panel" data-panel>
-          <button class="panel-tab" type="button" aria-expanded="false" aria-controls="p3"><span class="panel-num">03</span><span class="panel-title">Brrr.</span><i class="ph ph-plus"></i></button>
+          <button class="panel-tab" type="button" aria-expanded="false" aria-controls="p3"><span class="panel-num">03</span><span class="panel-title">LexiLift</span><i class="ph ph-plus"></i></button>
           <div class="panel-drawer"><div class="panel-body" id="p3">
+            <div class="panel-copy">
+              <p class="meta">Final year project, NLP</p>
+              <h3 class="h3">LexiLift</h3>
+              <p>A Chrome extension that rewrites any web page into simpler English at a CEFR level you choose (A2, B1 or B2). Nothing is sent to the internet: a local FastAPI backend serves the models.</p>
+              <ul class="bullets">
+                <li>Fine-tuned six models with Hugging Face Transformers and PyTorch: T5-small and BART-base, each on raw, BERTScore-filtered and NLI-filtered data, tuned with Optuna on CUDA GPUs</li>
+                <li>Built the training set by combining ASSET, Newsela and TurkCorpus, with pandas profiling reports for every filter step</li>
+                <li>The deployed T5 model scores 56.43 SARI and changes numbers in only 0.60% of outputs, backed up by a human evaluation</li>
+                <li>A meaning gate compares sentence embeddings (sentence-transformers) and rejects rewrites that drift too far</li>
+                <li>A FastAPI and Pydantic backend with a result cache, a Chrome MV3 extension, and an ONNX export that runs 1.5 to 2 times faster on CPU</li>
+              </ul>
+              <ul class="tags"><li>Python</li><li>PyTorch</li><li>Hugging Face</li><li>Transformers</li><li>Sentence-Transformers</li><li>Optuna</li><li>BERTScore</li><li>pandas</li><li>FastAPI</li><li>Pydantic</li><li>ONNX</li><li>CUDA</li><li>Chrome MV3</li><li>JavaScript</li></ul>
+              <a class="link" href="https://github.com/Sayrz1/Final-Year-Project--Lexilift" target="_blank" rel="noopener">View on GitHub <i class="ph ph-arrow-up-right"></i></a>
+            </div>
+            <div class="demo" aria-label="Interactive LexiLift example">
+              <div class="demo-bar">
+                <span class="demo-title"><i class="ph ph-book-open-text"></i> Reading level</span>
+                <div class="seg" role="tablist" aria-label="Choose reading level">
+                  <button role="tab" type="button" aria-selected="true" data-level="orig">Original</button>
+                  <button role="tab" type="button" aria-selected="false" data-level="b2">B2</button>
+                  <button role="tab" type="button" aria-selected="false" data-level="b1">B1</button>
+                  <button role="tab" type="button" aria-selected="false" data-level="a2">A2</button>
+                </div>
+              </div>
+              <p class="demo-text" id="demo-text">The committee postponed its decision owing to insufficient evidence regarding the proposal's long-term viability.</p>
+              <p class="demo-note">Illustrative example written for this page, not real model output.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel" data-panel>
+          <button class="panel-tab" type="button" aria-expanded="false" aria-controls="p4"><span class="panel-num">04</span><span class="panel-title">Brrr.</span><i class="ph ph-plus"></i></button>
+          <div class="panel-drawer"><div class="panel-body" id="p4">
             <div class="panel-copy">
               <p class="meta">Concept site, 3D and frontend development</p>
               <h3 class="h3">Brrr. Slush Co.</h3>
@@ -268,37 +301,6 @@
               <span class="site-frame"><img src="assets/work-brrr.jpg" alt="Brrr. home page with a 3D watermelon slush cup and the headline Brain freeze, worth it." width="1280" height="800" loading="lazy" decoding="async"></span>
               <span class="site-open" aria-hidden="true">Open live demo <i class="ph ph-arrow-up-right"></i></span>
             </a>
-          </div>
-        </article>
-
-        <article class="panel" data-panel>
-          <button class="panel-tab" type="button" aria-expanded="false" aria-controls="p4"><span class="panel-num">04</span><span class="panel-title">LexiLift</span><i class="ph ph-plus"></i></button>
-          <div class="panel-drawer"><div class="panel-body" id="p4">
-            <div class="panel-copy">
-              <p class="meta">Final year project, NLP</p>
-              <h3 class="h3">LexiLift</h3>
-              <p>A Chrome extension that rewrites any web page into simpler English at a CEFR level you choose (A2, B1 or B2). Nothing is sent to the internet: a local FastAPI backend serves the models.</p>
-              <ul class="bullets">
-                <li>Fine-tuned six models: T5-small and BART-base, each on raw, BERTScore-filtered and NLI-filtered data</li>
-                <li>The deployed T5 model scores 56.43 SARI and changes numbers in only 0.60% of outputs</li>
-                <li>A meaning gate rejects rewrites that drift too far, and an ONNX export runs 1.5 to 2 times faster on CPU</li>
-              </ul>
-              <ul class="tags"><li>Python</li><li>PyTorch</li><li>Transformers</li><li>FastAPI</li><li>ONNX</li><li>Chrome MV3</li></ul>
-              <a class="link" href="https://github.com/Sayrz1/Final-Year-Project--Lexilift" target="_blank" rel="noopener">View on GitHub <i class="ph ph-arrow-up-right"></i></a>
-            </div>
-            <div class="demo" aria-label="Interactive LexiLift example">
-              <div class="demo-bar">
-                <span class="demo-title"><i class="ph ph-book-open-text"></i> Reading level</span>
-                <div class="seg" role="tablist" aria-label="Choose reading level">
-                  <button role="tab" type="button" aria-selected="true" data-level="orig">Original</button>
-                  <button role="tab" type="button" aria-selected="false" data-level="b2">B2</button>
-                  <button role="tab" type="button" aria-selected="false" data-level="b1">B1</button>
-                  <button role="tab" type="button" aria-selected="false" data-level="a2">A2</button>
-                </div>
-              </div>
-              <p class="demo-text" id="demo-text">The committee postponed its decision owing to insufficient evidence regarding the proposal's long-term viability.</p>
-              <p class="demo-note">Illustrative example written for this page, not real model output.</p>
-            </div>
           </div>
         </article>
 
