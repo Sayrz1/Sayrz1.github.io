@@ -638,10 +638,15 @@
         <div><dt>Ads and web pages</dt><dd>Written to each platform's limits, in UK or US English to match the shop.</dd></div>
       </dl>
 
-      <p class="rws-intro reveal">Here's the method on three ads, written the way a lot of small shops write them. The shops are made up, borrowed from my motion films. Flip between before and after.</p>
+      <p class="rws-intro reveal">Here's the method on three ads, written the way a lot of small shops write them. The shops are made up, borrowed from my motion films. Pick an ad, then flip between before and after.</p>
 
-      <div class="rws">
-        <article class="rw reveal" data-state="before">
+      <div class="rws reveal">
+        <div class="rw-tabs" role="tablist" aria-label="Pick an ad">
+          <button type="button" role="tab" id="rwt-1" aria-controls="rw-1" aria-selected="true"><i class="ph ph-instagram-logo" aria-hidden="true"></i>Instagram post</button>
+          <button type="button" role="tab" id="rwt-2" aria-controls="rw-2" aria-selected="false" tabindex="-1"><i class="ph ph-google-logo" aria-hidden="true"></i>Google ad</button>
+          <button type="button" role="tab" id="rwt-3" aria-controls="rw-3" aria-selected="false" tabindex="-1"><i class="ph ph-browser" aria-hidden="true"></i>About page</button>
+        </div>
+        <article class="rw" id="rw-1" role="tabpanel" aria-labelledby="rwt-1" data-state="before">
           <header class="rw-head">
             <p class="rw-where"><i class="ph ph-instagram-logo" aria-hidden="true"></i>Instagram post <span>Halfmoon Coffee, Hackney</span></p>
             <div class="rw-toggle" role="group" aria-label="Which version to show"><button type="button" data-v="before" aria-pressed="true">Before</button><button type="button" data-v="after" aria-pressed="false">After</button></div>
@@ -668,7 +673,7 @@
           </div>
         </article>
 
-        <article class="rw reveal" data-state="before">
+        <article class="rw" id="rw-2" role="tabpanel" aria-labelledby="rwt-2" hidden data-state="before">
           <header class="rw-head">
             <p class="rw-where"><i class="ph ph-google-logo" aria-hidden="true"></i>Google search ad <span>Miller Family Plumbing, Columbus</span></p>
             <div class="rw-toggle" role="group" aria-label="Which version to show"><button type="button" data-v="before" aria-pressed="true">Before</button><button type="button" data-v="after" aria-pressed="false">After</button></div>
@@ -693,7 +698,7 @@
           </div>
         </article>
 
-        <article class="rw reveal" data-state="before">
+        <article class="rw" id="rw-3" role="tabpanel" aria-labelledby="rwt-3" hidden data-state="before">
           <header class="rw-head">
             <p class="rw-where"><i class="ph ph-browser" aria-hidden="true"></i>Website, About page <span>Crumb &amp; Co., Bristol</span></p>
             <div class="rw-toggle" role="group" aria-label="Which version to show"><button type="button" data-v="before" aria-pressed="true">Before</button><button type="button" data-v="after" aria-pressed="false">After</button></div>
