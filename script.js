@@ -758,4 +758,22 @@
     });
   }, { threshold: 0.4 });
   ads.forEach((ad) => obs.observe(ad));
+  // Tabs: one ad on screen at a time.
+  const tabs = [...document.querySelectorAll(".rw-tabs [role=tab]")];
+  const pick = (t, focus) => {
+    tabs.forEach((x) => {
+      const on = x === t;
+      x.setAttribute("aria-selected", String(on));
+      x.tabIndex = on ? 0 : -1;
+      document.getElementById(x.getAttribute("aria-controls")).hidden = !on;
+    });
+    if (focus) t.focus();
+  };
+  tabs.forEach((t, i) => {
+    t.addEventListener("click", () => pick(t));
+    t.addEventListener("keydown", (e) => {
+      const d = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+      if (d) { e.preventDefault(); pick(tabs[(i + d + tabs.length) % tabs.length], true); }
+    });
+  });
 })();
