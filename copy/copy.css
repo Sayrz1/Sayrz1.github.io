@@ -294,3 +294,17 @@ mark::after { content: attr(data-n); position: relative; top: -.7em; margin-left
 html, body { overflow-x: clip; }
 .rewrites .pair > * { min-width: 0; }
 @media (max-width: 560px) { .hit::after { font-size: 18px; max-width: 46vw; white-space: normal; width: max-content; line-height: 1; } }
+
+/* Before/after: make the difference readable at a glance */
+.rewrites .mock-label { top: -44px; display: inline-flex; align-items: baseline; padding: 6px 14px 7px; border-radius: 999px; font: 700 15px/1 var(--body); letter-spacing: .01em; color: #1f1d1a; background: #ffe25a; box-shadow: 0 6px 14px -8px rgba(0,0,0,.5); white-space: nowrap; }
+.rewrites .mock-label span { font-weight: 500; opacity: .8; }
+.rewrites .before .mock-label { background: #c8231a; color: #fff; }
+.rewrites .before { transform: rotate(-.8deg) scale(.97); transform-origin: top center; }
+.rewrites .before img { filter: grayscale(1) contrast(.85) brightness(1.05); }
+.rewrites .before .g-h, .rewrites .before .g-av, .rewrites .before .g-bar .g-logo { color: #80868b !important; }
+.rewrites .serp.before, .rewrites .browser.before, .rewrites .before .br-page, .rewrites .before .ig, .rewrites .before .fb { background-color: #e9e7e1; }
+.rewrites .after { outline: 4px solid #ffe25a; outline-offset: 6px; transform: rotate(.6deg) scale(1.01); box-shadow: 0 40px 70px -40px rgba(0,0,0,.8); }
+.rewrites .phone.after { outline: none; }
+.rewrites .phone.after .ig, .rewrites .phone.after .fb { outline: 4px solid #ffe25a; outline-offset: 6px; }
+.rewrites .pair { margin-top: 64px; }
+@media (max-width: 760px) { .rewrites .pair { gap: 78px; } .rewrites .mock-label { top: -42px; } }
