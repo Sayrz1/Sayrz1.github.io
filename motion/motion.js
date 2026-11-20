@@ -62,11 +62,9 @@
 
   const $ = (id) => document.getElementById(id);
   const video = $("program"), monitor = $("monitor"), drive = $("drive");
-  const tracksEl = $("tracks"), canvas = $("tl-canvas"), scroller = $("tl-scroll");
-  const playhead = $("playhead"), skim = $("skim"), skimLabel = $("skim-label");
   const tc = $("tc");
-  let pps = parseFloat($("zoom").value);
-  let cur = 0, reel = true, userScrolledAt = 0;
+  // Nothing plays until the visitor picks a film and presses play.
+  let cur = 0, started = false;
 
   const fmt = (s) => { s = Math.max(0, s || 0); const m = Math.floor(s / 60); return m + ":" + String(Math.floor(s % 60)).padStart(2, "0"); };
   const tcode = (s) => {
@@ -75,79 +73,14 @@
   };
   const trackOf = (k) => TRACKS.find((t) => t.key === k);
 
-  /* ---------- timeline ---------- */
-  $("tl-labels").innerHTML = TRACKS.map((t) => `<div class="tl-label" style="--c:${t.c}"><b>${t.short}</b><span>${CLIPS.filter((c) => c.track === t.key).length} films</span></div>`).join("");
-  tracksEl.innerHTML = TRACKS.map((t) => `<div class="track" data-track="${t.key}">` + CLIPS.filter((c) => c.track === t.key).map((c) =>
-    `<button class="clip" type="button" data-i="${c.i}" style="--c:${t.c}" aria-label="Watch ${c.name.replace(/"/g, "")}">` +
-      `<span class="clip-v" style="background-image:url(${A}${c.poster})"><span class="clip-name">${c.name}</span></span>` +
-      `<span class="clip-a${c.wave ? "" : " none"}" ${c.wave ? `style="background-image:url(${A}wave/${c.wave}.png)"` : ""}></span>` +
-    `</button>`).join("") + `</div>`).join("");
-  const clipEls = [...tracksEl.querySelectorAll(".clip")];
-
-  function layout() {
-    const w = Math.ceil(TOTAL * pps);
-    canvas.style.width = w + "px";
-    clipEls.forEach((el) => { const c = CLIPS[+el.dataset.i]; el.style.left = c.start * pps + "px"; el.style.width = Math.max(6, c.dur * pps) + "px"; });
-    const major = pps >= 5 ? 30 : pps >= 2.5 ? 60 : 120, minor = major / (pps >= 5 ? 3 : 2);
-    let html = "";
-    for (let s = 0; s <= TOTAL; s += minor) {
-      const isMajor = s % major === 0;
-      html += `<div class="tick${isMajor ? "" : " minor"}" style="left:${s * pps}px">${isMajor ? `<span>${tcode(s).slice(3, 8)}</span>` : ""}</div>`;
-    }
-    $("ruler").innerHTML = html;
-    movePlayhead();
-  }
-
-  function movePlayhead() {
-    const c = CLIPS[cur];
-    const t = c.start + (video.currentTime || 0);
-    const x = t * pps;
-    playhead.style.transform = `translateX(${x}px)`;
-    tc.textContent = tcode(t);
-    if (Date.now() - userScrolledAt > 2500) {
-      const left = scroller.scrollLeft, w = scroller.clientWidth;
-      if (x < left + 40 || x > left + w - 80) scroller.scrollLeft = Math.max(0, x - w * 0.3);
-    }
-  }
-  ["wheel", "touchstart", "pointerdown"].forEach((e) => scroller.addEventListener(e, () => { userScrolledAt = Date.now(); }, { passive: true }));
-
-  function timeAt(ev) {
-    const r = canvas.getBoundingClientRect();
-    return Math.max(0, (ev.clientX - r.left) / pps);
-  }
-  canvas.addEventListener("pointermove", (ev) => {
-    if (ev.pointerType === "touch") return;
-    const clipEl = ev.target.closest(".clip");
-    const r = canvas.getBoundingClientRect();
-    const x = ev.clientX - r.left;
-    skim.style.transform = `translateX(${x}px)`;
-    skim.classList.toggle("flip", x > r.width - 220);
-    if (clipEl) {
-      const c = CLIPS[+clipEl.dataset.i];
-      skimLabel.textContent = c.name + " · " + fmt(Math.min(c.dur, timeAt(ev) - c.start));
-    } else skimLabel.textContent = tcode(timeAt(ev)).slice(3, 8);
-    skim.classList.add("on");
-  });
-  canvas.addEventListener("pointerleave", () => skim.classList.remove("on"));
-  tracksEl.addEventListener("click", (ev) => {
-    const el = ev.target.closest(".clip"); if (!el) return;
-    const c = CLIPS[+el.dataset.i];
-    const off = ev.detail ? Math.min(Math.max(0, timeAt(ev) - c.start), c.dur - 1) : 0;
-    load(c.i, { sound: true, seek: c.loop ? 0 : off });
-  });
-
-  $("zoom").addEventListener("input", (e) => {
-    const mid = (scroller.scrollLeft + scroller.clientWidth / 2) / pps;
-    pps = parseFloat(e.target.value); layout();
-    scroller.scrollLeft = mid * pps - scroller.clientWidth / 2;
-    userScrolledAt = Date.now();
-  });
+  // The header timecode follows the film on the monitor.
+  function movePlayhead() { tc.textContent = tcode(video.currentTime || 0); }
 
   /* ---------- monitor ---------- */
   function setBadge() {
     const live = !video.muted && !video.paused;
     $("mon-badge").classList.toggle("live", live);
-    $("mon-mode").textContent = reel ? "Showreel, muted" : video.paused ? "Paused" : video.muted ? "Playing, muted" : "Playing with sound";
+    $("mon-mode").textContent = video.paused ? (started ? "Paused" : "Press play") : video.muted ? "Playing, muted" : "Playing with sound";
     const muteBtn = $("mute");
     muteBtn.setAttribute("aria-pressed", String(!video.muted));
     muteBtn.setAttribute("aria-label", video.muted ? "Turn sound on" : "Turn sound off");
@@ -168,17 +101,16 @@
     $("insp-length").textContent = fmt(c.dur);
     $("full-film").hidden = !c.drive;
     const ps = $("play-sound");
-    ps.hidden = c.file === "share-full.mp4" && !reel && !video.paused;
+    ps.hidden = c.file === "share-full.mp4" && !video.paused;
     ps.querySelector("span").textContent = c.file === "share-full.mp4" ? "Play from the start" : "Play with sound";
-    clipEls.forEach((el) => el.classList.toggle("on", +el.dataset.i === c.i));
     document.querySelectorAll(".item").forEach((el) => el.classList.toggle("on", +el.dataset.i === c.i));
   }
 
   let loadToken = 0;
   function load(i, { sound = false, seek = 0, auto = true } = {}) {
+    if (auto) started = true;
     cur = (i + CLIPS.length) % CLIPS.length;
     const c = CLIPS[cur];
-    if (sound) reel = false;
     drive.hidden = true; drive.removeAttribute("src");
     monitor.classList.add("swap");
     monitor.classList.toggle("tall", !!c.tall);
@@ -187,8 +119,8 @@
       if (token !== loadToken) return;
       video.src = A + c.file;
       video.poster = A + c.poster;
-      video.loop = !!c.loop || (!reel && false);
-      video.muted = reel ? true : !sound ? video.muted : false;
+      video.loop = !!c.loop;
+      video.muted = !sound ? video.muted : false;
       const go = () => {
         if (seek) { try { video.currentTime = seek; } catch (e) {} }
         if (auto) video.play().catch(() => { video.muted = true; video.play().catch(() => {}); setBadge(); });
@@ -206,28 +138,18 @@
     $("scrub-fill").style.width = (video.currentTime / d) * 100 + "%";
     $("scrub").setAttribute("aria-valuenow", Math.round((video.currentTime / d) * 100));
     movePlayhead();
-    if (reel && video.currentTime > 9) nextReel();
   });
-  video.addEventListener("ended", () => { if (reel) nextReel(); else if (CLIPS[cur + 1] && CLIPS[cur + 1].track === CLIPS[cur].track) load(cur + 1, { sound: !video.muted }); else setBadge(); });
+  video.addEventListener("ended", setBadge);
   ["play", "pause", "volumechange"].forEach((e) => video.addEventListener(e, setBadge));
 
-  let reelLock = false;
-  function nextReel() {
-    if (reelLock) return; reelLock = true;
-    const ads = CLIPS.filter((c) => c.track === "ads");
-    const n = ads[(ads.findIndex((c) => c.i === cur) + 1) % ads.length];
-    load(n.i);
-    setTimeout(() => (reelLock = false), 800);
-  }
-
   $("play-sound").addEventListener("click", () => load(cur, { sound: true }));
-  $("toggle").addEventListener("click", () => { if (reel) { reel = false; } video.paused ? video.play() : video.pause(); setBadge(); });
-  $("prev").addEventListener("click", () => load(cur - 1, { sound: !reel && !video.muted }));
-  $("next").addEventListener("click", () => load(cur + 1, { sound: !reel && !video.muted }));
-  $("mute").addEventListener("click", () => { reel = false; video.muted = !video.muted; if (video.paused) video.play(); setBadge(); });
+  $("toggle").addEventListener("click", () => { started = true; if (video.paused) { video.muted = false; video.play(); } else video.pause(); setBadge(); });
+  $("prev").addEventListener("click", () => load(cur - 1, { sound: true, auto: started && !video.paused }));
+  $("next").addEventListener("click", () => load(cur + 1, { sound: true, auto: started && !video.paused }));
+  $("mute").addEventListener("click", () => { video.muted = !video.muted; setBadge(); });
   $("full-film").addEventListener("click", () => {
     const c = CLIPS[cur]; if (!c.drive) return;
-    reel = false; video.pause();
+    video.pause();
     drive.src = "https://drive.google.com/file/d/" + c.drive + "/preview";
     drive.hidden = false; monitor.classList.remove("tall");
     $("mon-mode").textContent = "Full film from Google Drive";
@@ -240,7 +162,7 @@
     const p = Math.min(1, Math.max(0, (ev.clientX - r.left) / r.width));
     if (video.duration) video.currentTime = p * video.duration;
   };
-  scrub.addEventListener("pointerdown", (ev) => { reel = false; seekTo(ev); scrub.setPointerCapture(ev.pointerId); setBadge(); });
+  scrub.addEventListener("pointerdown", (ev) => { seekTo(ev); scrub.setPointerCapture(ev.pointerId); setBadge(); });
   scrub.addEventListener("pointermove", (ev) => { if (scrub.hasPointerCapture(ev.pointerId)) seekTo(ev); });
   scrub.addEventListener("keydown", (ev) => {
     if (ev.key === "ArrowRight" || ev.key === "ArrowLeft") { ev.preventDefault(); ev.stopPropagation(); video.currentTime += ev.key === "ArrowRight" ? 5 : -5; }
@@ -255,15 +177,10 @@
     else if (ev.key.toLowerCase() === "m") $("mute").click();
   });
 
-  // pause the muted showreel when the monitor is off screen
-  new IntersectionObserver(([e]) => {
-    if (!reel) return;
-    if (e.isIntersecting) video.play().catch(() => {}); else video.pause();
-  }, { threshold: 0.15 }).observe(monitor);
 
   /* ---------- bays: one screen per series, list beside it ---------- */
   const allVideos = () => [video, ...document.querySelectorAll(".bay-video")];
-  function solo(v) { allVideos().forEach((o) => { if (o !== v && !o.paused && !o.muted) o.pause(); }); if (v !== video && !video.paused) { reel = false; video.pause(); setBadge(); } }
+  function solo(v) { allVideos().forEach((o) => { if (o !== v && !o.paused && !o.muted) o.pause(); }); if (v !== video && !video.paused) { video.pause(); setBadge(); } }
 
   $("bins").innerHTML = TRACKS.map((t) => {
     const items = CLIPS.filter((c) => c.track === t.key);
@@ -313,10 +230,6 @@
     const items = CLIPS.filter((c) => c.track === bay.dataset.track);
     bayShow(bay, items[0], false);
     v.addEventListener("play", () => solo(v));
-    v.addEventListener("ended", () => {
-      const k = items.findIndex((c) => c.i === +bay.dataset.cur);
-      if (k < items.length - 1) bayShow(bay, items[k + 1], true);
-    });
     bay.querySelector(".bay-list").addEventListener("click", (ev) => {
       const el = ev.target.closest(".item"); if (!el) return;
       bayShow(bay, CLIPS[+el.dataset.i], true);
@@ -348,9 +261,8 @@
   let seen = false;
   try { seen = sessionStorage.getItem("leader") === "1"; } catch (e) {}
   function start() {
-    layout();
     const c = fromHash();
-    load(0);
+    load(0, { auto: false });
     if (c) {
       const bay = document.getElementById("bay-" + c.track);
       bayShow(bay, c, false);
