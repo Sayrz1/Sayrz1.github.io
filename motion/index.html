@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sama Eldesouki · Motion</title>
+  <meta name="description" content="Motion graphics by Sama Eldesouki: ads for small shops, two short-film series of her own and experiments. Written, voiced, animated and scored by her.">
+  <meta property="og:title" content="Sama Eldesouki · Motion">
+  <meta property="og:description" content="Ads for small shops, two series of my own and a few experiments. I write, voice, animate and score every film.">
+  <meta property="og:url" content="https://sayrz1.github.io/motion/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://sayrz1.github.io/assets/motion/tilly-salon.jpg">
+  <meta name="theme-color" content="#14110f">
+  <link rel="canonical" href="https://sayrz1.github.io/motion/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314110f'/%3E%3Ccircle cx='32' cy='32' r='12' fill='%23ff6a3d'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+  <link rel="stylesheet" href="motion.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip" href="#suite">Skip to the films</a>
+
+  <!-- Film leader countdown, once per visit -->
+  <div class="leader" id="leader" aria-hidden="true">
+    <div class="leader-ring"><span class="leader-n" id="leader-n">3</span></div>
+    <p class="leader-skip">Click to skip</p>
+  </div>
+
+  <header class="appbar">
+    <a class="ab-brand" href="../" aria-label="Sama Eldesouki, home">
+      <span class="ab-mark">SE</span>
+      <span class="ab-file">sama_reel<span class="ab-ext">.edit</span></span>
+    </a>
+    <p class="ab-tc" aria-label="Timeline position"><span class="rec" aria-hidden="true"></span><span id="tc">00:00:00:00</span></p>
+    <a class="btn btn-ember" href="mailto:s.ayrzpersonal@gmail.com?subject=Motion%20work">Hire me <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </header>
+
+  <main id="suite">
+    <section class="stage" aria-labelledby="title">
+      <div class="side">
+        <h1 id="title">Motion, from script <span>to final frame.</span></h1>
+        <p class="lede">I'm Sama. I write, voice, animate and score short films: ads for small shops, two series of my own, and experiments I make to learn a new technique.</p>
+
+        <div class="inspector" aria-live="polite">
+          <h2 class="insp-name" id="insp-name">Loading…</h2>
+          <p class="insp-label"><span class="swatch" id="insp-swatch"></span><span id="insp-track">Ads and reels</span></p>
+          <p class="insp-client" id="insp-client"></p>
+          <p class="insp-desc" id="insp-desc"></p>
+          <dl class="insp-meta">
+            <div><dt>Format</dt><dd id="insp-format">–</dd></div>
+            <div><dt>Length</dt><dd id="insp-length">–</dd></div>
+          </dl>
+          <div class="insp-actions">
+            <button class="btn btn-ember" id="play-sound" type="button"><i class="ph-fill ph-speaker-high" aria-hidden="true"></i><span>Play with sound</span></button>
+            <button class="btn btn-ghost" id="full-film" type="button" hidden><i class="ph ph-google-drive-logo" aria-hidden="true"></i>Full film</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="monitor-wrap">
+        <div class="monitor" id="monitor">
+          <video id="program" muted playsinline preload="auto"></video>
+          <iframe id="drive" title="Full film from Google Drive" allow="autoplay; fullscreen" hidden></iframe>
+          <p class="safe" aria-hidden="true"></p>
+          <p class="mon-badge" id="mon-badge"><span class="dot"></span><span id="mon-mode">Showreel, muted</span></p>
+        </div>
+        <div class="transport">
+          <button class="t-btn" id="prev" type="button" aria-label="Previous film"><i class="ph-fill ph-skip-back" aria-hidden="true"></i></button>
+          <button class="t-btn t-play" id="toggle" type="button" aria-label="Pause"><i class="ph-fill ph-pause" aria-hidden="true"></i></button>
+          <button class="t-btn" id="next" type="button" aria-label="Next film"><i class="ph-fill ph-skip-forward" aria-hidden="true"></i></button>
+          <button class="t-btn" id="mute" type="button" aria-label="Turn sound on" aria-pressed="false"><i class="ph-fill ph-speaker-slash" aria-hidden="true"></i></button>
+          <div class="scrub" id="scrub" role="slider" tabindex="0" aria-label="Position in this film" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="scrub-fill"></span></div>
+          <p class="t-time"><span id="t-now">0:00</span> / <span id="t-dur">0:00</span></p>
+          <p class="keys" aria-hidden="true"><kbd>Space</kbd> play <kbd>←</kbd><kbd>→</kbd> films <kbd>M</kbd> sound</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="timeline-panel" aria-labelledby="tl-title">
+      <div class="tl-head">
+        <h2 id="tl-title" class="panel-title">Timeline</h2>
+        <p class="tl-hint">Every film I've made, laid out by length. Hover to skim, click to watch.</p>
+        <label class="zoom"><i class="ph ph-magnifying-glass-minus" aria-hidden="true"></i><input type="range" id="zoom" min="1.4" max="10" step="0.1" value="3.2" aria-label="Zoom the timeline"><i class="ph ph-magnifying-glass-plus" aria-hidden="true"></i></label>
+      </div>
+      <div class="tl" id="tl">
+        <div class="tl-labels" id="tl-labels"></div>
+        <div class="tl-scroll" id="tl-scroll">
+          <div class="tl-canvas" id="tl-canvas">
+            <div class="ruler" id="ruler"></div>
+            <div class="tracks" id="tracks"></div>
+            <div class="playhead" id="playhead" aria-hidden="true"><span></span></div>
+            <div class="skim" id="skim" aria-hidden="true"><span id="skim-label"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pipeline-panel" aria-labelledby="pl-title">
+      <h2 id="pl-title" class="panel-title">Effect stack, on every film</h2>
+      <ol class="pipeline">
+        <li><i class="ph ph-pen-nib" aria-hidden="true"></i><b>Script</b><span>I write every line.</span></li>
+        <li><i class="ph ph-microphone" aria-hidden="true"></i><b>Voice</b><span>I choose the language, accent and tone.</span></li>
+        <li><i class="ph ph-film-strip" aria-hidden="true"></i><b>Animate</b><span>HTML and GSAP, rendered with HyperFrames.</span></li>
+        <li><i class="ph ph-music-notes" aria-hidden="true"></i><b>Score</b><span>Music and sound made for each film.</span></li>
+      </ol>
+    </section>
+
+    <section class="bins" aria-labelledby="bins-title">
+      <h2 id="bins-title" class="panel-title">Project bins</h2>
+      <div id="bins"></div>
+      <a class="drive-link" href="https://drive.google.com/drive/folders/1DhfQA1lZFdgMetvxayq98Xr4AePGmfuJ" target="_blank" rel="noopener"><i class="ph ph-folder-open" aria-hidden="true"></i>Open the whole folder on Google Drive <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+    </section>
+
+    <section class="export" aria-labelledby="ex-title">
+      <div class="export-dialog">
+        <p class="ex-bar"><span>Export</span><i class="ph ph-x" aria-hidden="true"></i></p>
+        <div class="ex-body">
+          <h2 id="ex-title">Ready to render yours?</h2>
+          <p>A launch reel, an explainer or a menu ad for your shop. Or a motion role on your team. Either way, I'd like to hear about it.</p>
+          <dl class="ex-settings">
+            <div><dt>Includes</dt><dd>Script, voice, animation, score</dd></div>
+            <div><dt>Formats</dt><dd>9:16, 1:1, 16:9</dd></div>
+            <div><dt>Delivered as</dt><dd>MP4, ready to post</dd></div>
+          </dl>
+          <div class="ex-actions">
+            <a class="btn btn-ember btn-lg" href="mailto:s.ayrzpersonal@gmail.com?subject=Motion%20work">Email me <i class="ph ph-paper-plane-tilt" aria-hidden="true"></i></a>
+            <a class="btn btn-ghost btn-lg" href="https://www.linkedin.com/in/samaeldesouki" target="_blank" rel="noopener"><i class="ph ph-linkedin-logo" aria-hidden="true"></i>LinkedIn</a>
+          </div>
+          <p class="ex-mail">s.ayrzpersonal@gmail.com</p>
+          <p class="ex-tip">Like what I make? <a href="https://ko-fi.com/samae" target="_blank" rel="noopener"><i class="ph ph-coffee" aria-hidden="true"></i>Buy me a coffee on Ko-fi</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>© 2026 Sama Eldesouki</span>
+    <span class="foot-more">I also make <a href="../websites/">websites</a>, <a href="../code/">software</a> and <a href="../copy/">copy</a>.</span>
+  </footer>
+
+  <noscript><style>.leader{display:none}</style></noscript>
+  <script src="motion.js"></script>
+  <script data-goatcounter="https://sayrz1.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

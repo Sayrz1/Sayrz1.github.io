@@ -116,7 +116,7 @@
       navMap.get(sectionFor[e.target.id] || e.target.id)?.classList.add("active");
     });
   }, { rootMargin: "-45% 0px -50% 0px" });
-  ["about", "skills", "work", "motion", "copy", "certifications", "experience", "achievements", "contact"].forEach((id) => {
+  ["about", "skills", "work", "certifications", "experience", "achievements", "more", "contact"].forEach((id) => {
     const s = document.getElementById(id);
     if (s) navObs.observe(s);
   });
@@ -292,6 +292,7 @@
   }
   panels.forEach((p) => {
     const tab = $(".panel-tab", p);
+    if (!tab) return; // projects are shown open as a showcase now
     tab.addEventListener("click", () => {
       if (p.classList.contains("is-open")) { p.classList.remove("is-open"); tab.setAttribute("aria-expanded", "false"); return; }
       openPanel(p);
@@ -776,4 +777,13 @@
       if (d) { e.preventDefault(); pick(tabs[(i + d + tabs.length) % tabs.length], true); }
     });
   });
+})();
+
+/* ---------- Outside the terminal: the motion preview only plays when in view, and never with reduced motion ---------- */
+(function () {
+  const v = document.querySelector(".more-motion video");
+  if (!v) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { v.removeAttribute("autoplay"); v.pause(); return; }
+  if (!("IntersectionObserver" in window)) return;
+  new IntersectionObserver(([e]) => { if (e.isIntersecting) v.play().catch(() => {}); else v.pause(); }, { threshold: 0.2 }).observe(v);
 })();
