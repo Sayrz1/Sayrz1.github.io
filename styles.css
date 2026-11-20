@@ -1040,7 +1040,6 @@ h1, h2, h3 { text-wrap: balance; }
 .showcase .panel:nth-child(n+4) .site-frame img { object-position: top; }
 .showcase .panel:nth-child(n+4) .maze, .showcase .panel:nth-child(n+4) .visual-er svg { height: 100%; width: auto; }
 .showcase .panel:nth-child(n+4) .doc { transform: rotate(-2deg) scale(.62); }
-.link-more { font-weight: 600; }
 
 .exp-list { gap: 10px; }
 .exp-list li { padding: 18px 22px; }
