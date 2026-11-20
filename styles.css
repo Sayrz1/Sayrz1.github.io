@@ -484,6 +484,8 @@ em { font-family: var(--serif); font-style: italic; font-weight: 500; letter-spa
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .mascot { --m-hair: #3b281d; --m-hair-hi: #7a5640; } }
 .mascot.on { transform: none; }
 .mascot.gone { transform: translateY(140%); visibility: hidden; transition: transform .5s var(--ease), visibility 0s .5s; }
+.mascot.on.tucked { transform: translateY(140%); }
+.mascot.tucked .m-bubble { opacity: 0; }
 .mascot > * { pointer-events: auto; }
 .m-btn { all: unset; pointer-events: auto; cursor: pointer; display: block; width: 100%; -webkit-tap-highlight-color: transparent; }
 .m-btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; border-radius: 20px; }

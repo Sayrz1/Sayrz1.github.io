@@ -140,6 +140,10 @@
     if (show && !current) setProp("wave", "Hi again! I'm the mini one.");
   }, { threshold: 0.15 }).observe(hero);
 
+  // The project stage runs almost edge to edge, so tuck out of the way while it's on screen.
+  const stageWrap = document.querySelector(".stage-wrap");
+  if (stageWrap) new IntersectionObserver(([e]) => root.classList.toggle("tucked", e.isIntersecting), { threshold: 0.2 }).observe(stageWrap);
+
   const secObs = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
       if (!e.isIntersecting) return;
