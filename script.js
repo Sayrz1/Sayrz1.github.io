@@ -4,6 +4,10 @@
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
+  /* ---------- Projects tab: show how many projects there are ---------- */
+  const navCount = $("#nav-count");
+  if (navCount) navCount.textContent = $$("[data-panel]").length || "";
+
   /* ---------- Split headings into words for the mask reveal ---------- */
   $$("[data-split]").forEach((el) => {
     let i = 0;
