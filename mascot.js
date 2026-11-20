@@ -87,7 +87,6 @@
     more: ["clapper", "Psst. I make films too."],
     certifications: ["scroll", "Always learning, always collecting."],
     experience: ["clapper", "Lights, camera, career."],
-    achievements: ["trophy", "Keep scrolling, it slides sideways."],
     contact: ["letter", "Say hi! I reply faster than my code compiles."],
   };
   const INVITES = [

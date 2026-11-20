@@ -116,7 +116,7 @@
       navMap.get(sectionFor[e.target.id] || e.target.id)?.classList.add("active");
     });
   }, { rootMargin: "-45% 0px -50% 0px" });
-  ["about", "skills", "work", "certifications", "experience", "achievements", "more", "contact"].forEach((id) => {
+  ["about", "skills", "work", "certifications", "experience", "more", "contact"].forEach((id) => {
     const s = document.getElementById(id);
     if (s) navObs.observe(s);
   });
@@ -321,6 +321,79 @@
     setTimeout(() => { demoText.textContent = samples[btn.dataset.level]; demoText.classList.remove("swap"); }, reduce ? 0 : 220);
   }));
 
+  /* ---------- Projects: index + stage ----------
+     The cards stay in the HTML as a plain grid; with JS they stack on one "stage" and the numbered list picks which shows. */
+  (() => {
+    const stage = $("#accordion"), index = $("#proj-index"), wrap = $(".stage-wrap");
+    if (!stage || !index || !wrap) return;
+    const cards = $$(":scope > .panel", stage);
+    const pad = (n) => String(n).padStart(2, "0");
+    const tabs = cards.map((card, i) => {
+      if (!card.id) card.id = "proj-" + (i + 1);
+      const li = document.createElement("li");
+      const b = document.createElement("button");
+      b.type = "button"; b.className = "proj-tab"; b.id = card.id + "-tab";
+      b.setAttribute("role", "tab"); b.setAttribute("aria-controls", card.id);
+      b.innerHTML = '<span class="n"></span><span class="t"></span><span class="k"></span>';
+      $(".n", b).textContent = pad(i + 1);
+      $(".t", b).textContent = $(".panel-title", card).textContent;
+      $(".k", b).textContent = card.dataset.kind || "";
+      li.appendChild(b); index.appendChild(li);
+      card.setAttribute("role", "tabpanel"); card.setAttribute("aria-labelledby", b.id);
+      return b;
+    });
+    index.setAttribute("role", "tablist");
+
+    const nav = document.createElement("div");
+    nav.className = "stage-nav";
+    nav.innerHTML = '<button type="button" class="icon-btn" data-step="-1" aria-label="Previous project"><i class="ph ph-arrow-left"></i></button>' +
+      '<span class="stage-count" aria-hidden="true"><b></b> / ' + pad(cards.length) + '</span><span class="stage-bar" aria-hidden="true"><span></span></span>' +
+      '<button type="button" class="icon-btn" data-step="1" aria-label="Next project"><i class="ph ph-arrow-right"></i></button>';
+    stage.after(nav);
+
+    let cur = -1, hoverT;
+    function show(i, focus) {
+      i = (i + cards.length) % cards.length;
+      if (focus) tabs[i].focus();
+      if (i === cur) return;
+      cur = i;
+      cards.forEach((c, j) => { const on = j === i; c.classList.toggle("is-active", on); c.classList.toggle("is-open", on); c.inert = !on; });
+      tabs.forEach((t, j) => { t.setAttribute("aria-selected", String(j === i)); t.tabIndex = j === i ? 0 : -1; });
+      // On phones the list is a sideways row of pills: keep the chosen one in view without moving the page.
+      if (index.scrollWidth > index.clientWidth) {
+        const li = tabs[i].parentElement;
+        index.scrollTo({ left: li.offsetLeft - index.offsetLeft - 16, behavior: reduce ? "auto" : "smooth" });
+      }
+      $(".stage-count b", nav).textContent = pad(i + 1);
+      $(".stage-bar span", nav).style.transform = "scaleX(" + ((i + 1) / cards.length) + ")";
+    }
+    tabs.forEach((t, i) => {
+      t.addEventListener("click", () => show(i));
+      t.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") hoverT = setTimeout(() => show(i), 140); });
+      t.addEventListener("pointerleave", () => clearTimeout(hoverT));
+    });
+    index.addEventListener("keydown", (e) => {
+      const step = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
+      if (step) { e.preventDefault(); show(cur + step, true); }
+      else if (e.key === "Home") { e.preventDefault(); show(0, true); }
+      else if (e.key === "End") { e.preventDefault(); show(cards.length - 1, true); }
+    });
+    nav.addEventListener("click", (e) => { const b = e.target.closest("[data-step]"); if (b) show(cur + Number(b.dataset.step)); });
+
+    // Swipe the stage on touch screens.
+    let x0 = null;
+    stage.addEventListener("touchstart", (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+    stage.addEventListener("touchend", (e) => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0; x0 = null;
+      if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1));
+    });
+
+    stage.classList.add("is-stage"); wrap.classList.add("is-ready");
+    show(0);
+    if (window.ScrollTrigger) requestAnimationFrame(() => ScrollTrigger.refresh());
+  })();
+
   /* ---------- Project visuals ---------- */
   // RelAI: usage heatmap motif (decorative, not real data)
   const heat = $("#heat");
@@ -517,8 +590,8 @@
   }
 
   /* ---------- Smooth in-page links ----------
-     CSS scroll-behavior: smooth is off once JS runs (html.js): it made ScrollTrigger measure mid-scroll, so the
-     Achievements pin landed over Experience whenever the page loaded scrolled (a #link or a reload). */
+     CSS scroll-behavior: smooth is off once JS runs (html.js): it made ScrollTrigger measure mid-scroll, so pinned
+     sections landed in the wrong place whenever the page loaded scrolled (a #link or a reload). */
   document.addEventListener("click", (e) => {
     const a = e.target.closest('a[href^="#"]');
     if (!a || a.classList.contains("skip") || e.defaultPrevented) return;
@@ -541,21 +614,6 @@
       // Experience progress line fills as you read down the timeline.
       gsap.to("#exp-progress", { scaleY: 1, ease: "none", scrollTrigger: { trigger: ".exp-list", start: "top 60%", end: "bottom 60%", scrub: true } });
 
-      // Achievements: vertical scroll pans the cards sideways.
-      const track = $("#ach-track");
-      const distance = () => track.scrollWidth - window.innerWidth;
-      gsap.to(track, {
-        x: () => -distance(),
-        ease: "none",
-        scrollTrigger: {
-          trigger: "#achievements",
-          start: "top top",
-          end: () => "+=" + distance(),
-          pin: true,
-          scrub: 1,
-          invalidateOnRefresh: true,
-        },
-      });
     });
     document.fonts?.ready.then(() => ScrollTrigger.refresh());
   }
