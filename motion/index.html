@@ -73,11 +73,11 @@
           <video id="program" muted playsinline preload="auto"></video>
           <iframe id="drive" title="Full film from Google Drive" allow="autoplay; fullscreen" hidden></iframe>
           <p class="safe" aria-hidden="true"></p>
-          <p class="mon-badge" id="mon-badge"><span class="dot"></span><span id="mon-mode">Showreel, muted</span></p>
+          <p class="mon-badge" id="mon-badge"><span class="dot"></span><span id="mon-mode">Press play</span></p>
         </div>
         <div class="transport">
           <button class="t-btn" id="prev" type="button" aria-label="Previous film"><i class="ph-fill ph-skip-back" aria-hidden="true"></i></button>
-          <button class="t-btn t-play" id="toggle" type="button" aria-label="Pause"><i class="ph-fill ph-pause" aria-hidden="true"></i></button>
+          <button class="t-btn t-play" id="toggle" type="button" aria-label="Play"><i class="ph-fill ph-play" aria-hidden="true"></i></button>
           <button class="t-btn" id="next" type="button" aria-label="Next film"><i class="ph-fill ph-skip-forward" aria-hidden="true"></i></button>
           <button class="t-btn" id="mute" type="button" aria-label="Turn sound on" aria-pressed="false"><i class="ph-fill ph-speaker-slash" aria-hidden="true"></i></button>
           <div class="scrub" id="scrub" role="slider" tabindex="0" aria-label="Position in this film" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="scrub-fill"></span></div>
@@ -87,24 +87,6 @@
       </div>
     </section>
 
-    <section class="timeline-panel" aria-labelledby="tl-title">
-      <div class="tl-head">
-        <h2 id="tl-title" class="panel-title">Timeline</h2>
-        <p class="tl-hint">Every film I've made, laid out by length. Hover to skim, click to watch.</p>
-        <label class="zoom"><i class="ph ph-magnifying-glass-minus" aria-hidden="true"></i><input type="range" id="zoom" min="1.4" max="10" step="0.1" value="3.2" aria-label="Zoom the timeline"><i class="ph ph-magnifying-glass-plus" aria-hidden="true"></i></label>
-      </div>
-      <div class="tl" id="tl">
-        <div class="tl-labels" id="tl-labels"></div>
-        <div class="tl-scroll" id="tl-scroll">
-          <div class="tl-canvas" id="tl-canvas">
-            <div class="ruler" id="ruler"></div>
-            <div class="tracks" id="tracks"></div>
-            <div class="playhead" id="playhead" aria-hidden="true"><span></span></div>
-            <div class="skim" id="skim" aria-hidden="true"><span id="skim-label"></span></div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <section class="pipeline-panel" aria-labelledby="pl-title">
       <h2 id="pl-title" class="panel-title">Effect stack, on every film</h2>
