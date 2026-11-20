@@ -84,6 +84,11 @@ em { font-family: var(--serif); font-style: italic; font-weight: 500; letter-spa
 .link { color: var(--accent); display: inline-flex; gap: 6px; align-items: center; font-weight: 550; text-decoration: none; border-bottom: 1.5px solid currentColor; padding-bottom: 1px; }
 .link i { transition: transform .3s var(--ease); }
 .link:hover i { transform: translate(2px, -2px); }
+.link.link-hl { background: var(--accent); color: var(--on-accent); border: 0; padding: 9px 16px; border-radius: 999px; box-shadow: 0 10px 24px -12px rgb(var(--shadow) / .55); transition: transform .3s var(--ease), box-shadow .3s var(--ease); }
+.link.link-hl:hover { transform: translateY(-2px); box-shadow: 0 14px 28px -12px rgb(var(--shadow) / .65); }
+.link.link-hl:hover i:first-child { transform: none; }
+.link.link-hl:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.panel-copy .links:has(.link-hl) > .link { align-self: center; margin-top: 0; }
 .icon-btn { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 999px; border: 1.5px solid var(--line); background: var(--surface); cursor: pointer; font-size: 18px; transition: border-color .2s, transform .3s var(--ease); }
 .icon-btn:hover { border-color: var(--ink); }
 .icon-btn:active { transform: scale(.94); }
