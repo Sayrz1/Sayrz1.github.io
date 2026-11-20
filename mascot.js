@@ -84,7 +84,7 @@
     about: ["card", "That's my ID. Go on, flip it."],
     skills: ["flask", "Science! Well, a periodic table of it."],
     work: ["laptop", "Try the reading levels on LexiLift."],
-    motion: ["clapper", "Press play. Sound on!"],
+    more: ["clapper", "Psst. I make films too."],
     certifications: ["scroll", "Always learning, always collecting."],
     experience: ["clapper", "Lights, camera, career."],
     achievements: ["trophy", "Keep scrolling, it slides sideways."],

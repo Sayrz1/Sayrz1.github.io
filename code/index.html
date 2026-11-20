@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sama Eldesouki · Software &amp; AI</title>
+  <meta name="description" content="Sama Eldesouki, full stack and AI developer. First Class BSc Computer Science, University of Birmingham. LexiLift, Lunar Navigator, RelAI and more.">
+  <meta property="og:title" content="Sama Eldesouki · Full Stack & AI Developer">
+  <meta property="og:description" content="First Class Computer Science graduate from the University of Birmingham. Fine-tuned language models, a NASA Space Apps tool and full stack apps.">
+  <meta property="og:url" content="https://sayrz1.github.io/code/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://sayrz1.github.io/assets/lunar-navigator.jpg">
+  <meta name="theme-color" content="#151413">
+  <link rel="canonical" href="https://sayrz1.github.io/code/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23151413'/%3E%3Cpath d='M18 22l12 10-12 10M34 44h14' stroke='%23f0a46b' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+  <link rel="stylesheet" href="code.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip" href="#editor">Skip to the content</a>
+  <div class="ide">
+    <header class="titlebar">
+      <button class="mobile-files" type="button" id="mobile-files" aria-label="Show files" aria-controls="tree"><i class="ph ph-list" aria-hidden="true"></i></button>
+      <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+      <a class="tb-home" href="../">sama-eldesouki</a>
+      <button class="tb-search" type="button" id="open-palette"><i class="ph ph-magnifying-glass" aria-hidden="true"></i><span>Go to project</span><kbd>Ctrl K</kbd></button>
+      <a class="tb-hire" href="mailto:s.ayrzpersonal@gmail.com?subject=Software%20role">Hire me <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+    </header>
+
+    <div class="workbench">
+      <nav class="activity" aria-label="Tools">
+        <button type="button" id="toggle-tree" aria-label="Show files" aria-expanded="true" aria-controls="tree"><i class="ph ph-files" aria-hidden="true"></i></button>
+        <button type="button" id="act-search" aria-label="Go to project"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+        <button type="button" id="act-term" aria-label="Focus the terminal"><i class="ph ph-terminal-window" aria-hidden="true"></i></button>
+        <a href="https://github.com/Sayrz1" target="_blank" rel="noopener" aria-label="GitHub"><i class="ph ph-github-logo" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/in/samaeldesouki" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ph ph-linkedin-logo" aria-hidden="true"></i></a>
+        <a href="mailto:s.ayrzpersonal@gmail.com?subject=Software%20role" aria-label="Email"><i class="ph ph-envelope-simple" aria-hidden="true"></i></a>
+      </nav>
+
+      <aside class="tree" id="tree" aria-label="Files">
+        <p class="tree-h">Explorer</p>
+        <ul class="files" id="files" role="list">
+          <li><a href="#readme" data-f="readme"><i class="ph ph-info ic-md" aria-hidden="true"></i>README.md</a></li>
+          <li class="dir"><span><i class="ph ph-caret-down" aria-hidden="true"></i><i class="ph-fill ph-folder-open ic-dir" aria-hidden="true"></i>projects</span>
+            <ul role="list">
+              <li><a href="#lexilift" data-f="lexilift"><i class="ph ph-file-md ic-md" aria-hidden="true"></i>lexilift.md</a></li>
+              <li><a href="#lunar-navigator" data-f="lunar-navigator"><i class="ph ph-file-md ic-md" aria-hidden="true"></i>lunar-navigator.md</a></li>
+              <li><a href="#relai" data-f="relai"><i class="ph ph-file-md ic-md" aria-hidden="true"></i>relai.md</a></li>
+              <li><a href="#campus-connect" data-f="campus-connect"><i class="ph ph-file-md ic-md" aria-hidden="true"></i>campus-connect.md</a></li>
+              <li><a href="#evolutionary" data-f="evolutionary"><i class="ph ph-file-md ic-md" aria-hidden="true"></i>evolutionary.md</a></li>
+              <li><a href="#teaching-code" data-f="teaching-code"><i class="ph ph-file-md ic-md" aria-hidden="true"></i>teaching-code.md</a></li>
+              <li><a href="#classified" data-f="classified"><i class="ph ph-lock-simple ic-lock" aria-hidden="true"></i>classified.md</a></li>
+            </ul>
+          </li>
+          <li class="dir"><span><i class="ph ph-caret-down" aria-hidden="true"></i><i class="ph-fill ph-folder-open ic-dir" aria-hidden="true"></i>frontend</span>
+            <ul role="list">
+              <li><a href="#ember-and-spit" data-f="ember-and-spit"><i class="ph ph-file-html ic-html" aria-hidden="true"></i>ember-and-spit.md</a></li>
+              <li><a href="#crumbwell" data-f="crumbwell"><i class="ph ph-file-html ic-html" aria-hidden="true"></i>crumbwell.md</a></li>
+              <li><a href="#brrr" data-f="brrr"><i class="ph ph-file-html ic-html" aria-hidden="true"></i>brrr.md</a></li>
+            </ul>
+          </li>
+          <li><a href="#stack" data-f="stack"><i class="ph ph-brackets-curly ic-json" aria-hidden="true"></i>stack.json</a></li>
+          <li><a href="#experience" data-f="experience"><i class="ph ph-clock-counter-clockwise ic-md" aria-hidden="true"></i>experience.md</a></li>
+          <li><a href="#awards" data-f="awards"><i class="ph ph-trophy ic-json" aria-hidden="true"></i>awards.md</a></li>
+        </ul>
+      </aside>
+
+      <section class="main">
+        <div class="tabs" id="tabs" role="tablist" aria-label="Open files"></div>
+        <div class="editor" id="editor" tabindex="-1">
+          <p class="crumbs" id="crumbs" aria-hidden="true"></p>
+
+          <article class="doc" id="readme" data-name="README.md" data-path="sama-eldesouki">
+            <h1>Sama Eldesouki</h1>
+            <p class="lead">Full stack &amp; AI developer. First Class BSc Computer Science from the University of Birmingham, 2026.</p>
+            <p>I build accessible tools, from fine-tuned language models to the interface people click. I won the School of Computer Science Prize for Outstanding Contribution to Computer Science, and I'm open to graduate roles in software, AI, and anything that puts tech in front of people.</p>
+            <h2>Start here</h2>
+            <ul class="links">
+              <li><a href="#lexilift" data-f="lexilift">lexilift.md</a> Final year project: fine-tuned models that rewrite web pages into simpler English, served locally.</li>
+              <li><a href="#lunar-navigator" data-f="lunar-navigator">lunar-navigator.md</a> NASA Space Apps 2026: choose where and when to land on the Moon.</li>
+              <li><a href="#relai" data-f="relai">relai.md</a> An HCI team dashboard that keeps AI tool use in check.</li>
+              <li><a href="#stack" data-f="stack">stack.json</a> Languages, frameworks and tools.</li>
+            </ul>
+            <h2>Talk to me</h2>
+            <p>Type <code>hire</code> in the terminal below, or email <a href="mailto:s.ayrzpersonal@gmail.com?subject=Software%20role">s.ayrzpersonal@gmail.com</a>.</p>
+          </article>
+
+          <article class="doc" id="lexilift" data-name="lexilift.md" data-path="projects">
+            <p class="meta">Final year project · NLP</p>
+            <h1>LexiLift</h1>
+            <p class="lead">A Chrome extension that rewrites any web page into simpler English at a CEFR level you choose (A2, B1 or B2). Nothing is sent to the internet: a local FastAPI backend serves the models.</p>
+            <ul>
+              <li>Fine-tuned six models with Hugging Face Transformers and PyTorch: T5-small and BART-base, each on raw, BERTScore-filtered and NLI-filtered data, tuned with Optuna on CUDA GPUs</li>
+              <li>Built the training set by combining ASSET, Newsela and TurkCorpus, with pandas profiling reports for every filter step</li>
+              <li>The deployed T5 model scores <b>56.43 SARI</b> and changes numbers in only <b>0.60%</b> of outputs, backed up by a human evaluation</li>
+              <li>A meaning gate compares sentence embeddings (sentence-transformers) and rejects rewrites that drift too far</li>
+              <li>A FastAPI and Pydantic backend with a result cache, a Chrome MV3 extension, and an ONNX export that runs 1.5 to 2 times faster on CPU</li>
+            </ul>
+            <div class="lvl" id="lvl">
+              <p class="lvl-h">Try the reading levels <span>illustrative example written for this page, not real model output</span></p>
+              <div class="lvl-btns" role="group" aria-label="Reading level">
+                <button type="button" data-l="0" aria-pressed="true">Original</button><button type="button" data-l="1" aria-pressed="false">B2</button><button type="button" data-l="2" aria-pressed="false">B1</button><button type="button" data-l="3" aria-pressed="false">A2</button>
+              </div>
+              <p class="lvl-text" id="lvl-text" aria-live="polite">The committee postponed its decision owing to insufficient evidence regarding the proposal's long-term viability.</p>
+            </div>
+            <pre class="code"><span class="k">const</span> <span class="v">stack</span> = [<span class="s">"Python"</span>, <span class="s">"PyTorch"</span>, <span class="s">"Hugging Face Transformers"</span>, <span class="s">"Sentence-Transformers"</span>, <span class="s">"Optuna"</span>, <span class="s">"BERTScore"</span>, <span class="s">"pandas"</span>, <span class="s">"FastAPI"</span>, <span class="s">"Pydantic"</span>, <span class="s">"ONNX"</span>, <span class="s">"CUDA"</span>, <span class="s">"Chrome MV3"</span>, <span class="s">"JavaScript"</span>];</pre>
+            <p class="actions"><a class="act" href="https://github.com/Sayrz1/Final-Year-Project--Lexilift" target="_blank" rel="noopener"><i class="ph ph-github-logo" aria-hidden="true"></i>Code on GitHub</a></p>
+          </article>
+
+          <article class="doc" id="lunar-navigator" data-name="lunar-navigator.md" data-path="projects">
+            <p class="meta">NASA Space Apps Challenge 2026 · team project</p>
+            <h1>Lunar Navigator</h1>
+            <p class="lead">A web app for choosing where and when to land on the Moon. Pick a site, such as Apollo 11 or an Artemis III candidate near the south pole, and a date. It shows when the Sun sets behind the terrain and when Earth drops out of radio contact.</p>
+            <a class="shot" href="https://sayrz1.github.io/lunar-navigator/" target="_blank" rel="noopener"><img src="../assets/lunar-navigator.jpg" alt="Lunar Navigator showing a 3D Moon with landing sites" width="1280" height="800" loading="lazy"></a>
+            <ul>
+              <li>Real horizons from NASA LOLA terrain, traced along 720 directions around each site in a Web Worker so the page never freezes</li>
+              <li>Sun and Earth positions from astronomy-engine, checked against the NASA JPL Horizons REST API to within 0.003°</li>
+              <li>A Python pipeline (NumPy, Pillow) that turns raw NASA PDS terrain files into tiles the browser can stream</li>
+              <li>A year-ahead landing calendar, battery estimate, Canvas charts, an "Ask Navi" question box and a full Arabic version</li>
+            </ul>
+            <p class="callout"><i class="ph-fill ph-medal" aria-hidden="true"></i>Earned the Galactic Problem Solver certificate from NASA Space Apps.</p>
+            <pre class="code"><span class="k">const</span> <span class="v">stack</span> = [<span class="s">"JavaScript"</span>, <span class="s">"Three.js"</span>, <span class="s">"GSAP"</span>, <span class="s">"Vite"</span>, <span class="s">"Web Workers"</span>, <span class="s">"Canvas API"</span>, <span class="s">"REST APIs"</span>, <span class="s">"NASA JPL Horizons"</span>, <span class="s">"Python"</span>, <span class="s">"NumPy"</span>, <span class="s">"i18n / RTL"</span>];</pre>
+            <p class="actions"><a class="act act-hl" href="https://sayrz1.github.io/lunar-navigator/" target="_blank" rel="noopener"><i class="ph ph-rocket-launch" aria-hidden="true"></i>Live site</a><a class="act" href="https://github.com/Sayrz1/lunar-navigator" target="_blank" rel="noopener"><i class="ph ph-github-logo" aria-hidden="true"></i>Code</a></p>
+          </article>
+
+          <article class="doc" id="relai" data-name="relai.md" data-path="projects">
+            <p class="meta">HCI team project</p>
+            <h1>RelAI</h1>
+            <p class="lead">A dashboard that helps people keep their AI tool use in check, built with my Human-Computer Interaction team.</p>
+            <ul>
+              <li>Daily limit dial, streaks and a usage heatmap</li>
+              <li>Reflection prompts and a clipboard sentiment check</li>
+              <li>Community and rewards pages to keep habits going</li>
+            </ul>
+            <pre class="code"><span class="k">const</span> <span class="v">stack</span> = [<span class="s">"React"</span>, <span class="s">"TypeScript"</span>, <span class="s">"Tailwind"</span>, <span class="s">"Supabase"</span>, <span class="s">"Recharts"</span>];</pre>
+            <p class="actions"><a class="act act-hl" href="../assets/docs/relai-hci-presentation.pdf" target="_blank" rel="noopener"><i class="ph ph-presentation-chart" aria-hidden="true"></i>View the presentation</a><a class="act" href="https://relai-dashboard.vercel.app" target="_blank" rel="noopener"><i class="ph ph-globe" aria-hidden="true"></i>Live site</a><a class="act" href="https://github.com/Sayrz1/relai-dashboard-HCI-" target="_blank" rel="noopener"><i class="ph ph-github-logo" aria-hidden="true"></i>Code</a></p>
+          </article>
+
+          <article class="doc" id="campus-connect" data-name="campus-connect.md" data-path="projects">
+            <p class="meta">Team project · full stack</p>
+            <h1>Campus Connect</h1>
+            <p class="lead">A full stack app that brings university events and user profiles into one place, built in a cross-functional student team.</p>
+            <ul>
+              <li>REST API design and relational data modelling in PostgreSQL</li>
+              <li>Angular and TypeScript front end with role-based access control and dynamic routing</li>
+              <li>Accessible SCSS components, shipped on schedule and deployed to AWS</li>
+            </ul>
+            <pre class="code"><span class="c">-- the core of the data model</span>
+<span class="k">User</span>    ──&lt; <span class="k">Role</span>
+<span class="k">User</span>    ──  <span class="k">Profile</span>
+<span class="k">User</span>    &gt;──&lt; <span class="k">Event</span>    <span class="c">-- through the REST API</span></pre>
+            <pre class="code"><span class="k">const</span> <span class="v">stack</span> = [<span class="s">"JHipster"</span>, <span class="s">"Angular"</span>, <span class="s">"TypeScript"</span>, <span class="s">"Java"</span>, <span class="s">"PostgreSQL"</span>, <span class="s">"AWS"</span>];</pre>
+          </article>
+
+          <article class="doc" id="evolutionary" data-name="evolutionary.md" data-path="projects">
+            <p class="meta">Optimisation in Python</p>
+            <h1>MAXSAT and crew scheduling</h1>
+            <p class="lead">Two pieces of evolutionary computation work, written from scratch in Python.</p>
+            <ul>
+              <li>A population-based EA that satisfies as many MAXSAT clauses as it can within a time budget, with a WCNF parser, tuned on MAXSAT Evaluation 2017 benchmarks and Dockerised</li>
+              <li>Simulated annealing, a binary genetic algorithm and an improved BGA compared on three airline crew scheduling problems</li>
+            </ul>
+            <pre class="code"><span class="k">const</span> <span class="v">stack</span> = [<span class="s">"Python"</span>, <span class="s">"Genetic algorithms"</span>, <span class="s">"Simulated annealing"</span>, <span class="s">"Docker"</span>];</pre>
+            <p class="actions"><a class="act" href="../assets/docs/maxsat-report.pdf" target="_blank" rel="noopener"><i class="ph ph-file-pdf" aria-hidden="true"></i>MAXSAT report</a><a class="act" href="https://github.com/Sayrz1/MAXSAT--evolutionary-computation" target="_blank" rel="noopener"><i class="ph ph-github-logo" aria-hidden="true"></i>MAXSAT code</a><a class="act" href="../assets/docs/crew-scheduling-report.pdf" target="_blank" rel="noopener"><i class="ph ph-file-pdf" aria-hidden="true"></i>Crew scheduling report</a><a class="act" href="https://github.com/Sayrz1/Solving-Air-Crew-Scheduling-Problems-using-Simulated-Annealing-and-Genetic-Algorithms" target="_blank" rel="noopener"><i class="ph ph-github-logo" aria-hidden="true"></i>Crew scheduling code</a></p>
+          </article>
+
+          <article class="doc" id="teaching-code" data-name="teaching-code.md" data-path="projects">
+            <p class="meta">Teaching · Year 10 Python</p>
+            <h1>Cyber-Maze Hack and Pong</h1>
+            <p class="lead">Pygame lessons where students fix a broken game to learn debugging. Each one comes with a worksheet of symptoms and hints.</p>
+            <ul>
+              <li>Cyber-Maze Hack: 13 planted bugs, from an invisible player to frozen enemies</li>
+              <li>Pong: 6 bugs covering movement, scoring and ball speed</li>
+            </ul>
+            <pre class="code"><span class="c"># a bug from the worksheet: why can't you see the player?</span>
+<span class="v">screen</span>.<span class="f">fill</span>(<span class="v">BLACK</span>)
+<span class="v">player</span>.<span class="f">draw</span>(<span class="v">screen</span>)
+<span class="v">screen</span>.<span class="f">fill</span>(<span class="v">BLACK</span>)   <span class="c"># ← this line paints over it</span>
+<span class="v">pygame</span>.<span class="v">display</span>.<span class="f">flip</span>()</pre>
+            <p class="note-sm">The snippet shows the kind of bug the lessons plant, written for this page.</p>
+            <pre class="code"><span class="k">const</span> <span class="v">stack</span> = [<span class="s">"Python"</span>, <span class="s">"Pygame"</span>, <span class="s">"Education"</span>];</pre>
+            <p class="actions"><a class="act" href="https://github.com/Sayrz1/teaching-cs-in-school" target="_blank" rel="noopener"><i class="ph ph-github-logo" aria-hidden="true"></i>View on GitHub</a></p>
+          </article>
+
+          <article class="doc" id="classified" data-name="classified.md" data-path="projects">
+            <p class="meta">Freelance · under NDA</p>
+            <h1>Classified</h1>
+            <p class="lead">I'm building more projects for freelance clients right now. They're under wraps, so I can't show them here. Yet.</p>
+            <pre class="code redacted" aria-label="Redacted file"><span class="k">const</span> <span class="v">client</span> = <span class="r">"████████████"</span>;
+<span class="k">const</span> <span class="v">scope</span>  = [<span class="s">"full stack"</span>, <span class="s">"AI"</span>, <span class="r">"██████"</span>];
+<span class="k">const</span> <span class="v">shipped</span> = <span class="r">"██/██/2026"</span>;</pre>
+            <ul>
+              <li>Real clients, real deadlines, real requirements docs</li>
+              <li>Full stack and AI work, from planning to shipped UI</li>
+              <li>Happy to talk about how I work, just not what I'm working on</li>
+            </ul>
+            <p class="actions"><a class="act act-hl" href="mailto:s.ayrzpersonal@gmail.com?subject=Software%20role"><i class="ph ph-chat-circle" aria-hidden="true"></i>Ask me about it</a></p>
+          </article>
+
+          <article class="doc" id="ember-and-spit" data-name="ember-and-spit.md" data-path="frontend">
+            <p class="meta">Concept site · frontend design and development</p>
+            <h1>Ember &amp; Spit</h1>
+            <p class="lead">A website for a made-up late-night shawarma shop in Birmingham, set up the way a real takeaway would run its site.</p>
+            <a class="shot" href="https://sayrz1.github.io/ember-and-spit/" target="_blank" rel="noopener"><img src="../assets/work-ember.jpg" alt="Ember and Spit homepage" width="1280" height="800" loading="lazy"></a>
+            <ul>
+              <li>A pinned SVG scroll animation where a wrap dips into garlic, chilli and tahini</li>
+              <li>Menu with photos, prices and allergens, plus meal deals and a basket</li>
+              <li>Collection or delivery with a ready time, and opening hours in UK time</li>
+            </ul>
+            <pre class="code"><span class="k">const</span> <span class="v">stack</span> = [<span class="s">"HTML"</span>, <span class="s">"CSS"</span>, <span class="s">"JavaScript"</span>, <span class="s">"GSAP"</span>, <span class="s">"ScrollTrigger"</span>, <span class="s">"Lenis"</span>, <span class="s">"SVG"</span>];</pre>
+            <p class="actions"><a class="act act-hl" href="https://sayrz1.github.io/ember-and-spit/" target="_blank" rel="noopener"><i class="ph ph-globe" aria-hidden="true"></i>Live site</a><a class="act" href="https://github.com/Sayrz1/ember-and-spit" target="_blank" rel="noopener"><i class="ph ph-github-logo" aria-hidden="true"></i>Code</a></p>
+          </article>
+
+          <article class="doc" id="crumbwell" data-name="crumbwell.md" data-path="frontend">
+            <p class="meta">Concept site · frontend design and development</p>
+            <h1>Crumbwell</h1>
+            <p class="lead">A website for a made-up East London bakery, designed and built to show what I can make for small food businesses.</p>
+            <a class="shot" href="https://sayrz1.github.io/crumbwell/" target="_blank" rel="noopener"><img src="../assets/work-crumbwell.jpg" alt="Crumbwell homepage" width="1280" height="800" loading="lazy"></a>
+            <ul>
+              <li>A live bake board: drag the clock to see what's ready, then reserve it</li>
+              <li>UK and US editions with their own prices, currency and spelling</li>
+              <li>Order ahead, bread club, dark mode and reduced-motion support</li>
+            </ul>
+            <pre class="code"><span class="k">const</span> <span class="v">stack</span> = [<span class="s">"HTML"</span>, <span class="s">"CSS"</span>, <span class="s">"JavaScript"</span>, <span class="s">"GSAP"</span>, <span class="s">"Lenis"</span>];</pre>
+            <p class="actions"><a class="act act-hl" href="https://sayrz1.github.io/crumbwell/" target="_blank" rel="noopener"><i class="ph ph-globe" aria-hidden="true"></i>Live site</a><a class="act" href="https://github.com/Sayrz1/crumbwell" target="_blank" rel="noopener"><i class="ph ph-github-logo" aria-hidden="true"></i>Code</a></p>
+          </article>
+
+          <article class="doc" id="brrr" data-name="brrr.md" data-path="frontend">
+            <p class="meta">Concept site · 3D and frontend development</p>
+            <h1>Brrr. Slush Co.</h1>
+            <p class="lead">A website for a made-up Manchester slush bar, built around a real-time 3D cup.</p>
+            <a class="shot" href="https://sayrz1.github.io/brrr/" target="_blank" rel="noopener"><img src="../assets/work-brrr.jpg" alt="Brrr. homepage with a 3D slush cup" width="1280" height="800" loading="lazy"></a>
+            <ul>
+              <li>A Three.js cup with shader-coloured slush that changes flavour and fruit as you scroll</li>
+              <li>A mystery cup you shake for two random flavours</li>
+              <li>Menu, prices and a shop finder with live UK hours</li>
+            </ul>
+            <pre class="code"><span class="k">const</span> <span class="v">stack</span> = [<span class="s">"HTML"</span>, <span class="s">"CSS"</span>, <span class="s">"JavaScript"</span>, <span class="s">"Three.js"</span>, <span class="s">"GSAP"</span>, <span class="s">"Lenis"</span>];</pre>
+            <p class="actions"><a class="act act-hl" href="https://sayrz1.github.io/brrr/" target="_blank" rel="noopener"><i class="ph ph-globe" aria-hidden="true"></i>Live site</a><a class="act" href="https://github.com/Sayrz1/brrr" target="_blank" rel="noopener"><i class="ph ph-github-logo" aria-hidden="true"></i>Code</a></p>
+          </article>
+
+          <article class="doc" id="stack" data-name="stack.json" data-path="sama-eldesouki">
+            <pre class="code code-big">{
+  <span class="p">"languages"</span>: [<span class="s">"Python"</span>, <span class="s">"Java"</span>, <span class="s">"TypeScript"</span>, <span class="s">"JavaScript"</span>, <span class="s">"SQL"</span>, <span class="s">"C"</span>, <span class="s">"HTML"</span>, <span class="s">"CSS &amp; SCSS"</span>],
+  <span class="p">"frontend"</span>:  [<span class="s">"React"</span>, <span class="s">"Angular"</span>, <span class="s">"Tailwind CSS"</span>, <span class="s">"JavaFX"</span>, <span class="s">"Chrome Extensions"</span>, <span class="s">"Three.js"</span>, <span class="s">"GSAP"</span>, <span class="s">"Figma"</span>],
+  <span class="p">"backend"</span>:   [<span class="s">"FastAPI"</span>, <span class="s">"Spring Boot"</span>, <span class="s">"JHipster"</span>, <span class="s">"PostgreSQL"</span>, <span class="s">"MySQL"</span>, <span class="s">"Supabase"</span>],
+  <span class="p">"ai"</span>:        [<span class="s">"PyTorch"</span>, <span class="s">"Hugging Face"</span>, <span class="s">"ONNX"</span>, <span class="s">"NLP"</span>, <span class="s">"Genetic Algorithms"</span>, <span class="s">"Simulated Annealing"</span>, <span class="s">"GloVe"</span>],
+  <span class="p">"tools"</span>:     [<span class="s">"Git"</span>, <span class="s">"Docker"</span>, <span class="s">"AWS"</span>, <span class="s">"Linux"</span>, <span class="s">"Wireshark"</span>, <span class="s">"IntelliJ IDEA"</span>]
+}</pre>
+          </article>
+
+          <article class="doc" id="experience" data-name="experience.md" data-path="sama-eldesouki">
+            <h1>Education &amp; experience</h1>
+            <dl class="log">
+              <dt>Jul 2026</dt><dd><b>BSc Computer Science, First Class Honours</b> · University of Birmingham<br>Awarded the School of Computer Science Prize for Outstanding Contribution to Computer Science. Modules included Security &amp; Networks, Advanced Networking, Data Structures &amp; Algorithms, AI, HCI and Full Stack Applications.</dd>
+              <dt>Feb – Mar 2026</dt><dd><b>Python debugging lessons</b> · Year 10 Computer Science<br>Wrote and taught Pygame debugging lessons, Cyber-Maze Hack and Pong, with worksheets that guide students bug by bug.</dd>
+              <dt>Alongside my degree</dt><dd><b>Freelance</b> · Agorize, Student Safety App, Food Fellows, Upwork<br>Brand ambassador for Agorize's hackathons and the Student Safety App, promo videos for the university and Food Fellows, and remote laptop, phone and Wi-Fi fixes on Upwork. I'm also building projects for clients that I can't share yet.</dd>
+              <dt>Jan – Jul 2025</dt><dd><b>Outreach Intern</b> · ReachOut2All CIC<br>Coordinated 10+ STEM workshops for 50+ students across Birmingham schools and grew social engagement by 30%.</dd>
+              <dt>Jun 2024 – Jul 2026</dt><dd><b>Student Ambassador &amp; Outreach Lead</b> · University of Birmingham<br>Ran STEM workshops for 200+ prospective students and represented Computer Science at open days.</dd>
+              <dt>Jun – Jul 2024</dt><dd><b>Teaching Assistant Intern</b> · BCTSA<br>Taught logic gates and binary subtraction to classes of 30+ and wrote quizzes to check understanding.</dd>
+              <dt>Jun 2024</dt><dd><b>The Birmingham Project</b> · Siemens and University of Birmingham<br>In a team of nine, designed "Steamens Storytellers", a short-film competition that brings STEAM into school curricula.</dd>
+              <dt>Sep 2023 – Jul 2024</dt><dd><b>Student Representative</b> · University of Birmingham<br>Collected 100+ responses from students and relayed them to module leads, which led to a change in the module.</dd>
+              <dt>2022 – 2023</dt><dd><b>Foundation in Science and Engineering</b> · Kaplan International College London<br>Graduated with 79%.</dd>
+            </dl>
+          </article>
+
+          <article class="doc" id="awards" data-name="awards.md" data-path="sama-eldesouki">
+            <h1>Awards &amp; certificates</h1>
+            <ul class="checks">
+              <li><b>School of Computer Science Prize</b>, Outstanding Contribution to Computer Science · University of Birmingham</li>
+              <li><b>Galactic Problem Solver</b> · NASA Space Apps Challenge, Nov 2026, for Lunar Navigator</li>
+              <li><b>Develop AI-Powered Prototypes</b> · Google, Nov 2025</li>
+              <li><b>Birmingham Project Award</b> · University of Birmingham with Siemens, Jun 2024</li>
+              <li><b>Birmingham Award</b> · University of Birmingham</li>
+              <li><b>2nd place</b>, Figma UI hackathon run by Valyfy</li>
+              <li><b>Python for Data Science, AI and Development</b> · IBM on Coursera, Mar 2022</li>
+            </ul>
+          </article>
+        </div>
+
+        <section class="terminal" id="terminal" aria-label="Terminal">
+          <div class="term-bar"><span>Terminal</span><span class="term-hint">try <code>help</code>, <code>open lexilift</code> or <code>hire</code></span></div>
+          <div class="term-out" id="term-out" role="log" aria-live="polite"></div>
+          <form class="term-in" id="term-form" autocomplete="off">
+            <label for="term-input" class="prompt"><span class="pu">sama</span>@<span class="ph-host">portfolio</span>:<span class="pd">~</span>$</label>
+            <input id="term-input" type="text" spellcheck="false" autocapitalize="off" aria-label="Terminal command">
+          </form>
+        </section>
+      </section>
+    </div>
+
+    <footer class="status">
+      <span><i class="ph ph-git-branch" aria-hidden="true"></i>main</span>
+      <span class="st-open"><i class="ph-fill ph-circle" aria-hidden="true"></i>Open to graduate roles</span>
+      <span class="st-right" id="st-file">Markdown</span>
+      <span class="st-right">UTF-8</span>
+      <span class="st-more">Also: <a href="../websites/">websites</a> · <a href="../motion/">motion</a> · <a href="../copy/">copy</a></span>
+    </footer>
+  </div>
+
+  <div class="palette" id="palette" hidden>
+    <div class="pal-box" role="dialog" aria-modal="true" aria-label="Go to project">
+      <input id="pal-input" type="text" placeholder="Type a project name" aria-label="Search files" aria-controls="pal-list" autocomplete="off">
+      <ul id="pal-list" role="listbox"></ul>
+    </div>
+  </div>
+
+  <script src="code.js"></script>
+  <script data-goatcounter="https://sayrz1.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
