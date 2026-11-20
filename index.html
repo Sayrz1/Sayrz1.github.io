@@ -17,8 +17,8 @@
   <meta name="twitter:title" content="Sama Eldesouki, Full Stack & AI Developer">
   <meta name="twitter:description" content="First Class Computer Science graduate from the University of Birmingham. I build accessible tools, from fine-tuned language models to the interface.">
   <meta name="twitter:image" content="https://sayrz1.github.io/assets/og/home.jpg">
-  <meta name="theme-color" content="#fbf7f0" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#1a110e" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f6f6f3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d1015" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%239a3412'/%3E%3Ctext x='32' y='41' font-family='Arial' font-weight='700' font-size='24' fill='%23ffffff' text-anchor='middle'%3ESE%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,7 +46,6 @@
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
-      <a href="#achievements">Achievements</a>
       <a href="#more" class="nav-hot">More<span class="hot-dot" aria-hidden="true"></span></a>
       <a href="#contact">Contact</a>
     </nav>
@@ -100,9 +99,12 @@
       <h2 id="work-title" class="h2" data-split>Things I've <em>built.</em></h2>
       <p class="section-sub reveal">From a final year AI project to a NASA Space Apps tool, concept sites for small shops, team web apps, school lessons and a few things I can't talk about.</p>
 
+      <div class="stage-wrap">
+      <ol class="proj-index" id="proj-index" aria-label="Projects"></ol>
+      <div class="stage-col">
       <div class="accordion showcase" id="accordion">
 
-        <article class="panel is-open" data-panel>
+        <article class="panel is-open" data-panel data-kind="NASA Space Apps">
           <div class="panel-head"><span class="panel-num">01</span><h3 class="panel-title">Lunar Navigator</h3></div>
           <div class="panel-drawer"><div class="panel-body" id="p2">
             <div class="panel-copy">
@@ -119,6 +121,7 @@
               <div class="links">
                 <a class="link" href="https://sayrz1.github.io/lunar-navigator/" target="_blank" rel="noopener">Live site <i class="ph ph-arrow-up-right"></i></a>
                 <a class="link" href="https://github.com/Sayrz1/lunar-navigator" target="_blank" rel="noopener">Code <i class="ph ph-arrow-up-right"></i></a>
+                <a class="link link-more" href="code/#lunar-navigator">Full write-up <i class="ph ph-arrow-right"></i></a>
               </div>
             </div>
             <a class="visual visual-site" href="https://sayrz1.github.io/lunar-navigator/" target="_blank" rel="noopener" aria-label="Open Lunar Navigator in a new tab">
@@ -128,7 +131,7 @@
             </a>
           </div></div>
         </article>
-        <article class="panel is-open" data-panel>
+        <article class="panel is-open" data-panel data-kind="NLP · Final year">
           <div class="panel-head"><span class="panel-num">02</span><h3 class="panel-title">LexiLift</h3></div>
           <div class="panel-drawer"><div class="panel-body" id="p3">
             <div class="panel-copy">
@@ -145,6 +148,7 @@
               <div class="links">
                 <a class="link" href="https://github.com/Sayrz1/Final-Year-Project--Lexilift" target="_blank" rel="noopener"><i class="ph ph-github-logo"></i> Code on GitHub <i class="ph ph-arrow-up-right"></i></a>
                 <a class="link" href="https://sayrz1.github.io/Final-Year-Project--Lexilift/demonstration_dashboard.html" target="_blank" rel="noopener"><i class="ph ph-chart-bar"></i> Research dashboard <i class="ph ph-arrow-up-right"></i></a>
+                <a class="link link-more" href="code/#lexilift">Full write-up <i class="ph ph-arrow-right"></i></a>
               </div>
             </div>
             <div class="demo" aria-label="Interactive LexiLift example">
@@ -162,7 +166,7 @@
             </div>
           </div>
         </article>
-        <article class="panel is-open" data-panel>
+        <article class="panel is-open" data-panel data-kind="HCI · Team">
           <div class="panel-head"><span class="panel-num">03</span><h3 class="panel-title">RelAI</h3></div>
           <div class="panel-drawer"><div class="panel-body" id="p4">
             <div class="panel-copy">
@@ -178,6 +182,7 @@
                 <a class="link" href="https://relai-dashboard.vercel.app" target="_blank" rel="noopener">Live site <i class="ph ph-arrow-up-right"></i></a>
                 <a class="link" href="https://github.com/Sayrz1/relai-dashboard-HCI-" target="_blank" rel="noopener">Code <i class="ph ph-arrow-up-right"></i></a>
                 <a class="link link-hl" href="assets/docs/relai-hci-presentation.pdf" target="_blank" rel="noopener"><i class="ph ph-presentation-chart"></i> View the presentation <i class="ph ph-arrow-up-right"></i></a>
+                <a class="link link-more" href="code/#relai">Full write-up <i class="ph ph-arrow-right"></i></a>
               </div>
             </div>
             <div class="visual visual-relai" aria-hidden="true">
@@ -187,7 +192,7 @@
             </div>
           </div>
         </article>
-        <article class="panel is-open" data-panel>
+        <article class="panel is-open" data-panel data-kind="Concept site">
           <div class="panel-head"><span class="panel-num">04</span><h3 class="panel-title">Ember &amp; Spit</h3></div>
           <div class="panel-drawer"><div class="panel-body" id="p1">
             <div class="panel-copy">
@@ -204,6 +209,7 @@
                 <a class="link" href="https://sayrz1.github.io/ember-and-spit/" target="_blank" rel="noopener">Live demo <i class="ph ph-arrow-up-right"></i></a>
                 <a class="link" href="https://github.com/Sayrz1/ember-and-spit" target="_blank" rel="noopener">Code <i class="ph ph-arrow-up-right"></i></a>
                 <a class="link" href="#contact">Get a free demo <i class="ph ph-arrow-right"></i></a>
+                <a class="link link-more" href="code/#ember-and-spit">Full write-up <i class="ph ph-arrow-right"></i></a>
               </div>
             </div>
             <a class="visual visual-site" href="https://sayrz1.github.io/ember-and-spit/" target="_blank" rel="noopener" aria-label="Open the Ember &amp; Spit live demo in a new tab">
@@ -213,7 +219,7 @@
             </a>
           </div></div>
         </article>
-        <article class="panel is-open" data-panel>
+        <article class="panel is-open" data-panel data-kind="Concept site">
           <div class="panel-head"><span class="panel-num">05</span><h3 class="panel-title">Crumbwell</h3></div>
           <div class="panel-drawer"><div class="panel-body" id="p5">
             <div class="panel-copy">
@@ -230,6 +236,7 @@
                 <a class="link" href="https://sayrz1.github.io/crumbwell/" target="_blank" rel="noopener">Live demo <i class="ph ph-arrow-up-right"></i></a>
                 <a class="link" href="https://github.com/Sayrz1/crumbwell" target="_blank" rel="noopener">Code <i class="ph ph-arrow-up-right"></i></a>
                 <a class="link" href="#contact">Get a free demo <i class="ph ph-arrow-right"></i></a>
+                <a class="link link-more" href="code/#crumbwell">Full write-up <i class="ph ph-arrow-right"></i></a>
               </div>
             </div>
             <a class="visual visual-site" href="https://sayrz1.github.io/crumbwell/" target="_blank" rel="noopener" aria-label="Open the Crumbwell live demo in a new tab">
@@ -239,7 +246,7 @@
             </a>
           </div>
         </article>
-        <article class="panel is-open" data-panel>
+        <article class="panel is-open" data-panel data-kind="3D site">
           <div class="panel-head"><span class="panel-num">06</span><h3 class="panel-title">Brrr.</h3></div>
           <div class="panel-drawer"><div class="panel-body" id="p6">
             <div class="panel-copy">
@@ -256,6 +263,7 @@
                 <a class="link" href="https://sayrz1.github.io/brrr/" target="_blank" rel="noopener">Live demo <i class="ph ph-arrow-up-right"></i></a>
                 <a class="link" href="https://github.com/Sayrz1/brrr" target="_blank" rel="noopener">Code <i class="ph ph-arrow-up-right"></i></a>
                 <a class="link" href="#contact">Get a free demo <i class="ph ph-arrow-right"></i></a>
+                <a class="link link-more" href="code/#brrr">Full write-up <i class="ph ph-arrow-right"></i></a>
               </div>
             </div>
             <a class="visual visual-site" href="https://sayrz1.github.io/brrr/" target="_blank" rel="noopener" aria-label="Open the Brrr. live demo in a new tab">
@@ -265,7 +273,7 @@
             </a>
           </div>
         </article>
-        <article class="panel is-open" data-panel>
+        <article class="panel is-open" data-panel data-kind="Full stack">
           <div class="panel-head"><span class="panel-num">07</span><h3 class="panel-title">Campus Connect</h3></div>
           <div class="panel-drawer"><div class="panel-body" id="p7">
             <div class="panel-copy">
@@ -277,6 +285,7 @@
                 <li>Accessible SCSS components, shipped on schedule and deployed to AWS</li>
               </ul>
               <ul class="tags"><li>JHipster</li><li>Angular</li><li>TypeScript</li><li>Java</li><li>PostgreSQL</li><li>AWS</li></ul>
+              <div class="links"><a class="link link-more" href="code/#campus-connect">Full write-up <i class="ph ph-arrow-right"></i></a></div>
             </div>
             <div class="visual visual-er" aria-hidden="true">
               <svg viewBox="0 0 400 260" preserveAspectRatio="xMidYMid meet">
@@ -291,7 +300,7 @@
             </div>
           </div>
         </article>
-        <article class="panel is-open" data-panel>
+        <article class="panel is-open" data-panel data-kind="Optimisation">
           <div class="panel-head"><span class="panel-num">08</span><h3 class="panel-title">Evolutionary computation</h3></div>
           <div class="panel-drawer"><div class="panel-body" id="p8">
             <div class="panel-copy">
@@ -307,12 +316,13 @@
                 <a class="link" href="https://github.com/Sayrz1/MAXSAT--evolutionary-computation" target="_blank" rel="noopener">MAXSAT code <i class="ph ph-arrow-up-right"></i></a>
                 <a class="link" href="assets/docs/crew-scheduling-report.pdf" target="_blank" rel="noopener"><i class="ph ph-file-pdf"></i> Crew scheduling report <i class="ph ph-arrow-up-right"></i></a>
                 <a class="link" href="https://github.com/Sayrz1/Solving-Air-Crew-Scheduling-Problems-using-Simulated-Annealing-and-Genetic-Algorithms" target="_blank" rel="noopener">Crew scheduling code <i class="ph ph-arrow-up-right"></i></a>
+                <a class="link link-more" href="code/#evolutionary">Full write-up <i class="ph ph-arrow-right"></i></a>
               </div>
             </div>
             <div class="visual visual-bits" aria-hidden="true"><div class="bits" id="bits"></div></div>
           </div>
         </article>
-        <article class="panel is-open" data-panel>
+        <article class="panel is-open" data-panel data-kind="Teaching">
           <div class="panel-head"><span class="panel-num">09</span><h3 class="panel-title">Teaching code</h3></div>
           <div class="panel-drawer"><div class="panel-body" id="p9">
             <div class="panel-copy">
@@ -324,12 +334,15 @@
                 <li>The maze here is the real level from the lesson, solved live with breadth-first search</li>
               </ul>
               <ul class="tags"><li>Python</li><li>Pygame</li><li>Education</li></ul>
-              <a class="link" href="https://github.com/Sayrz1/teaching-cs-in-school" target="_blank" rel="noopener">View on GitHub <i class="ph ph-arrow-up-right"></i></a>
+              <div class="links">
+                <a class="link" href="https://github.com/Sayrz1/teaching-cs-in-school" target="_blank" rel="noopener">View on GitHub <i class="ph ph-arrow-up-right"></i></a>
+                <a class="link link-more" href="code/#teaching-code">Full write-up <i class="ph ph-arrow-right"></i></a>
+              </div>
             </div>
             <div class="visual visual-maze" aria-hidden="true"><div class="maze" id="maze"></div></div>
           </div>
         </article>
-        <article class="panel panel-secret is-open" data-panel>
+        <article class="panel panel-secret is-open" data-panel data-kind="Under NDA">
           <div class="panel-head"><span class="panel-num">10</span><h3 class="panel-title">Classified</h3></div>
           <div class="panel-drawer"><div class="panel-body" id="p10">
             <div class="panel-copy">
@@ -354,6 +367,8 @@
             </div>
           </div>
         </article>
+      </div>
+      </div>
       </div>
 
       <div class="also reveal">
@@ -487,77 +502,77 @@
             <span class="x-kind">Education</span>
             <h3>BSc Computer Science, First Class Honours</h3>
             <p class="x-org">University of Birmingham</p>
-            <p>Awarded the School of Computer Science Prize for Outstanding Contribution to Computer Science. Modules included Security &amp; Networks, Advanced Networking, Data Structures &amp; Algorithms, AI, HCI and Full Stack Applications.</p>
+            <p>Won the School of Computer Science Prize for Outstanding Contribution to Computer Science.</p>
           </li>
           <li data-year="2026" class="reveal">
             <span class="x-when">Feb 2026 - Mar 2026</span>
             <span class="x-kind">Teaching</span>
             <h3>Python debugging lessons</h3>
             <p class="x-org">Year 10 Computer Science</p>
-            <p>Wrote and taught Pygame debugging lessons, Cyber-Maze Hack and Pong, with worksheets that guide students bug by bug.</p>
+            <p>Wrote and taught Pygame lessons where students debug a broken game.</p>
           </li>
           <li data-year="2025" class="reveal">
             <span class="x-when">Autumn 2025</span>
             <span class="x-kind">Fundraising</span>
             <h3>Telethon caller</h3>
             <p class="x-org">University of Birmingham</p>
-            <p>Called alumni for Pathways to Birmingham. I raised £4,625 across 1,013 dialling attempts, as part of a campaign that raised over £140,000.</p>
+            <p>Raised £4,625 by phone for Pathways to Birmingham, in a campaign that raised over £140,000.</p>
           </li>
           <li data-year="2023-26" class="reveal">
             <span class="x-when">Alongside my degree</span>
             <span class="x-kind">Freelance</span>
             <h3>Marketing, video and IT support</h3>
             <p class="x-org">Agorize, Student Safety App, Food Fellows, Upwork</p>
-            <p>Promoted Agorize's hackathons and the Student Safety App as a brand ambassador, and filmed and edited promo videos for the university and Food Fellows. On Upwork I fix laptops, phones and Wi-Fi setups remotely. I'm also building projects for clients that I can't share yet.</p>
+            <p>Brand ambassador, promo videos and remote IT support on Upwork.</p>
           </li>
           <li data-year="2025" class="reveal">
             <span class="x-when">Jan 2025 - Jul 2025</span>
             <span class="x-kind">Internship</span>
             <h3>Outreach Intern</h3>
             <p class="x-org">ReachOut2All CIC</p>
-            <p>Coordinated 10+ STEM workshops for 50+ students across Birmingham schools and grew social engagement by 30% with Instagram content made in Canva.</p>
+            <p>Ran 10+ STEM workshops for 50+ students and grew social engagement by 30%.</p>
           </li>
           <li data-year="2024" class="reveal">
             <span class="x-when">Jun 2024 - Jul 2026</span>
             <span class="x-kind">Leadership</span>
             <h3>Student Ambassador &amp; Outreach Lead</h3>
             <p class="x-org">University of Birmingham</p>
-            <p>Ran STEM workshops for 200+ prospective students and represented Computer Science at open days. Also a sports activator, content creator and careers fair helper.</p>
+            <p>Ran STEM workshops for 200+ prospective students and represented Computer Science at open days.</p>
           </li>
           <li data-year="2024" class="reveal">
             <span class="x-when">Jun 2024 - Jul 2024</span>
             <span class="x-kind">Internship</span>
             <h3>Teaching Assistant Intern</h3>
             <p class="x-org">BCTSA</p>
-            <p>Taught logic gates and binary subtraction to classes of 30+ and wrote quizzes to check understanding.</p>
+            <p>Taught logic gates and binary to classes of 30+.</p>
           </li>
           <li data-year="2024" class="reveal">
             <span class="x-when">Jun 2024</span>
             <span class="x-kind">Project</span>
             <h3>The Birmingham Project</h3>
             <p class="x-org">Siemens and University of Birmingham</p>
-            <p>In a team of nine, designed "Steamens Storytellers", a short-film competition that brings STEAM into school curricula.</p>
+            <p>In a team of nine, designed a short-film competition that brings STEAM into schools.</p>
           </li>
           <li data-year="2024" class="reveal">
             <span class="x-when">Jan 2024 - Feb 2024</span>
             <span class="x-kind">Research</span>
             <h3>Interviewer, final year student survey</h3>
             <p class="x-org">The Times</p>
-            <p>Interviewed final year students about job hunting and was the first to reach the target of 25 interviews, in under a week.</p>
+            <p>First to reach the target of 25 student interviews, in under a week.</p>
           </li>
           <li data-year="2023" class="reveal">
             <span class="x-when">Sep 2023 - Jul 2024</span>
             <span class="x-kind">Leadership</span>
             <h3>Student Representative</h3>
             <p class="x-org">University of Birmingham</p>
-            <p>Collected 100+ responses from students and relayed them to module leads, which led to a change in the module.</p>
+            <p>Relayed feedback from 100+ students, which led to a change in the module.</p>
           </li>
           <li data-year="2022" class="reveal">
             <span class="x-when">2022 - 2023</span>
             <span class="x-kind">Education</span>
             <h3>Foundation in Science and Engineering</h3>
             <p class="x-org">Kaplan International College London</p>
-            <p>Graduated with 79%, and was a student ambassador making content for the college's social media.</p>
+            <p>Graduated with 79%, and made content for the college as a student ambassador.</p>
           </li>
           <li data-year="Next" class="x-next reveal">
             <span class="x-kind">What's next</span>
@@ -566,23 +581,6 @@
             <a class="btn btn-solid" href="#contact">Say hello <i class="ph ph-arrow-right"></i></a>
           </li>
         </ol>
-      </div>
-    </section>
-
-    <!-- ACHIEVEMENTS (horizontal pan) -->
-    <section class="achievements" id="achievements" aria-labelledby="ach-title">
-      <div class="ach-track" id="ach-track">
-        <div class="ach-intro">
-          <h2 id="ach-title" class="h2" data-split>Proud <em>moments.</em></h2>
-          <p>Highlights from university and the work around it.</p>
-        </div>
-        <article class="ach"><i class="ph ph-graduation-cap ach-ico"></i><span class="ach-stat">1st</span><h3>First Class Honours</h3><p>BSc Computer Science, University of Birmingham, 2026.</p></article>
-        <article class="ach"><i class="ph ph-trophy ach-ico"></i><span class="ach-stat ach-word">Prize</span><h3>Outstanding Contribution to Computer Science</h3><p>School of Computer Science Prize, University of Birmingham.</p></article>
-        <article class="ach"><i class="ph ph-hand-coins ach-ico"></i><span class="ach-stat" data-count="4625" data-prefix="£">£4,625</span><h3>Raised by phone</h3><p>My share of a Telethon that raised over £140,000 for Pathways to Birmingham.</p></article>
-        <article class="ach"><i class="ph ph-users-three ach-ico"></i><span class="ach-stat" data-count="200" data-suffix="+">200+</span><h3>Students reached</h3><p>Prospective students guided through STEM workshops as an ambassador.</p></article>
-        <article class="ach"><i class="ph ph-rocket-launch ach-ico"></i><span class="ach-stat ach-word">NASA</span><h3>Galactic Problem Solver</h3><p>NASA Space Apps Challenge 2026, for <a class="link" href="https://sayrz1.github.io/lunar-navigator/" target="_blank" rel="noopener">Lunar Navigator</a>, a tool for comparing Moon landing sites.</p></article>
-        <article class="ach"><i class="ph ph-figma-logo ach-ico"></i><span class="ach-stat">2nd</span><h3>Figma UI hackathon</h3><p>Second place in a Figma user interface hackathon run by Valyfy.</p></article>
-        <article class="ach"><i class="ph ph-pen-nib ach-ico"></i><span class="ach-stat ach-word">Winner</span><h3>60 word competition</h3><p>Won the University of Birmingham's online competition in June 2026 with my piece, "Resistance".</p></article>
       </div>
     </section>
 
