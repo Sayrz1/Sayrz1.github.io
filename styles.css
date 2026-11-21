@@ -769,6 +769,11 @@ h1, h2, h3 { text-wrap: balance; }
 .more-paper s { text-decoration-color: #c8231a; text-decoration-thickness: 2.5px; color: #6b655c; font-size: 17px; }
 .more-paper b { font-size: clamp(20px, 2.2vw, 26px); line-height: 1.2; background: linear-gradient(transparent 55%, #ffe25a 55%); width: fit-content; }
 .more-web .more-media { aspect-ratio: 16 / 7; }
+.more-design { grid-column: 1 / -1; display: grid; grid-template-columns: 1.35fr 1fr; background: #0e0d0c; color: #f1ece3; }
+.more-design .more-media { aspect-ratio: 16 / 7; }
+.more-design .more-text { align-content: center; padding: 28px 32px; }
+.more-design .more-desc { color: #c9c1b4; }
+.more-design .more-go { color: #ffd03c; }
 .more-text { display: grid; gap: 6px; padding: 20px 24px 22px; }
 .more-name { font-family: var(--display, "Calistoga", serif); font-size: clamp(24px, 2.4vw, 32px); line-height: 1.1; }
 .more-desc { color: var(--muted); max-width: 48ch; }
@@ -780,6 +785,7 @@ h1, h2, h3 { text-wrap: balance; }
 @media (max-width: 860px) {
   .more-grid { grid-template-columns: 1fr; }
   .more-motion { grid-row: auto; }
+  .more-design { grid-template-columns: 1fr; }
   .more-motion .more-media { min-height: 0; aspect-ratio: 16 / 9; flex: none; }
 }
 @media (prefers-reduced-motion: reduce) { .more-tile, .more-media img { transition: none; } }
