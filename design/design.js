@@ -4,31 +4,38 @@
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const brands = $$(".brand");
-  const barLinks = $$(".bar-chips a");
   const themeMeta = $('meta[name="theme-color"]');
   const studio = themeMeta.content;
-  const refreshScroll = () => window.ScrollTrigger && ScrollTrigger.refresh();
 
-  /* ---------- Takeover: the brand in the middle of the screen recolours the page ---------- */
+  /* ---------- One brand at a time: #<brand> opens it, anything else shows the overview ---------- */
+  const hero = $(".hero"), overview = $(".overview");
   const setBrand = (el) => {
     if (el) document.body.dataset.brand = el.dataset.brand;
     else delete document.body.dataset.brand;
     themeMeta.content = el ? el.dataset.meta : studio;
-    barLinks.forEach((a) => {
-      const on = !!el && a.hash === "#" + el.id;
-      a.setAttribute("aria-current", on ? "true" : "false");
-      if (on && a.offsetParent) {
-        const bar = a.closest(".bar-chips");
-        bar.scrollTo({ left: a.offsetLeft - bar.clientWidth / 2 + a.offsetWidth / 2, behavior: reduce ? "auto" : "smooth" });
-      }
-    });
   };
-  const seen = new Set();
-  const takeover = new IntersectionObserver((entries) => {
-    entries.forEach((e) => (e.isIntersecting ? seen.add(e.target) : seen.delete(e.target)));
-    setBrand(brands.find((b) => seen.has(b)));
-  }, { rootMargin: "-50% 0px -50% 0px" });
-  brands.forEach((b) => takeover.observe(b));
+  let lastBrand = null;
+  const route = () => {
+    const el = brands.find((b) => "#" + b.id === location.hash);
+    hero.hidden = overview.hidden = !!el;
+    brands.forEach((b) => { b.hidden = b !== el; });
+    document.body.classList.toggle("is-brand", !!el);
+    setBrand(el);
+    if (el) {
+      scrollTo({ top: 0, behavior: "instant" });
+      el.classList.remove("is-entering"); void el.offsetWidth; el.classList.add("is-entering");
+      el.tabIndex = -1;
+      el.focus({ preventScroll: true });
+      syncers.get(el)?.();
+      lastBrand = el.id;
+    } else if (lastBrand) {
+      const card = $(`.card a[href="#${lastBrand}"]`);
+      card?.scrollIntoView({ block: "center", behavior: "instant" });
+      card?.focus({ preventScroll: true });
+      lastBrand = null;
+    }
+  };
+  document.documentElement.classList.add("routed");
 
   /* ---------- Post strips ---------- */
   const syncers = new Map();
@@ -63,7 +70,6 @@
       nav.hidden = !tab.id.endsWith("-posts");
       if (focus) tab.focus();
       syncers.get(brand)();
-      refreshScroll();
     };
     tabs.forEach((t, i) => {
       t.addEventListener("click", () => select(t));
@@ -77,31 +83,24 @@
     select(tabs.find((t) => t.getAttribute("aria-selected") === "true") || tabs[0]);
   });
 
-  /* ---------- Filters: sector and language ---------- */
+  addEventListener("hashchange", route);
+  route();
+
+  /* ---------- Filters: one row, sector or language ---------- */
   const cards = $$(".card");
-  const barItems = $$(".bar-chips li");
   const count = $(".filter-count");
   const empty = $(".empty");
-  const state = { sector: "all", lang: "all" };
-  const fits = (el) => ["sector", "lang"].every((k) => state[k] === "all" || el.dataset[k] === state[k]);
+  let pick = "all";
+  const fits = (el) => pick === "all" || el.dataset.sector === pick || el.dataset.lang === pick;
   const apply = () => {
-    $$(".filter").forEach((b) => b.setAttribute("aria-pressed", state[b.dataset.filter] === b.dataset.value));
-    [...cards, ...brands, ...barItems].forEach((el) => { el.hidden = !fits(el); });
+    $$(".filter").forEach((b) => b.setAttribute("aria-pressed", b.dataset.value === pick));
+    cards.forEach((el) => { el.hidden = !fits(el); });
     const n = cards.filter((c) => !c.hidden).length;
-    count.textContent = n === cards.length ? `Showing all ${n} brands`
-      : `Showing ${n} of ${cards.length} brand${cards.length === 1 ? "" : "s"}`;
+    count.textContent = n === cards.length ? `${n} brands` : `${n} of ${cards.length} brands`;
     empty.hidden = n > 0;
-    refreshScroll();
   };
-  $$(".filter").forEach((b) => b.addEventListener("click", () => {
-    state[b.dataset.filter] = b.dataset.value;
-    apply();
-  }));
-  $("[data-clear]").addEventListener("click", () => {
-    state.sector = state.lang = "all";
-    apply();
-    $('.filter[data-value="all"]').focus();
-  });
+  $$(".filter").forEach((b) => b.addEventListener("click", () => { pick = b.dataset.value; apply(); }));
+  $("[data-clear]").addEventListener("click", () => { pick = "all"; apply(); $(".filter").focus(); });
 
   /* ---------- Viewer ---------- */
   const viewer = $("#viewer");
@@ -130,18 +129,4 @@
   });
   viewer.addEventListener("close", () => opener?.focus({ preventScroll: true }));
 
-  /* ---------- Covers open up as they arrive ---------- */
-  if (reduce || !window.gsap || !window.ScrollTrigger) return;
-  gsap.registerPlugin(ScrollTrigger);
-  $$(".b-cover").forEach((cover) => {
-    gsap.fromTo(cover, { clipPath: "inset(7% 6% 7% 6% round 28px)" }, {
-      clipPath: "inset(0% 0% 0% 0% round 18px)", ease: "none",
-      scrollTrigger: { trigger: cover, start: "top 95%", end: "top 35%", scrub: 0.5 },
-    });
-    gsap.fromTo($("img", cover), { scale: 1.14 }, {
-      scale: 1, ease: "none",
-      scrollTrigger: { trigger: cover, start: "top 95%", end: "bottom 30%", scrub: 0.5 },
-    });
-  });
-  document.fonts?.ready.then(refreshScroll);
 })();
