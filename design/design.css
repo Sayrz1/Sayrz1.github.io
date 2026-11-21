@@ -119,11 +119,16 @@ html:not(.js) .b-panel + .b-panel { margin-top: 64px; }
 .overview { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter) clamp(72px, 9vw, 128px); }
 .overview-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 20px 40px; }
 .overview h2 { margin: 0; font: 400 clamp(44px, 5vw, 72px)/.9 var(--display); }
-.filters { display: flex; flex-wrap: wrap; gap: 6px; }
-.filter { min-height: 44px; padding: 8px 16px; border-radius: 999px; border: 1.5px solid var(--line); background: transparent; font-size: 15px; font-weight: 500; cursor: pointer; transition: border-color .25s, background-color .25s, color .25s; }
-.filter:hover { border-color: var(--ink); }
-.filter[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
-.filter-count { margin: 22px 0 16px; font-size: 15px; color: var(--muted); }
+.overview-tools { display: flex; align-items: center; gap: 16px; }
+.filter-count { margin: 0; font-size: 15px; color: var(--muted); white-space: nowrap; }
+.filter-pick { position: relative; display: inline-flex; align-items: center; min-height: 44px; border-radius: 999px; border: 1.5px solid var(--line); transition: border-color .25s; }
+.filter-pick:hover, .filter-pick:focus-within { border-color: var(--ink); }
+.filter-show { padding-left: 16px; font-size: 15px; color: var(--muted); }
+.filter-select { appearance: none; -webkit-appearance: none; min-height: 44px; padding: 8px 40px 8px 8px; border: 0; background: transparent; color: var(--ink); font: 600 15px/1 var(--sans); cursor: pointer; }
+.filter-select:focus-visible { outline: none; }
+.filter-select option, .filter-select optgroup { background: #15141a; color: #f1ece3; }
+.filter-pick i { position: absolute; right: 14px; pointer-events: none; font-size: 15px; }
+.overview-head + .cards, .overview-head { margin-bottom: 24px; }
 .cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: clamp(16px, 2vw, 24px); }
 .card[hidden] { display: none; }
 .card a { display: block; height: 100%; border-radius: 16px; overflow: hidden; text-decoration: none; background: color-mix(in srgb, var(--ink) 6%, var(--bg)); box-shadow: 0 24px 44px -34px rgb(0 0 0 / .9); transition: transform .5s var(--ease), box-shadow .5s var(--ease); }

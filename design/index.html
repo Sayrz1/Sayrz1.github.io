@@ -49,9 +49,11 @@
     <section class="overview" id="brands" aria-labelledby="brands-title">
       <div class="overview-head">
         <h2 id="brands-title">Pick a brand</h2>
-        <div class="filters" role="group" aria-label="Filter brands"><button class="filter" type="button" data-value="all" aria-pressed="true">All</button><button class="filter" type="button" data-value="food" aria-pressed="false">Food &amp; drink</button><button class="filter" type="button" data-value="beauty" aria-pressed="false">Beauty</button><button class="filter" type="button" data-value="fashion" aria-pressed="false">Fashion</button><button class="filter" type="button" data-value="finance" aria-pressed="false">Finance</button><button class="filter" type="button" data-value="en" aria-pressed="false">English</button><button class="filter" type="button" data-value="ar" aria-pressed="false">Arabic</button></div>
+        <div class="overview-tools">
+          <p class="filter-count" aria-live="polite">7 brands</p>
+          <label class="filter-pick"><span class="filter-show">Show</span><select class="filter-select" aria-label="Show brands"><option value="all">All brands</option><optgroup label="Sector"><option value="food">Food &amp; drink</option><option value="beauty">Beauty</option><option value="fashion">Fashion</option><option value="finance">Finance</option></optgroup><optgroup label="Language"><option value="en">English</option><option value="ar">Arabic</option></optgroup></select><i class="ph ph-caret-down" aria-hidden="true"></i></label>
+        </div>
       </div>
-      <p class="filter-count" aria-live="polite">7 brands</p>
       <ul class="cards">
           <li class="card" data-sector="food" data-lang="en">
             <a href="#salt-gull" style="--c:#FFD03C">
