@@ -92,15 +92,17 @@
   const empty = $(".empty");
   let pick = "all";
   const fits = (el) => pick === "all" || el.dataset.sector === pick || el.dataset.lang === pick;
+  const select = $(".filter-select");
   const apply = () => {
-    $$(".filter").forEach((b) => b.setAttribute("aria-pressed", b.dataset.value === pick));
+    pick = select.value;
     cards.forEach((el) => { el.hidden = !fits(el); });
     const n = cards.filter((c) => !c.hidden).length;
     count.textContent = n === cards.length ? `${n} brands` : `${n} of ${cards.length} brands`;
     empty.hidden = n > 0;
   };
-  $$(".filter").forEach((b) => b.addEventListener("click", () => { pick = b.dataset.value; apply(); }));
-  $("[data-clear]").addEventListener("click", () => { pick = "all"; apply(); $(".filter").focus(); });
+  select.addEventListener("change", apply);
+  $("[data-clear]").addEventListener("click", () => { select.value = "all"; apply(); select.focus(); });
+  apply();
 
   /* ---------- Viewer ---------- */
   const viewer = $("#viewer");
