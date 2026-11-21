@@ -124,7 +124,7 @@ html:not(.js) .b-panel + .b-panel { margin-top: 64px; }
 .filter:hover { border-color: var(--ink); }
 .filter[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
 .filter-count { margin: 22px 0 16px; font-size: 15px; color: var(--muted); }
-.cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr)); gap: clamp(16px, 2vw, 24px); }
+.cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: clamp(16px, 2vw, 24px); }
 .card[hidden] { display: none; }
 .card a { display: block; height: 100%; border-radius: 16px; overflow: hidden; text-decoration: none; background: color-mix(in srgb, var(--ink) 6%, var(--bg)); box-shadow: 0 24px 44px -34px rgb(0 0 0 / .9); transition: transform .5s var(--ease), box-shadow .5s var(--ease); }
 .card a:hover { transform: translateY(-4px); box-shadow: 0 34px 54px -32px rgb(0 0 0 / .95); }
@@ -237,3 +237,5 @@ html:not(.routed) .b-next { display: none; }
 .f-mont { font-family: "Montserrat", sans-serif; font-weight: 900; letter-spacing: -0.02em; }
 body[data-brand="greggs"] { --bg: #003C6C; --ink: #FFFFFF; --accent: #FAB622; --on-accent: #003C6C; }
 .b-note { font-size: 15px !important; padding-top: 14px; border-top: 1px solid var(--line); }
+.f-ubuntu { font-family: "Ubuntu", sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+body[data-brand="monzo"] { --bg: #0F1A2B; --ink: #FFFFFF; --accent: #F0533A; --on-accent: #0F1A2B; }
