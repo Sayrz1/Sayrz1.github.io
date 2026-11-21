@@ -137,9 +137,10 @@
     vImg.src = post.dataset.full;
     vImg.alt = $("img", post).alt;
     vCap.textContent = post.dataset.caption;
+    viewer.classList.toggle("is-wide", "wide" in post.dataset);
   };
   $$(".post").forEach((post) => post.addEventListener("click", () => {
-    group = $$(".post", post.closest(".strip"));
+    group = $$(".post", post.closest(".strip, .wild"));
     opener = post;
     show(group.indexOf(post));
     viewer.showModal();

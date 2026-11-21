@@ -294,3 +294,15 @@ body[data-brand="muddlezoo"] { --bg: #FFC93C; --ink: #1B1B1B; --accent: #1B1B1B;
 :root[data-theme="light"] body:not([data-brand]) .card a { background: #FFFFFF; box-shadow: 0 1px 0 rgb(40 28 16 / .06), 0 22px 44px -32px rgb(40 28 16 / .45); }
 :root[data-theme="light"] body:not([data-brand]) .card a:hover { box-shadow: 0 1px 0 rgb(40 28 16 / .06), 0 32px 54px -30px rgb(40 28 16 / .5); }
 :root[data-theme="light"] .card-ar { color: color-mix(in srgb, var(--c) 45%, var(--ink)); }
+
+/* ---------- In the wild: mockups and stories ---------- */
+.wild { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(16px, 2vw, 24px); }
+.wild-wides { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.wild-stories { grid-template-columns: repeat(3, minmax(0, 240px)); margin-top: clamp(24px, 3vw, 40px); }
+.wild .post img { aspect-ratio: auto; }
+.wild-cap { display: block; margin-top: 10px; font-size: 15px; color: var(--muted); }
+.viewer.is-wide { width: min(94vw, 1280px); }
+@media (max-width: 900px) {
+  .wild-wides { grid-template-columns: 1fr; }
+  .wild-stories { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+}
