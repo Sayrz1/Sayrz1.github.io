@@ -237,3 +237,45 @@ body[data-brand="greggs"] { --bg: #003C6C; --ink: #FFFFFF; --accent: #FAB622; --
 .b-note { font-size: 15px !important; padding-top: 14px; border-top: 1px solid var(--line); }
 .f-ubuntu { font-family: "Ubuntu", sans-serif; font-weight: 700; letter-spacing: -0.02em; }
 body[data-brand="monzo"] { --bg: #0F1A2B; --ink: #FFFFFF; --accent: #F0533A; --on-accent: #0F1A2B; }
+
+/* ---------- Distilled layout: less scroll ---------- */
+/* Hero: copy left, ring image right */
+.hero { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: center; gap: 24px; max-width: var(--max); padding: 88px var(--gutter) 0; }
+.hero-art { order: 2; width: 100%; margin: 0; }
+.hero-copy { order: 1; display: block; margin: 0; padding: 0; }
+.hero h1 { font-size: clamp(56px, 6.4vw, 104px); }
+.hero-sub { margin-top: 20px; max-width: 40ch; }
+
+/* Overview: small heading, cards without tag pills */
+.overview { padding-top: clamp(32px, 4vw, 56px); }
+.overview h2 { font-size: clamp(30px, 3vw, 40px); }
+.overview-head { align-items: center; margin-bottom: 20px; }
+.card-body { padding: 14px 18px 16px; }
+.card-name { font-size: 26px; }
+.card-name.f-bebas { font-size: 30px; }
+.card-ar { font-size: 21px; }
+
+/* Brand: cover beside the story */
+.b-intro { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); align-items: start; margin-top: 0; gap: 32px clamp(32px, 4vw, 64px); }
+.routed .b-cover, .b-cover { width: 100%; }
+.b-name { font-size: clamp(48px, 5.6vw, 88px); }
+.b-ar { font-size: clamp(36px, 4vw, 64px); }
+.b-story { margin-top: 28px; padding-top: 0; gap: 16px; }
+.b-story p { font-size: 17px; }
+.b-tabs-row { margin-top: clamp(32px, 4vw, 48px); }
+.b-pager { margin-top: 48px; }
+.brand { padding-bottom: clamp(48px, 6vw, 80px); }
+
+/* Outro: one row */
+.outro { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px 48px; padding: clamp(40px, 5vw, 64px) var(--gutter); border-top: 1.5px solid var(--line); }
+.outro h2 { margin: 0 0 8px; font-size: clamp(40px, 4.4vw, 64px); }
+.outro p { margin: 0; font-size: 17px; }
+.foot { border-top: 0; padding-top: 0; }
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; padding-top: 76px; gap: 8px; }
+  .hero-art { order: 0; }
+  .b-intro { grid-template-columns: 1fr; }
+  .b-cover { order: -1; }
+}
+@media (max-width: 560px) { .hero h1 { font-size: 50px; } .hero-sub { font-size: 16px; margin-top: 14px; } .overview { padding-top: 24px; } }
