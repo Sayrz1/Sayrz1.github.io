@@ -6,7 +6,7 @@
 
   /* ---------- Projects tab: show how many projects there are ---------- */
   const navCount = $("#nav-count");
-  if (navCount) navCount.textContent = $$("[data-panel]").length || "";
+  if (navCount) navCount.textContent = $$("#stage > .panel").length || "";
 
   /* ---------- Split headings into words for the mask reveal ---------- */
   $$("[data-split]").forEach((el) => {
@@ -42,7 +42,6 @@
   const tilt = $(".portrait-tilt", avatar);
   const sparkleLayer = $(".sparkles", avatar);
 
-  // Gentle 3D tilt toward the pointer; the sparkles drift the other way.
   if (finePointer && !reduce) {
     const fig = $(".hero-figure");
     let raf = 0;
@@ -60,7 +59,6 @@
     fig.addEventListener("pointerleave", () => { tilt.style.transform = ""; sparkleLayer.style.transform = ""; });
   }
 
-  // Click: bounce and throw a handful of sparkles from where you clicked.
   const SPARK_COLOURS = ["#8eaee8", "#ec8a78", "#d6a756", "#f2c94c"];
   function sparkleBurst(x, y) {
     if (reduce) return;
@@ -110,19 +108,20 @@
   $$("a", links).forEach((a) => a.addEventListener("click", () => setMenu(false)));
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") setMenu(false); });
 
-  /* ---------- Active nav pill ---------- */
-  const navMap = new Map($$("a", links).map((a) => [a.getAttribute("href").slice(1), a]));
-  const sectionFor = { certifications: "work" };
-  const navObs = new IntersectionObserver((entries) => {
+  /* ---------- Current section ----------
+     One observer for the whole page; the nav pill and the mascot both listen for "section:change". */
+  const sectionObs = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
-      if (!e.isIntersecting) return;
-      navMap.forEach((a) => a.classList.remove("active"));
-      navMap.get(sectionFor[e.target.id] || e.target.id)?.classList.add("active");
+      if (e.isIntersecting) document.dispatchEvent(new CustomEvent("section:change", { detail: e.target.id }));
     });
   }, { rootMargin: "-45% 0px -50% 0px" });
-  ["about", "skills", "work", "certifications", "experience", "more", "contact"].forEach((id) => {
-    const s = document.getElementById(id);
-    if (s) navObs.observe(s);
+  $$("main > section[id]").forEach((s) => sectionObs.observe(s));
+
+  const navMap = new Map($$("a", links).map((a) => [a.getAttribute("href").slice(1), a]));
+  document.addEventListener("section:change", ({ detail: id }) => {
+    const a = navMap.get(id);
+    if (!a) return;
+    navMap.forEach((x) => x.classList.toggle("active", x === a));
   });
 
   /* ---------- Talking hero ---------- */
@@ -197,7 +196,6 @@
 
   /* ---------- Periodic table ---------- */
   const FAMILY = { lang: "Languages", front: "Frontend", back: "Backend & data", ai: "AI & algorithms", tool: "Tools" };
-  // [symbol, name, family, simple-icons slug or "", description]
   const els = [
     ["Py", "Python", "lang", "python", "Model training for LexiLift, FastAPI backends and evolutionary algorithms."],
     ["Jv", "Java", "lang", "openjdk", "Object-oriented coursework, a JavaFX app, a GloVe news classifier and JHipster back ends."],
@@ -276,40 +274,6 @@
     }
   }));
 
-  /* ---------- Crumbwell preview: render the demo at desktop width, scaled to fit ---------- */
-  if ("ResizeObserver" in window) {
-    const fit = new ResizeObserver((entries) => entries.forEach((e) => {
-      const w = e.contentRect.width;
-      if (w) e.target.style.setProperty("--s", (w / 1280).toFixed(4));
-    }));
-    $$(".site-frame").forEach((f) => fit.observe(f));
-  }
-
-  /* ---------- Work accordion ---------- */
-  const panels = $$("[data-panel]");
-  function openPanel(p) {
-    panels.forEach((x) => {
-      const open = x === p;
-      x.classList.toggle("is-open", open);
-      $(".panel-tab", x).setAttribute("aria-expanded", String(open));
-    });
-  }
-  panels.forEach((p) => {
-    const tab = $(".panel-tab", p);
-    if (!tab) return; // projects are shown open as a showcase now
-    tab.addEventListener("click", () => {
-      if (p.classList.contains("is-open")) { p.classList.remove("is-open"); tab.setAttribute("aria-expanded", "false"); return; }
-      openPanel(p);
-    });
-    $(".panel-drawer", p).addEventListener("transitionend", (e) => {
-      if (e.target !== e.currentTarget || e.propertyName !== "grid-template-rows") return;
-      // A panel above may have collapsed and pushed this tab off screen.
-      if (p.classList.contains("is-open") && tab.getBoundingClientRect().top < 0) tab.scrollIntoView({ block: "start" });
-      // The section's height changed, so pinned sections below need new positions.
-      if (window.ScrollTrigger) ScrollTrigger.refresh();
-    });
-  });
-
   /* ---------- LexiLift demo ---------- */
   const samples = {
     orig: "The committee postponed its decision owing to insufficient evidence regarding the proposal's long-term viability.",
@@ -326,9 +290,9 @@
   }));
 
   /* ---------- Projects: index + stage ----------
-     The cards stay in the HTML as a plain grid; with JS they stack on one "stage" and the numbered list picks which shows. */
+     Without JS the cards are a plain list; with JS they stack on one stage and the numbered list picks which shows. */
   (() => {
-    const stage = $("#accordion"), index = $("#proj-index"), wrap = $(".stage-wrap");
+    const stage = $("#stage"), index = $("#proj-index"), wrap = $(".stage-wrap");
     if (!stage || !index || !wrap) return;
     const cards = $$(":scope > .panel", stage);
     const pad = (n) => String(n).padStart(2, "0");
@@ -361,7 +325,7 @@
       if (focus) tabs[i].focus();
       if (i === cur) return;
       cur = i;
-      cards.forEach((c, j) => { const on = j === i; c.classList.toggle("is-active", on); c.classList.toggle("is-open", on); c.inert = !on; });
+      cards.forEach((c, j) => { const on = j === i; c.classList.toggle("is-open", on); c.inert = !on; });
       tabs.forEach((t, j) => { t.setAttribute("aria-selected", String(j === i)); t.tabIndex = j === i ? 0 : -1; });
       // On phones the list is a sideways row of pills: keep the chosen one in view without moving the page.
       if (index.scrollWidth > index.clientWidth) {
@@ -384,7 +348,6 @@
     });
     nav.addEventListener("click", (e) => { const b = e.target.closest("[data-step]"); if (b) show(cur + Number(b.dataset.step)); });
 
-    // Swipe the stage on touch screens.
     let x0 = null;
     stage.addEventListener("touchstart", (e) => { x0 = e.touches[0].clientX; }, { passive: true });
     stage.addEventListener("touchend", (e) => {
@@ -393,15 +356,16 @@
       if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1));
     });
 
-    stage.classList.add("is-stage"); wrap.classList.add("is-ready");
+    wrap.classList.add("is-ready");
     show(0);
-    if (window.ScrollTrigger) requestAnimationFrame(() => ScrollTrigger.refresh());
   })();
 
   /* ---------- Project visuals ---------- */
   // RelAI: usage heatmap motif (decorative, not real data)
   const heat = $("#heat");
-  for (let i = 0; i < 84; i++) {
+  const HEAT_COLS = 14, HEAT_ROWS = 6;
+  heat.style.setProperty("--cols", HEAT_COLS);
+  for (let i = 0; i < HEAT_COLS * HEAT_ROWS; i++) {
     const c = document.createElement("i");
     const v = Math.abs(Math.sin(i * 12.9898) * 43758.5453) % 1;
     c.style.opacity = (0.08 + v * 0.85).toFixed(2);
@@ -411,7 +375,9 @@
   // MAXSAT: bits flipping, like an EA mutating an assignment
   const bits = $("#bits");
   const cells = [];
-  for (let i = 0; i < 16 * 12; i++) {
+  const BIT_COLS = 16, BIT_ROWS = 12;
+  bits.style.setProperty("--cols", BIT_COLS);
+  for (let i = 0; i < BIT_COLS * BIT_ROWS; i++) {
     const s = document.createElement("span");
     const one = Math.random() > 0.5;
     s.textContent = one ? "1" : "0";
@@ -448,6 +414,9 @@
     "WWWWWWWWWWWWWWWWWWWW",
   ];
   const maze = $("#maze");
+  const MAZE_W = MAP[0].length, MAZE_H = MAP.length;
+  maze.style.setProperty("--cols", MAZE_W);
+  maze.style.setProperty("--rows", MAZE_H);
   const mazeCells = [];
   let start, goal;
   MAP.forEach((row, y) => [...row].forEach((ch, x) => {
@@ -461,7 +430,7 @@
   const runner = document.createElement("span");
   runner.className = "runner";
   maze.appendChild(runner);
-  const place = ([x, y]) => { runner.style.left = (x / 20) * 100 + "%"; runner.style.top = (y / 15) * 100 + "%"; };
+  const place = ([x, y]) => { runner.style.left = (x / MAZE_W) * 100 + "%"; runner.style.top = (y / MAZE_H) * 100 + "%"; };
   place(start);
   function bfs() {
     const key = (p) => p[0] + "," + p[1];
@@ -490,12 +459,11 @@
       return;
     }
     const [x, y] = path[step++];
-    if (MAP[y][x] === ".") mazeCells[y * 20 + x].classList.add("trail");
+    if (MAP[y][x] === ".") mazeCells[y * MAZE_W + x].classList.add("trail");
     place([x, y]);
     mazeTimer = setTimeout(runMaze, 150);
   };
 
-  // Only animate visuals while they're on screen
   const coverObs = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
       if (e.target === bits) {
@@ -525,7 +493,7 @@
 
   /* ---------- Experience: sticky year + current card ---------- */
   const yearBox = $("#exp-year");
-  let shownYear = "2026";
+  let shownYear = $("span", yearBox).textContent;
   function setYear(y) {
     if (y === shownYear) return;
     shownYear = y;
@@ -545,28 +513,6 @@
     });
   }, { rootMargin: "-40% 0px -55% 0px" });
   expItems.forEach((li) => expObs.observe(li));
-
-  /* ---------- Count-up numbers ---------- */
-  const fmt = (n, dec) => n.toLocaleString("en-GB", { minimumFractionDigits: dec, maximumFractionDigits: dec });
-  const countObs = new IntersectionObserver((entries) => {
-    entries.forEach((e) => {
-      if (!e.isIntersecting) return;
-      countObs.unobserve(e.target);
-      const el = e.target;
-      const end = parseFloat(el.dataset.count), dec = +(el.dataset.dec || 0);
-      const pre = el.dataset.prefix || "", suf = el.dataset.suffix || "";
-      if (reduce) return;
-      const t0 = performance.now(), dur = 1600;
-      const tick = (t) => {
-        const k = Math.min(1, (t - t0) / dur);
-        const eased = 1 - Math.pow(1 - k, 4);
-        el.textContent = pre + fmt(end * eased, dec) + suf;
-        if (k < 1) requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
-    });
-  }, { threshold: 0.4 });
-  $$("[data-count]").forEach((el) => countObs.observe(el));
 
   /* ---------- Copy email ---------- */
   const copyBtn = $("#copy-mail");
@@ -594,8 +540,8 @@
   }
 
   /* ---------- Smooth in-page links ----------
-     CSS scroll-behavior: smooth is off once JS runs (html.js): it made ScrollTrigger measure mid-scroll, so pinned
-     sections landed in the wrong place whenever the page loaded scrolled (a #link or a reload). */
+     CSS scroll-behavior: smooth is off once JS runs (html.js): it made ScrollTrigger measure mid-scroll whenever
+     the page loaded already scrolled (a #link or a reload). */
   document.addEventListener("click", (e) => {
     const a = e.target.closest('a[href^="#"]');
     if (!a || a.classList.contains("skip") || e.defaultPrevented) return;
@@ -610,242 +556,12 @@
   if (window.gsap && window.ScrollTrigger && !reduce) {
     gsap.registerPlugin(ScrollTrigger);
 
-    // Giant name drifts slower than the page, giving the hero depth.
     gsap.to(".hero-ghost", { yPercent: 28, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
 
     const mm = gsap.matchMedia();
     mm.add("(min-width: 961px)", () => {
-      // Experience progress line fills as you read down the timeline.
       gsap.to("#exp-progress", { scaleY: 1, ease: "none", scrollTrigger: { trigger: ".exp-list", start: "top 60%", end: "bottom 60%", scrub: true } });
-
     });
     document.fonts?.ready.then(() => ScrollTrigger.refresh());
   }
-})();
-
-/* ---------- Motion section: one controller for every film on the page ---------- */
-(function () {
-  const section = document.getElementById("motion");
-  if (!section) return;
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
-
-  // Only one film plays with sound at a time, across reels, the series and the Drive dialog.
-  const stopOthers = new Set();
-  const hushAll = (except) => stopOthers.forEach((fn) => fn !== except && fn());
-
-  // Muted loops play while on screen and pause when they leave.
-  const loopObs = new IntersectionObserver((entries) => {
-    entries.forEach(({ target: v, isIntersecting }) => {
-      if (!isIntersecting) { v.pause(); return; }
-      if (!reduce && !v.dataset.sound) v.play().catch(() => {});
-    });
-  }, { threshold: 0.35 });
-
-  /* Reels for small shops */
-  const reelVids = $$(".reel video", section);
-  const quiet = (v) => {
-    v.muted = true; v.loop = true; v.controls = false; delete v.dataset.sound;
-    v.closest(".reel").classList.remove("has-sound");
-  };
-  reelVids.forEach((v) => {
-    loopObs.observe(v);
-    const bar = v.closest(".reel").querySelector(".reel-progress span");
-    let raf = 0;
-    const tick = () => {
-      if (v.duration) bar.style.transform = `scaleX(${v.currentTime / v.duration})`;
-      raf = requestAnimationFrame(tick);
-    };
-    v.addEventListener("play", () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(tick); });
-    v.addEventListener("pause", () => cancelAnimationFrame(raf));
-    v.addEventListener("ended", () => { if (v.dataset.sound) quiet(v); v.play().catch(() => {}); });
-  });
-  const hushReels = () => reelVids.forEach((o) => { if (o.dataset.sound) quiet(o); });
-  stopOthers.add(hushReels);
-  $$(".reel-sound", section).forEach((btn) => btn.addEventListener("click", () => {
-    const v = btn.closest(".reel").querySelector("video");
-    hushAll(hushReels);
-    reelVids.forEach((o) => { if (o !== v && o.dataset.sound) quiet(o); });
-    v.dataset.sound = "1"; v.muted = false; v.loop = false; v.controls = true; v.currentTime = 0;
-    btn.closest(".reel").classList.add("has-sound");
-    v.play().catch(() => {});
-    v.focus({ preventScroll: true });
-  }));
-
-  /* Series (In My World, How so?): the cover strip picks the episode */
-  $$(".series", section).forEach((ser) => {
-    const video = ser.querySelector(".ser-video");
-    const playBtn = ser.querySelector(".ser-play");
-    const title = ser.querySelector(".ser-now-title");
-    const rule = ser.querySelector(".ser-now-rule span");
-    const meta = ser.querySelector(".ser-now-meta");
-    const prefix = ser.querySelector(".ser-eps").dataset.prefix;
-    const eps = $$(".ser-ep", ser);
-    const hush = () => { if (!video.paused) video.pause(); };
-    stopOthers.add(hush);
-    const start = () => {
-      hushAll(hush);
-      ser.classList.add("playing");
-      video.controls = true;
-      video.play().catch(() => {});
-    };
-    playBtn.addEventListener("click", start);
-    video.addEventListener("play", () => { hushAll(hush); ser.classList.add("playing"); video.controls = true; });
-    eps.forEach((ep) => ep.addEventListener("click", () => {
-      eps.forEach((o) => o.removeAttribute("aria-current"));
-      ep.setAttribute("aria-current", "true");
-      video.src = ep.dataset.src;
-      video.poster = ep.dataset.poster;
-      video.setAttribute("aria-label", `${prefix}, ${ep.dataset.title}`);
-      title.textContent = ep.dataset.title;
-      rule.textContent = ep.dataset.rule;
-      meta.textContent = ep.dataset.meta;
-      playBtn.querySelector("span").textContent = "Watch " + ep.dataset.title.split(" · ")[0];
-      start();
-      const box = video.getBoundingClientRect();
-      if (box.top < 60 || box.bottom > window.innerHeight) video.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
-    }));
-  });
-
-  /* Experiments: loops in the cards, the full film in a dialog (Drive's player or a local file) */
-  const dialog = document.getElementById("film-dialog");
-  const frame = dialog?.querySelector("iframe");
-  const filmVideo = dialog ? document.createElement("video") : null;
-  if (filmVideo) {
-    filmVideo.className = "fd-video"; filmVideo.controls = true; filmVideo.playsInline = true;
-    frame.after(filmVideo);
-  }
-  const dfVids = $$(".df video", section);
-  dfVids.forEach((v) => loopObs.observe(v));
-  let opener = null;
-  const closeFilm = () => { if (dialog?.open) dialog.close(); };
-  stopOthers.add(closeFilm);
-  $$(".df-frame", section).forEach((btn) => btn.addEventListener("click", () => {
-    const local = btn.dataset.video;
-    if (!dialog || typeof dialog.showModal !== "function") {
-      window.open(local || `https://drive.google.com/file/d/${btn.dataset.drive}/view`, "_blank", "noopener");
-      return;
-    }
-    hushAll(closeFilm);
-    opener = btn;
-    dialog.querySelector(".fd-title").textContent = btn.dataset.title;
-    dialog.classList.toggle("is-local", Boolean(local));
-    if (local) {
-      filmVideo.src = local;
-      filmVideo.setAttribute("aria-label", btn.dataset.title + ", full film");
-    } else {
-      frame.title = btn.dataset.title + ", full film";
-      frame.src = `https://drive.google.com/file/d/${btn.dataset.drive}/preview`;
-    }
-    dialog.showModal();
-    if (local) filmVideo.play().catch(() => {});
-  }));
-  dialog?.addEventListener("close", () => {
-    frame.src = "about:blank";
-    filmVideo.pause(); filmVideo.removeAttribute("src"); filmVideo.load();
-    opener?.focus({ preventScroll: true });
-  });
-  dialog?.addEventListener("click", (e) => { if (e.target === dialog) closeFilm(); });
-  document.getElementById("film-dialog-close")?.addEventListener("click", closeFilm);
-
-  /* Scroll-linked motion: timecode, pipeline and the shutter on the reels */
-  const tc = document.getElementById("motion-tc");
-  const pipeline = section.querySelector(".pipeline");
-  const steps = pipeline ? $$("li", pipeline) : [];
-  const TOTAL = 2177; // seconds of film in this section
-  const fmt = (t) => {
-    const s = Math.floor(t), f = Math.floor((t - s) * 24);
-    const p = (n) => String(n).padStart(2, "0");
-    return `${p(Math.floor(s / 3600))}:${p(Math.floor(s / 60) % 60)}:${p(s % 60)}:${p(f)}`;
-  };
-  if (reduce || !window.gsap || !window.ScrollTrigger) {
-    if (tc) tc.textContent = fmt(TOTAL);
-    steps.forEach((li) => li.classList.add("lit"));
-    if (pipeline) pipeline.style.setProperty("--fill", 1);
-    return;
-  }
-  gsap.registerPlugin(ScrollTrigger);
-  ScrollTrigger.create({
-    trigger: section, start: "top 80%", end: "bottom bottom",
-    onUpdate: (self) => { tc.textContent = fmt(self.progress * TOTAL); },
-  });
-  if (pipeline) {
-    ScrollTrigger.create({
-      trigger: pipeline, start: "top 85%", end: "top 40%", scrub: true,
-      onUpdate: (self) => {
-        const p = self.progress;
-        pipeline.style.setProperty("--fill", p.toFixed(3));
-        steps.forEach((li, i) => li.classList.toggle("lit", p >= i / (steps.length - 1) - 0.02));
-      },
-    });
-  }
-  const mm = gsap.matchMedia();
-  mm.add("(min-width: 861px)", () => {
-    $$(".reel-frame", section).forEach((el, i) => {
-      gsap.fromTo(el,
-        { clipPath: "inset(14% 10% 14% 10% round 16px)" },
-        { clipPath: "inset(0% 0% 0% 0% round 16px)", ease: "none",
-          scrollTrigger: { trigger: section.querySelector(".reels"), start: `top ${92 - i * 4}%`, end: `top ${45 - i * 4}%`, scrub: 0.6 } });
-      const v = el.querySelector("video");
-      gsap.fromTo(v, { scale: 1.18 }, { scale: 1, ease: "none",
-        scrollTrigger: { trigger: section.querySelector(".reels"), start: `top ${92 - i * 4}%`, end: `top ${45 - i * 4}%`, scrub: 0.6 } });
-    });
-    $$(".series", section).forEach((ser, i) => {
-      const tilt = i % 2 ? 2 : -2;
-      gsap.fromTo(ser.querySelector(".ser-screen"), { yPercent: 8, rotate: tilt }, { yPercent: -4, rotate: 0, ease: "none",
-        scrollTrigger: { trigger: ser, start: "top bottom", end: "bottom 30%", scrub: true } });
-    });
-  });
-})();
-
-/* ---------- Copywriting: before and after ---------- */
-(function () {
-  const ads = [...document.querySelectorAll(".rw")];
-  if (!ads.length) return;
-  const set = (ad, v) => {
-    ad.dataset.state = v;
-    ad.querySelectorAll(".rw-toggle button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.v === v)));
-    ad.querySelector(".rw-before")?.setAttribute("aria-hidden", String(v !== "before"));
-    ad.querySelector(".rw-after")?.setAttribute("aria-hidden", String(v !== "after"));
-  };
-  ads.forEach((ad) => ad.querySelectorAll(".rw-toggle button").forEach((b) => b.addEventListener("click", () => {
-    ad.dataset.touched = "1";
-    set(ad, b.dataset.v);
-  })));
-  // Show the "before" first, then flip once to the rewrite while it's on screen.
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(({ target: ad, isIntersecting }) => {
-      if (!isIntersecting) return;
-      obs.unobserve(ad);
-      setTimeout(() => { if (!ad.dataset.touched) set(ad, "after"); }, 1800);
-    });
-  }, { threshold: 0.4 });
-  ads.forEach((ad) => obs.observe(ad));
-  // Tabs: one ad on screen at a time.
-  const tabs = [...document.querySelectorAll(".rw-tabs [role=tab]")];
-  const pick = (t, focus) => {
-    tabs.forEach((x) => {
-      const on = x === t;
-      x.setAttribute("aria-selected", String(on));
-      x.tabIndex = on ? 0 : -1;
-      document.getElementById(x.getAttribute("aria-controls")).hidden = !on;
-    });
-    if (focus) t.focus();
-  };
-  tabs.forEach((t, i) => {
-    t.addEventListener("click", () => pick(t));
-    t.addEventListener("keydown", (e) => {
-      const d = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
-      if (d) { e.preventDefault(); pick(tabs[(i + d + tabs.length) % tabs.length], true); }
-    });
-  });
-})();
-
-/* ---------- Outside the terminal: the motion preview only plays when in view, and never with reduced motion ---------- */
-(function () {
-  const v = document.querySelector(".more-motion video");
-  if (!v) return;
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { v.removeAttribute("autoplay"); v.pause(); return; }
-  if (!("IntersectionObserver" in window)) return;
-  new IntersectionObserver(([e]) => { if (e.isIntersecting) v.play().catch(() => {}); else v.pause(); }, { threshold: 0.2 }).observe(v);
 })();

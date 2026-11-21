@@ -14,15 +14,15 @@
       intro: "Films I make to try a style I haven't used before.", wide: true }
   ];
 
-  const W = (n, file, name, rule, where, dur) => ({ track: "world", file: "world/" + file, poster: "world/world" + n + "-cover.jpg", wave: "world" + n + "-" + file.split("-").slice(1).join("-").replace(".mp4", ""), name: "World " + n + " · " + name, client: "In my world, <em>" + rule + "</em>", desc: "In my world, <em>" + rule + "</em>", format: "9:16 · set in the " + where, dur, tall: true, num: n });
-  const H = (n, file, name, q, dur) => ({ track: "howso", file: "howso/" + file, poster: "howso/howso-0" + n + "-cover.jpg", wave: file.replace(".mp4", ""), name: "Episode " + n + " · " + name, client: q, desc: q + " One question, answered with labelled diagrams in about 90 seconds.", format: "9:16 · Season 2", dur, tall: true, num: "0" + n });
+  const W = (n, file, name, rule, where, dur) => ({ track: "world", file: "world/" + file, poster: "world/world" + n + "-cover.jpg", name: "World " + n + " · " + name, short: name, client: "In my world, <em>" + rule + "</em>", setting: "Set in the " + where, desc: "In my world, <em>" + rule + "</em>", format: "9:16 · set in the " + where, dur, tall: true, num: n });
+  const H = (n, file, name, q, dur) => ({ track: "howso", file: "howso/" + file, poster: "howso/howso-0" + n + "-cover.jpg", name: "Episode " + n + " · " + name, short: name, client: q, desc: q + " One question, answered with labelled diagrams in about 90 seconds.", format: "9:16 · Season 2", dur, tall: true, num: "0" + n });
 
   const CLIPS = [
-    { track: "ads", file: "unfold-it.mp4", poster: "unfold-it.jpg", wave: "unfold-it", name: "One-line drawing", client: "Mess to idea", desc: "A crumpled scribble unfolds into a paper plane, then a light bulb, a song, a book and a home, all in one ink line.", format: "9:16", dur: 20, tall: true },
-    { track: "ads", file: "tilly-salon.mp4", poster: "tilly-salon.jpg", wave: "tilly-salon", name: "Cartoon explainer ad", client: "Tilly, AI front desk for salons", desc: "A cartoon explainer for Tilly, a made-up AI front desk that picks up the phone so salon staff don't have to.", format: "16:9", dur: 75 },
-    { track: "ads", file: "ashgrove-cinematic.mp4", poster: "ashgrove-cinematic.jpg", wave: "ashgrove-cinematic", name: "Cinematic product film", client: "Ashgrove Candle Co., Brooklyn", desc: "A slow, warm product film for a made-up candle maker in Brooklyn.", format: "16:9", dur: 33 },
-    { track: "ads", file: "miller-whiteboard.mp4", poster: "miller-whiteboard.jpg", wave: "miller-whiteboard", name: "Whiteboard explainer", client: "Miller Family Plumbing, Columbus", desc: "A hand-drawn whiteboard explainer for a made-up family plumber in Columbus, Ohio.", format: "16:9", dur: 32 },
-    { track: "ads", file: "blue-hour.mp4", poster: "blue-hour.jpg", wave: "blue-hour", name: "Inked 3D world", client: "Hill town", desc: "An inked 3D fly-through of a hill town at golden hour. At blue hour its windows light up in a wave while a rider watches.", format: "9:16", dur: 15, tall: true },
+    { track: "ads", file: "unfold-it.mp4", poster: "unfold-it.jpg", name: "One-line drawing", client: "Mess to idea", desc: "A crumpled scribble unfolds into a paper plane, then a light bulb, a song, a book and a home, all in one ink line.", format: "9:16", dur: 20, tall: true },
+    { track: "ads", file: "tilly-salon.mp4", poster: "tilly-salon.jpg", name: "Cartoon explainer ad", client: "Tilly, AI front desk for salons", desc: "A cartoon explainer for Tilly, a made-up AI front desk that picks up the phone so salon staff don't have to.", format: "16:9", dur: 75 },
+    { track: "ads", file: "ashgrove-cinematic.mp4", poster: "ashgrove-cinematic.jpg", name: "Cinematic product film", client: "Ashgrove Candle Co., Brooklyn", desc: "A slow, warm product film for a made-up candle maker in Brooklyn.", format: "16:9", dur: 33 },
+    { track: "ads", file: "miller-whiteboard.mp4", poster: "miller-whiteboard.jpg", name: "Whiteboard explainer", client: "Miller Family Plumbing, Columbus", desc: "A hand-drawn whiteboard explainer for a made-up family plumber in Columbus, Ohio.", format: "16:9", dur: 32 },
+    { track: "ads", file: "blue-hour.mp4", poster: "blue-hour.jpg", name: "Inked 3D world", client: "Hill town", desc: "An inked 3D fly-through of a hill town at golden hour. At blue hour its windows light up in a wave while a rider watches.", format: "9:16", dur: 15, tall: true },
 
     W("001", "world001-cold.mp4", "Cold", "being thought about keeps you warm.", "UK", 89.5),
     W("002", "world002-unsaid.mp4", "Unsaid", "every word you don't say becomes a letter.", "US", 79.5),
@@ -46,19 +46,10 @@
 
     { track: "exp", file: "keeper-loop.mp4", poster: "keeper-loop.jpg", name: "Keeper", client: "Hand-painted short film", desc: "A lighthouse, a storm and one small boat, in a hand-painted style. The preview loops here; the full film with sound is on Google Drive.", format: "16:9", dur: 49, loop: true, drive: "18zvr0xuk5kl_AqHbz5KitadBv5wbU2T3" },
     { track: "exp", file: "styles-loop.mp4", poster: "styles-loop.jpg", name: "Twelve styles, one minute", client: "Motion study", desc: "Twelve thinking words, each in its own technique: glass shader, halftone, particles, blueprint, Three.js voxels.", format: "1:1", dur: 60, loop: true, drive: "1LSrcfeM3NHrS66CU3hDH8ha2ZvuN0aYa" },
-    { track: "exp", file: "share-full.mp4", poster: "share-loop.jpg", name: "Before You Share", client: "Mid-century cartoon explainer", desc: "Three rules for stopping a rumour before your thumb sends it on: pause, check the source, and if in doubt, don't.", format: "16:9 · no sound", dur: 38 }
+    { track: "exp", file: "share-full.mp4", poster: "share-loop.jpg", name: "Before You Share", client: "Mid-century cartoon explainer", desc: "Three rules for stopping a rumour before your thumb sends it on: pause, check the source, and if in doubt, don't.", format: "16:9 · no sound", dur: 38, silent: true }
   ];
 
-  // lay clips out along each track
-  const GAP = 2;
-  const trackEnd = {};
-  CLIPS.forEach((c, i) => {
-    c.i = i;
-    const t = trackEnd[c.track] || 0;
-    c.start = t;
-    trackEnd[c.track] = t + c.dur + GAP;
-  });
-  const TOTAL = Math.max(...Object.values(trackEnd)) + 20;
+  CLIPS.forEach((c, i) => { c.i = i; });
 
   const $ = (id) => document.getElementById(id);
   const video = $("program"), monitor = $("monitor"), drive = $("drive");
@@ -95,14 +86,14 @@
     $("insp-swatch").style.background = t.c;
     $("insp-track").textContent = t.name;
     $("insp-name").textContent = c.name;
-    $("insp-client").innerHTML = c.track === "world" ? c.format.replace("9:16 · s", "S") : c.client;
+    $("insp-client").innerHTML = c.setting || c.client;
     $("insp-desc").innerHTML = c.desc;
     $("insp-format").textContent = c.format.split(" · ")[0];
     $("insp-length").textContent = fmt(c.dur);
     $("full-film").hidden = !c.drive;
     const ps = $("play-sound");
-    ps.hidden = c.file === "share-full.mp4" && !video.paused;
-    ps.querySelector("span").textContent = c.file === "share-full.mp4" ? "Play from the start" : "Play with sound";
+    ps.hidden = c.silent && !video.paused;
+    ps.querySelector("span").textContent = c.silent ? "Play from the start" : "Play with sound";
     document.querySelectorAll(".item").forEach((el) => el.classList.toggle("on", +el.dataset.i === c.i));
   }
 
@@ -203,8 +194,8 @@
           <li><button class="item" type="button" data-i="${c.i}" aria-label="Play ${c.name.replace(/"/g, "")}">
             <span class="item-thumb"><img src="${A}${c.poster}" alt="" loading="lazy"><span class="item-play" aria-hidden="true"><i class="ph-fill ph-play"></i></span></span>
             <span class="item-text">
-              <span class="item-t">${c.num ? `<span class="item-n">${c.num}</span>` : ""}${c.num ? c.name.split(" · ")[1] : c.name}</span>
-              <span class="item-s">${c.track === "world" || c.track === "howso" ? c.client : c.client}</span>
+              <span class="item-t">${c.num ? `<span class="item-n">${c.num}</span>` : ""}${c.short || c.name}</span>
+              <span class="item-s">${c.client}</span>
               <span class="item-d">${c.format.split(" · ")[0]} · ${fmt(c.dur)}</span>
             </span>
           </button></li>`).join("")}</ol>
@@ -283,5 +274,4 @@
     addEventListener("keydown", finish, { once: true });
   } else leader.remove();
   start();
-  addEventListener("resize", () => movePlayhead());
 })();

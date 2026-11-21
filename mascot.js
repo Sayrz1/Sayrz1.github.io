@@ -1,7 +1,7 @@
 /*
   Mini Sama: a chibi mascot that keeps you company down the page.
   She swaps props and lines per section, hops on changes, follows the
-  cursor with her eyes, naps when you go idle and shares a fact when clicked.
+  cursor with her eyes, naps when you go idle and invites you to work together when clicked.
 */
 (function () {
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -103,14 +103,14 @@
   root.className = "mascot";
   root.innerHTML = `
     <p class="m-bubble" role="status"></p>
-    <button class="m-btn" type="button" aria-label="Mini Sama, the site mascot. Press for a fun fact.">${SVG}</button>
+    <button class="m-btn" type="button" aria-label="Mini Sama, the site mascot. Press to say hi.">${SVG}</button>
     <button class="m-hide" type="button" aria-label="Hide Mini Sama"><i class="ph ph-x"></i></button>`;
   document.body.appendChild(root);
 
   const svg = $(".m-svg", root);
   const bubble = $(".m-bubble", root);
   const btn = $(".m-btn", root);
-  let bubbleT = 0, factIdx = 0, current = "";
+  let bubbleT = 0, inviteIdx = 0, current = "";
 
   function say(text, ms = 3600) {
     bubble.textContent = text;
@@ -120,7 +120,7 @@
   }
   function hop(cls = "hop") {
     if (reduce) return;
-    root.classList.remove("hop", "spin", "wiggle", "dance", "flip");
+    root.classList.remove(...MOVES);
     void root.offsetWidth;
     root.classList.add(cls);
   }
@@ -144,21 +144,18 @@
   const stageWrap = document.querySelector(".stage-wrap");
   if (stageWrap) new IntersectionObserver(([e]) => root.classList.toggle("tucked", e.isIntersecting), { threshold: 0.2 }).observe(stageWrap);
 
-  const secObs = new IntersectionObserver((entries) => {
-    entries.forEach((e) => {
-      if (!e.isIntersecting) return;
-      const s = SECTIONS[e.target.id];
-      if (s) setProp(s[0], s[1]);
-    });
-  }, { rootMargin: "-45% 0px -50% 0px" });
-  Object.keys(SECTIONS).forEach((id) => { const el = document.getElementById(id); if (el) secObs.observe(el); });
+  // script.js announces which section is being read.
+  document.addEventListener("section:change", ({ detail: id }) => {
+    const s = SECTIONS[id];
+    if (s) setProp(s[0], s[1]);
+  });
 
   btn.addEventListener("click", () => {
     wake();
     hop(MOVES[(Math.random() * MOVES.length) | 0]);
     root.classList.add("happy");
     setTimeout(() => root.classList.remove("happy"), 1200);
-    say(INVITES[factIdx++ % INVITES.length], 4200);
+    say(INVITES[inviteIdx++ % INVITES.length], 4200);
   });
 
   // Hide / bring back, remembered per visitor.
@@ -180,10 +177,13 @@
 
   // Nap after a while without activity.
   let idleT = 0;
-  function wake() {
-    if (root.classList.contains("sleep")) { root.classList.remove("sleep"); hop(); say("Huh? I wasn't sleeping.", 2400); }
+  function scheduleNap() {
     clearTimeout(idleT);
     idleT = setTimeout(() => { if (root.classList.contains("on")) { root.classList.add("sleep"); root.classList.remove("talk"); } }, 14000);
+  }
+  function wake() {
+    if (root.classList.contains("sleep")) { root.classList.remove("sleep"); hop(); say("Huh? I wasn't sleeping.", 2400); }
+    scheduleNap();
   }
   ["scroll", "pointerdown", "keydown"].forEach((ev) => window.addEventListener(ev, wake, { passive: true }));
   wake();
@@ -200,9 +200,7 @@
         const dx = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width / 2)) / 500));
         const dy = Math.max(-1, Math.min(1, (e.clientY - (r.top + r.height * 0.4)) / 500));
         gaze.style.transform = `translate(${(dx * 1.6).toFixed(2)}px, ${(dy * 1.4).toFixed(2)}px)`;
-        if (root.classList.contains("sleep")) return;
-        clearTimeout(idleT);
-        idleT = setTimeout(() => { if (root.classList.contains("on")) { root.classList.add("sleep"); root.classList.remove("talk"); } }, 14000);
+        if (!root.classList.contains("sleep")) scheduleNap();
       });
     }, { passive: true });
   }
