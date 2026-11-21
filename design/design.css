@@ -237,6 +237,9 @@ body[data-brand="greggs"] { --bg: #003C6C; --ink: #FFFFFF; --accent: #FAB622; --
 .b-note { font-size: 15px !important; padding-top: 14px; border-top: 1px solid var(--line); }
 .f-ubuntu { font-family: "Ubuntu", sans-serif; font-weight: 700; letter-spacing: -0.02em; }
 body[data-brand="monzo"] { --bg: #0F1A2B; --ink: #FFFFFF; --accent: #F0533A; --on-accent: #0F1A2B; }
+body[data-brand="rand"] { --bg: #23403A; --ink: #E8DBC3; --accent: #D2A774; --on-accent: #23403A; }
+.f-quick { font-family: "Quicksand", sans-serif; font-weight: 700; letter-spacing: -0.01em; }
+body[data-brand="plug-brew"] { --bg: #1E2327; --ink: #EFE7DA; --accent: #00B3A5; --on-accent: #1E2327; }
 
 /* ---------- Distilled layout: less scroll ---------- */
 /* Hero: copy left, ring image right */
