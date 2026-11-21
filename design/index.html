@@ -12,7 +12,7 @@
   <meta property="og:image" content="https://sayrz1.github.io/assets/og/design.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Sama Eldesouki, graphic design: a ring of social posts from five brands around a figure in the dark.">
+  <meta property="og:image:alt" content="Sama Eldesouki, graphic design: a ring of social posts from nine brands around a figure in the dark.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Graphic design · Sama Eldesouki">
   <meta name="twitter:description" content="9 concept brands, one idea each: Salt & Gull, Drizzle, Naseeg, Ghasaq, Wathba, Rand, Plug & Brew, Greggs and Monzo.">
@@ -25,14 +25,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Amiri:wght@700&family=Aref+Ruqaa:wght@700&family=Bebas+Neue&family=Cairo:wght@700;900&family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@400;500;600&family=Lilita+One&family=Montserrat:wght@900&family=Quicksand:wght@700&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
   <link rel="stylesheet" href="design.css">
-  <script>document.documentElement.classList.add("js");</script>
+  <script>(function (d) { d.classList.add("js"); var t; try { t = localStorage.getItem("theme"); } catch (e) {} d.dataset.theme = t || (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark"); })(document.documentElement);</script>
 </head>
 <body>
   <a class="skip" href="#brands">Skip to the brands</a>
 
   <header class="top">
     <a class="brand-link" href="../" aria-label="Sama Eldesouki, home"><span class="brand-mark">SE</span><span class="brand-text">Sama Eldesouki</span></a>
-    <a class="btn" href="mailto:s.ayrzpersonal@gmail.com?subject=A%20brand%20identity">Start a brand</a>
+    <div class="top-actions">
+      <button class="icon-btn theme-btn" id="theme-toggle" type="button" aria-label="Switch to light mode"><i class="ph ph-sun" aria-hidden="true"></i></button>
+      <a class="btn" href="mailto:s.ayrzpersonal@gmail.com?subject=A%20brand%20identity">Start a brand</a>
+    </div>
   </header>
 
   <main>

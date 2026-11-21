@@ -5,14 +5,36 @@
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const brands = $$(".brand");
   const themeMeta = $('meta[name="theme-color"]');
-  const studio = themeMeta.content;
+  const root = document.documentElement;
+  const studioBg = () => getComputedStyle(root).getPropertyValue("--bg").trim();
+
+  /* ---------- Theme: same saved choice as the homepage ---------- */
+  const themeBtn = $("#theme-toggle");
+  const syncTheme = () => {
+    const dark = root.dataset.theme !== "light";
+    themeBtn.innerHTML = `<i class="ph ${dark ? "ph-sun" : "ph-moon"}" aria-hidden="true"></i>`;
+    themeBtn.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+    if (!document.body.dataset.brand) themeMeta.content = studioBg();
+  };
+  const setTheme = (t) => { root.dataset.theme = t; syncTheme(); };
+  themeBtn.addEventListener("click", () => {
+    const next = root.dataset.theme === "light" ? "dark" : "light";
+    try { localStorage.setItem("theme", next); } catch (e) {}
+    setTheme(next);
+  });
+  matchMedia("(prefers-color-scheme: light)").addEventListener("change", (e) => {
+    let saved = null;
+    try { saved = localStorage.getItem("theme"); } catch (err) {}
+    if (!saved) setTheme(e.matches ? "light" : "dark");
+  });
+  syncTheme();
 
   /* ---------- One brand at a time: #<brand> opens it, anything else shows the overview ---------- */
   const hero = $(".hero"), overview = $(".overview");
   const setBrand = (el) => {
     if (el) document.body.dataset.brand = el.dataset.brand;
     else delete document.body.dataset.brand;
-    themeMeta.content = el ? el.dataset.meta : studio;
+    themeMeta.content = el ? el.dataset.meta : studioBg();
   };
   let lastBrand = null;
   const route = () => {

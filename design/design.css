@@ -126,7 +126,7 @@ html:not(.js) .b-panel + .b-panel { margin-top: 64px; }
 .filter-show { padding-left: 16px; font-size: 15px; color: var(--muted); }
 .filter-select { appearance: none; -webkit-appearance: none; min-height: 44px; padding: 8px 40px 8px 8px; border: 0; background: transparent; color: var(--ink); font: 600 15px/1 var(--sans); cursor: pointer; }
 .filter-select:focus-visible { outline: none; }
-.filter-select option, .filter-select optgroup { background: #15141a; color: #f1ece3; }
+.filter-select option, .filter-select optgroup { background: var(--bg); color: var(--ink); }
 .filter-pick i { position: absolute; right: 14px; pointer-events: none; font-size: 15px; }
 .overview-head + .cards, .overview-head { margin-bottom: 24px; }
 .cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: clamp(16px, 2vw, 24px); }
@@ -282,3 +282,12 @@ body[data-brand="plug-brew"] { --bg: #1E2327; --ink: #EFE7DA; --accent: #00B3A5;
   .b-cover { order: -1; }
 }
 @media (max-width: 560px) { .hero h1 { font-size: 50px; } .hero-sub { font-size: 16px; margin-top: 14px; } .overview { padding-top: 24px; } }
+
+/* ---------- Light mode: the studio goes light, brand views keep their own colours ---------- */
+:root[data-theme="light"] { --bg: #F3EFE8; --ink: #16141B; --accent: #16141B; --on-accent: #F3EFE8; color-scheme: light; }
+.top-actions { display: flex; align-items: center; gap: 10px; }
+.is-brand .theme-btn { display: none; }
+:root[data-theme="light"] .hero-art { -webkit-mask-image: none; mask-image: none; border-radius: 20px; overflow: hidden; box-shadow: 0 40px 80px -48px rgb(40 28 16 / .55); }
+:root[data-theme="light"] body:not([data-brand]) .card a { background: #FFFFFF; box-shadow: 0 1px 0 rgb(40 28 16 / .06), 0 22px 44px -32px rgb(40 28 16 / .45); }
+:root[data-theme="light"] body:not([data-brand]) .card a:hover { box-shadow: 0 1px 0 rgb(40 28 16 / .06), 0 32px 54px -30px rgb(40 28 16 / .5); }
+:root[data-theme="light"] .card-ar { color: color-mix(in srgb, var(--c) 45%, var(--ink)); }
