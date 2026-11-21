@@ -168,50 +168,6 @@ kbd { font: 600 11px var(--mono); padding: 3px 6px; border-radius: 5px; border: 
 
 /* ---------- Timeline ---------- */
 .panel-title { font: 800 15px var(--mono); text-transform: uppercase; letter-spacing: .14em; margin: 0; color: var(--chalk); }
-.timeline-panel { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
-.tl-head { display: flex; align-items: center; gap: 16px 24px; padding: 14px 18px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
-.tl-hint { margin: 0; color: var(--chalk-2); font-size: 14px; }
-.zoom { margin-left: auto; display: flex; align-items: center; gap: 8px; color: var(--chalk-3); min-height: 44px; }
-.zoom input { width: 120px; accent-color: var(--ember); }
-
-.tl { display: grid; grid-template-columns: 132px 1fr; }
-.tl-labels { border-right: 1px solid var(--line); padding-top: 30px; background: var(--panel); position: relative; z-index: 2; }
-.tl-label { height: 96px; padding: 12px 12px; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; justify-content: center; gap: 4px; }
-.tl-label b { font: 600 12px var(--mono); display: flex; align-items: center; gap: 7px; }
-.tl-label b::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--c); }
-.tl-label span { font-size: 13px; color: var(--chalk-3); line-height: 1.3; }
-.tl-scroll { overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; }
-.tl-canvas { position: relative; min-width: 100%; cursor: crosshair; }
-.ruler { height: 30px; position: relative; border-bottom: 1px solid var(--line); background: var(--panel-2); }
-.tick { position: absolute; top: 0; bottom: 0; border-left: 1px solid var(--line); }
-.tick span { position: absolute; left: 5px; top: 7px; font: 400 11px var(--mono); color: var(--chalk-3); white-space: nowrap; font-variant-numeric: tabular-nums; }
-.tick.minor { top: 20px; }
-.track { height: 96px; position: relative; border-bottom: 1px solid var(--line); }
-.clip {
-  position: absolute; top: 8px; bottom: 8px;
-  border-radius: 7px; overflow: hidden; cursor: pointer; padding: 0; border: 0;
-  background: var(--c); display: flex; flex-direction: column; text-align: left;
-  transition: filter .2s, box-shadow .2s;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .35);
-}
-.clip:hover { filter: brightness(1.1); }
-.clip.on { box-shadow: inset 0 0 0 2px var(--chalk), 0 6px 18px -6px rgba(0, 0, 0, .7); }
-.clip-v {
-  flex: 1 1 auto; min-height: 0;
-  background-repeat: repeat-x; background-size: auto 100%; background-position: 0 0;
-  border-bottom: 1px solid rgba(0, 0, 0, .3);
-  position: relative;
-}
-.clip-v::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, color-mix(in srgb, var(--c) 55%, transparent), transparent 60%); }
-.clip-name { position: absolute; left: 6px; top: 5px; z-index: 1; font: 600 11px var(--mono); color: #fff; text-shadow: 0 1px 3px rgba(0, 0, 0, .9); white-space: nowrap; max-width: calc(100% - 10px); overflow: hidden; text-overflow: ellipsis; }
-.clip-a { height: 26px; flex: none; background-color: color-mix(in srgb, var(--c) 30%, #120f0d); background-size: 100% 100%; background-repeat: no-repeat; opacity: .95; }
-.clip-a.none { background-image: none !important; }
-.playhead { position: absolute; top: 0; bottom: 0; width: 2px; margin-left: -1px; background: var(--ember); pointer-events: none; z-index: 3; left: 0; }
-.playhead span { position: absolute; top: 0; left: -7px; width: 16px; height: 18px; background: var(--ember); clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%); }
-.skim { position: absolute; top: 0; bottom: 0; width: 1px; background: rgba(236, 229, 214, .7); pointer-events: none; z-index: 4; opacity: 0; }
-.skim.on { opacity: 1; }
-.skim span { position: absolute; top: 4px; left: 6px; white-space: nowrap; font: 600 11px var(--mono); background: var(--chalk); color: var(--soot); padding: 3px 6px; border-radius: 4px; }
-.skim.flip span { left: auto; right: 6px; }
 
 /* ---------- Pipeline ---------- */
 .pipeline-panel { margin-top: 56px; }
@@ -301,10 +257,6 @@ kbd { font: 600 11px var(--mono); padding: 3px 6px; border-radius: 5px; border: 
   .stage { padding-top: 16px; gap: 22px; }
   .monitor.tall { aspect-ratio: 4 / 5; }
   .keys { display: none; }
-  .tl { grid-template-columns: 92px 1fr; }
-  .tl-label span { display: none; }
-  .tl-label b { font-size: 11px; }
-  .zoom { margin-left: 0; }
   .pipeline { grid-template-columns: 1fr 1fr; }
   .pipeline li:nth-child(3) { padding-left: 0; border-left: 0; }
   .pipeline li { border-bottom: 1px solid var(--line); padding-bottom: 16px; }

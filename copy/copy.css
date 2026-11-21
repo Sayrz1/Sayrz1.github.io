@@ -111,9 +111,6 @@ h1 { margin: 0; font: 700 clamp(44px, 7.4vw, 96px)/1.02 var(--typed); letter-spa
 .pair .sheet { padding: 22px 26px 30px; min-height: 100%; }
 .before { transform: rotate(-1deg); background-color: #f4efe2; }
 .after { transform: rotate(.6deg); }
-.file { margin: 0 0 14px; font: 400 13px var(--typed); color: #6d665a; letter-spacing: .04em; padding-bottom: 8px; border-bottom: 1px dashed var(--paper-line); }
-.typed { margin: 0; font: 400 17px/1.75 var(--typed); }
-.before .typed { color: #57514a; }
 .hit { position: relative; }
 .hit::after {
   content: attr(data-note);
@@ -123,15 +120,12 @@ h1 { margin: 0; font: 700 clamp(44px, 7.4vw, 96px)/1.02 var(--typed); letter-spa
   pointer-events: none;
 }
 .inked .hit::after { opacity: 1; }
-.before .typed { line-height: 2.5; }
 mark { background: linear-gradient(var(--hl), var(--hl)) no-repeat 0 85% / 0% 70%; color: inherit; padding: 0 2px; transition: background-size .8s var(--ease); position: relative; }
 .inked mark { background-size: 100% 70%; }
 .inked mark:nth-of-type(2) { transition-delay: .25s; }
 .inked mark:nth-of-type(3) { transition-delay: .5s; }
 mark::after { content: attr(data-n); position: relative; top: -.7em; margin-left: 3px; font: 700 16px/1 var(--pen); color: var(--red); }
 .tags { color: var(--blue); }
-.g-url { font-size: 14px; color: #3f6b3f; }
-.fake-btn { display: inline-block; margin-top: 10px; padding: 2px 10px; border: 2px solid var(--ink); border-radius: 6px; font-weight: 700; }
 .stamp-sm { position: absolute; right: 18px; bottom: -14px; background: var(--paper); font-size: 14px; transform: rotate(-8deg); }
 
 .for { margin: 30px 0 0; max-width: 72ch; color: var(--desk-ink-2); }
@@ -195,7 +189,6 @@ mark::after { content: attr(data-n); position: relative; top: -.7em; margin-left
   .hero { transform: none; }
   .top .btn { padding: 0 14px; font-size: 15px; }
   .brand span:last-child { display: none; }
-  .typed { font-size: 16px; }
   .circled { white-space: normal; }
   .envelope::after { width: 44px; height: 54px; right: 16px; top: 14px; }
 }
@@ -301,7 +294,7 @@ html, body { overflow-x: clip; }
 .rewrites .before .mock-label { background: #c8231a; color: #fff; }
 .rewrites .before { transform: rotate(-.8deg) scale(.97); transform-origin: top center; }
 .rewrites .before img { filter: grayscale(1) contrast(.85) brightness(1.05); }
-.rewrites .before .g-h, .rewrites .before .g-av, .rewrites .before .g-bar .g-logo { color: #80868b !important; }
+.rewrites .before .g-h, .rewrites .before .g-bar .g-logo { color: #80868b !important; }
 .rewrites .serp.before, .rewrites .browser.before, .rewrites .before .br-page, .rewrites .before .ig, .rewrites .before .fb { background-color: #e9e7e1; }
 .rewrites .after { outline: 4px solid #ffe25a; outline-offset: 6px; transform: rotate(.6deg) scale(1.01); box-shadow: 0 40px 70px -40px rgba(0,0,0,.8); }
 .rewrites .phone.after { outline: none; }
