@@ -564,4 +564,22 @@
     });
     document.fonts?.ready.then(() => ScrollTrigger.refresh());
   }
+
+  /* ---------- More tiles: the browser flicks between the live shop sites ---------- */
+  const browser = $(".mt-web .browser");
+  if (browser && !reduce) {
+    const shots = $$(".browser-view img", browser);
+    const url = $(".browser-url", browser);
+    let at = 0, timer = null;
+    const step = () => {
+      shots[at].classList.remove("is-on");
+      at = (at + 1) % shots.length;
+      shots[at].classList.add("is-on");
+      url.textContent = shots[at].dataset.url;
+    };
+    new IntersectionObserver(([e]) => {
+      clearInterval(timer);
+      if (e.isIntersecting) timer = setInterval(step, 2600);
+    }).observe(browser);
+  }
 })();
