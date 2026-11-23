@@ -18,6 +18,7 @@
   const H = (n, file, name, q, dur) => ({ track: "howso", file: "howso/" + file, poster: "howso/howso-0" + n + "-cover.jpg", name: "Episode " + n + " · " + name, short: name, client: q, desc: q + " One question, answered with labelled diagrams in about 90 seconds.", format: "9:16 · Season 2", dur, tall: true, num: "0" + n });
 
   const CLIPS = [
+    { track: "ads", file: "motion-showreel.mp4", poster: "motion-showreel.jpg", name: "Motion showreel", client: "Six looks, one dot", desc: "One orange dot travels through six looks in 30 seconds: Swiss grid, riso print, blueprint, paper diorama, collage, then glass and light. It ends as the full stop on the final line.", format: "9:16", dur: 30, tall: true },
     { track: "ads", file: "unfold-it.mp4", poster: "unfold-it.jpg", name: "One-line drawing", client: "Mess to idea", desc: "A crumpled scribble unfolds into a paper plane, then a light bulb, a song, a book and a home, all in one ink line.", format: "9:16", dur: 20, tall: true },
     { track: "ads", file: "tilly-salon.mp4", poster: "tilly-salon.jpg", name: "Cartoon explainer ad", client: "Tilly, AI front desk for salons", desc: "A cartoon explainer for Tilly, a made-up AI front desk that picks up the phone so salon staff don't have to.", format: "16:9", dur: 75 },
     { track: "ads", file: "ashgrove-cinematic.mp4", poster: "ashgrove-cinematic.jpg", name: "Cinematic product film", client: "Ashgrove Candle Co., Brooklyn", desc: "A slow, warm product film for a made-up candle maker in Brooklyn.", format: "16:9", dur: 33 },
