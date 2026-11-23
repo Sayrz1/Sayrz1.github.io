@@ -55,13 +55,15 @@
   addEventListener("resize", pick);
   pick();
 
-  /* ---------- Filters: food & drink, lifestyle, services, or one language ---------- */
-  const filters = $$(".filter");
+  /* ---------- Language: dims the other language in the index, hides it in the reel ---------- */
+  const langBtns = $$(".lang button");
+  const ixItems = $$(".index li");
   const chipItems = $$(".jump li");
-  filters.forEach((btn) => btn.addEventListener("click", () => {
-    const v = btn.dataset.filter;
-    const fits = (el) => v === "all" || el.dataset.sector === v || el.dataset.lang === v;
-    filters.forEach((f) => f.setAttribute("aria-pressed", f === btn ? "true" : "false"));
+  langBtns.forEach((btn) => btn.addEventListener("click", () => {
+    const v = btn.dataset.lang;
+    const fits = (el) => v === "all" || el.dataset.lang === v;
+    langBtns.forEach((x) => x.setAttribute("aria-pressed", x === btn ? "true" : "false"));
+    ixItems.forEach((li) => li.classList.toggle("is-dim", !fits(li)));
     brands.forEach((b) => { b.hidden = !fits(b); });
     chipItems.forEach((li) => { li.hidden = !fits(li); });
     pick();

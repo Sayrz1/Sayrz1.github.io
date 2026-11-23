@@ -85,15 +85,29 @@ ul { list-style: none; margin: 0; padding: 0; }
 .icon-btn:hover { border-color: var(--ink); }
 
 /* ---------- Hero: just the line, then straight into the work ---------- */
-.hero { max-width: var(--max); margin: 0 auto; padding: clamp(120px, 16vh, 180px) var(--gutter) clamp(48px, 7vh, 80px); }
+.hero { max-width: var(--max); margin: 0 auto; padding: clamp(112px, 14vh, 160px) var(--gutter) clamp(56px, 8vh, 96px); }
 .hero-copy { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
 .hero h1 { margin: 0; font: 400 clamp(3.5rem, 8vw, 6rem)/.9 var(--display); letter-spacing: .005em; text-wrap: balance; }
 .hero-go { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-weight: 500; text-decoration: none; border-bottom: 1.5px solid currentColor; padding-bottom: 2px; }
-.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-top: clamp(28px, 4vw, 44px); }
-.filter { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 6px 16px; border-radius: 999px; border: 1.5px solid color-mix(in srgb, var(--ink) 22%, transparent); background: transparent; cursor: pointer; font-size: 15px; font-weight: 500; transition: border-color .25s, background-color .25s, color .25s; }
-.filter:hover { border-color: var(--ink); }
-.filter[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
-.filter-n { opacity: .6; font-variant-numeric: tabular-nums; }
+/* Language switch */
+.lang { display: inline-flex; padding: 4px; border-radius: 999px; border: 1.5px solid color-mix(in srgb, var(--ink) 20%, transparent); }
+.lang button { min-height: 38px; padding: 6px 16px; border: 0; border-radius: 999px; background: transparent; cursor: pointer; font-size: 15px; font-weight: 500; opacity: .7; transition: background-color .25s, color .25s, opacity .25s; }
+.lang button:hover { opacity: 1; }
+.lang button[aria-pressed="true"] { opacity: 1; background: var(--ink); color: var(--bg); }
+
+/* The index: every brand as a small cover, grouped by kind of business */
+.index { --ix-gap: 14px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px var(--ix-gap); margin-top: clamp(36px, 5vw, 56px); }
+.ix-group { min-width: 0; }
+.ix-food { grid-column: 1 / -1; }
+.ix-h { margin: 0 0 12px; font: 400 18px/1 var(--display); letter-spacing: .14em; text-transform: uppercase; color: color-mix(in srgb, var(--ink) 70%, var(--bg)); }
+.ix-group ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--ix-gap); }
+.ix-food ul { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.ix { display: block; text-decoration: none; }
+.ix img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 8px; box-shadow: 0 14px 28px -20px rgb(0 0 0 / .6); transition: transform .5s var(--ease); }
+.ix:hover img { transform: translateY(-4px); }
+.ix-name { display: block; margin-top: 8px; font-size: 15px; font-weight: 600; }
+.index li { transition: opacity .35s var(--ease); }
+.index li.is-dim { opacity: .22; }
 .brand[hidden], .jump li[hidden] { display: none; }
 .hero-go i { transition: transform .4s var(--ease); }
 .hero-go:hover i { transform: translateY(4px); }
@@ -205,6 +219,10 @@ ul { list-style: none; margin: 0; padding: 0; }
 @media (max-width: 700px) {
   .brand-text { display: none; }
   .hero { padding-top: 150px; }
+  .index { grid-template-columns: 1fr; gap: 24px; }
+  .ix-group ul, .ix-food ul { display: flex; overflow-x: auto; scrollbar-width: none; margin: 0 calc(var(--gutter) * -1); padding: 0 var(--gutter) 4px; scroll-padding-inline: var(--gutter); scroll-snap-type: x proximity; }
+  .ix-group li { flex: none; width: 168px; scroll-snap-align: start; }
+  .ix-name { font-size: 14px; }
   .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .grid .lead { grid-column: auto; grid-row: auto; }
   .post { border-radius: 8px; }

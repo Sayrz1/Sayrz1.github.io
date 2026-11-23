@@ -33,7 +33,7 @@
   <header class="top">
     <a class="brand-link" href="../" aria-label="Sama Eldesouki, home"><span class="brand-mark">SE</span><span class="brand-text">Sama Eldesouki</span></a>
     <nav class="jump" aria-label="Brands">
-      <ul><li data-sector="food" data-lang="en"><a class="chip" href="#salt-gull" data-for="salt-gull"><span class="f-alfa">Salt &amp; Gull</span></a></li><li data-sector="food" data-lang="en"><a class="chip" href="#drizzle" data-for="drizzle"><span class="f-lilita">Drizzle</span></a></li><li data-sector="food" data-lang="ar"><a class="chip" href="#naseeg" data-for="naseeg"><span class="f-cairo">Naseeg</span> <span class="chip-ar f-cairo" lang="ar" dir="rtl">نسيج</span></a></li><li data-sector="life" data-lang="ar"><a class="chip" href="#ghasaq" data-for="ghasaq"><span class="f-bebas f-wide">Ghasaq</span> <span class="chip-ar f-ruqaa" lang="ar" dir="rtl">غسق</span></a></li><li data-sector="life" data-lang="ar"><a class="chip" href="#wathba" data-for="wathba"><span class="f-cairo">Wathba</span> <span class="chip-ar f-cairo" lang="ar" dir="rtl">وثبة</span></a></li><li data-sector="services" data-lang="ar"><a class="chip" href="#rand" data-for="rand"><span class="f-bebas f-wide">Rand</span> <span class="chip-ar f-ruqaa" lang="ar" dir="rtl">رند</span></a></li><li data-sector="services" data-lang="en"><a class="chip" href="#plug-brew" data-for="plug-brew"><span class="f-quick">Plug &amp; Brew</span></a></li><li data-sector="life" data-lang="en"><a class="chip" href="#muddlezoo" data-for="muddlezoo"><span class="f-fredoka">Muddlezoo</span></a></li><li data-sector="food" data-lang="ar"><a class="chip" href="#fahm" data-for="fahm"><span class="f-bebas f-wide">Fahm</span> <span class="chip-ar f-cairo" lang="ar" dir="rtl">فحم</span></a></li><li data-sector="food" data-lang="en"><a class="chip" href="#greggs" data-for="greggs"><span class="f-mont">Greggs</span></a></li><li data-sector="services" data-lang="en"><a class="chip" href="#monzo" data-for="monzo"><span class="f-ubuntu">Monzo</span></a></li></ul>
+      <ul><li data-sector="food" data-lang="en"><a class="chip" href="#salt-gull" data-for="salt-gull"><span class="f-alfa">Salt &amp; Gull</span></a></li><li data-sector="food" data-lang="en"><a class="chip" href="#drizzle" data-for="drizzle"><span class="f-lilita">Drizzle</span></a></li><li data-sector="food" data-lang="ar"><a class="chip" href="#naseeg" data-for="naseeg"><span class="f-cairo">Naseeg</span> <span class="chip-ar f-cairo" lang="ar" dir="rtl">نسيج</span></a></li><li data-sector="food" data-lang="ar"><a class="chip" href="#fahm" data-for="fahm"><span class="f-bebas f-wide">Fahm</span> <span class="chip-ar f-cairo" lang="ar" dir="rtl">فحم</span></a></li><li data-sector="food" data-lang="en"><a class="chip" href="#greggs" data-for="greggs"><span class="f-mont">Greggs</span></a></li><li data-sector="life" data-lang="ar"><a class="chip" href="#ghasaq" data-for="ghasaq"><span class="f-bebas f-wide">Ghasaq</span> <span class="chip-ar f-ruqaa" lang="ar" dir="rtl">غسق</span></a></li><li data-sector="life" data-lang="ar"><a class="chip" href="#wathba" data-for="wathba"><span class="f-cairo">Wathba</span> <span class="chip-ar f-cairo" lang="ar" dir="rtl">وثبة</span></a></li><li data-sector="life" data-lang="en"><a class="chip" href="#muddlezoo" data-for="muddlezoo"><span class="f-fredoka">Muddlezoo</span></a></li><li data-sector="services" data-lang="ar"><a class="chip" href="#rand" data-for="rand"><span class="f-bebas f-wide">Rand</span> <span class="chip-ar f-ruqaa" lang="ar" dir="rtl">رند</span></a></li><li data-sector="services" data-lang="en"><a class="chip" href="#plug-brew" data-for="plug-brew"><span class="f-quick">Plug &amp; Brew</span></a></li><li data-sector="services" data-lang="en"><a class="chip" href="#monzo" data-for="monzo"><span class="f-ubuntu">Monzo</span></a></li></ul>
     </nav>
     <div class="top-actions">
       <button class="icon-btn theme-btn" id="theme-toggle" type="button" aria-label="Switch to light mode"><i class="ph ph-sun" aria-hidden="true"></i></button>
@@ -45,9 +45,71 @@
     <section class="hero" aria-labelledby="title">
       <div class="hero-copy">
         <h1 id="title">Eleven brands.<br>One idea each.</h1>
-        <a class="hero-go" href="#salt-gull">See the work <i class="ph ph-arrow-down" aria-hidden="true"></i></a>
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" data-lang="all" aria-pressed="true">Both</button><button type="button" data-lang="en" aria-pressed="false">English</button><button type="button" data-lang="ar" aria-pressed="false">Arabic</button>
+        </div>
       </div>
-      <div class="filters" role="group" aria-label="Show brands"><button class="filter" type="button" data-filter="all" aria-pressed="true">All <span class="filter-n">11</span></button><button class="filter" type="button" data-filter="food" aria-pressed="false">Food &amp; drink <span class="filter-n">5</span></button><button class="filter" type="button" data-filter="life" aria-pressed="false">Lifestyle <span class="filter-n">3</span></button><button class="filter" type="button" data-filter="services" aria-pressed="false">Services <span class="filter-n">3</span></button><button class="filter" type="button" data-filter="en" aria-pressed="false">English <span class="filter-n">6</span></button><button class="filter" type="button" data-filter="ar" aria-pressed="false">Arabic <span class="filter-n">5</span></button></div>
+      <nav class="index" aria-label="All brands">
+        <div class="ix-group ix-food">
+          <h2 class="ix-h">Food &amp; drink</h2>
+          <ul>
+            <li data-lang="en"><a class="ix" href="#salt-gull">
+              <img src="../assets/design/salt-gull/cover-960.webp" width="960" height="540" alt="" loading="lazy" decoding="async">
+              <span class="ix-name">Salt &amp; Gull</span>
+            </a></li>
+            <li data-lang="en"><a class="ix" href="#drizzle">
+              <img src="../assets/design/drizzle/cover-960.webp" width="960" height="540" alt="" loading="lazy" decoding="async">
+              <span class="ix-name">Drizzle</span>
+            </a></li>
+            <li data-lang="ar"><a class="ix" href="#naseeg">
+              <img src="../assets/design/naseeg/cover-960.webp" width="960" height="540" alt="" loading="lazy" decoding="async">
+              <span class="ix-name">Naseeg</span>
+            </a></li>
+            <li data-lang="ar"><a class="ix" href="#fahm">
+              <img src="../assets/design/fahm/cover-960.webp" width="960" height="540" alt="" loading="lazy" decoding="async">
+              <span class="ix-name">Fahm</span>
+            </a></li>
+            <li data-lang="en"><a class="ix" href="#greggs">
+              <img src="../assets/design/greggs/cover-960.webp" width="960" height="540" alt="" loading="lazy" decoding="async">
+              <span class="ix-name">Greggs</span>
+            </a></li>
+          </ul>
+        </div>
+        <div class="ix-group ix-life">
+          <h2 class="ix-h">Lifestyle</h2>
+          <ul>
+            <li data-lang="ar"><a class="ix" href="#ghasaq">
+              <img src="../assets/design/ghasaq/cover-960.webp" width="960" height="540" alt="" loading="lazy" decoding="async">
+              <span class="ix-name">Ghasaq</span>
+            </a></li>
+            <li data-lang="ar"><a class="ix" href="#wathba">
+              <img src="../assets/design/wathba/cover-960.webp" width="960" height="540" alt="" loading="lazy" decoding="async">
+              <span class="ix-name">Wathba</span>
+            </a></li>
+            <li data-lang="en"><a class="ix" href="#muddlezoo">
+              <img src="../assets/design/muddlezoo/cover-960.webp" width="960" height="540" alt="" loading="lazy" decoding="async">
+              <span class="ix-name">Muddlezoo</span>
+            </a></li>
+          </ul>
+        </div>
+        <div class="ix-group ix-services">
+          <h2 class="ix-h">Services</h2>
+          <ul>
+            <li data-lang="ar"><a class="ix" href="#rand">
+              <img src="../assets/design/rand/cover-960.webp" width="960" height="540" alt="" loading="lazy" decoding="async">
+              <span class="ix-name">Rand</span>
+            </a></li>
+            <li data-lang="en"><a class="ix" href="#plug-brew">
+              <img src="../assets/design/plug-brew/cover-960.webp" width="960" height="540" alt="" loading="lazy" decoding="async">
+              <span class="ix-name">Plug &amp; Brew</span>
+            </a></li>
+            <li data-lang="en"><a class="ix" href="#monzo">
+              <img src="../assets/design/monzo/cover-960.webp" width="960" height="540" alt="" loading="lazy" decoding="async">
+              <span class="ix-name">Monzo</span>
+            </a></li>
+          </ul>
+        </div>
+      </nav>
     </section>
 
     <section class="brand" id="salt-gull" data-brand="salt-gull" data-meta="#1B3557" data-sector="food" data-lang="en" aria-labelledby="salt-gull-title">
@@ -193,11 +255,103 @@
         </details>
       </div>
     </section>
+    <section class="brand" id="fahm" data-brand="fahm" data-meta="#141110" data-sector="food" data-lang="ar" aria-labelledby="fahm-title">
+      <div class="b-inner">
+        <header class="b-head">
+          <h2 id="fahm-title" class="b-name"><span class="f-bebas f-wide">Fahm</span><span class="b-ar f-cairo" lang="ar" dir="rtl">فحم</span></h2>
+          <p class="b-meta"><span class="b-num">04</span> Charcoal grill · Riyadh &amp; Cairo</p>
+        </header>
+        <figure class="b-cover">
+          <img src="../assets/design/fahm/cover.webp" srcset="../assets/design/fahm/cover-960.webp 960w, ../assets/design/fahm/cover.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Fahm cover: Charcoal grill, Riyadh & Cairo." loading="lazy" decoding="async">
+        </figure>
+        <ul class="grid" aria-label="Fahm posts">
+          <li class="lead"><button class="post" type="button" data-full="../assets/design/fahm/post-1.webp" data-caption="Fahm · post 1 of 5">
+            <img src="../assets/design/fahm/post-1.webp" width="864" height="1080" alt="“سمعت الطشة؟”, hear the sizzle? Kebab skewers and lamb chops spit over open flames." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/fahm/post-2.webp" data-caption="Fahm · post 2 of 5">
+            <img src="../assets/design/fahm/post-2.webp" width="864" height="1080" alt="“العزومة علينا”, tonight’s on us. Friends laugh at a rooftop table as a hand holds out a loaded grill platter." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/fahm/post-3.webp" data-caption="Fahm · post 3 of 5">
+            <img src="../assets/design/fahm/post-3.webp" width="864" height="1080" alt="“شغال على نار هادية”, slow fire, serious flavour. A grumpy lump of charcoal in a chef’s hat fans the coals under the skewers." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/fahm/post-4.webp" data-caption="Fahm · post 4 of 5">
+            <img src="../assets/design/fahm/post-4.webp" width="864" height="1080" alt="“صينية العيلة”, the family platter. “1KG” spelled out in grilled kebab and chicken, 129 SAR." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/fahm/post-5.webp" data-caption="Fahm · post 5 of 5">
+            <img src="../assets/design/fahm/post-5.webp" width="864" height="1080" alt="“فحم” glowing in the smoke above a grill master working a long charcoal grill." loading="lazy" decoding="async">
+          </button></li>
+          <li class="line-tile" aria-hidden="true"><p class="f-cairo"><span lang="ar" dir="rtl">سمعت الطشة؟</span> Hear the sizzle?</p></li>
+        </ul>
+
+        <ul class="extras" aria-label="More Fahm work">
+            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/fahm/identity-board.webp" data-caption="Fahm · Identity" data-wide>
+              <img src="../assets/design/fahm/identity-board-960.webp" width="960" height="540" alt="Fahm identity board: logo, palette, lettering, packaging, shopfront and tone of voice." loading="lazy" decoding="async">
+            </button><span class="x-cap">Identity</span></li>
+            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/fahm/logo-final.webp" data-caption="Fahm · Logo" data-wide>
+              <img src="../assets/design/fahm/logo-final-960.webp" width="960" height="540" alt="The final Fahm Coal Bowl logo package: colour, cream, white and one-colour versions, Arabic and English only lockups, icons and app icons." loading="lazy" decoding="async">
+            </button><span class="x-cap">Logo</span></li>
+        </ul>
+        <details class="about">
+          <summary>About this brand <i class="ph ph-plus" aria-hidden="true"></i></summary>
+          <div class="about-body">
+            <p><b>The problem.</b> Grill restaurants all reach for the same things: cartoon flames, crossed skewers and a red-and-yellow sign. Fahm means charcoal, so the brand had to feel like the coals themselves, dark and glowing and too hot to ignore.</p>
+            <p><b>The idea.</b> The name is already burning. The dot on the ف is a live coal throwing off sparks, and the bowls of the letters glow from inside. Every post keeps it: charcoal black, ember orange and sparks rising off the grill.</p>
+            <ul class="swatches" aria-label="Palette"><li><span class="sw" style="--c:#141110"></span>Charcoal <span class="hex">#141110</span></li><li><span class="sw" style="--c:#FF6A1A"></span>Ember <span class="hex">#FF6A1A</span></li><li><span class="sw" style="--c:#8A8580"></span>Smoke <span class="hex">#8A8580</span></li><li><span class="sw" style="--c:#F4EEE6"></span>Cream <span class="hex">#F4EEE6</span></li></ul>
+            <p class="type">Type: Cairo Black · Bebas Neue</p>
+          </div>
+        </details>
+      </div>
+    </section>
+    <section class="brand" id="greggs" data-brand="greggs" data-meta="#003C6C" data-sector="food" data-lang="en" aria-labelledby="greggs-title">
+      <div class="b-inner">
+        <header class="b-head">
+          <h2 id="greggs-title" class="b-name"><span class="f-mont">Greggs</span></h2>
+          <p class="b-meta"><span class="b-num">05</span> Bakery campaign · UK, unofficial</p>
+          <p class="b-note">Unofficial concept work. Not affiliated with or endorsed by Greggs.</p>
+        </header>
+        <figure class="b-cover">
+          <img src="../assets/design/greggs/cover.webp" srcset="../assets/design/greggs/cover-960.webp 960w, ../assets/design/greggs/cover.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Greggs cover: Unofficial social campaign, UK." loading="lazy" decoding="async">
+        </figure>
+        <ul class="grid" aria-label="Greggs posts">
+          <li class="lead"><button class="post" type="button" data-full="../assets/design/greggs/post-1.webp" data-caption="Greggs · post 1 of 5">
+            <img src="../assets/design/greggs/post-1.webp" width="864" height="1080" alt="“Your 8am, sorted.” A double-decker bus made of sausage roll pastry on a rainy high street." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/greggs/post-2.webp" data-caption="Greggs · post 2 of 5">
+            <img src="../assets/design/greggs/post-2.webp" width="864" height="1080" alt="“Tea break, done properly.” Three builders laugh on scaffolding with Greggs bags and tea." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/greggs/post-3.webp" data-caption="Greggs · post 3 of 5">
+            <img src="../assets/design/greggs/post-3.webp" width="864" height="1080" alt="“Flakes everywhere. Worth it.” A steak bake bursts open in a shower of pastry flakes." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/greggs/post-4.webp" data-caption="Greggs · post 4 of 5">
+            <img src="../assets/design/greggs/post-4.webp" width="864" height="1080" alt="“Fine dining. No booking.” A waiter lifts a silver cloche to reveal a Greggs bake." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/greggs/post-5.webp" data-caption="Greggs · post 5 of 5">
+            <img src="../assets/design/greggs/post-5.webp" width="864" height="1080" alt="“Winter’s warmest handshake.” Mittened hands hold a steaming bake at a frosty bus stop." loading="lazy" decoding="async">
+          </button></li>
+          <li class="line-tile" aria-hidden="true"><p class="f-mont">Ordinary, done brilliantly.</p></li>
+        </ul>
+
+        <ul class="extras" aria-label="More Greggs work">
+            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/greggs/breakdown.webp" data-caption="Greggs · Making of" data-wide>
+              <img src="../assets/design/greggs/breakdown-960.webp" width="960" height="540" alt="How Greggs post 1 was built: the rough sketch, the layers, and the finished post." loading="lazy" decoding="async">
+            </button><span class="x-cap">Making of</span></li>
+        </ul>
+        <details class="about">
+          <summary>About this brand <i class="ph ph-plus" aria-hidden="true"></i></summary>
+          <div class="about-body">
+            <p><b>The problem.</b> Greggs is the nation’s favourite bakery, but it’s so everyday that people walk past it without a second thought. The job is to make the ordinary feel worth noticing.</p>
+            <p><b>The idea.</b> “Ordinary, done brilliantly” treats the commute, the tea break and the cold bus stop like they matter, with the sausage roll as the hero of every small moment.</p>
+            <ul class="swatches" aria-label="Palette"><li><span class="sw" style="--c:#003C6C"></span>Greggs blue <span class="hex">#003C6C</span></li><li><span class="sw" style="--c:#FAB622"></span>Greggs yellow <span class="hex">#FAB622</span></li><li><span class="sw" style="--c:#FFFFFF"></span>White <span class="hex">#FFFFFF</span></li></ul>
+            
+          </div>
+        </details>
+      </div>
+    </section>
     <section class="brand" id="ghasaq" data-brand="ghasaq" data-meta="#0E1424" data-sector="life" data-lang="ar" aria-labelledby="ghasaq-title">
       <div class="b-inner">
         <header class="b-head">
           <h2 id="ghasaq-title" class="b-name"><span class="f-bebas f-wide">Ghasaq</span><span class="b-ar f-ruqaa" lang="ar" dir="rtl">غسق</span></h2>
-          <p class="b-meta"><span class="b-num">04</span> Oud perfume · Dubai</p>
+          <p class="b-meta"><span class="b-num">06</span> Oud perfume · Dubai</p>
         </header>
         <figure class="b-cover">
           <img src="../assets/design/ghasaq/cover.webp" srcset="../assets/design/ghasaq/cover-960.webp 960w, ../assets/design/ghasaq/cover.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Ghasaq cover: Oud perfume house, Dubai." loading="lazy" decoding="async">
@@ -246,7 +400,7 @@
       <div class="b-inner">
         <header class="b-head">
           <h2 id="wathba-title" class="b-name"><span class="f-cairo">Wathba</span><span class="b-ar f-cairo" lang="ar" dir="rtl">وثبة</span></h2>
-          <p class="b-meta"><span class="b-num">05</span> Modest activewear · Riyadh &amp; Dubai</p>
+          <p class="b-meta"><span class="b-num">07</span> Modest activewear · Riyadh &amp; Dubai</p>
         </header>
         <figure class="b-cover">
           <img src="../assets/design/wathba/cover.webp" srcset="../assets/design/wathba/cover-960.webp 960w, ../assets/design/wathba/cover.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Wathba cover: Modest activewear, Riyadh & Dubai." loading="lazy" decoding="async">
@@ -285,94 +439,6 @@
             <p><b>The idea.</b> Wathba is built for speed. One off-black kit with a lime pulse, slanted type that leans into the run, and motion streaks in every frame. Nothing stops you, not even the heat.</p>
             <ul class="swatches" aria-label="Palette"><li><span class="sw" style="--c:#141414"></span>Off-black <span class="hex">#141414</span></li><li><span class="sw" style="--c:#C8F031"></span>Electric lime <span class="hex">#C8F031</span></li><li><span class="sw" style="--c:#D9C3A0"></span>Desert sand <span class="hex">#D9C3A0</span></li></ul>
             <p class="type">Type: Cairo Black, slanted · Bebas Neue</p>
-          </div>
-        </details>
-      </div>
-    </section>
-    <section class="brand" id="rand" data-brand="rand" data-meta="#23403A" data-sector="services" data-lang="ar" aria-labelledby="rand-title">
-      <div class="b-inner">
-        <header class="b-head">
-          <h2 id="rand-title" class="b-name"><span class="f-bebas f-wide">Rand</span><span class="b-ar f-ruqaa" lang="ar" dir="rtl">رند</span></h2>
-          <p class="b-meta"><span class="b-num">06</span> Villa communities · Riyadh</p>
-        </header>
-        <figure class="b-cover">
-          <img src="../assets/design/rand/cover.webp" srcset="../assets/design/rand/cover-960.webp 960w, ../assets/design/rand/cover.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Rand cover: Luxury villa communities, Riyadh." loading="lazy" decoding="async">
-        </figure>
-        <ul class="grid" aria-label="Rand posts">
-          <li class="lead"><button class="post" type="button" data-full="../assets/design/rand/post-1.webp" data-caption="Rand · post 1 of 5">
-            <img src="../assets/design/rand/post-1.webp" width="864" height="1080" alt="“بيتك.. يبدأ من هنا”, home starts here. A family looks out through a carved Najdi doorway at palms in the golden hour." loading="lazy" decoding="async">
-          </button></li>
-          <li><button class="post" type="button" data-full="../assets/design/rand/post-2.webp" data-caption="Rand · post 2 of 5">
-            <img src="../assets/design/rand/post-2.webp" width="864" height="1080" alt="“شوف بيتك قبل لا يكتمل”, see your home before it’s built. A father and son point at a lit model of the community." loading="lazy" decoding="async">
-          </button></li>
-          <li><button class="post" type="button" data-full="../assets/design/rand/post-3.webp" data-caption="Rand · post 3 of 5">
-            <img src="../assets/design/rand/post-3.webp" width="864" height="1080" alt="“رند” cast in mashrabiya light across a courtyard wall as a woman reads in the shade below." loading="lazy" decoding="async">
-          </button></li>
-          <li><button class="post" type="button" data-full="../assets/design/rand/post-4.webp" data-caption="Rand · post 4 of 5">
-            <img src="../assets/design/rand/post-4.webp" width="864" height="1080" alt="“مساحة تكبر معكم”, space that grows with you. A boy runs laughing past his grandmother watering the garden." loading="lazy" decoding="async">
-          </button></li>
-          <li><button class="post" type="button" data-full="../assets/design/rand/post-5.webp" data-caption="Rand · post 5 of 5">
-            <img src="../assets/design/rand/post-5.webp" width="864" height="1080" alt="“التسجيل مفتوح”, registration now open. An aerial view of the lit community at dusk: 320 villas, phase 1, North Riyadh." loading="lazy" decoding="async">
-          </button></li>
-          <li class="line-tile" aria-hidden="true"><p class="f-ruqaa"><span lang="ar" dir="rtl">بيتك.. يبدأ من هنا</span> Home starts here.</p></li>
-        </ul>
-
-        <ul class="extras" aria-label="More Rand work">
-            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/rand/breakdown.webp" data-caption="Rand · Making of" data-wide>
-              <img src="../assets/design/rand/breakdown-960.webp" width="960" height="540" alt="How Rand post 1 was built: the rough sketch, the layers, and the finished post." loading="lazy" decoding="async">
-            </button><span class="x-cap">Making of</span></li>
-        </ul>
-        <details class="about">
-          <summary>About this brand <i class="ph ph-plus" aria-hidden="true"></i></summary>
-          <div class="about-body">
-            <p><b>The problem.</b> Every luxury villa developer in Riyadh sells the same things: square metres, marble finishes and a render of an empty house. Rand needed to sell the life that happens inside it.</p>
-            <p><b>The idea.</b> The mashrabiya is the identity, the carved screen that gives a Saudi home its light, shade and privacy. It frames every post in golden-hour light, with one line underneath: home starts here.</p>
-            <ul class="swatches" aria-label="Palette"><li><span class="sw" style="--c:#23403A"></span>Mashrabiya green <span class="hex">#23403A</span></li><li><span class="sw" style="--c:#A87C50"></span>Desert gold <span class="hex">#A87C50</span></li><li><span class="sw" style="--c:#E8DBC3"></span>Limestone <span class="hex">#E8DBC3</span></li></ul>
-            <p class="type">Type: Aref Ruqaa · Cairo Black · Bebas Neue</p>
-          </div>
-        </details>
-      </div>
-    </section>
-    <section class="brand" id="plug-brew" data-brand="plug-brew" data-meta="#1E2327" data-sector="services" data-lang="en" aria-labelledby="plug-brew-title">
-      <div class="b-inner">
-        <header class="b-head">
-          <h2 id="plug-brew-title" class="b-name"><span class="f-quick">Plug &amp; Brew</span></h2>
-          <p class="b-meta"><span class="b-num">07</span> EV charging &amp; café · UK</p>
-        </header>
-        <figure class="b-cover">
-          <img src="../assets/design/plug-brew/cover.webp" srcset="../assets/design/plug-brew/cover-960.webp 960w, ../assets/design/plug-brew/cover.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Plug & Brew cover: EV charging hubs with a café, UK." loading="lazy" decoding="async">
-        </figure>
-        <ul class="grid" aria-label="Plug & Brew posts">
-          <li class="lead"><button class="post" type="button" data-full="../assets/design/plug-brew/post-1.webp" data-caption="Plug & Brew · post 1 of 5">
-            <img src="../assets/design/plug-brew/post-1.webp" width="864" height="1080" alt="“Pull in. Plug in. Put the kettle on.” A row of chargers with glowing teal rings beside a lit café on a rainy night." loading="lazy" decoding="async">
-          </button></li>
-          <li><button class="post" type="button" data-full="../assets/design/plug-brew/post-2.webp" data-caption="Plug & Brew · post 2 of 5">
-            <img src="../assets/design/plug-brew/post-2.webp" width="864" height="1080" alt="“Click. That’s it.” A woman plugs in her car in the rain, the café glowing behind her." loading="lazy" decoding="async">
-          </button></li>
-          <li><button class="post" type="button" data-full="../assets/design/plug-brew/post-3.webp" data-caption="Plug & Brew · post 3 of 5">
-            <img src="../assets/design/plug-brew/post-3.webp" width="864" height="1080" alt="“Car’s charging. So are you.” A dad and his daughter hold hot chocolates by a rainy window while their car charges outside." loading="lazy" decoding="async">
-          </button></li>
-          <li><button class="post" type="button" data-full="../assets/design/plug-brew/post-4.webp" data-caption="Plug & Brew · post 4 of 5">
-            <img src="../assets/design/plug-brew/post-4.webp" width="864" height="1080" alt="“Britain runs on two things.” A steaming kettle inside a teal ring, with a charging cable plugged into it." loading="lazy" decoding="async">
-          </button></li>
-          <li><button class="post" type="button" data-full="../assets/design/plug-brew/post-5.webp" data-caption="Plug & Brew · post 5 of 5">
-            <img src="../assets/design/plug-brew/post-5.webp" width="864" height="1080" alt="“Now open on the M6.” An aerial view at dusk of the hub beside the motorway: 12 rapid chargers, Junction 15, open 24/7." loading="lazy" decoding="async">
-          </button></li>
-          <li class="line-tile" aria-hidden="true"><p class="f-quick">Plug in. Put the kettle on.</p></li>
-        </ul>
-
-        <ul class="extras" aria-label="More Plug & Brew work">
-            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/plug-brew/breakdown.webp" data-caption="Plug & Brew · Making of" data-wide>
-              <img src="../assets/design/plug-brew/breakdown-960.webp" width="960" height="540" alt="How Plug & Brew post 1 was built: the rough sketch, the layers, and the finished post." loading="lazy" decoding="async">
-            </button><span class="x-cap">Making of</span></li>
-        </ul>
-        <details class="about">
-          <summary>About this brand <i class="ph ph-plus" aria-hidden="true"></i></summary>
-          <div class="about-body">
-            <p><b>The problem.</b> Charging an EV on the motorway is a dead wait. Drivers stand in the rain by a charger for half an hour with nothing to do and nowhere warm to go.</p>
-            <p><b>The idea.</b> Plug &amp; Brew turns the wait into a proper British break, with a warm café lounge at every hub. The teal charging ring is the logo, and the whole stop fits in one line: plug in, put the kettle on.</p>
-            <ul class="swatches" aria-label="Palette"><li><span class="sw" style="--c:#1E2327"></span>Charcoal <span class="hex">#1E2327</span></li><li><span class="sw" style="--c:#00B3A5"></span>Charge teal <span class="hex">#00B3A5</span></li><li><span class="sw" style="--c:#EFE7DA"></span>Oat <span class="hex">#EFE7DA</span></li></ul>
-            <p class="type">Type: Quicksand Bold</p>
           </div>
         </details>
       </div>
@@ -444,94 +510,90 @@
         </details>
       </div>
     </section>
-    <section class="brand" id="fahm" data-brand="fahm" data-meta="#141110" data-sector="food" data-lang="ar" aria-labelledby="fahm-title">
+    <section class="brand" id="rand" data-brand="rand" data-meta="#23403A" data-sector="services" data-lang="ar" aria-labelledby="rand-title">
       <div class="b-inner">
         <header class="b-head">
-          <h2 id="fahm-title" class="b-name"><span class="f-bebas f-wide">Fahm</span><span class="b-ar f-cairo" lang="ar" dir="rtl">فحم</span></h2>
-          <p class="b-meta"><span class="b-num">09</span> Charcoal grill · Riyadh &amp; Cairo</p>
+          <h2 id="rand-title" class="b-name"><span class="f-bebas f-wide">Rand</span><span class="b-ar f-ruqaa" lang="ar" dir="rtl">رند</span></h2>
+          <p class="b-meta"><span class="b-num">09</span> Villa communities · Riyadh</p>
         </header>
         <figure class="b-cover">
-          <img src="../assets/design/fahm/cover.webp" srcset="../assets/design/fahm/cover-960.webp 960w, ../assets/design/fahm/cover.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Fahm cover: Charcoal grill, Riyadh & Cairo." loading="lazy" decoding="async">
+          <img src="../assets/design/rand/cover.webp" srcset="../assets/design/rand/cover-960.webp 960w, ../assets/design/rand/cover.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Rand cover: Luxury villa communities, Riyadh." loading="lazy" decoding="async">
         </figure>
-        <ul class="grid" aria-label="Fahm posts">
-          <li class="lead"><button class="post" type="button" data-full="../assets/design/fahm/post-1.webp" data-caption="Fahm · post 1 of 5">
-            <img src="../assets/design/fahm/post-1.webp" width="864" height="1080" alt="“سمعت الطشة؟”, hear the sizzle? Kebab skewers and lamb chops spit over open flames." loading="lazy" decoding="async">
+        <ul class="grid" aria-label="Rand posts">
+          <li class="lead"><button class="post" type="button" data-full="../assets/design/rand/post-1.webp" data-caption="Rand · post 1 of 5">
+            <img src="../assets/design/rand/post-1.webp" width="864" height="1080" alt="“بيتك.. يبدأ من هنا”, home starts here. A family looks out through a carved Najdi doorway at palms in the golden hour." loading="lazy" decoding="async">
           </button></li>
-          <li><button class="post" type="button" data-full="../assets/design/fahm/post-2.webp" data-caption="Fahm · post 2 of 5">
-            <img src="../assets/design/fahm/post-2.webp" width="864" height="1080" alt="“العزومة علينا”, tonight’s on us. Friends laugh at a rooftop table as a hand holds out a loaded grill platter." loading="lazy" decoding="async">
+          <li><button class="post" type="button" data-full="../assets/design/rand/post-2.webp" data-caption="Rand · post 2 of 5">
+            <img src="../assets/design/rand/post-2.webp" width="864" height="1080" alt="“شوف بيتك قبل لا يكتمل”, see your home before it’s built. A father and son point at a lit model of the community." loading="lazy" decoding="async">
           </button></li>
-          <li><button class="post" type="button" data-full="../assets/design/fahm/post-3.webp" data-caption="Fahm · post 3 of 5">
-            <img src="../assets/design/fahm/post-3.webp" width="864" height="1080" alt="“شغال على نار هادية”, slow fire, serious flavour. A grumpy lump of charcoal in a chef’s hat fans the coals under the skewers." loading="lazy" decoding="async">
+          <li><button class="post" type="button" data-full="../assets/design/rand/post-3.webp" data-caption="Rand · post 3 of 5">
+            <img src="../assets/design/rand/post-3.webp" width="864" height="1080" alt="“رند” cast in mashrabiya light across a courtyard wall as a woman reads in the shade below." loading="lazy" decoding="async">
           </button></li>
-          <li><button class="post" type="button" data-full="../assets/design/fahm/post-4.webp" data-caption="Fahm · post 4 of 5">
-            <img src="../assets/design/fahm/post-4.webp" width="864" height="1080" alt="“صينية العيلة”, the family platter. “1KG” spelled out in grilled kebab and chicken, 129 SAR." loading="lazy" decoding="async">
+          <li><button class="post" type="button" data-full="../assets/design/rand/post-4.webp" data-caption="Rand · post 4 of 5">
+            <img src="../assets/design/rand/post-4.webp" width="864" height="1080" alt="“مساحة تكبر معكم”, space that grows with you. A boy runs laughing past his grandmother watering the garden." loading="lazy" decoding="async">
           </button></li>
-          <li><button class="post" type="button" data-full="../assets/design/fahm/post-5.webp" data-caption="Fahm · post 5 of 5">
-            <img src="../assets/design/fahm/post-5.webp" width="864" height="1080" alt="“فحم” glowing in the smoke above a grill master working a long charcoal grill." loading="lazy" decoding="async">
+          <li><button class="post" type="button" data-full="../assets/design/rand/post-5.webp" data-caption="Rand · post 5 of 5">
+            <img src="../assets/design/rand/post-5.webp" width="864" height="1080" alt="“التسجيل مفتوح”, registration now open. An aerial view of the lit community at dusk: 320 villas, phase 1, North Riyadh." loading="lazy" decoding="async">
           </button></li>
-          <li class="line-tile" aria-hidden="true"><p class="f-cairo"><span lang="ar" dir="rtl">سمعت الطشة؟</span> Hear the sizzle?</p></li>
+          <li class="line-tile" aria-hidden="true"><p class="f-ruqaa"><span lang="ar" dir="rtl">بيتك.. يبدأ من هنا</span> Home starts here.</p></li>
         </ul>
 
-        <ul class="extras" aria-label="More Fahm work">
-            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/fahm/identity-board.webp" data-caption="Fahm · Identity" data-wide>
-              <img src="../assets/design/fahm/identity-board-960.webp" width="960" height="540" alt="Fahm identity board: logo, palette, lettering, packaging, shopfront and tone of voice." loading="lazy" decoding="async">
-            </button><span class="x-cap">Identity</span></li>
-            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/fahm/logo-final.webp" data-caption="Fahm · Logo" data-wide>
-              <img src="../assets/design/fahm/logo-final-960.webp" width="960" height="540" alt="The final Fahm Coal Bowl logo package: colour, cream, white and one-colour versions, Arabic and English only lockups, icons and app icons." loading="lazy" decoding="async">
-            </button><span class="x-cap">Logo</span></li>
-        </ul>
-        <details class="about">
-          <summary>About this brand <i class="ph ph-plus" aria-hidden="true"></i></summary>
-          <div class="about-body">
-            <p><b>The problem.</b> Grill restaurants all reach for the same things: cartoon flames, crossed skewers and a red-and-yellow sign. Fahm means charcoal, so the brand had to feel like the coals themselves, dark and glowing and too hot to ignore.</p>
-            <p><b>The idea.</b> The name is already burning. The dot on the ف is a live coal throwing off sparks, and the bowls of the letters glow from inside. Every post keeps it: charcoal black, ember orange and sparks rising off the grill.</p>
-            <ul class="swatches" aria-label="Palette"><li><span class="sw" style="--c:#141110"></span>Charcoal <span class="hex">#141110</span></li><li><span class="sw" style="--c:#FF6A1A"></span>Ember <span class="hex">#FF6A1A</span></li><li><span class="sw" style="--c:#8A8580"></span>Smoke <span class="hex">#8A8580</span></li><li><span class="sw" style="--c:#F4EEE6"></span>Cream <span class="hex">#F4EEE6</span></li></ul>
-            <p class="type">Type: Cairo Black · Bebas Neue</p>
-          </div>
-        </details>
-      </div>
-    </section>
-    <section class="brand" id="greggs" data-brand="greggs" data-meta="#003C6C" data-sector="food" data-lang="en" aria-labelledby="greggs-title">
-      <div class="b-inner">
-        <header class="b-head">
-          <h2 id="greggs-title" class="b-name"><span class="f-mont">Greggs</span></h2>
-          <p class="b-meta"><span class="b-num">10</span> Bakery campaign · UK, unofficial</p>
-          <p class="b-note">Unofficial concept work. Not affiliated with or endorsed by Greggs.</p>
-        </header>
-        <figure class="b-cover">
-          <img src="../assets/design/greggs/cover.webp" srcset="../assets/design/greggs/cover-960.webp 960w, ../assets/design/greggs/cover.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Greggs cover: Unofficial social campaign, UK." loading="lazy" decoding="async">
-        </figure>
-        <ul class="grid" aria-label="Greggs posts">
-          <li class="lead"><button class="post" type="button" data-full="../assets/design/greggs/post-1.webp" data-caption="Greggs · post 1 of 5">
-            <img src="../assets/design/greggs/post-1.webp" width="864" height="1080" alt="“Your 8am, sorted.” A double-decker bus made of sausage roll pastry on a rainy high street." loading="lazy" decoding="async">
-          </button></li>
-          <li><button class="post" type="button" data-full="../assets/design/greggs/post-2.webp" data-caption="Greggs · post 2 of 5">
-            <img src="../assets/design/greggs/post-2.webp" width="864" height="1080" alt="“Tea break, done properly.” Three builders laugh on scaffolding with Greggs bags and tea." loading="lazy" decoding="async">
-          </button></li>
-          <li><button class="post" type="button" data-full="../assets/design/greggs/post-3.webp" data-caption="Greggs · post 3 of 5">
-            <img src="../assets/design/greggs/post-3.webp" width="864" height="1080" alt="“Flakes everywhere. Worth it.” A steak bake bursts open in a shower of pastry flakes." loading="lazy" decoding="async">
-          </button></li>
-          <li><button class="post" type="button" data-full="../assets/design/greggs/post-4.webp" data-caption="Greggs · post 4 of 5">
-            <img src="../assets/design/greggs/post-4.webp" width="864" height="1080" alt="“Fine dining. No booking.” A waiter lifts a silver cloche to reveal a Greggs bake." loading="lazy" decoding="async">
-          </button></li>
-          <li><button class="post" type="button" data-full="../assets/design/greggs/post-5.webp" data-caption="Greggs · post 5 of 5">
-            <img src="../assets/design/greggs/post-5.webp" width="864" height="1080" alt="“Winter’s warmest handshake.” Mittened hands hold a steaming bake at a frosty bus stop." loading="lazy" decoding="async">
-          </button></li>
-          <li class="line-tile" aria-hidden="true"><p class="f-mont">Ordinary, done brilliantly.</p></li>
-        </ul>
-
-        <ul class="extras" aria-label="More Greggs work">
-            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/greggs/breakdown.webp" data-caption="Greggs · Making of" data-wide>
-              <img src="../assets/design/greggs/breakdown-960.webp" width="960" height="540" alt="How Greggs post 1 was built: the rough sketch, the layers, and the finished post." loading="lazy" decoding="async">
+        <ul class="extras" aria-label="More Rand work">
+            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/rand/breakdown.webp" data-caption="Rand · Making of" data-wide>
+              <img src="../assets/design/rand/breakdown-960.webp" width="960" height="540" alt="How Rand post 1 was built: the rough sketch, the layers, and the finished post." loading="lazy" decoding="async">
             </button><span class="x-cap">Making of</span></li>
         </ul>
         <details class="about">
           <summary>About this brand <i class="ph ph-plus" aria-hidden="true"></i></summary>
           <div class="about-body">
-            <p><b>The problem.</b> Greggs is the nation’s favourite bakery, but it’s so everyday that people walk past it without a second thought. The job is to make the ordinary feel worth noticing.</p>
-            <p><b>The idea.</b> “Ordinary, done brilliantly” treats the commute, the tea break and the cold bus stop like they matter, with the sausage roll as the hero of every small moment.</p>
-            <ul class="swatches" aria-label="Palette"><li><span class="sw" style="--c:#003C6C"></span>Greggs blue <span class="hex">#003C6C</span></li><li><span class="sw" style="--c:#FAB622"></span>Greggs yellow <span class="hex">#FAB622</span></li><li><span class="sw" style="--c:#FFFFFF"></span>White <span class="hex">#FFFFFF</span></li></ul>
-            
+            <p><b>The problem.</b> Every luxury villa developer in Riyadh sells the same things: square metres, marble finishes and a render of an empty house. Rand needed to sell the life that happens inside it.</p>
+            <p><b>The idea.</b> The mashrabiya is the identity, the carved screen that gives a Saudi home its light, shade and privacy. It frames every post in golden-hour light, with one line underneath: home starts here.</p>
+            <ul class="swatches" aria-label="Palette"><li><span class="sw" style="--c:#23403A"></span>Mashrabiya green <span class="hex">#23403A</span></li><li><span class="sw" style="--c:#A87C50"></span>Desert gold <span class="hex">#A87C50</span></li><li><span class="sw" style="--c:#E8DBC3"></span>Limestone <span class="hex">#E8DBC3</span></li></ul>
+            <p class="type">Type: Aref Ruqaa · Cairo Black · Bebas Neue</p>
+          </div>
+        </details>
+      </div>
+    </section>
+    <section class="brand" id="plug-brew" data-brand="plug-brew" data-meta="#1E2327" data-sector="services" data-lang="en" aria-labelledby="plug-brew-title">
+      <div class="b-inner">
+        <header class="b-head">
+          <h2 id="plug-brew-title" class="b-name"><span class="f-quick">Plug &amp; Brew</span></h2>
+          <p class="b-meta"><span class="b-num">10</span> EV charging &amp; café · UK</p>
+        </header>
+        <figure class="b-cover">
+          <img src="../assets/design/plug-brew/cover.webp" srcset="../assets/design/plug-brew/cover-960.webp 960w, ../assets/design/plug-brew/cover.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Plug & Brew cover: EV charging hubs with a café, UK." loading="lazy" decoding="async">
+        </figure>
+        <ul class="grid" aria-label="Plug & Brew posts">
+          <li class="lead"><button class="post" type="button" data-full="../assets/design/plug-brew/post-1.webp" data-caption="Plug & Brew · post 1 of 5">
+            <img src="../assets/design/plug-brew/post-1.webp" width="864" height="1080" alt="“Pull in. Plug in. Put the kettle on.” A row of chargers with glowing teal rings beside a lit café on a rainy night." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/plug-brew/post-2.webp" data-caption="Plug & Brew · post 2 of 5">
+            <img src="../assets/design/plug-brew/post-2.webp" width="864" height="1080" alt="“Click. That’s it.” A woman plugs in her car in the rain, the café glowing behind her." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/plug-brew/post-3.webp" data-caption="Plug & Brew · post 3 of 5">
+            <img src="../assets/design/plug-brew/post-3.webp" width="864" height="1080" alt="“Car’s charging. So are you.” A dad and his daughter hold hot chocolates by a rainy window while their car charges outside." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/plug-brew/post-4.webp" data-caption="Plug & Brew · post 4 of 5">
+            <img src="../assets/design/plug-brew/post-4.webp" width="864" height="1080" alt="“Britain runs on two things.” A steaming kettle inside a teal ring, with a charging cable plugged into it." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/plug-brew/post-5.webp" data-caption="Plug & Brew · post 5 of 5">
+            <img src="../assets/design/plug-brew/post-5.webp" width="864" height="1080" alt="“Now open on the M6.” An aerial view at dusk of the hub beside the motorway: 12 rapid chargers, Junction 15, open 24/7." loading="lazy" decoding="async">
+          </button></li>
+          <li class="line-tile" aria-hidden="true"><p class="f-quick">Plug in. Put the kettle on.</p></li>
+        </ul>
+
+        <ul class="extras" aria-label="More Plug & Brew work">
+            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/plug-brew/breakdown.webp" data-caption="Plug & Brew · Making of" data-wide>
+              <img src="../assets/design/plug-brew/breakdown-960.webp" width="960" height="540" alt="How Plug & Brew post 1 was built: the rough sketch, the layers, and the finished post." loading="lazy" decoding="async">
+            </button><span class="x-cap">Making of</span></li>
+        </ul>
+        <details class="about">
+          <summary>About this brand <i class="ph ph-plus" aria-hidden="true"></i></summary>
+          <div class="about-body">
+            <p><b>The problem.</b> Charging an EV on the motorway is a dead wait. Drivers stand in the rain by a charger for half an hour with nothing to do and nowhere warm to go.</p>
+            <p><b>The idea.</b> Plug &amp; Brew turns the wait into a proper British break, with a warm café lounge at every hub. The teal charging ring is the logo, and the whole stop fits in one line: plug in, put the kettle on.</p>
+            <ul class="swatches" aria-label="Palette"><li><span class="sw" style="--c:#1E2327"></span>Charcoal <span class="hex">#1E2327</span></li><li><span class="sw" style="--c:#00B3A5"></span>Charge teal <span class="hex">#00B3A5</span></li><li><span class="sw" style="--c:#EFE7DA"></span>Oat <span class="hex">#EFE7DA</span></li></ul>
+            <p class="type">Type: Quicksand Bold</p>
           </div>
         </details>
       </div>
