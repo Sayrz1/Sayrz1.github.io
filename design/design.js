@@ -55,6 +55,18 @@
   addEventListener("resize", pick);
   pick();
 
+  /* ---------- Filters: food & drink, lifestyle, services, or one language ---------- */
+  const filters = $$(".filter");
+  const chipItems = $$(".jump li");
+  filters.forEach((btn) => btn.addEventListener("click", () => {
+    const v = btn.dataset.filter;
+    const fits = (el) => v === "all" || el.dataset.sector === v || el.dataset.lang === v;
+    filters.forEach((f) => f.setAttribute("aria-pressed", f === btn ? "true" : "false"));
+    brands.forEach((b) => { b.hidden = !fits(b); });
+    chipItems.forEach((li) => { li.hidden = !fits(li); });
+    pick();
+  }));
+
   /* ---------- Viewer: steps through the brand's posts and extras ---------- */
   const viewer = $("#viewer");
   const vImg = $(".viewer-img", viewer);

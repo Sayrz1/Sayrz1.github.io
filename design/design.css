@@ -89,13 +89,19 @@ ul { list-style: none; margin: 0; padding: 0; }
 .hero-copy { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
 .hero h1 { margin: 0; font: 400 clamp(3.5rem, 8vw, 6rem)/.9 var(--display); letter-spacing: .005em; text-wrap: balance; }
 .hero-go { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-weight: 500; text-decoration: none; border-bottom: 1.5px solid currentColor; padding-bottom: 2px; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-top: clamp(28px, 4vw, 44px); }
+.filter { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 6px 16px; border-radius: 999px; border: 1.5px solid color-mix(in srgb, var(--ink) 22%, transparent); background: transparent; cursor: pointer; font-size: 15px; font-weight: 500; transition: border-color .25s, background-color .25s, color .25s; }
+.filter:hover { border-color: var(--ink); }
+.filter[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.filter-n { opacity: .6; font-variant-numeric: tabular-nums; }
+.brand[hidden], .jump li[hidden] { display: none; }
 .hero-go i { transition: transform .4s var(--ease); }
 .hero-go:hover i { transform: translateY(4px); }
 
 /* ---------- A brand ---------- */
 .brand { background: var(--bg); color: var(--ink); padding-bottom: clamp(72px, 10vw, 144px); }
-.brand { padding-top: clamp(56px, 8vw, 112px); }
-.b-cover { width: min(calc(100% - 2 * var(--gutter)), var(--grid), calc((100svh - 160px) * 16 / 9)); margin: 0 auto; overflow: hidden; border-radius: 14px; box-shadow: 0 30px 60px -36px rgb(0 0 0 / .6); }
+.brand { padding-top: clamp(16px, 3vw, 40px); }
+.b-cover { width: 100%; margin: 0 0 clamp(12px, 1.6vw, 22px); overflow: hidden; border-radius: 14px; box-shadow: 0 30px 60px -36px rgb(0 0 0 / .6); }
 .b-cover img { width: 100%; height: auto; aspect-ratio: 16 / 9; }
 .b-inner { max-width: var(--grid); margin: 0 auto; padding: 0 var(--gutter); }
 
@@ -168,8 +174,29 @@ ul { list-style: none; margin: 0; padding: 0; }
 .viewer-step[data-step="-1"] { left: 14px; }
 .viewer-step[data-step="1"] { right: 14px; }
 
+/* ---------- Desktop: each brand is one spread, cover beside a compact grid ---------- */
+@media (min-width: 981px) {
+  .brand { padding: clamp(40px, 5vw, 72px) 0; }
+  .b-inner { max-width: var(--max); display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); grid-template-areas: "head head" "cover grid" "extras extras" "about about"; column-gap: 22px; align-items: start; }
+  .b-head { grid-area: head; padding: 0 0 20px; }
+  .b-name { font-size: clamp(40px, 4vw, 60px); }
+  .b-cover { grid-area: cover; margin: 0; }
+  .grid { grid-area: grid; gap: 10px; }
+  .grid .lead { grid-column: auto; grid-row: auto; }
+  .post { border-radius: 8px; }
+  .line-tile { border-radius: 8px; padding: 10%; }
+  .line-tile p { font-size: clamp(15px, 1.3vw, 21px); }
+  .line-tile p.f-bebas { font-size: clamp(20px, 1.7vw, 28px); }
+  .extras { grid-area: extras; margin-top: 22px; }
+  .extras .post { height: clamp(120px, 10vw, 150px); }
+  .about { grid-area: about; margin-top: 14px; }
+}
+
 /* ---------- Smaller screens ---------- */
 @media (max-width: 980px) {
+  .brand { padding-top: clamp(56px, 8vw, 112px); }
+  .b-inner { display: flex; flex-direction: column; }
+  .b-cover { order: -1; margin: 0; }
   .top { height: auto; grid-template-columns: 1fr auto; row-gap: 0; padding-top: 10px; }
   .jump { grid-column: 1 / -1; grid-row: 2; margin: 0 calc(var(--gutter) * -1); }
   .jump ul { justify-content: flex-start; padding: 6px var(--gutter) 8px; }
