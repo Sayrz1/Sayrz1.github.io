@@ -1,15 +1,15 @@
 (() => {
   "use strict";
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
-  const brands = $$(".brand");
-  const themeMeta = $('meta[name="theme-color"]');
   const root = document.documentElement;
-  const studioBg = () => getComputedStyle(root).getPropertyValue("--bg").trim();
+  const themeMeta = $('meta[name="theme-color"]');
+  const brands = $$(".brand");
+  const chips = new Map($$(".chip").map((c) => [c.dataset.for, c]));
 
   /* ---------- Theme: same saved choice as the homepage ---------- */
   const themeBtn = $("#theme-toggle");
+  const studioBg = () => getComputedStyle(root).getPropertyValue("--bg").trim();
   const syncTheme = () => {
     const dark = root.dataset.theme !== "light";
     themeBtn.innerHTML = `<i class="ph ${dark ? "ph-sun" : "ph-moon"}" aria-hidden="true"></i>`;
@@ -29,104 +29,33 @@
   });
   syncTheme();
 
-  /* ---------- One brand at a time: #<brand> opens it, anything else shows the overview ---------- */
-  const hero = $(".hero"), overview = $(".overview");
-  const setBrand = (el) => {
+  /* ---------- The header and jump bar take on whichever brand fills the screen ---------- */
+  let current = null;
+  const setCurrent = (el) => {
+    if (el === current) return;
+    current = el;
     if (el) document.body.dataset.brand = el.dataset.brand;
     else delete document.body.dataset.brand;
     themeMeta.content = el ? el.dataset.meta : studioBg();
-  };
-  let lastBrand = null;
-  const route = () => {
-    const el = brands.find((b) => "#" + b.id === location.hash);
-    hero.hidden = overview.hidden = !!el;
-    brands.forEach((b) => { b.hidden = b !== el; });
-    document.body.classList.toggle("is-brand", !!el);
-    setBrand(el);
-    if (el) {
-      scrollTo({ top: 0, behavior: "instant" });
-      el.classList.remove("is-entering"); void el.offsetWidth; el.classList.add("is-entering");
-      el.tabIndex = -1;
-      el.focus({ preventScroll: true });
-      syncers.get(el)?.();
-      lastBrand = el.id;
-    } else if (lastBrand) {
-      const card = $(`.card a[href="#${lastBrand}"]`);
-      card?.scrollIntoView({ block: "center", behavior: "instant" });
-      card?.focus({ preventScroll: true });
-      lastBrand = null;
+    chips.forEach((c, id) => c.setAttribute("aria-current", el && id === el.id ? "true" : "false"));
+    const chip = el && chips.get(el.id);
+    if (chip) {
+      const bar = chip.closest("ul");
+      bar.scrollTo({ left: chip.offsetLeft - (bar.clientWidth - chip.offsetWidth) / 2, behavior: "smooth" });
     }
   };
-  document.documentElement.classList.add("routed");
-
-  /* ---------- Post strips ---------- */
-  const syncers = new Map();
-  brands.forEach((brand) => {
-    const strip = $(".strip", brand);
-    const [prev, next] = $$(".posts-nav button", brand);
-    const sync = () => {
-      prev.disabled = strip.scrollLeft < 4;
-      next.disabled = strip.scrollLeft + strip.clientWidth > strip.scrollWidth - 4;
-    };
-    [prev, next].forEach((btn) => btn.addEventListener("click", () => {
-      const card = $("li", strip);
-      strip.scrollBy({ left: Number(btn.dataset.dir) * (card.offsetWidth + 18), behavior: reduce ? "auto" : "smooth" });
-    }));
-    strip.addEventListener("scroll", sync, { passive: true });
-    addEventListener("resize", sync);
-    syncers.set(brand, sync);
-    sync();
-  });
-
-  /* ---------- Tabs: Posts / Identity / How it was built ---------- */
-  brands.forEach((brand) => {
-    const tabs = $$('[role="tab"]', brand);
-    const nav = $(".posts-nav", brand);
-    const select = (tab, focus) => {
-      tabs.forEach((t) => {
-        const on = t === tab;
-        t.setAttribute("aria-selected", on);
-        t.tabIndex = on ? 0 : -1;
-        document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
-      });
-      nav.hidden = !tab.id.endsWith("-posts");
-      if (focus) tab.focus();
-      syncers.get(brand)();
-    };
-    tabs.forEach((t, i) => {
-      t.addEventListener("click", () => select(t));
-      t.addEventListener("keydown", (e) => {
-        const step = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
-        if (e.key === "Home") { e.preventDefault(); select(tabs[0], true); }
-        else if (e.key === "End") { e.preventDefault(); select(tabs[tabs.length - 1], true); }
-        else if (step) { e.preventDefault(); select(tabs[(i + step + tabs.length) % tabs.length], true); }
-      });
-    });
-    select(tabs.find((t) => t.getAttribute("aria-selected") === "true") || tabs[0]);
-  });
-
-  addEventListener("hashchange", route);
-  route();
-
-  /* ---------- Filters: one row, sector or language ---------- */
-  const cards = $$(".card");
-  const count = $(".filter-count");
-  const empty = $(".empty");
-  let pick = "all";
-  const fits = (el) => pick === "all" || el.dataset.sector === pick || el.dataset.lang === pick;
-  const select = $(".filter-select");
-  const apply = () => {
-    pick = select.value;
-    cards.forEach((el) => { el.hidden = !fits(el); });
-    const n = cards.filter((c) => !c.hidden).length;
-    count.textContent = n === cards.length ? `${n} brands` : `${n} of ${cards.length} brands`;
-    empty.hidden = n > 0;
+  const pick = () => {
+    const line = innerHeight * 0.35;
+    setCurrent(brands.find((b) => { const r = b.getBoundingClientRect(); return r.top <= line && r.bottom > line; }) || null);
   };
-  select.addEventListener("change", apply);
-  $("[data-clear]").addEventListener("click", () => { select.value = "all"; apply(); select.focus(); });
-  apply();
+  let ticking = false;
+  addEventListener("scroll", () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(() => { ticking = false; pick(); }); }
+  }, { passive: true });
+  addEventListener("resize", pick);
+  pick();
 
-  /* ---------- Viewer ---------- */
+  /* ---------- Viewer: steps through the brand's posts and extras ---------- */
   const viewer = $("#viewer");
   const vImg = $(".viewer-img", viewer);
   const vCap = $(".viewer-cap", viewer);
@@ -137,10 +66,9 @@
     vImg.src = post.dataset.full;
     vImg.alt = $("img", post).alt;
     vCap.textContent = post.dataset.caption;
-    viewer.classList.toggle("is-wide", "wide" in post.dataset);
   };
   $$(".post").forEach((post) => post.addEventListener("click", () => {
-    group = $$(".post", post.closest(".strip, .wild"));
+    group = $$(".post", post.closest(".brand"));
     opener = post;
     show(group.indexOf(post));
     viewer.showModal();
@@ -153,5 +81,4 @@
     else if (e.key === "ArrowLeft") show(at - 1);
   });
   viewer.addEventListener("close", () => opener?.focus({ preventScroll: true }));
-
 })();

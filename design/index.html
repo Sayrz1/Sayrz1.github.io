@@ -22,16 +22,19 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e0d0c'/%3E%3Ccircle cx='22' cy='24' r='9' fill='%23FFD03C'/%3E%3Ccircle cx='42' cy='24' r='9' fill='%23E0457B'/%3E%3Ccircle cx='22' cy='42' r='9' fill='%23C9A24A'/%3E%3Ccircle cx='42' cy='42' r='9' fill='%23C8F031'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Amiri:wght@700&family=Aref+Ruqaa:wght@700&family=Bebas+Neue&family=Cairo:wght@700;900&family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@400;500;600&family=Lilita+One&family=Montserrat:wght@900&family=Quicksand:wght@700&family=Fredoka:wght@700&family=Patrick+Hand&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Amiri:wght@700&family=Aref+Ruqaa:wght@700&family=Bebas+Neue&family=Cairo:wght@700;900&family=IBM+Plex+Sans:wght@400;500;600&family=Lilita+One&family=Montserrat:wght@900&family=Quicksand:wght@700&family=Fredoka:wght@700&family=Patrick+Hand&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
   <link rel="stylesheet" href="design.css">
   <script>(function (d) { d.classList.add("js"); var t; try { t = localStorage.getItem("theme"); } catch (e) {} d.dataset.theme = t || (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark"); })(document.documentElement);</script>
 </head>
 <body>
-  <a class="skip" href="#brands">Skip to the brands</a>
+  <a class="skip" href="#salt-gull">Skip to the work</a>
 
   <header class="top">
     <a class="brand-link" href="../" aria-label="Sama Eldesouki, home"><span class="brand-mark">SE</span><span class="brand-text">Sama Eldesouki</span></a>
+    <nav class="jump" aria-label="Brands">
+      <ul><li><a class="chip" href="#salt-gull" data-for="salt-gull"><span class="f-alfa">Salt &amp; Gull</span></a></li><li><a class="chip" href="#drizzle" data-for="drizzle"><span class="f-lilita">Drizzle</span></a></li><li><a class="chip" href="#naseeg" data-for="naseeg"><span class="f-cairo">Naseeg</span> <span class="chip-ar f-cairo" lang="ar" dir="rtl">نسيج</span></a></li><li><a class="chip" href="#ghasaq" data-for="ghasaq"><span class="f-bebas f-wide">Ghasaq</span> <span class="chip-ar f-ruqaa" lang="ar" dir="rtl">غسق</span></a></li><li><a class="chip" href="#wathba" data-for="wathba"><span class="f-cairo">Wathba</span> <span class="chip-ar f-cairo" lang="ar" dir="rtl">وثبة</span></a></li><li><a class="chip" href="#rand" data-for="rand"><span class="f-bebas f-wide">Rand</span> <span class="chip-ar f-ruqaa" lang="ar" dir="rtl">رند</span></a></li><li><a class="chip" href="#plug-brew" data-for="plug-brew"><span class="f-quick">Plug &amp; Brew</span></a></li><li><a class="chip" href="#muddlezoo" data-for="muddlezoo"><span class="f-fredoka">Muddlezoo</span></a></li><li><a class="chip" href="#fahm" data-for="fahm"><span class="f-bebas f-wide">Fahm</span> <span class="chip-ar f-cairo" lang="ar" dir="rtl">فحم</span></a></li><li><a class="chip" href="#greggs" data-for="greggs"><span class="f-mont">Greggs</span></a></li><li><a class="chip" href="#monzo" data-for="monzo"><span class="f-ubuntu">Monzo</span></a></li></ul>
+    </nav>
     <div class="top-actions">
       <button class="icon-btn theme-btn" id="theme-toggle" type="button" aria-label="Switch to light mode"><i class="ph ph-sun" aria-hidden="true"></i></button>
       <a class="btn" href="mailto:s.ayrzpersonal@gmail.com?subject=A%20brand%20identity">Start a brand</a>
@@ -40,1004 +43,546 @@
 
   <main>
     <section class="hero" aria-labelledby="title">
-      <figure class="hero-art">
-        <img src="../assets/design/hero.webp" srcset="../assets/design/hero-960.webp 960w, ../assets/design/hero.webp 1920w" sizes="100vw" width="1920" height="1080" alt="A ring of social posts from the brands circling a long-haired figure, seen from behind in the dark." fetchpriority="high">
-      </figure>
       <div class="hero-copy">
         <h1 id="title">Eleven brands.<br>One idea each.</h1>
-        <p class="hero-sub">Identities for made-up brands, from a Yorkshire chippy to a Riyadh charcoal grill, plus unofficial campaigns for Greggs and Monzo. In English and Arabic.</p>
+        <a class="hero-go" href="#salt-gull">See the work <i class="ph ph-arrow-down" aria-hidden="true"></i></a>
       </div>
     </section>
 
-    <section class="overview" id="brands" aria-labelledby="brands-title">
-      <div class="overview-head">
-        <h2 id="brands-title">The brands</h2>
-        <div class="overview-tools">
-          <p class="filter-count" aria-live="polite">11 brands</p>
-          <label class="filter-pick"><span class="filter-show">Show</span><select class="filter-select" aria-label="Show brands"><option value="all">All brands</option><optgroup label="Sector"><option value="food">Food &amp; drink</option><option value="beauty">Beauty</option><option value="fashion">Fashion</option><option value="property">Property</option><option value="motoring">Motoring</option><option value="toys">Toys</option><option value="finance">Finance</option></optgroup><optgroup label="Language"><option value="en">English</option><option value="ar">Arabic</option></optgroup></select><i class="ph ph-caret-down" aria-hidden="true"></i></label>
-        </div>
-      </div>
-      <ul class="cards">
-          <li class="card" data-sector="food" data-lang="en">
-            <a href="#salt-gull" style="--c:#FFD03C">
-              <img src="../assets/design/salt-gull/cover-960.webp" width="960" height="540" alt="" loading="lazy" decoding="async">
-              <span class="card-body">
-                <span class="card-name f-alfa">Salt &amp; Gull</span>
-                <span class="card-meta">Fish &amp; chips · Yorkshire</span>
-              </span>
-            </a>
-          </li>
-          <li class="card" data-sector="food" data-lang="en">
-            <a href="#drizzle" style="--c:#E0457B">
-              <img src="../assets/design/drizzle/cover-960.webp" width="960" height="540" alt="" loading="lazy" decoding="async">
-              <span class="card-body">
-                <span class="card-name f-lilita">Drizzle</span>
-                <span class="card-meta">Soda · London</span>
-              </span>
-            </a>
-          </li>
-          <li class="card" data-sector="food" data-lang="ar">
-            <a href="#naseeg" style="--c:#E3A72F">
-              <img src="../assets/design/naseeg/cover-960.webp" width="960" height="540" alt="" loading="lazy" decoding="async">
-              <span class="card-body">
-                <span class="card-name f-cairo">Naseeg</span> <span class="card-ar f-cairo" lang="ar" dir="rtl">نسيج</span>
-                <span class="card-meta">Arabic coffee · Riyadh</span>
-              </span>
-            </a>
-          </li>
-          <li class="card" data-sector="beauty" data-lang="ar">
-            <a href="#ghasaq" style="--c:#C9A24A">
-              <img src="../assets/design/ghasaq/cover-960.webp" width="960" height="540" alt="" loading="lazy" decoding="async">
-              <span class="card-body">
-                <span class="card-name f-bebas f-wide">Ghasaq</span> <span class="card-ar f-ruqaa" lang="ar" dir="rtl">غسق</span>
-                <span class="card-meta">Oud perfume · Dubai</span>
-              </span>
-            </a>
-          </li>
-          <li class="card" data-sector="fashion" data-lang="ar">
-            <a href="#wathba" style="--c:#C8F031">
-              <img src="../assets/design/wathba/cover-960.webp" width="960" height="540" alt="" loading="lazy" decoding="async">
-              <span class="card-body">
-                <span class="card-name f-cairo">Wathba</span> <span class="card-ar f-cairo" lang="ar" dir="rtl">وثبة</span>
-                <span class="card-meta">Modest activewear · Riyadh &amp; Dubai</span>
-              </span>
-            </a>
-          </li>
-          <li class="card" data-sector="property" data-lang="ar">
-            <a href="#rand" style="--c:#A87C50">
-              <img src="../assets/design/rand/cover-960.webp" width="960" height="540" alt="" loading="lazy" decoding="async">
-              <span class="card-body">
-                <span class="card-name f-bebas f-wide">Rand</span> <span class="card-ar f-ruqaa" lang="ar" dir="rtl">رند</span>
-                <span class="card-meta">Villa communities · Riyadh</span>
-              </span>
-            </a>
-          </li>
-          <li class="card" data-sector="motoring" data-lang="en">
-            <a href="#plug-brew" style="--c:#00B3A5">
-              <img src="../assets/design/plug-brew/cover-960.webp" width="960" height="540" alt="" loading="lazy" decoding="async">
-              <span class="card-body">
-                <span class="card-name f-quick">Plug &amp; Brew</span>
-                <span class="card-meta">EV charging &amp; café · UK</span>
-              </span>
-            </a>
-          </li>
-          <li class="card" data-sector="toys" data-lang="en">
-            <a href="#muddlezoo" style="--c:#FFC93C">
-              <img src="../assets/design/muddlezoo/cover-960.webp" width="960" height="540" alt="" loading="lazy" decoding="async">
-              <span class="card-body">
-                <span class="card-name f-fredoka">Muddlezoo</span>
-                <span class="card-meta">Wooden toys · English &amp; Arabic</span>
-              </span>
-            </a>
-          </li>
-          <li class="card" data-sector="food" data-lang="ar">
-            <a href="#fahm" style="--c:#FF6A1A">
-              <img src="../assets/design/fahm/cover-960.webp" width="960" height="540" alt="" loading="lazy" decoding="async">
-              <span class="card-body">
-                <span class="card-name f-bebas f-wide">Fahm</span> <span class="card-ar f-cairo" lang="ar" dir="rtl">فحم</span>
-                <span class="card-meta">Charcoal grill · Riyadh &amp; Cairo</span>
-              </span>
-            </a>
-          </li>
-          <li class="card" data-sector="food" data-lang="en">
-            <a href="#greggs" style="--c:#FAB622">
-              <img src="../assets/design/greggs/cover-960.webp" width="960" height="540" alt="" loading="lazy" decoding="async">
-              <span class="card-body">
-                <span class="card-name f-mont">Greggs</span>
-                <span class="card-meta">Bakery campaign · UK, unofficial</span>
-              </span>
-            </a>
-          </li>
-          <li class="card" data-sector="finance" data-lang="en">
-            <a href="#monzo" style="--c:#F0533A">
-              <img src="../assets/design/monzo/cover-960.webp" width="960" height="540" alt="" loading="lazy" decoding="async">
-              <span class="card-body">
-                <span class="card-name f-ubuntu">Monzo</span>
-                <span class="card-meta">Bank campaign · UK, unofficial</span>
-              </span>
-            </a>
-          </li>
-      </ul>
-      <div class="empty" hidden>
-        <p>No brands here yet.</p>
-        <button class="btn" type="button" data-clear>Show all brands</button>
-      </div>
-    </section>
+    <section class="brand" id="salt-gull" data-brand="salt-gull" data-meta="#1B3557" aria-labelledby="salt-gull-title">
+      <figure class="b-cover">
+        <img src="../assets/design/salt-gull/cover.webp" srcset="../assets/design/salt-gull/cover-960.webp 960w, ../assets/design/salt-gull/cover.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Salt & Gull cover: Fish & chips, Yorkshire coast." loading="lazy" decoding="async">
+      </figure>
+      <div class="b-inner">
+        <header class="b-head">
+          <h2 id="salt-gull-title" class="b-name"><span class="f-alfa">Salt &amp; Gull</span></h2>
+          <p class="b-meta"><span class="b-num">01</span> Fish &amp; chips · Yorkshire</p>
+        </header>
+        <ul class="grid" aria-label="Salt & Gull posts">
+          <li class="lead"><button class="post" type="button" data-full="../assets/design/salt-gull/post-1.webp" data-caption="Salt & Gull · post 1 of 5">
+            <img src="../assets/design/salt-gull/post-1.webp" width="864" height="1080" alt="“Proper chips. No nonsense.” A Salt &amp; Gull cone of chips and battered fish in a yellow circle, with Sid the gull." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/salt-gull/post-2.webp" data-caption="Salt & Gull · post 2 of 5">
+            <img src="../assets/design/salt-gull/post-2.webp" width="864" height="1080" alt="“Best eaten in a gale.” A family laughs over chip cones on a windy harbour wall." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/salt-gull/post-3.webp" data-caption="Salt & Gull · post 3 of 5">
+            <img src="../assets/design/salt-gull/post-3.webp" width="864" height="1080" alt="“Follow the smell home.” A lighthouse wrapped like a Salt &amp; Gull chip cone shines over a stormy sea." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/salt-gull/post-4.webp" data-caption="Salt & Gull · post 4 of 5">
+            <img src="../assets/design/salt-gull/post-4.webp" width="864" height="1080" alt="“Guard your chips.” A hand holds a chip box away on a rainy promenade while Sid edges in: “Too close.”" loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/salt-gull/post-5.webp" data-caption="Salt & Gull · post 5 of 5">
+            <img src="../assets/design/salt-gull/post-5.webp" width="864" height="1080" alt="“Friday’s sorted.” A queue under umbrellas outside the chippy window, open till late." loading="lazy" decoding="async">
+          </button></li>
+          <li class="line-tile" aria-hidden="true"><p class="f-alfa">Proper chips. No nonsense.</p></li>
+        </ul>
 
-    <div class="work">
-
-      <section class="brand" id="salt-gull" data-brand="salt-gull" data-meta="#1B3557" data-sector="food" data-lang="en" aria-labelledby="salt-gull-title">
-        <nav class="b-nav" aria-label="Salt & Gull">
-          <a class="back" href="#brands"><i class="ph ph-arrow-left" aria-hidden="true"></i>All brands</a>
-          <span class="b-count">1 of 11</span>
-        </nav>
-        <div class="b-intro">
-          <div class="b-text">
-          <header class="b-head">
-            <h2 id="salt-gull-title" class="b-name f-alfa">Salt &amp; Gull</h2>
-            <p class="b-where">Fish &amp; chips, Yorkshire coast</p>
-            <p class="b-line">Proper chips. No nonsense.</p>
-          </header>
-          <div class="b-story">
+        <ul class="extras" aria-label="More Salt & Gull work">
+            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/salt-gull/identity-board.webp" data-caption="Salt & Gull · Identity" data-wide>
+              <img src="../assets/design/salt-gull/identity-board-960.webp" width="960" height="540" alt="Salt & Gull identity board: logo, palette, lettering, packaging, shopfront and tone of voice." loading="lazy" decoding="async">
+            </button><span class="x-cap">Identity</span></li>
+            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/salt-gull/breakdown.webp" data-caption="Salt & Gull · Making of" data-wide>
+              <img src="../assets/design/salt-gull/breakdown-960.webp" width="960" height="540" alt="How Salt & Gull post 1 was built: the rough sketch, the layers, and the finished post." loading="lazy" decoding="async">
+            </button><span class="x-cap">Making of</span></li>
+        </ul>
+        <details class="about">
+          <summary>About this brand <i class="ph ph-plus" aria-hidden="true"></i></summary>
+          <div class="about-body">
             <p><b>The problem.</b> Every Yorkshire chippy looks the same: red, white and stuck in 1985. Salt &amp; Gull needed an identity that felt like the seaside today. Salty, funny, and impossible to miss on a phone.</p>
             <p><b>The idea.</b> One cheeky gull, one navy-and-yellow system, and headlines that sound like something a local would actually say. Sid the gull steals the show in every post, so you know the brand with the logo covered.</p>
+            <ul class="swatches" aria-label="Palette"><li><span class="sw" style="--c:#1B3557"></span>Seaside navy <span class="hex">#1B3557</span></li><li><span class="sw" style="--c:#FFD03C"></span>Chip-shop yellow <span class="hex">#FFD03C</span></li><li><span class="sw" style="--c:#F4EFE3"></span>Newspaper cream <span class="hex">#F4EFE3</span></li></ul>
+            <p class="type">Type: Alfa Slab One · Bebas Neue</p>
           </div>
-          </div>
-          <figure class="b-cover">
-            <img src="../assets/design/salt-gull/cover.webp" srcset="../assets/design/salt-gull/cover-960.webp 960w, ../assets/design/salt-gull/cover.webp 1920w" sizes="(max-width: 1500px) 100vw, 1440px" width="1920" height="1080" alt="Salt & Gull cover: Fish & chips, Yorkshire coast." loading="lazy" decoding="async">
-          </figure>
-        </div>
+        </details>
+      </div>
+    </section>
+    <section class="brand" id="drizzle" data-brand="drizzle" data-meta="#12464F" aria-labelledby="drizzle-title">
+      <figure class="b-cover">
+        <img src="../assets/design/drizzle/cover.webp" srcset="../assets/design/drizzle/cover-960.webp 960w, ../assets/design/drizzle/cover.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Drizzle cover: Sparkling soda, London." loading="lazy" decoding="async">
+      </figure>
+      <div class="b-inner">
+        <header class="b-head">
+          <h2 id="drizzle-title" class="b-name"><span class="f-lilita">Drizzle</span></h2>
+          <p class="b-meta"><span class="b-num">02</span> Soda · London</p>
+        </header>
+        <ul class="grid" aria-label="Drizzle posts">
+          <li class="lead"><button class="post" type="button" data-full="../assets/design/drizzle/post-1.webp" data-caption="Drizzle · post 1 of 5">
+            <img src="../assets/design/drizzle/post-1.webp" width="864" height="1080" alt="“Forecast: 100% Drizzle.” A giant pink Drizzle can sits on a water tower above rainy London rooftops." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/drizzle/post-2.webp" data-caption="Drizzle · post 2 of 5">
+            <img src="../assets/design/drizzle/post-2.webp" width="864" height="1080" alt="“Rain check? Never.” Three friends laugh in the rain at a street market, cans in hand." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/drizzle/post-3.webp" data-caption="Drizzle · post 3 of 5">
+            <img src="../assets/design/drizzle/post-3.webp" width="864" height="1080" alt="“Rhubarb &amp; ginger. Properly fizzy.” A can bursts out of a pink splash with rhubarb and ginger." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/drizzle/post-4.webp" data-caption="Drizzle · post 4 of 5">
+            <img src="../assets/design/drizzle/post-4.webp" width="864" height="1080" alt="“Catch it while you can.” A woman catches pink Drizzle in an upturned umbrella." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/drizzle/post-5.webp" data-caption="Drizzle · post 5 of 5">
+            <img src="../assets/design/drizzle/post-5.webp" width="864" height="1080" alt="“Pick your weather.” The three flavours: Pink Rain, Green Mist and Purple Storm." loading="lazy" decoding="async">
+          </button></li>
+          <li class="line-tile" aria-hidden="true"><p class="f-lilita">Properly fizzy.</p></li>
+        </ul>
 
-        <div class="b-tabs-row">
-          <div class="b-tabs" role="tablist" aria-label="Salt & Gull work"><button class="tab" type="button" role="tab" id="salt-gull-tab-posts" aria-controls="salt-gull-posts" aria-selected="true">Posts <span class="tab-n">5</span></button><button class="tab" type="button" role="tab" id="salt-gull-tab-identity" aria-controls="salt-gull-identity" aria-selected="false" tabindex="-1">Identity</button><button class="tab" type="button" role="tab" id="salt-gull-tab-process" aria-controls="salt-gull-process" aria-selected="false" tabindex="-1">How it was built</button></div>
-          <div class="posts-nav">
-            <button class="icon-btn" type="button" data-dir="-1" aria-label="Previous Salt & Gull posts"><i class="ph ph-arrow-left" aria-hidden="true"></i></button>
-            <button class="icon-btn" type="button" data-dir="1" aria-label="Next Salt & Gull posts"><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
-          </div>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="salt-gull-posts" aria-labelledby="salt-gull-tab-posts">
-          <h3 class="b-h3 panel-h">The posts</h3>
-          <ul class="strip" aria-label="Salt & Gull social posts">
-              <li><button class="post" type="button" data-full="../assets/design/salt-gull/post-1.webp" data-caption="Salt & Gull · post 1 of 5">
-                <img src="../assets/design/salt-gull/post-1.webp" width="864" height="1080" alt="“Proper chips. No nonsense.” A Salt &amp; Gull cone of chips and battered fish in a yellow circle, with Sid the gull." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/salt-gull/post-2.webp" data-caption="Salt & Gull · post 2 of 5">
-                <img src="../assets/design/salt-gull/post-2.webp" width="864" height="1080" alt="“Best eaten in a gale.” A family laughs over chip cones on a windy harbour wall." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/salt-gull/post-3.webp" data-caption="Salt & Gull · post 3 of 5">
-                <img src="../assets/design/salt-gull/post-3.webp" width="864" height="1080" alt="“Follow the smell home.” A lighthouse wrapped like a Salt &amp; Gull chip cone shines over a stormy sea." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/salt-gull/post-4.webp" data-caption="Salt & Gull · post 4 of 5">
-                <img src="../assets/design/salt-gull/post-4.webp" width="864" height="1080" alt="“Guard your chips.” A hand holds a chip box away on a rainy promenade while Sid edges in: “Too close.”" loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/salt-gull/post-5.webp" data-caption="Salt & Gull · post 5 of 5">
-                <img src="../assets/design/salt-gull/post-5.webp" width="864" height="1080" alt="“Friday’s sorted.” A queue under umbrellas outside the chippy window, open till late." loading="lazy" decoding="async">
-              </button></li>
-          </ul>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="salt-gull-identity" aria-labelledby="salt-gull-tab-identity">
-          <h3 class="b-h3 panel-h">Identity</h3>
-          <div class="b-system">
-            <div>
-              <h4 class="b-h4">Palette</h4>
-              <ul class="swatches"><li><span class="sw" style="--c:#1B3557"></span><span class="sw-name">Seaside navy</span><span class="sw-hex">#1B3557</span></li><li><span class="sw" style="--c:#FFD03C"></span><span class="sw-name">Chip-shop yellow</span><span class="sw-hex">#FFD03C</span></li><li><span class="sw" style="--c:#F4EFE3"></span><span class="sw-name">Newspaper cream</span><span class="sw-hex">#F4EFE3</span></li></ul>
-            </div>
-            <div>
-              <h4 class="b-h4">Lettering</h4>
-              <ul class="letters"><li><span class="lt-sample f-alfa">Proper chips.</span><span class="lt-name">Alfa Slab One</span></li><li><span class="lt-sample f-bebas">Fresh daily</span><span class="lt-name">Bebas Neue</span></li></ul>
-            </div>
-          </div>
-          <figure class="b-wide">
-            <img src="../assets/design/salt-gull/identity-board.webp" srcset="../assets/design/salt-gull/identity-board-960.webp 960w, ../assets/design/salt-gull/identity-board.webp 1920w" sizes="(max-width: 1500px) 100vw, 1440px" width="1920" height="1080" alt="Salt & Gull identity board: logo, palette, lettering, packaging, shopfront and tone of voice." loading="lazy" decoding="async">
-            <figcaption>Logo, palette, lettering, pack, shopfront and voice on one board.</figcaption>
-          </figure>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="salt-gull-process" aria-labelledby="salt-gull-tab-process">
-          <h3 class="b-h3 panel-h">How it was built</h3>
-          <figure class="b-wide">
-            <img src="../assets/design/salt-gull/breakdown.webp" srcset="../assets/design/salt-gull/breakdown-960.webp 960w, ../assets/design/salt-gull/breakdown.webp 1920w" sizes="(max-width: 1500px) 100vw, 1440px" width="1920" height="1080" alt="How Salt & Gull post 1 was built: the rough sketch, the layers, and the finished post." loading="lazy" decoding="async">
-            <figcaption>The first post, from rough sketch to separate layers to the finished post.</figcaption>
-          </figure>
-        </div>
-
-        <nav class="b-pager" aria-label="More brands">
-          <a class="pager-link" href="#monzo" rel="prev"><span class="pager-label"><i class="ph ph-arrow-left" aria-hidden="true"></i>Previous</span><span class="pager-name">Monzo</span></a>
-          <a class="pager-link pager-next" href="#drizzle" rel="next"><span class="pager-label">Next<i class="ph ph-arrow-right" aria-hidden="true"></i></span><span class="pager-name">Drizzle</span></a>
-        </nav>
-      </section>
-      <section class="brand" id="drizzle" data-brand="drizzle" data-meta="#12464F" data-sector="food" data-lang="en" aria-labelledby="drizzle-title">
-        <nav class="b-nav" aria-label="Drizzle">
-          <a class="back" href="#brands"><i class="ph ph-arrow-left" aria-hidden="true"></i>All brands</a>
-          <span class="b-count">2 of 11</span>
-        </nav>
-        <div class="b-intro">
-          <div class="b-text">
-          <header class="b-head">
-            <h2 id="drizzle-title" class="b-name f-lilita">Drizzle</h2>
-            <p class="b-where">Sparkling soda, London</p>
-            <p class="b-line">Properly fizzy.</p>
-          </header>
-          <div class="b-story">
+        <ul class="extras" aria-label="More Drizzle work">
+            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/drizzle/identity-board.webp" data-caption="Drizzle · Identity" data-wide>
+              <img src="../assets/design/drizzle/identity-board-960.webp" width="960" height="540" alt="Drizzle identity board: logo, palette, lettering, packaging, shopfront and tone of voice." loading="lazy" decoding="async">
+            </button><span class="x-cap">Identity</span></li>
+            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/drizzle/breakdown.webp" data-caption="Drizzle · Making of" data-wide>
+              <img src="../assets/design/drizzle/breakdown-960.webp" width="960" height="540" alt="How Drizzle post 1 was built: the rough sketch, the layers, and the finished post." loading="lazy" decoding="async">
+            </button><span class="x-cap">Making of</span></li>
+        </ul>
+        <details class="about">
+          <summary>About this brand <i class="ph ph-plus" aria-hidden="true"></i></summary>
+          <div class="about-body">
             <p><b>The problem.</b> Every British soda brand runs from the rain: grey skies, grey moods, grey cans. It rains in London most weeks, so pretending it doesn’t is the least honest thing a drink can do.</p>
             <p><b>The idea.</b> Drizzle owns the weather instead. A can that rains pink, a little cloud that smiles through every shower, and headlines a Londoner would actually say. The forecast becomes the flavour.</p>
+            <ul class="swatches" aria-label="Palette"><li><span class="sw" style="--c:#E0457B"></span>Rhubarb pink <span class="hex">#E0457B</span></li><li><span class="sw" style="--c:#C9CED6"></span>Cloud grey <span class="hex">#C9CED6</span></li><li><span class="sw" style="--c:#12464F"></span>Deep teal <span class="hex">#12464F</span></li></ul>
+            <p class="type">Type: Lilita One · Bebas Neue</p>
           </div>
-          </div>
-          <figure class="b-cover">
-            <img src="../assets/design/drizzle/cover.webp" srcset="../assets/design/drizzle/cover-960.webp 960w, ../assets/design/drizzle/cover.webp 1920w" sizes="(max-width: 1500px) 100vw, 1440px" width="1920" height="1080" alt="Drizzle cover: Sparkling soda, London." loading="lazy" decoding="async">
-          </figure>
-        </div>
+        </details>
+      </div>
+    </section>
+    <section class="brand" id="naseeg" data-brand="naseeg" data-meta="#9E2A2B" aria-labelledby="naseeg-title">
+      <figure class="b-cover">
+        <img src="../assets/design/naseeg/cover.webp" srcset="../assets/design/naseeg/cover-960.webp 960w, ../assets/design/naseeg/cover.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Naseeg cover: Arabic coffee & dates, Riyadh." loading="lazy" decoding="async">
+      </figure>
+      <div class="b-inner">
+        <header class="b-head">
+          <h2 id="naseeg-title" class="b-name"><span class="f-cairo">Naseeg</span><span class="b-ar f-cairo" lang="ar" dir="rtl">نسيج</span></h2>
+          <p class="b-meta"><span class="b-num">03</span> Arabic coffee · Riyadh</p>
+        </header>
+        <ul class="grid" aria-label="Naseeg posts">
+          <li class="lead"><button class="post" type="button" data-full="../assets/design/naseeg/post-1.webp" data-caption="Naseeg · post 1 of 6">
+            <img src="../assets/design/naseeg/post-1.webp" width="864" height="1080" alt="“حيّاك في مجلسنا”, welcome to our majlis. The Naseeg coffee bag becomes a majlis tent in the desert at dusk." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/naseeg/post-2.webp" data-caption="Naseeg · post 2 of 6">
+            <img src="../assets/design/naseeg/post-2.webp" width="864" height="1080" alt="“سوالف وفنجال”, stories and a cup. Friends pour Arabic coffee from a brass dallah." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/naseeg/post-3.webp" data-caption="Naseeg · post 3 of 6">
+            <img src="../assets/design/naseeg/post-3.webp" width="864" height="1080" alt="“زعفران وهيل.. على أصوله”, saffron and cardamom done right, bursting out of a coffee cup." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/naseeg/post-4.webp" data-caption="Naseeg · post 4 of 6">
+            <img src="../assets/design/naseeg/post-4.webp" width="864" height="1080" alt="“رمضان يجمعنا”, Ramadan brings us together. A family shares coffee and dates." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/naseeg/post-5.webp" data-caption="Naseeg · post 5 of 6">
+            <img src="../assets/design/naseeg/post-5.webp" width="864" height="1080" alt="“التمر والقهوة.. ما يتفارقون”, dates and coffee, inseparable. A cup beside an open box of dates on a Sadu rug." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/naseeg/post-6.webp" data-caption="Naseeg · post 6 of 6">
+            <img src="../assets/design/naseeg/post-6.webp" width="864" height="1080" alt="“حيّاك”, welcome, in huge red letters on the dunes as a man walks out across the sand." loading="lazy" decoding="async">
+          </button></li>
+        </ul>
 
-        <div class="b-tabs-row">
-          <div class="b-tabs" role="tablist" aria-label="Drizzle work"><button class="tab" type="button" role="tab" id="drizzle-tab-posts" aria-controls="drizzle-posts" aria-selected="true">Posts <span class="tab-n">5</span></button><button class="tab" type="button" role="tab" id="drizzle-tab-identity" aria-controls="drizzle-identity" aria-selected="false" tabindex="-1">Identity</button><button class="tab" type="button" role="tab" id="drizzle-tab-process" aria-controls="drizzle-process" aria-selected="false" tabindex="-1">How it was built</button></div>
-          <div class="posts-nav">
-            <button class="icon-btn" type="button" data-dir="-1" aria-label="Previous Drizzle posts"><i class="ph ph-arrow-left" aria-hidden="true"></i></button>
-            <button class="icon-btn" type="button" data-dir="1" aria-label="Next Drizzle posts"><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
-          </div>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="drizzle-posts" aria-labelledby="drizzle-tab-posts">
-          <h3 class="b-h3 panel-h">The posts</h3>
-          <ul class="strip" aria-label="Drizzle social posts">
-              <li><button class="post" type="button" data-full="../assets/design/drizzle/post-1.webp" data-caption="Drizzle · post 1 of 5">
-                <img src="../assets/design/drizzle/post-1.webp" width="864" height="1080" alt="“Forecast: 100% Drizzle.” A giant pink Drizzle can sits on a water tower above rainy London rooftops." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/drizzle/post-2.webp" data-caption="Drizzle · post 2 of 5">
-                <img src="../assets/design/drizzle/post-2.webp" width="864" height="1080" alt="“Rain check? Never.” Three friends laugh in the rain at a street market, cans in hand." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/drizzle/post-3.webp" data-caption="Drizzle · post 3 of 5">
-                <img src="../assets/design/drizzle/post-3.webp" width="864" height="1080" alt="“Rhubarb &amp; ginger. Properly fizzy.” A can bursts out of a pink splash with rhubarb and ginger." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/drizzle/post-4.webp" data-caption="Drizzle · post 4 of 5">
-                <img src="../assets/design/drizzle/post-4.webp" width="864" height="1080" alt="“Catch it while you can.” A woman catches pink Drizzle in an upturned umbrella." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/drizzle/post-5.webp" data-caption="Drizzle · post 5 of 5">
-                <img src="../assets/design/drizzle/post-5.webp" width="864" height="1080" alt="“Pick your weather.” The three flavours: Pink Rain, Green Mist and Purple Storm." loading="lazy" decoding="async">
-              </button></li>
-          </ul>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="drizzle-identity" aria-labelledby="drizzle-tab-identity">
-          <h3 class="b-h3 panel-h">Identity</h3>
-          <div class="b-system">
-            <div>
-              <h4 class="b-h4">Palette</h4>
-              <ul class="swatches"><li><span class="sw" style="--c:#E0457B"></span><span class="sw-name">Rhubarb pink</span><span class="sw-hex">#E0457B</span></li><li><span class="sw" style="--c:#C9CED6"></span><span class="sw-name">Cloud grey</span><span class="sw-hex">#C9CED6</span></li><li><span class="sw" style="--c:#12464F"></span><span class="sw-name">Deep teal</span><span class="sw-hex">#12464F</span></li></ul>
-            </div>
-            <div>
-              <h4 class="b-h4">Lettering</h4>
-              <ul class="letters"><li><span class="lt-sample f-lilita">Rain check? Never.</span><span class="lt-name">Lilita One</span></li><li><span class="lt-sample f-bebas">Properly fizzy</span><span class="lt-name">Bebas Neue</span></li></ul>
-            </div>
-          </div>
-          <figure class="b-wide">
-            <img src="../assets/design/drizzle/identity-board.webp" srcset="../assets/design/drizzle/identity-board-960.webp 960w, ../assets/design/drizzle/identity-board.webp 1920w" sizes="(max-width: 1500px) 100vw, 1440px" width="1920" height="1080" alt="Drizzle identity board: logo, palette, lettering, packaging, shopfront and tone of voice." loading="lazy" decoding="async">
-            <figcaption>Logo, palette, lettering, pack, shopfront and voice on one board.</figcaption>
-          </figure>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="drizzle-process" aria-labelledby="drizzle-tab-process">
-          <h3 class="b-h3 panel-h">How it was built</h3>
-          <figure class="b-wide">
-            <img src="../assets/design/drizzle/breakdown.webp" srcset="../assets/design/drizzle/breakdown-960.webp 960w, ../assets/design/drizzle/breakdown.webp 1920w" sizes="(max-width: 1500px) 100vw, 1440px" width="1920" height="1080" alt="How Drizzle post 1 was built: the rough sketch, the layers, and the finished post." loading="lazy" decoding="async">
-            <figcaption>The first post, from rough sketch to separate layers to the finished post.</figcaption>
-          </figure>
-        </div>
-
-        <nav class="b-pager" aria-label="More brands">
-          <a class="pager-link" href="#salt-gull" rel="prev"><span class="pager-label"><i class="ph ph-arrow-left" aria-hidden="true"></i>Previous</span><span class="pager-name">Salt &amp; Gull</span></a>
-          <a class="pager-link pager-next" href="#naseeg" rel="next"><span class="pager-label">Next<i class="ph ph-arrow-right" aria-hidden="true"></i></span><span class="pager-name">Naseeg</span></a>
-        </nav>
-      </section>
-      <section class="brand" id="naseeg" data-brand="naseeg" data-meta="#9E2A2B" data-sector="food" data-lang="ar" aria-labelledby="naseeg-title">
-        <nav class="b-nav" aria-label="Naseeg">
-          <a class="back" href="#brands"><i class="ph ph-arrow-left" aria-hidden="true"></i>All brands</a>
-          <span class="b-count">3 of 11</span>
-        </nav>
-        <div class="b-intro">
-          <div class="b-text">
-          <header class="b-head">
-            <h2 id="naseeg-title" class="b-name f-cairo">Naseeg</h2><span class="b-ar f-cairo" lang="ar" dir="rtl">نسيج</span>
-            <p class="b-where">Arabic coffee &amp; dates, Riyadh</p>
-            <p class="b-line"><span lang="ar" dir="rtl">حيّاك في مجلسنا</span> Welcome to our majlis.</p>
-          </header>
-          <div class="b-story">
+        <ul class="extras" aria-label="More Naseeg work">
+            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/naseeg/identity-board.webp" data-caption="Naseeg · Identity" data-wide>
+              <img src="../assets/design/naseeg/identity-board-960.webp" width="960" height="540" alt="Naseeg identity board: logo, palette, lettering, packaging, shopfront and tone of voice." loading="lazy" decoding="async">
+            </button><span class="x-cap">Identity</span></li>
+            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/naseeg/breakdown.webp" data-caption="Naseeg · Making of" data-wide>
+              <img src="../assets/design/naseeg/breakdown-960.webp" width="960" height="540" alt="How Naseeg post 1 was built: the rough sketch, the layers, and the finished post." loading="lazy" decoding="async">
+            </button><span class="x-cap">Making of</span></li>
+        </ul>
+        <details class="about">
+          <summary>About this brand <i class="ph ph-plus" aria-hidden="true"></i></summary>
+          <div class="about-body">
             <p><b>The problem.</b> Riyadh has a speciality café on every corner, but none of them feels like a majlis. Arabic coffee deserves a brand with the warmth of the gathering itself, not another minimal beige logo.</p>
             <p><b>The idea.</b> The Sadu weave is the identity. The coffee bag opens into a majlis tent, and every post is a seat at the gathering: red, saffron and black, with the dallah always in the frame.</p>
+            <ul class="swatches" aria-label="Palette"><li><span class="sw" style="--c:#9E2A2B"></span>Sadu red <span class="hex">#9E2A2B</span></li><li><span class="sw" style="--c:#E3A72F"></span>Saffron <span class="hex">#E3A72F</span></li><li><span class="sw" style="--c:#1A1A1A"></span>Black <span class="hex">#1A1A1A</span></li><li><span class="sw" style="--c:#F3EAD8"></span>Cream <span class="hex">#F3EAD8</span></li></ul>
+            <p class="type">Type: Cairo Black · Bebas Neue</p>
           </div>
-          </div>
-          <figure class="b-cover">
-            <img src="../assets/design/naseeg/cover.webp" srcset="../assets/design/naseeg/cover-960.webp 960w, ../assets/design/naseeg/cover.webp 1920w" sizes="(max-width: 1500px) 100vw, 1440px" width="1920" height="1080" alt="Naseeg cover: Arabic coffee & dates, Riyadh." loading="lazy" decoding="async">
-          </figure>
-        </div>
+        </details>
+      </div>
+    </section>
+    <section class="brand" id="ghasaq" data-brand="ghasaq" data-meta="#0E1424" aria-labelledby="ghasaq-title">
+      <figure class="b-cover">
+        <img src="../assets/design/ghasaq/cover.webp" srcset="../assets/design/ghasaq/cover-960.webp 960w, ../assets/design/ghasaq/cover.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Ghasaq cover: Oud perfume house, Dubai." loading="lazy" decoding="async">
+      </figure>
+      <div class="b-inner">
+        <header class="b-head">
+          <h2 id="ghasaq-title" class="b-name"><span class="f-bebas f-wide">Ghasaq</span><span class="b-ar f-ruqaa" lang="ar" dir="rtl">غسق</span></h2>
+          <p class="b-meta"><span class="b-num">04</span> Oud perfume · Dubai</p>
+        </header>
+        <ul class="grid" aria-label="Ghasaq posts">
+          <li class="lead"><button class="post" type="button" data-full="../assets/design/ghasaq/post-1.webp" data-caption="Ghasaq · post 1 of 6">
+            <img src="../assets/design/ghasaq/post-1.webp" width="864" height="1080" alt="“غسق” written in gold smoke rising from the bottle on a moonlit dune." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/ghasaq/post-2.webp" data-caption="Ghasaq · post 2 of 6">
+            <img src="../assets/design/ghasaq/post-2.webp" width="864" height="1080" alt="“أثرك يسبقك”, your presence arrives first. A man puts on Ghasaq in a dark room." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/ghasaq/post-3.webp" data-caption="Ghasaq · post 3 of 6">
+            <img src="../assets/design/ghasaq/post-3.webp" width="864" height="1080" alt="“عود.. من قلب الخشب”, oud from the heart of the wood. The bottle in front of split agarwood, wrapped in smoke." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/ghasaq/post-4.webp" data-caption="Ghasaq · post 4 of 6">
+            <img src="../assets/design/ghasaq/post-4.webp" width="864" height="1080" alt="“حضورك ما يُنسى”, unforgettable. A woman in an abaya leaves a wedding hall trailed by gold smoke." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/ghasaq/post-5.webp" data-caption="Ghasaq · post 5 of 6">
+            <img src="../assets/design/ghasaq/post-5.webp" width="864" height="1080" alt="“من المبخرة.. للزجاجة”, from the incense burner to the bottle." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/ghasaq/post-6.webp" data-caption="Ghasaq · post 6 of 6">
+            <img src="../assets/design/ghasaq/post-6.webp" width="864" height="1080" alt="“غسق” glowing above a desert doorway at night as a woman walks through it." loading="lazy" decoding="async">
+          </button></li>
+        </ul>
 
-        <div class="b-tabs-row">
-          <div class="b-tabs" role="tablist" aria-label="Naseeg work"><button class="tab" type="button" role="tab" id="naseeg-tab-posts" aria-controls="naseeg-posts" aria-selected="true">Posts <span class="tab-n">6</span></button><button class="tab" type="button" role="tab" id="naseeg-tab-identity" aria-controls="naseeg-identity" aria-selected="false" tabindex="-1">Identity</button><button class="tab" type="button" role="tab" id="naseeg-tab-process" aria-controls="naseeg-process" aria-selected="false" tabindex="-1">How it was built</button></div>
-          <div class="posts-nav">
-            <button class="icon-btn" type="button" data-dir="-1" aria-label="Previous Naseeg posts"><i class="ph ph-arrow-left" aria-hidden="true"></i></button>
-            <button class="icon-btn" type="button" data-dir="1" aria-label="Next Naseeg posts"><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
-          </div>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="naseeg-posts" aria-labelledby="naseeg-tab-posts">
-          <h3 class="b-h3 panel-h">The posts</h3>
-          <ul class="strip" aria-label="Naseeg social posts">
-              <li><button class="post" type="button" data-full="../assets/design/naseeg/post-1.webp" data-caption="Naseeg · post 1 of 6">
-                <img src="../assets/design/naseeg/post-1.webp" width="864" height="1080" alt="“حيّاك في مجلسنا”, welcome to our majlis. The Naseeg coffee bag becomes a majlis tent in the desert at dusk." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/naseeg/post-2.webp" data-caption="Naseeg · post 2 of 6">
-                <img src="../assets/design/naseeg/post-2.webp" width="864" height="1080" alt="“سوالف وفنجال”, stories and a cup. Friends pour Arabic coffee from a brass dallah." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/naseeg/post-3.webp" data-caption="Naseeg · post 3 of 6">
-                <img src="../assets/design/naseeg/post-3.webp" width="864" height="1080" alt="“زعفران وهيل.. على أصوله”, saffron and cardamom done right, bursting out of a coffee cup." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/naseeg/post-4.webp" data-caption="Naseeg · post 4 of 6">
-                <img src="../assets/design/naseeg/post-4.webp" width="864" height="1080" alt="“رمضان يجمعنا”, Ramadan brings us together. A family shares coffee and dates." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/naseeg/post-5.webp" data-caption="Naseeg · post 5 of 6">
-                <img src="../assets/design/naseeg/post-5.webp" width="864" height="1080" alt="“التمر والقهوة.. ما يتفارقون”, dates and coffee, inseparable. A cup beside an open box of dates on a Sadu rug." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/naseeg/post-6.webp" data-caption="Naseeg · post 6 of 6">
-                <img src="../assets/design/naseeg/post-6.webp" width="864" height="1080" alt="“حيّاك”, welcome, in huge red letters on the dunes as a man walks out across the sand." loading="lazy" decoding="async">
-              </button></li>
-          </ul>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="naseeg-identity" aria-labelledby="naseeg-tab-identity">
-          <h3 class="b-h3 panel-h">Identity</h3>
-          <div class="b-system">
-            <div>
-              <h4 class="b-h4">Palette</h4>
-              <ul class="swatches"><li><span class="sw" style="--c:#9E2A2B"></span><span class="sw-name">Sadu red</span><span class="sw-hex">#9E2A2B</span></li><li><span class="sw" style="--c:#E3A72F"></span><span class="sw-name">Saffron</span><span class="sw-hex">#E3A72F</span></li><li><span class="sw" style="--c:#1A1A1A"></span><span class="sw-name">Black</span><span class="sw-hex">#1A1A1A</span></li><li><span class="sw" style="--c:#F3EAD8"></span><span class="sw-name">Cream</span><span class="sw-hex">#F3EAD8</span></li></ul>
-            </div>
-            <div>
-              <h4 class="b-h4">Lettering</h4>
-              <ul class="letters"><li><span class="lt-sample f-cairo"><span lang="ar" dir="rtl">حيّاك في مجلسنا</span></span><span class="lt-name">Cairo Black</span></li><li><span class="lt-sample f-bebas">Naseeg · Welcome</span><span class="lt-name">Bebas Neue</span></li></ul>
-            </div>
-          </div>
-          <figure class="b-wide">
-            <img src="../assets/design/naseeg/identity-board.webp" srcset="../assets/design/naseeg/identity-board-960.webp 960w, ../assets/design/naseeg/identity-board.webp 1920w" sizes="(max-width: 1500px) 100vw, 1440px" width="1920" height="1080" alt="Naseeg identity board: logo, palette, lettering, packaging, shopfront and tone of voice." loading="lazy" decoding="async">
-            <figcaption>Logo, palette, lettering, pack, shopfront and voice on one board.</figcaption>
-          </figure>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="naseeg-process" aria-labelledby="naseeg-tab-process">
-          <h3 class="b-h3 panel-h">How it was built</h3>
-          <figure class="b-wide">
-            <img src="../assets/design/naseeg/breakdown.webp" srcset="../assets/design/naseeg/breakdown-960.webp 960w, ../assets/design/naseeg/breakdown.webp 1920w" sizes="(max-width: 1500px) 100vw, 1440px" width="1920" height="1080" alt="How Naseeg post 1 was built: the rough sketch, the layers, and the finished post." loading="lazy" decoding="async">
-            <figcaption>The first post, from rough sketch to separate layers to the finished post.</figcaption>
-          </figure>
-        </div>
-
-        <nav class="b-pager" aria-label="More brands">
-          <a class="pager-link" href="#drizzle" rel="prev"><span class="pager-label"><i class="ph ph-arrow-left" aria-hidden="true"></i>Previous</span><span class="pager-name">Drizzle</span></a>
-          <a class="pager-link pager-next" href="#ghasaq" rel="next"><span class="pager-label">Next<i class="ph ph-arrow-right" aria-hidden="true"></i></span><span class="pager-name">Ghasaq</span></a>
-        </nav>
-      </section>
-      <section class="brand" id="ghasaq" data-brand="ghasaq" data-meta="#0E1424" data-sector="beauty" data-lang="ar" aria-labelledby="ghasaq-title">
-        <nav class="b-nav" aria-label="Ghasaq">
-          <a class="back" href="#brands"><i class="ph ph-arrow-left" aria-hidden="true"></i>All brands</a>
-          <span class="b-count">4 of 11</span>
-        </nav>
-        <div class="b-intro">
-          <div class="b-text">
-          <header class="b-head">
-            <h2 id="ghasaq-title" class="b-name f-bebas f-wide">Ghasaq</h2><span class="b-ar f-ruqaa" lang="ar" dir="rtl">غسق</span>
-            <p class="b-where">Oud perfume house, Dubai</p>
-            <p class="b-line">Your presence lingers.</p>
-          </header>
-          <div class="b-story">
+        <ul class="extras" aria-label="More Ghasaq work">
+            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/ghasaq/identity-board.webp" data-caption="Ghasaq · Identity" data-wide>
+              <img src="../assets/design/ghasaq/identity-board-960.webp" width="960" height="540" alt="Ghasaq identity board: logo, palette, lettering, packaging, shopfront and tone of voice." loading="lazy" decoding="async">
+            </button><span class="x-cap">Identity</span></li>
+            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/ghasaq/breakdown.webp" data-caption="Ghasaq · Making of" data-wide>
+              <img src="../assets/design/ghasaq/breakdown-960.webp" width="960" height="540" alt="How Ghasaq post 1 was built: the rough sketch, the layers, and the finished post." loading="lazy" decoding="async">
+            </button><span class="x-cap">Making of</span></li>
+        </ul>
+        <details class="about">
+          <summary>About this brand <i class="ph ph-plus" aria-hidden="true"></i></summary>
+          <div class="about-body">
             <p><b>The problem.</b> Every oud house in the Gulf sells the same thing: dark bottles, gold caps, heritage clichés. Ghasaq needed to feel like the night itself. Quiet, expensive, impossible to ignore once you’ve smelled it.</p>
             <p><b>The idea.</b> Scent as smoke. One gold smoke trail curls through every image, off the dune, around the bottle, behind her at the wedding, so you know the brand with the logo covered and the night does the selling.</p>
+            <ul class="swatches" aria-label="Palette"><li><span class="sw" style="--c:#0E1424"></span>Midnight navy <span class="hex">#0E1424</span></li><li><span class="sw" style="--c:#C9A24A"></span>Gold <span class="hex">#C9A24A</span></li><li><span class="sw" style="--c:#BCBCBC"></span>Smoke grey <span class="hex">#BCBCBC</span></li></ul>
+            <p class="type">Type: Aref Ruqaa · Amiri · Bebas Neue</p>
           </div>
-          </div>
-          <figure class="b-cover">
-            <img src="../assets/design/ghasaq/cover.webp" srcset="../assets/design/ghasaq/cover-960.webp 960w, ../assets/design/ghasaq/cover.webp 1920w" sizes="(max-width: 1500px) 100vw, 1440px" width="1920" height="1080" alt="Ghasaq cover: Oud perfume house, Dubai." loading="lazy" decoding="async">
-          </figure>
-        </div>
+        </details>
+      </div>
+    </section>
+    <section class="brand" id="wathba" data-brand="wathba" data-meta="#141414" aria-labelledby="wathba-title">
+      <figure class="b-cover">
+        <img src="../assets/design/wathba/cover.webp" srcset="../assets/design/wathba/cover-960.webp 960w, ../assets/design/wathba/cover.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Wathba cover: Modest activewear, Riyadh & Dubai." loading="lazy" decoding="async">
+      </figure>
+      <div class="b-inner">
+        <header class="b-head">
+          <h2 id="wathba-title" class="b-name"><span class="f-cairo">Wathba</span><span class="b-ar f-cairo" lang="ar" dir="rtl">وثبة</span></h2>
+          <p class="b-meta"><span class="b-num">05</span> Modest activewear · Riyadh &amp; Dubai</p>
+        </header>
+        <ul class="grid" aria-label="Wathba posts">
+          <li class="lead"><button class="post" type="button" data-full="../assets/design/wathba/post-1.webp" data-caption="Wathba · post 1 of 5">
+            <img src="../assets/design/wathba/post-1.webp" width="864" height="1080" alt="“ما يوقفك شي”, nothing stops you. A runner in Wathba kit on a desert road at midday." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/wathba/post-2.webp" data-caption="Wathba · post 2 of 5">
+            <img src="../assets/design/wathba/post-2.webp" width="864" height="1080" alt="“ما يوقفك شي”. A runner pushes on through a sandstorm, scarf streaming behind her." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/wathba/post-3.webp" data-caption="Wathba · post 3 of 5">
+            <img src="../assets/design/wathba/post-3.webp" width="864" height="1080" alt="“ما يوقفك شي”. A padel player under floodlights with the Dubai skyline behind." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/wathba/post-4.webp" data-caption="Wathba · post 4 of 5">
+            <img src="../assets/design/wathba/post-4.webp" width="864" height="1080" alt="“وثبتك.. على طريقتك”, your leap, your way. A runner on a Riyadh road at sunrise." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/wathba/post-5.webp" data-caption="Wathba · post 5 of 5">
+            <img src="../assets/design/wathba/post-5.webp" width="864" height="1080" alt="“وثبة”, leap. A woman jumps against a desert sunset." loading="lazy" decoding="async">
+          </button></li>
+          <li class="line-tile" aria-hidden="true"><p class="f-cairo">Nothing stops you. Not even the heat.</p></li>
+        </ul>
 
-        <div class="b-tabs-row">
-          <div class="b-tabs" role="tablist" aria-label="Ghasaq work"><button class="tab" type="button" role="tab" id="ghasaq-tab-posts" aria-controls="ghasaq-posts" aria-selected="true">Posts <span class="tab-n">6</span></button><button class="tab" type="button" role="tab" id="ghasaq-tab-identity" aria-controls="ghasaq-identity" aria-selected="false" tabindex="-1">Identity</button><button class="tab" type="button" role="tab" id="ghasaq-tab-process" aria-controls="ghasaq-process" aria-selected="false" tabindex="-1">How it was built</button></div>
-          <div class="posts-nav">
-            <button class="icon-btn" type="button" data-dir="-1" aria-label="Previous Ghasaq posts"><i class="ph ph-arrow-left" aria-hidden="true"></i></button>
-            <button class="icon-btn" type="button" data-dir="1" aria-label="Next Ghasaq posts"><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
-          </div>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="ghasaq-posts" aria-labelledby="ghasaq-tab-posts">
-          <h3 class="b-h3 panel-h">The posts</h3>
-          <ul class="strip" aria-label="Ghasaq social posts">
-              <li><button class="post" type="button" data-full="../assets/design/ghasaq/post-1.webp" data-caption="Ghasaq · post 1 of 6">
-                <img src="../assets/design/ghasaq/post-1.webp" width="864" height="1080" alt="“غسق” written in gold smoke rising from the bottle on a moonlit dune." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/ghasaq/post-2.webp" data-caption="Ghasaq · post 2 of 6">
-                <img src="../assets/design/ghasaq/post-2.webp" width="864" height="1080" alt="“أثرك يسبقك”, your presence arrives first. A man puts on Ghasaq in a dark room." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/ghasaq/post-3.webp" data-caption="Ghasaq · post 3 of 6">
-                <img src="../assets/design/ghasaq/post-3.webp" width="864" height="1080" alt="“عود.. من قلب الخشب”, oud from the heart of the wood. The bottle in front of split agarwood, wrapped in smoke." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/ghasaq/post-4.webp" data-caption="Ghasaq · post 4 of 6">
-                <img src="../assets/design/ghasaq/post-4.webp" width="864" height="1080" alt="“حضورك ما يُنسى”, unforgettable. A woman in an abaya leaves a wedding hall trailed by gold smoke." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/ghasaq/post-5.webp" data-caption="Ghasaq · post 5 of 6">
-                <img src="../assets/design/ghasaq/post-5.webp" width="864" height="1080" alt="“من المبخرة.. للزجاجة”, from the incense burner to the bottle." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/ghasaq/post-6.webp" data-caption="Ghasaq · post 6 of 6">
-                <img src="../assets/design/ghasaq/post-6.webp" width="864" height="1080" alt="“غسق” glowing above a desert doorway at night as a woman walks through it." loading="lazy" decoding="async">
-              </button></li>
-          </ul>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="ghasaq-identity" aria-labelledby="ghasaq-tab-identity">
-          <h3 class="b-h3 panel-h">Identity</h3>
-          <div class="b-system">
-            <div>
-              <h4 class="b-h4">Palette</h4>
-              <ul class="swatches"><li><span class="sw" style="--c:#0E1424"></span><span class="sw-name">Midnight navy</span><span class="sw-hex">#0E1424</span></li><li><span class="sw" style="--c:#C9A24A"></span><span class="sw-name">Gold</span><span class="sw-hex">#C9A24A</span></li><li><span class="sw" style="--c:#BCBCBC"></span><span class="sw-name">Smoke grey</span><span class="sw-hex">#BCBCBC</span></li></ul>
-            </div>
-            <div>
-              <h4 class="b-h4">Lettering</h4>
-              <ul class="letters"><li><span class="lt-sample f-ruqaa"><span lang="ar" dir="rtl">غسق</span></span><span class="lt-name">Aref Ruqaa</span></li><li><span class="lt-sample f-amiri"><span lang="ar" dir="rtl">أثرك يسبقك</span></span><span class="lt-name">Amiri</span></li><li><span class="lt-sample f-bebas">Ghasaq · Oud · Dubai</span><span class="lt-name">Bebas Neue</span></li></ul>
-            </div>
-          </div>
-          <figure class="b-wide">
-            <img src="../assets/design/ghasaq/identity-board.webp" srcset="../assets/design/ghasaq/identity-board-960.webp 960w, ../assets/design/ghasaq/identity-board.webp 1920w" sizes="(max-width: 1500px) 100vw, 1440px" width="1920" height="1080" alt="Ghasaq identity board: logo, palette, lettering, packaging, shopfront and tone of voice." loading="lazy" decoding="async">
-            <figcaption>Logo, palette, lettering, pack, shopfront and voice on one board.</figcaption>
-          </figure>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="ghasaq-process" aria-labelledby="ghasaq-tab-process">
-          <h3 class="b-h3 panel-h">How it was built</h3>
-          <figure class="b-wide">
-            <img src="../assets/design/ghasaq/breakdown.webp" srcset="../assets/design/ghasaq/breakdown-960.webp 960w, ../assets/design/ghasaq/breakdown.webp 1920w" sizes="(max-width: 1500px) 100vw, 1440px" width="1920" height="1080" alt="How Ghasaq post 1 was built: the rough sketch, the layers, and the finished post." loading="lazy" decoding="async">
-            <figcaption>The first post, from rough sketch to separate layers to the finished post.</figcaption>
-          </figure>
-        </div>
-
-        <nav class="b-pager" aria-label="More brands">
-          <a class="pager-link" href="#naseeg" rel="prev"><span class="pager-label"><i class="ph ph-arrow-left" aria-hidden="true"></i>Previous</span><span class="pager-name">Naseeg</span></a>
-          <a class="pager-link pager-next" href="#wathba" rel="next"><span class="pager-label">Next<i class="ph ph-arrow-right" aria-hidden="true"></i></span><span class="pager-name">Wathba</span></a>
-        </nav>
-      </section>
-      <section class="brand" id="wathba" data-brand="wathba" data-meta="#141414" data-sector="fashion" data-lang="ar" aria-labelledby="wathba-title">
-        <nav class="b-nav" aria-label="Wathba">
-          <a class="back" href="#brands"><i class="ph ph-arrow-left" aria-hidden="true"></i>All brands</a>
-          <span class="b-count">5 of 11</span>
-        </nav>
-        <div class="b-intro">
-          <div class="b-text">
-          <header class="b-head">
-            <h2 id="wathba-title" class="b-name f-cairo">Wathba</h2><span class="b-ar f-cairo" lang="ar" dir="rtl">وثبة</span>
-            <p class="b-where">Modest activewear, Riyadh &amp; Dubai</p>
-            <p class="b-line">Nothing stops you. Not even the heat.</p>
-          </header>
-          <div class="b-story">
+        <ul class="extras" aria-label="More Wathba work">
+            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/wathba/identity-board.webp" data-caption="Wathba · Identity" data-wide>
+              <img src="../assets/design/wathba/identity-board-960.webp" width="960" height="540" alt="Wathba identity board: logo, palette, lettering, packaging, shopfront and tone of voice." loading="lazy" decoding="async">
+            </button><span class="x-cap">Identity</span></li>
+            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/wathba/breakdown.webp" data-caption="Wathba · Making of" data-wide>
+              <img src="../assets/design/wathba/breakdown-960.webp" width="960" height="540" alt="How Wathba post 1 was built: the rough sketch, the layers, and the finished post." loading="lazy" decoding="async">
+            </button><span class="x-cap">Making of</span></li>
+        </ul>
+        <details class="about">
+          <summary>About this brand <i class="ph ph-plus" aria-hidden="true"></i></summary>
+          <div class="about-body">
             <p><b>The problem.</b> Modest activewear in the Gulf either looks like gym kit with extra fabric, or fashion that can’t survive a real workout. Active women wanted kit that performs in 45° heat and looks like it means it.</p>
             <p><b>The idea.</b> Wathba is built for speed. One off-black kit with a lime pulse, slanted type that leans into the run, and motion streaks in every frame. Nothing stops you, not even the heat.</p>
+            <ul class="swatches" aria-label="Palette"><li><span class="sw" style="--c:#141414"></span>Off-black <span class="hex">#141414</span></li><li><span class="sw" style="--c:#C8F031"></span>Electric lime <span class="hex">#C8F031</span></li><li><span class="sw" style="--c:#D9C3A0"></span>Desert sand <span class="hex">#D9C3A0</span></li></ul>
+            <p class="type">Type: Cairo Black, slanted · Bebas Neue</p>
           </div>
-          </div>
-          <figure class="b-cover">
-            <img src="../assets/design/wathba/cover.webp" srcset="../assets/design/wathba/cover-960.webp 960w, ../assets/design/wathba/cover.webp 1920w" sizes="(max-width: 1500px) 100vw, 1440px" width="1920" height="1080" alt="Wathba cover: Modest activewear, Riyadh & Dubai." loading="lazy" decoding="async">
-          </figure>
-        </div>
+        </details>
+      </div>
+    </section>
+    <section class="brand" id="rand" data-brand="rand" data-meta="#23403A" aria-labelledby="rand-title">
+      <figure class="b-cover">
+        <img src="../assets/design/rand/cover.webp" srcset="../assets/design/rand/cover-960.webp 960w, ../assets/design/rand/cover.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Rand cover: Luxury villa communities, Riyadh." loading="lazy" decoding="async">
+      </figure>
+      <div class="b-inner">
+        <header class="b-head">
+          <h2 id="rand-title" class="b-name"><span class="f-bebas f-wide">Rand</span><span class="b-ar f-ruqaa" lang="ar" dir="rtl">رند</span></h2>
+          <p class="b-meta"><span class="b-num">06</span> Villa communities · Riyadh</p>
+        </header>
+        <ul class="grid" aria-label="Rand posts">
+          <li class="lead"><button class="post" type="button" data-full="../assets/design/rand/post-1.webp" data-caption="Rand · post 1 of 5">
+            <img src="../assets/design/rand/post-1.webp" width="864" height="1080" alt="“بيتك.. يبدأ من هنا”, home starts here. A family looks out through a carved Najdi doorway at palms in the golden hour." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/rand/post-2.webp" data-caption="Rand · post 2 of 5">
+            <img src="../assets/design/rand/post-2.webp" width="864" height="1080" alt="“شوف بيتك قبل لا يكتمل”, see your home before it’s built. A father and son point at a lit model of the community." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/rand/post-3.webp" data-caption="Rand · post 3 of 5">
+            <img src="../assets/design/rand/post-3.webp" width="864" height="1080" alt="“رند” cast in mashrabiya light across a courtyard wall as a woman reads in the shade below." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/rand/post-4.webp" data-caption="Rand · post 4 of 5">
+            <img src="../assets/design/rand/post-4.webp" width="864" height="1080" alt="“مساحة تكبر معكم”, space that grows with you. A boy runs laughing past his grandmother watering the garden." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/rand/post-5.webp" data-caption="Rand · post 5 of 5">
+            <img src="../assets/design/rand/post-5.webp" width="864" height="1080" alt="“التسجيل مفتوح”, registration now open. An aerial view of the lit community at dusk: 320 villas, phase 1, North Riyadh." loading="lazy" decoding="async">
+          </button></li>
+          <li class="line-tile" aria-hidden="true"><p class="f-ruqaa"><span lang="ar" dir="rtl">بيتك.. يبدأ من هنا</span> Home starts here.</p></li>
+        </ul>
 
-        <div class="b-tabs-row">
-          <div class="b-tabs" role="tablist" aria-label="Wathba work"><button class="tab" type="button" role="tab" id="wathba-tab-posts" aria-controls="wathba-posts" aria-selected="true">Posts <span class="tab-n">5</span></button><button class="tab" type="button" role="tab" id="wathba-tab-identity" aria-controls="wathba-identity" aria-selected="false" tabindex="-1">Identity</button><button class="tab" type="button" role="tab" id="wathba-tab-process" aria-controls="wathba-process" aria-selected="false" tabindex="-1">How it was built</button></div>
-          <div class="posts-nav">
-            <button class="icon-btn" type="button" data-dir="-1" aria-label="Previous Wathba posts"><i class="ph ph-arrow-left" aria-hidden="true"></i></button>
-            <button class="icon-btn" type="button" data-dir="1" aria-label="Next Wathba posts"><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
-          </div>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="wathba-posts" aria-labelledby="wathba-tab-posts">
-          <h3 class="b-h3 panel-h">The posts</h3>
-          <ul class="strip" aria-label="Wathba social posts">
-              <li><button class="post" type="button" data-full="../assets/design/wathba/post-1.webp" data-caption="Wathba · post 1 of 5">
-                <img src="../assets/design/wathba/post-1.webp" width="864" height="1080" alt="“ما يوقفك شي”, nothing stops you. A runner in Wathba kit on a desert road at midday." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/wathba/post-2.webp" data-caption="Wathba · post 2 of 5">
-                <img src="../assets/design/wathba/post-2.webp" width="864" height="1080" alt="“ما يوقفك شي”. A runner pushes on through a sandstorm, scarf streaming behind her." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/wathba/post-3.webp" data-caption="Wathba · post 3 of 5">
-                <img src="../assets/design/wathba/post-3.webp" width="864" height="1080" alt="“ما يوقفك شي”. A padel player under floodlights with the Dubai skyline behind." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/wathba/post-4.webp" data-caption="Wathba · post 4 of 5">
-                <img src="../assets/design/wathba/post-4.webp" width="864" height="1080" alt="“وثبتك.. على طريقتك”, your leap, your way. A runner on a Riyadh road at sunrise." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/wathba/post-5.webp" data-caption="Wathba · post 5 of 5">
-                <img src="../assets/design/wathba/post-5.webp" width="864" height="1080" alt="“وثبة”, leap. A woman jumps against a desert sunset." loading="lazy" decoding="async">
-              </button></li>
-          </ul>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="wathba-identity" aria-labelledby="wathba-tab-identity">
-          <h3 class="b-h3 panel-h">Identity</h3>
-          <div class="b-system">
-            <div>
-              <h4 class="b-h4">Palette</h4>
-              <ul class="swatches"><li><span class="sw" style="--c:#141414"></span><span class="sw-name">Off-black</span><span class="sw-hex">#141414</span></li><li><span class="sw" style="--c:#C8F031"></span><span class="sw-name">Electric lime</span><span class="sw-hex">#C8F031</span></li><li><span class="sw" style="--c:#D9C3A0"></span><span class="sw-name">Desert sand</span><span class="sw-hex">#D9C3A0</span></li></ul>
-            </div>
-            <div>
-              <h4 class="b-h4">Lettering</h4>
-              <ul class="letters"><li><span class="lt-sample f-cairo f-slant"><span lang="ar" dir="rtl">ما يوقفك شي</span></span><span class="lt-name">Cairo Black, slanted</span></li><li><span class="lt-sample f-bebas">Nothing stops you</span><span class="lt-name">Bebas Neue</span></li></ul>
-            </div>
-          </div>
-          <figure class="b-wide">
-            <img src="../assets/design/wathba/identity-board.webp" srcset="../assets/design/wathba/identity-board-960.webp 960w, ../assets/design/wathba/identity-board.webp 1920w" sizes="(max-width: 1500px) 100vw, 1440px" width="1920" height="1080" alt="Wathba identity board: logo, palette, lettering, packaging, shopfront and tone of voice." loading="lazy" decoding="async">
-            <figcaption>Logo, palette, lettering, pack, shopfront and voice on one board.</figcaption>
-          </figure>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="wathba-process" aria-labelledby="wathba-tab-process">
-          <h3 class="b-h3 panel-h">How it was built</h3>
-          <figure class="b-wide">
-            <img src="../assets/design/wathba/breakdown.webp" srcset="../assets/design/wathba/breakdown-960.webp 960w, ../assets/design/wathba/breakdown.webp 1920w" sizes="(max-width: 1500px) 100vw, 1440px" width="1920" height="1080" alt="How Wathba post 1 was built: the rough sketch, the layers, and the finished post." loading="lazy" decoding="async">
-            <figcaption>The first post, from rough sketch to separate layers to the finished post.</figcaption>
-          </figure>
-        </div>
-
-        <nav class="b-pager" aria-label="More brands">
-          <a class="pager-link" href="#ghasaq" rel="prev"><span class="pager-label"><i class="ph ph-arrow-left" aria-hidden="true"></i>Previous</span><span class="pager-name">Ghasaq</span></a>
-          <a class="pager-link pager-next" href="#rand" rel="next"><span class="pager-label">Next<i class="ph ph-arrow-right" aria-hidden="true"></i></span><span class="pager-name">Rand</span></a>
-        </nav>
-      </section>
-      <section class="brand" id="rand" data-brand="rand" data-meta="#23403A" data-sector="property" data-lang="ar" aria-labelledby="rand-title">
-        <nav class="b-nav" aria-label="Rand">
-          <a class="back" href="#brands"><i class="ph ph-arrow-left" aria-hidden="true"></i>All brands</a>
-          <span class="b-count">6 of 11</span>
-        </nav>
-        <div class="b-intro">
-          <div class="b-text">
-          <header class="b-head">
-            <h2 id="rand-title" class="b-name f-bebas f-wide">Rand</h2><span class="b-ar f-ruqaa" lang="ar" dir="rtl">رند</span>
-            <p class="b-where">Luxury villa communities, Riyadh</p>
-            <p class="b-line"><span lang="ar" dir="rtl">بيتك.. يبدأ من هنا</span> Home starts here.</p>
-          </header>
-          <div class="b-story">
+        <ul class="extras" aria-label="More Rand work">
+            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/rand/breakdown.webp" data-caption="Rand · Making of" data-wide>
+              <img src="../assets/design/rand/breakdown-960.webp" width="960" height="540" alt="How Rand post 1 was built: the rough sketch, the layers, and the finished post." loading="lazy" decoding="async">
+            </button><span class="x-cap">Making of</span></li>
+        </ul>
+        <details class="about">
+          <summary>About this brand <i class="ph ph-plus" aria-hidden="true"></i></summary>
+          <div class="about-body">
             <p><b>The problem.</b> Every luxury villa developer in Riyadh sells the same things: square metres, marble finishes and a render of an empty house. Rand needed to sell the life that happens inside it.</p>
             <p><b>The idea.</b> The mashrabiya is the identity, the carved screen that gives a Saudi home its light, shade and privacy. It frames every post in golden-hour light, with one line underneath: home starts here.</p>
+            <ul class="swatches" aria-label="Palette"><li><span class="sw" style="--c:#23403A"></span>Mashrabiya green <span class="hex">#23403A</span></li><li><span class="sw" style="--c:#A87C50"></span>Desert gold <span class="hex">#A87C50</span></li><li><span class="sw" style="--c:#E8DBC3"></span>Limestone <span class="hex">#E8DBC3</span></li></ul>
+            <p class="type">Type: Aref Ruqaa · Cairo Black · Bebas Neue</p>
           </div>
-          </div>
-          <figure class="b-cover">
-            <img src="../assets/design/rand/cover.webp" srcset="../assets/design/rand/cover-960.webp 960w, ../assets/design/rand/cover.webp 1920w" sizes="(max-width: 1500px) 100vw, 1440px" width="1920" height="1080" alt="Rand cover: Luxury villa communities, Riyadh." loading="lazy" decoding="async">
-          </figure>
-        </div>
+        </details>
+      </div>
+    </section>
+    <section class="brand" id="plug-brew" data-brand="plug-brew" data-meta="#1E2327" aria-labelledby="plug-brew-title">
+      <figure class="b-cover">
+        <img src="../assets/design/plug-brew/cover.webp" srcset="../assets/design/plug-brew/cover-960.webp 960w, ../assets/design/plug-brew/cover.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Plug & Brew cover: EV charging hubs with a café, UK." loading="lazy" decoding="async">
+      </figure>
+      <div class="b-inner">
+        <header class="b-head">
+          <h2 id="plug-brew-title" class="b-name"><span class="f-quick">Plug &amp; Brew</span></h2>
+          <p class="b-meta"><span class="b-num">07</span> EV charging &amp; café · UK</p>
+        </header>
+        <ul class="grid" aria-label="Plug & Brew posts">
+          <li class="lead"><button class="post" type="button" data-full="../assets/design/plug-brew/post-1.webp" data-caption="Plug & Brew · post 1 of 5">
+            <img src="../assets/design/plug-brew/post-1.webp" width="864" height="1080" alt="“Pull in. Plug in. Put the kettle on.” A row of chargers with glowing teal rings beside a lit café on a rainy night." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/plug-brew/post-2.webp" data-caption="Plug & Brew · post 2 of 5">
+            <img src="../assets/design/plug-brew/post-2.webp" width="864" height="1080" alt="“Click. That’s it.” A woman plugs in her car in the rain, the café glowing behind her." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/plug-brew/post-3.webp" data-caption="Plug & Brew · post 3 of 5">
+            <img src="../assets/design/plug-brew/post-3.webp" width="864" height="1080" alt="“Car’s charging. So are you.” A dad and his daughter hold hot chocolates by a rainy window while their car charges outside." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/plug-brew/post-4.webp" data-caption="Plug & Brew · post 4 of 5">
+            <img src="../assets/design/plug-brew/post-4.webp" width="864" height="1080" alt="“Britain runs on two things.” A steaming kettle inside a teal ring, with a charging cable plugged into it." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/plug-brew/post-5.webp" data-caption="Plug & Brew · post 5 of 5">
+            <img src="../assets/design/plug-brew/post-5.webp" width="864" height="1080" alt="“Now open on the M6.” An aerial view at dusk of the hub beside the motorway: 12 rapid chargers, Junction 15, open 24/7." loading="lazy" decoding="async">
+          </button></li>
+          <li class="line-tile" aria-hidden="true"><p class="f-quick">Plug in. Put the kettle on.</p></li>
+        </ul>
 
-        <div class="b-tabs-row">
-          <div class="b-tabs" role="tablist" aria-label="Rand work"><button class="tab" type="button" role="tab" id="rand-tab-posts" aria-controls="rand-posts" aria-selected="true">Posts <span class="tab-n">5</span></button><button class="tab" type="button" role="tab" id="rand-tab-process" aria-controls="rand-process" aria-selected="false" tabindex="-1">How it was built</button></div>
-          <div class="posts-nav">
-            <button class="icon-btn" type="button" data-dir="-1" aria-label="Previous Rand posts"><i class="ph ph-arrow-left" aria-hidden="true"></i></button>
-            <button class="icon-btn" type="button" data-dir="1" aria-label="Next Rand posts"><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
-          </div>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="rand-posts" aria-labelledby="rand-tab-posts">
-          <h3 class="b-h3 panel-h">The posts</h3>
-          <ul class="strip" aria-label="Rand social posts">
-              <li><button class="post" type="button" data-full="../assets/design/rand/post-1.webp" data-caption="Rand · post 1 of 5">
-                <img src="../assets/design/rand/post-1.webp" width="864" height="1080" alt="“بيتك.. يبدأ من هنا”, home starts here. A family looks out through a carved Najdi doorway at palms in the golden hour." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/rand/post-2.webp" data-caption="Rand · post 2 of 5">
-                <img src="../assets/design/rand/post-2.webp" width="864" height="1080" alt="“شوف بيتك قبل لا يكتمل”, see your home before it’s built. A father and son point at a lit model of the community." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/rand/post-3.webp" data-caption="Rand · post 3 of 5">
-                <img src="../assets/design/rand/post-3.webp" width="864" height="1080" alt="“رند” cast in mashrabiya light across a courtyard wall as a woman reads in the shade below." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/rand/post-4.webp" data-caption="Rand · post 4 of 5">
-                <img src="../assets/design/rand/post-4.webp" width="864" height="1080" alt="“مساحة تكبر معكم”, space that grows with you. A boy runs laughing past his grandmother watering the garden." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/rand/post-5.webp" data-caption="Rand · post 5 of 5">
-                <img src="../assets/design/rand/post-5.webp" width="864" height="1080" alt="“التسجيل مفتوح”, registration now open. An aerial view of the lit community at dusk: 320 villas, phase 1, North Riyadh." loading="lazy" decoding="async">
-              </button></li>
-          </ul>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="rand-process" aria-labelledby="rand-tab-process">
-          <h3 class="b-h3 panel-h">How it was built</h3>
-          <figure class="b-wide">
-            <img src="../assets/design/rand/breakdown.webp" srcset="../assets/design/rand/breakdown-960.webp 960w, ../assets/design/rand/breakdown.webp 1920w" sizes="(max-width: 1500px) 100vw, 1440px" width="1920" height="1080" alt="How Rand post 1 was built: the rough sketch, the layers, and the finished post." loading="lazy" decoding="async">
-            <figcaption>The first post, from rough sketch to separate layers to the finished post.</figcaption>
-          </figure>
-        </div>
-
-        <nav class="b-pager" aria-label="More brands">
-          <a class="pager-link" href="#wathba" rel="prev"><span class="pager-label"><i class="ph ph-arrow-left" aria-hidden="true"></i>Previous</span><span class="pager-name">Wathba</span></a>
-          <a class="pager-link pager-next" href="#plug-brew" rel="next"><span class="pager-label">Next<i class="ph ph-arrow-right" aria-hidden="true"></i></span><span class="pager-name">Plug &amp; Brew</span></a>
-        </nav>
-      </section>
-      <section class="brand" id="plug-brew" data-brand="plug-brew" data-meta="#1E2327" data-sector="motoring" data-lang="en" aria-labelledby="plug-brew-title">
-        <nav class="b-nav" aria-label="Plug & Brew">
-          <a class="back" href="#brands"><i class="ph ph-arrow-left" aria-hidden="true"></i>All brands</a>
-          <span class="b-count">7 of 11</span>
-        </nav>
-        <div class="b-intro">
-          <div class="b-text">
-          <header class="b-head">
-            <h2 id="plug-brew-title" class="b-name f-quick">Plug &amp; Brew</h2>
-            <p class="b-where">EV charging hubs with a café, UK</p>
-            <p class="b-line">Plug in. Put the kettle on.</p>
-          </header>
-          <div class="b-story">
+        <ul class="extras" aria-label="More Plug & Brew work">
+            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/plug-brew/breakdown.webp" data-caption="Plug & Brew · Making of" data-wide>
+              <img src="../assets/design/plug-brew/breakdown-960.webp" width="960" height="540" alt="How Plug & Brew post 1 was built: the rough sketch, the layers, and the finished post." loading="lazy" decoding="async">
+            </button><span class="x-cap">Making of</span></li>
+        </ul>
+        <details class="about">
+          <summary>About this brand <i class="ph ph-plus" aria-hidden="true"></i></summary>
+          <div class="about-body">
             <p><b>The problem.</b> Charging an EV on the motorway is a dead wait. Drivers stand in the rain by a charger for half an hour with nothing to do and nowhere warm to go.</p>
             <p><b>The idea.</b> Plug &amp; Brew turns the wait into a proper British break, with a warm café lounge at every hub. The teal charging ring is the logo, and the whole stop fits in one line: plug in, put the kettle on.</p>
+            <ul class="swatches" aria-label="Palette"><li><span class="sw" style="--c:#1E2327"></span>Charcoal <span class="hex">#1E2327</span></li><li><span class="sw" style="--c:#00B3A5"></span>Charge teal <span class="hex">#00B3A5</span></li><li><span class="sw" style="--c:#EFE7DA"></span>Oat <span class="hex">#EFE7DA</span></li></ul>
+            <p class="type">Type: Quicksand Bold</p>
           </div>
-          </div>
-          <figure class="b-cover">
-            <img src="../assets/design/plug-brew/cover.webp" srcset="../assets/design/plug-brew/cover-960.webp 960w, ../assets/design/plug-brew/cover.webp 1920w" sizes="(max-width: 1500px) 100vw, 1440px" width="1920" height="1080" alt="Plug & Brew cover: EV charging hubs with a café, UK." loading="lazy" decoding="async">
-          </figure>
-        </div>
+        </details>
+      </div>
+    </section>
+    <section class="brand" id="muddlezoo" data-brand="muddlezoo" data-meta="#FFC93C" aria-labelledby="muddlezoo-title">
+      <figure class="b-cover">
+        <img src="../assets/design/muddlezoo/cover.webp" srcset="../assets/design/muddlezoo/cover-960.webp 960w, ../assets/design/muddlezoo/cover.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Muddlezoo cover: Mix-and-match wooden toys." loading="lazy" decoding="async">
+      </figure>
+      <div class="b-inner">
+        <header class="b-head">
+          <h2 id="muddlezoo-title" class="b-name"><span class="f-fredoka">Muddlezoo</span></h2>
+          <p class="b-meta"><span class="b-num">08</span> Wooden toys · English &amp; Arabic</p>
+        </header>
+        <ul class="grid" aria-label="Muddlezoo posts">
+          <li class="lead"><button class="post" type="button" data-full="../assets/design/muddlezoo/post-1.webp" data-caption="Muddlezoo · post 1 of 6">
+            <img src="../assets/design/muddlezoo/post-1.webp" width="864" height="1080" alt="“Make it silly.” Mish, a wooden creature with a lion head, zebra body and chicken legs, on a yellow sunburst." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/muddlezoo/post-2.webp" data-caption="Muddlezoo · post 2 of 6">
+            <img src="../assets/design/muddlezoo/post-2.webp" width="864" height="1080" alt="“Heads. Bodies. Legs. Go!” The pieces laid out in rows, and a giraffe head on an octopus body with elephant legs." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/muddlezoo/post-3.webp" data-caption="Muddlezoo · post 3 of 6">
+            <img src="../assets/design/muddlezoo/post-3.webp" width="864" height="1080" alt="“Rainy day? Sorted.” Two children laugh on a living-room rug over the giraffe-octopus they’ve just built." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/muddlezoo/post-4.webp" data-caption="Muddlezoo · post 4 of 6">
+            <img src="../assets/design/muddlezoo/post-4.webp" width="864" height="1080" alt="“Warning: may cause giggling.” A shark-headed creature on octopus legs stomps through a doodled town." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/muddlezoo/post-5.webp" data-caption="Muddlezoo · post 5 of 6">
+            <img src="../assets/design/muddlezoo/post-5.webp" width="864" height="1080" alt="“Built for little hands.” A child reaches for a lion piece across a table, labelled rounded edges, water-based paint and ages 3+." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/muddlezoo/post-6.webp" data-caption="Muddlezoo · post 6 of 6">
+            <img src="../assets/design/muddlezoo/post-6.webp" width="864" height="1080" alt="“ركّبها.. بدّلها.. واضحك!”, build it, swap it, laugh. The Arabic version of the first post, with Mish." loading="lazy" decoding="async">
+          </button></li>
+        </ul>
 
-        <div class="b-tabs-row">
-          <div class="b-tabs" role="tablist" aria-label="Plug & Brew work"><button class="tab" type="button" role="tab" id="plug-brew-tab-posts" aria-controls="plug-brew-posts" aria-selected="true">Posts <span class="tab-n">5</span></button><button class="tab" type="button" role="tab" id="plug-brew-tab-process" aria-controls="plug-brew-process" aria-selected="false" tabindex="-1">How it was built</button></div>
-          <div class="posts-nav">
-            <button class="icon-btn" type="button" data-dir="-1" aria-label="Previous Plug & Brew posts"><i class="ph ph-arrow-left" aria-hidden="true"></i></button>
-            <button class="icon-btn" type="button" data-dir="1" aria-label="Next Plug & Brew posts"><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
-          </div>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="plug-brew-posts" aria-labelledby="plug-brew-tab-posts">
-          <h3 class="b-h3 panel-h">The posts</h3>
-          <ul class="strip" aria-label="Plug & Brew social posts">
-              <li><button class="post" type="button" data-full="../assets/design/plug-brew/post-1.webp" data-caption="Plug & Brew · post 1 of 5">
-                <img src="../assets/design/plug-brew/post-1.webp" width="864" height="1080" alt="“Pull in. Plug in. Put the kettle on.” A row of chargers with glowing teal rings beside a lit café on a rainy night." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/plug-brew/post-2.webp" data-caption="Plug & Brew · post 2 of 5">
-                <img src="../assets/design/plug-brew/post-2.webp" width="864" height="1080" alt="“Click. That’s it.” A woman plugs in her car in the rain, the café glowing behind her." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/plug-brew/post-3.webp" data-caption="Plug & Brew · post 3 of 5">
-                <img src="../assets/design/plug-brew/post-3.webp" width="864" height="1080" alt="“Car’s charging. So are you.” A dad and his daughter hold hot chocolates by a rainy window while their car charges outside." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/plug-brew/post-4.webp" data-caption="Plug & Brew · post 4 of 5">
-                <img src="../assets/design/plug-brew/post-4.webp" width="864" height="1080" alt="“Britain runs on two things.” A steaming kettle inside a teal ring, with a charging cable plugged into it." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/plug-brew/post-5.webp" data-caption="Plug & Brew · post 5 of 5">
-                <img src="../assets/design/plug-brew/post-5.webp" width="864" height="1080" alt="“Now open on the M6.” An aerial view at dusk of the hub beside the motorway: 12 rapid chargers, Junction 15, open 24/7." loading="lazy" decoding="async">
-              </button></li>
-          </ul>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="plug-brew-process" aria-labelledby="plug-brew-tab-process">
-          <h3 class="b-h3 panel-h">How it was built</h3>
-          <figure class="b-wide">
-            <img src="../assets/design/plug-brew/breakdown.webp" srcset="../assets/design/plug-brew/breakdown-960.webp 960w, ../assets/design/plug-brew/breakdown.webp 1920w" sizes="(max-width: 1500px) 100vw, 1440px" width="1920" height="1080" alt="How Plug & Brew post 1 was built: the rough sketch, the layers, and the finished post." loading="lazy" decoding="async">
-            <figcaption>The first post, from rough sketch to separate layers to the finished post.</figcaption>
-          </figure>
-        </div>
-
-        <nav class="b-pager" aria-label="More brands">
-          <a class="pager-link" href="#rand" rel="prev"><span class="pager-label"><i class="ph ph-arrow-left" aria-hidden="true"></i>Previous</span><span class="pager-name">Rand</span></a>
-          <a class="pager-link pager-next" href="#muddlezoo" rel="next"><span class="pager-label">Next<i class="ph ph-arrow-right" aria-hidden="true"></i></span><span class="pager-name">Muddlezoo</span></a>
-        </nav>
-      </section>
-      <section class="brand" id="muddlezoo" data-brand="muddlezoo" data-meta="#FFC93C" data-sector="toys" data-lang="en" aria-labelledby="muddlezoo-title">
-        <nav class="b-nav" aria-label="Muddlezoo">
-          <a class="back" href="#brands"><i class="ph ph-arrow-left" aria-hidden="true"></i>All brands</a>
-          <span class="b-count">8 of 11</span>
-        </nav>
-        <div class="b-intro">
-          <div class="b-text">
-          <header class="b-head">
-            <h2 id="muddlezoo-title" class="b-name f-fredoka">Muddlezoo</h2>
-            <p class="b-where">Mix-and-match wooden toys</p>
-            <p class="b-line">Make it silly.</p>
-          </header>
-          <div class="b-story">
+        <ul class="extras" aria-label="More Muddlezoo work">
+            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/muddlezoo/identity-board.webp" data-caption="Muddlezoo · Identity" data-wide>
+              <img src="../assets/design/muddlezoo/identity-board-960.webp" width="960" height="540" alt="Muddlezoo identity board: logo, palette, lettering, packaging, shopfront and tone of voice." loading="lazy" decoding="async">
+            </button><span class="x-cap">Identity</span></li>
+            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/muddlezoo/wild/packaging-mockup.webp" data-caption="Muddlezoo · The toy box" data-wide>
+              <img src="../assets/design/muddlezoo/wild/packaging-mockup-960.webp" width="960" height="540" alt="The Muddlezoo toy box on a table, with Mish on the front and a window showing four pieces inside." loading="lazy" decoding="async">
+            </button><span class="x-cap">The toy box</span></li>
+            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/muddlezoo/wild/poster-shop-window.webp" data-caption="Muddlezoo · The shop-window poster" data-wide>
+              <img src="../assets/design/muddlezoo/wild/poster-shop-window-960.webp" width="960" height="540" alt="A “Make it silly.” poster of Mish in a toy shop window, between shelves of wooden toys." loading="lazy" decoding="async">
+            </button><span class="x-cap">The shop-window poster</span></li>
+            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/muddlezoo/wild/sticker-sheet.webp" data-caption="Muddlezoo · The sticker sheet" data-wide>
+              <img src="../assets/design/muddlezoo/wild/sticker-sheet-960.webp" width="960" height="540" alt="A Muddlezoo sticker sheet of hand-drawn Mish poses and words like “swap me!” and “wobbly!” on a desk." loading="lazy" decoding="async">
+            </button><span class="x-cap">The sticker sheet</span></li>
+            <li class="x-story"><button class="post" type="button" data-full="../assets/design/muddlezoo/wild/story-1.webp" data-caption="Muddlezoo · Story 1">
+              <img src="../assets/design/muddlezoo/wild/story-1-540.webp" width="540" height="960" alt="Story: “Pick a head.” The lion head on a yellow sunburst." loading="lazy" decoding="async">
+            </button><span class="x-cap">Story 1</span></li>
+            <li class="x-story"><button class="post" type="button" data-full="../assets/design/muddlezoo/wild/story-2.webp" data-caption="Muddlezoo · Story 2">
+              <img src="../assets/design/muddlezoo/wild/story-2-540.webp" width="540" height="960" alt="Story: “Add a body.” The lion head on the zebra body, on blue." loading="lazy" decoding="async">
+            </button><span class="x-cap">Story 2</span></li>
+            <li class="x-story"><button class="post" type="button" data-full="../assets/design/muddlezoo/wild/story-3.webp" data-caption="Muddlezoo · Story 3">
+              <img src="../assets/design/muddlezoo/wild/story-3-540.webp" width="540" height="960" alt="Story: “Make it silly.” Mish complete with chicken legs, on red." loading="lazy" decoding="async">
+            </button><span class="x-cap">Story 3</span></li>
+            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/muddlezoo/breakdown.webp" data-caption="Muddlezoo · Making of" data-wide>
+              <img src="../assets/design/muddlezoo/breakdown-960.webp" width="960" height="540" alt="How Muddlezoo post 1 was built: the rough sketch, the layers, and the finished post." loading="lazy" decoding="async">
+            </button><span class="x-cap">Making of</span></li>
+        </ul>
+        <details class="about">
+          <summary>About this brand <i class="ph ph-plus" aria-hidden="true"></i></summary>
+          <div class="about-body">
             <p><b>The problem.</b> Wooden toys tend to look tasteful and serious, made for the shelf more than for small hands. Muddlezoo needed to feel like play before the box is even open.</p>
             <p><b>The idea.</b> Four heads, four bodies and four legs make 64 silly creatures. Mish, a lion with a zebra body and chicken legs, fronts every post, and each piece is cut out like a sticker on sunbursts and hand-drawn doodles in six loud colours.</p>
+            <ul class="swatches" aria-label="Palette"><li><span class="sw" style="--c:#FF4B3E"></span>Tomato <span class="hex">#FF4B3E</span></li><li><span class="sw" style="--c:#FFC93C"></span>Sunny yellow <span class="hex">#FFC93C</span></li><li><span class="sw" style="--c:#4CC9F0"></span>Sky <span class="hex">#4CC9F0</span></li><li><span class="sw" style="--c:#57CC99"></span>Grass green <span class="hex">#57CC99</span></li><li><span class="sw" style="--c:#1B1B1B"></span>Ink <span class="hex">#1B1B1B</span></li><li><span class="sw" style="--c:#FFF8EC"></span>Paper cream <span class="hex">#FFF8EC</span></li></ul>
+            <p class="type">Type: Fredoka Bold · Patrick Hand</p>
           </div>
-          </div>
-          <figure class="b-cover">
-            <img src="../assets/design/muddlezoo/cover.webp" srcset="../assets/design/muddlezoo/cover-960.webp 960w, ../assets/design/muddlezoo/cover.webp 1920w" sizes="(max-width: 1500px) 100vw, 1440px" width="1920" height="1080" alt="Muddlezoo cover: Mix-and-match wooden toys." loading="lazy" decoding="async">
-          </figure>
-        </div>
+        </details>
+      </div>
+    </section>
+    <section class="brand" id="fahm" data-brand="fahm" data-meta="#141110" aria-labelledby="fahm-title">
+      <figure class="b-cover">
+        <img src="../assets/design/fahm/cover.webp" srcset="../assets/design/fahm/cover-960.webp 960w, ../assets/design/fahm/cover.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Fahm cover: Charcoal grill, Riyadh & Cairo." loading="lazy" decoding="async">
+      </figure>
+      <div class="b-inner">
+        <header class="b-head">
+          <h2 id="fahm-title" class="b-name"><span class="f-bebas f-wide">Fahm</span><span class="b-ar f-cairo" lang="ar" dir="rtl">فحم</span></h2>
+          <p class="b-meta"><span class="b-num">09</span> Charcoal grill · Riyadh &amp; Cairo</p>
+        </header>
+        <ul class="grid" aria-label="Fahm posts">
+          <li class="lead"><button class="post" type="button" data-full="../assets/design/fahm/post-1.webp" data-caption="Fahm · post 1 of 5">
+            <img src="../assets/design/fahm/post-1.webp" width="864" height="1080" alt="“سمعت الطشة؟”, hear the sizzle? Kebab skewers and lamb chops spit over open flames." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/fahm/post-2.webp" data-caption="Fahm · post 2 of 5">
+            <img src="../assets/design/fahm/post-2.webp" width="864" height="1080" alt="“العزومة علينا”, tonight’s on us. Friends laugh at a rooftop table as a hand holds out a loaded grill platter." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/fahm/post-3.webp" data-caption="Fahm · post 3 of 5">
+            <img src="../assets/design/fahm/post-3.webp" width="864" height="1080" alt="“شغال على نار هادية”, slow fire, serious flavour. A grumpy lump of charcoal in a chef’s hat fans the coals under the skewers." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/fahm/post-4.webp" data-caption="Fahm · post 4 of 5">
+            <img src="../assets/design/fahm/post-4.webp" width="864" height="1080" alt="“صينية العيلة”, the family platter. “1KG” spelled out in grilled kebab and chicken, 129 SAR." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/fahm/post-5.webp" data-caption="Fahm · post 5 of 5">
+            <img src="../assets/design/fahm/post-5.webp" width="864" height="1080" alt="“فحم” glowing in the smoke above a grill master working a long charcoal grill." loading="lazy" decoding="async">
+          </button></li>
+          <li class="line-tile" aria-hidden="true"><p class="f-cairo"><span lang="ar" dir="rtl">سمعت الطشة؟</span> Hear the sizzle?</p></li>
+        </ul>
 
-        <div class="b-tabs-row">
-          <div class="b-tabs" role="tablist" aria-label="Muddlezoo work"><button class="tab" type="button" role="tab" id="muddlezoo-tab-posts" aria-controls="muddlezoo-posts" aria-selected="true">Posts <span class="tab-n">6</span></button><button class="tab" type="button" role="tab" id="muddlezoo-tab-identity" aria-controls="muddlezoo-identity" aria-selected="false" tabindex="-1">Identity</button><button class="tab" type="button" role="tab" id="muddlezoo-tab-wild" aria-controls="muddlezoo-wild" aria-selected="false" tabindex="-1">In the wild</button><button class="tab" type="button" role="tab" id="muddlezoo-tab-process" aria-controls="muddlezoo-process" aria-selected="false" tabindex="-1">How it was built</button></div>
-          <div class="posts-nav">
-            <button class="icon-btn" type="button" data-dir="-1" aria-label="Previous Muddlezoo posts"><i class="ph ph-arrow-left" aria-hidden="true"></i></button>
-            <button class="icon-btn" type="button" data-dir="1" aria-label="Next Muddlezoo posts"><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
-          </div>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="muddlezoo-posts" aria-labelledby="muddlezoo-tab-posts">
-          <h3 class="b-h3 panel-h">The posts</h3>
-          <ul class="strip" aria-label="Muddlezoo social posts">
-              <li><button class="post" type="button" data-full="../assets/design/muddlezoo/post-1.webp" data-caption="Muddlezoo · post 1 of 6">
-                <img src="../assets/design/muddlezoo/post-1.webp" width="864" height="1080" alt="“Make it silly.” Mish, a wooden creature with a lion head, zebra body and chicken legs, on a yellow sunburst." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/muddlezoo/post-2.webp" data-caption="Muddlezoo · post 2 of 6">
-                <img src="../assets/design/muddlezoo/post-2.webp" width="864" height="1080" alt="“Heads. Bodies. Legs. Go!” The pieces laid out in rows, and a giraffe head on an octopus body with elephant legs." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/muddlezoo/post-3.webp" data-caption="Muddlezoo · post 3 of 6">
-                <img src="../assets/design/muddlezoo/post-3.webp" width="864" height="1080" alt="“Rainy day? Sorted.” Two children laugh on a living-room rug over the giraffe-octopus they’ve just built." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/muddlezoo/post-4.webp" data-caption="Muddlezoo · post 4 of 6">
-                <img src="../assets/design/muddlezoo/post-4.webp" width="864" height="1080" alt="“Warning: may cause giggling.” A shark-headed creature on octopus legs stomps through a doodled town." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/muddlezoo/post-5.webp" data-caption="Muddlezoo · post 5 of 6">
-                <img src="../assets/design/muddlezoo/post-5.webp" width="864" height="1080" alt="“Built for little hands.” A child reaches for a lion piece across a table, labelled rounded edges, water-based paint and ages 3+." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/muddlezoo/post-6.webp" data-caption="Muddlezoo · post 6 of 6">
-                <img src="../assets/design/muddlezoo/post-6.webp" width="864" height="1080" alt="“ركّبها.. بدّلها.. واضحك!”, build it, swap it, laugh. The Arabic version of the first post, with Mish." loading="lazy" decoding="async">
-              </button></li>
-          </ul>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="muddlezoo-identity" aria-labelledby="muddlezoo-tab-identity">
-          <h3 class="b-h3 panel-h">Identity</h3>
-          <div class="b-system">
-            <div>
-              <h4 class="b-h4">Palette</h4>
-              <ul class="swatches"><li><span class="sw" style="--c:#FF4B3E"></span><span class="sw-name">Tomato</span><span class="sw-hex">#FF4B3E</span></li><li><span class="sw" style="--c:#FFC93C"></span><span class="sw-name">Sunny yellow</span><span class="sw-hex">#FFC93C</span></li><li><span class="sw" style="--c:#4CC9F0"></span><span class="sw-name">Sky</span><span class="sw-hex">#4CC9F0</span></li><li><span class="sw" style="--c:#57CC99"></span><span class="sw-name">Grass green</span><span class="sw-hex">#57CC99</span></li><li><span class="sw" style="--c:#1B1B1B"></span><span class="sw-name">Ink</span><span class="sw-hex">#1B1B1B</span></li><li><span class="sw" style="--c:#FFF8EC"></span><span class="sw-name">Paper cream</span><span class="sw-hex">#FFF8EC</span></li></ul>
-            </div>
-            <div>
-              <h4 class="b-h4">Lettering</h4>
-              <ul class="letters"><li><span class="lt-sample f-fredoka">Make it silly.</span><span class="lt-name">Fredoka Bold</span></li><li><span class="lt-sample f-patrick">swap me!</span><span class="lt-name">Patrick Hand</span></li></ul>
-            </div>
-          </div>
-          <figure class="b-wide">
-            <img src="../assets/design/muddlezoo/identity-board.webp" srcset="../assets/design/muddlezoo/identity-board-960.webp 960w, ../assets/design/muddlezoo/identity-board.webp 1920w" sizes="(max-width: 1500px) 100vw, 1440px" width="1920" height="1080" alt="Muddlezoo identity board: logo, palette, lettering, packaging, shopfront and tone of voice." loading="lazy" decoding="async">
-            <figcaption>Logo, palette, lettering, pack, shopfront and voice on one board.</figcaption>
-          </figure>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="muddlezoo-wild" aria-labelledby="muddlezoo-tab-wild">
-          <h3 class="b-h3 panel-h">In the wild</h3>
-          <ul class="wild wild-wides" aria-label="Muddlezoo packaging and print">
-              <li class="wild-wide"><button class="post" type="button" data-full="../assets/design/muddlezoo/wild/packaging-mockup.webp" data-caption="Muddlezoo · The toy box" data-wide>
-                <img src="../assets/design/muddlezoo/wild/packaging-mockup-960.webp" width="960" height="540" alt="The Muddlezoo toy box on a table, with Mish on the front and a window showing four pieces inside." loading="lazy" decoding="async">
-              </button><span class="wild-cap">The toy box</span></li>
-              <li class="wild-wide"><button class="post" type="button" data-full="../assets/design/muddlezoo/wild/poster-shop-window.webp" data-caption="Muddlezoo · The shop-window poster" data-wide>
-                <img src="../assets/design/muddlezoo/wild/poster-shop-window-960.webp" width="960" height="540" alt="A “Make it silly.” poster of Mish in a toy shop window, between shelves of wooden toys." loading="lazy" decoding="async">
-              </button><span class="wild-cap">The shop-window poster</span></li>
-              <li class="wild-wide"><button class="post" type="button" data-full="../assets/design/muddlezoo/wild/sticker-sheet.webp" data-caption="Muddlezoo · The sticker sheet" data-wide>
-                <img src="../assets/design/muddlezoo/wild/sticker-sheet-960.webp" width="960" height="540" alt="A Muddlezoo sticker sheet of hand-drawn Mish poses and words like “swap me!” and “wobbly!” on a desk." loading="lazy" decoding="async">
-              </button><span class="wild-cap">The sticker sheet</span></li>
-          </ul>
-          <ul class="wild wild-stories" aria-label="Muddlezoo stories">
-              <li class="wild-story"><button class="post" type="button" data-full="../assets/design/muddlezoo/wild/story-1.webp" data-caption="Muddlezoo · Story 1">
-                <img src="../assets/design/muddlezoo/wild/story-1-540.webp" width="540" height="960" alt="Story: “Pick a head.” The lion head on a yellow sunburst." loading="lazy" decoding="async">
-              </button><span class="wild-cap">Story 1</span></li>
-              <li class="wild-story"><button class="post" type="button" data-full="../assets/design/muddlezoo/wild/story-2.webp" data-caption="Muddlezoo · Story 2">
-                <img src="../assets/design/muddlezoo/wild/story-2-540.webp" width="540" height="960" alt="Story: “Add a body.” The lion head on the zebra body, on blue." loading="lazy" decoding="async">
-              </button><span class="wild-cap">Story 2</span></li>
-              <li class="wild-story"><button class="post" type="button" data-full="../assets/design/muddlezoo/wild/story-3.webp" data-caption="Muddlezoo · Story 3">
-                <img src="../assets/design/muddlezoo/wild/story-3-540.webp" width="540" height="960" alt="Story: “Make it silly.” Mish complete with chicken legs, on red." loading="lazy" decoding="async">
-              </button><span class="wild-cap">Story 3</span></li>
-          </ul>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="muddlezoo-process" aria-labelledby="muddlezoo-tab-process">
-          <h3 class="b-h3 panel-h">How it was built</h3>
-          <figure class="b-wide">
-            <img src="../assets/design/muddlezoo/breakdown.webp" srcset="../assets/design/muddlezoo/breakdown-960.webp 960w, ../assets/design/muddlezoo/breakdown.webp 1920w" sizes="(max-width: 1500px) 100vw, 1440px" width="1920" height="1080" alt="How Muddlezoo post 1 was built: the rough sketch, the layers, and the finished post." loading="lazy" decoding="async">
-            <figcaption>The first post, from rough sketch to separate layers to the finished post.</figcaption>
-          </figure>
-        </div>
-
-        <nav class="b-pager" aria-label="More brands">
-          <a class="pager-link" href="#plug-brew" rel="prev"><span class="pager-label"><i class="ph ph-arrow-left" aria-hidden="true"></i>Previous</span><span class="pager-name">Plug &amp; Brew</span></a>
-          <a class="pager-link pager-next" href="#fahm" rel="next"><span class="pager-label">Next<i class="ph ph-arrow-right" aria-hidden="true"></i></span><span class="pager-name">Fahm</span></a>
-        </nav>
-      </section>
-      <section class="brand" id="fahm" data-brand="fahm" data-meta="#141110" data-sector="food" data-lang="ar" aria-labelledby="fahm-title">
-        <nav class="b-nav" aria-label="Fahm">
-          <a class="back" href="#brands"><i class="ph ph-arrow-left" aria-hidden="true"></i>All brands</a>
-          <span class="b-count">9 of 11</span>
-        </nav>
-        <div class="b-intro">
-          <div class="b-text">
-          <header class="b-head">
-            <h2 id="fahm-title" class="b-name f-bebas f-wide">Fahm</h2><span class="b-ar f-cairo" lang="ar" dir="rtl">فحم</span>
-            <p class="b-where">Charcoal grill, Riyadh &amp; Cairo</p>
-            <p class="b-line"><span lang="ar" dir="rtl">سمعت الطشة؟</span> Hear the sizzle?</p>
-          </header>
-          <div class="b-story">
+        <ul class="extras" aria-label="More Fahm work">
+            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/fahm/identity-board.webp" data-caption="Fahm · Identity" data-wide>
+              <img src="../assets/design/fahm/identity-board-960.webp" width="960" height="540" alt="Fahm identity board: logo, palette, lettering, packaging, shopfront and tone of voice." loading="lazy" decoding="async">
+            </button><span class="x-cap">Identity</span></li>
+            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/fahm/logo-final.webp" data-caption="Fahm · Logo" data-wide>
+              <img src="../assets/design/fahm/logo-final-960.webp" width="960" height="540" alt="The final Fahm Coal Bowl logo package: colour, cream, white and one-colour versions, Arabic and English only lockups, icons and app icons." loading="lazy" decoding="async">
+            </button><span class="x-cap">Logo</span></li>
+        </ul>
+        <details class="about">
+          <summary>About this brand <i class="ph ph-plus" aria-hidden="true"></i></summary>
+          <div class="about-body">
             <p><b>The problem.</b> Grill restaurants all reach for the same things: cartoon flames, crossed skewers and a red-and-yellow sign. Fahm means charcoal, so the brand had to feel like the coals themselves, dark and glowing and too hot to ignore.</p>
             <p><b>The idea.</b> The name is already burning. The dot on the ف is a live coal throwing off sparks, and the bowls of the letters glow from inside. Every post keeps it: charcoal black, ember orange and sparks rising off the grill.</p>
+            <ul class="swatches" aria-label="Palette"><li><span class="sw" style="--c:#141110"></span>Charcoal <span class="hex">#141110</span></li><li><span class="sw" style="--c:#FF6A1A"></span>Ember <span class="hex">#FF6A1A</span></li><li><span class="sw" style="--c:#8A8580"></span>Smoke <span class="hex">#8A8580</span></li><li><span class="sw" style="--c:#F4EEE6"></span>Cream <span class="hex">#F4EEE6</span></li></ul>
+            <p class="type">Type: Cairo Black · Bebas Neue</p>
           </div>
-          </div>
-          <figure class="b-cover">
-            <img src="../assets/design/fahm/cover.webp" srcset="../assets/design/fahm/cover-960.webp 960w, ../assets/design/fahm/cover.webp 1920w" sizes="(max-width: 1500px) 100vw, 1440px" width="1920" height="1080" alt="Fahm cover: Charcoal grill, Riyadh & Cairo." loading="lazy" decoding="async">
-          </figure>
-        </div>
+        </details>
+      </div>
+    </section>
+    <section class="brand" id="greggs" data-brand="greggs" data-meta="#003C6C" aria-labelledby="greggs-title">
+      <figure class="b-cover">
+        <img src="../assets/design/greggs/cover.webp" srcset="../assets/design/greggs/cover-960.webp 960w, ../assets/design/greggs/cover.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Greggs cover: Unofficial social campaign, UK." loading="lazy" decoding="async">
+      </figure>
+      <div class="b-inner">
+        <header class="b-head">
+          <h2 id="greggs-title" class="b-name"><span class="f-mont">Greggs</span></h2>
+          <p class="b-meta"><span class="b-num">10</span> Bakery campaign · UK, unofficial</p>
+          <p class="b-note">Unofficial concept work. Not affiliated with or endorsed by Greggs.</p>
+        </header>
+        <ul class="grid" aria-label="Greggs posts">
+          <li class="lead"><button class="post" type="button" data-full="../assets/design/greggs/post-1.webp" data-caption="Greggs · post 1 of 5">
+            <img src="../assets/design/greggs/post-1.webp" width="864" height="1080" alt="“Your 8am, sorted.” A double-decker bus made of sausage roll pastry on a rainy high street." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/greggs/post-2.webp" data-caption="Greggs · post 2 of 5">
+            <img src="../assets/design/greggs/post-2.webp" width="864" height="1080" alt="“Tea break, done properly.” Three builders laugh on scaffolding with Greggs bags and tea." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/greggs/post-3.webp" data-caption="Greggs · post 3 of 5">
+            <img src="../assets/design/greggs/post-3.webp" width="864" height="1080" alt="“Flakes everywhere. Worth it.” A steak bake bursts open in a shower of pastry flakes." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/greggs/post-4.webp" data-caption="Greggs · post 4 of 5">
+            <img src="../assets/design/greggs/post-4.webp" width="864" height="1080" alt="“Fine dining. No booking.” A waiter lifts a silver cloche to reveal a Greggs bake." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/greggs/post-5.webp" data-caption="Greggs · post 5 of 5">
+            <img src="../assets/design/greggs/post-5.webp" width="864" height="1080" alt="“Winter’s warmest handshake.” Mittened hands hold a steaming bake at a frosty bus stop." loading="lazy" decoding="async">
+          </button></li>
+          <li class="line-tile" aria-hidden="true"><p class="f-mont">Ordinary, done brilliantly.</p></li>
+        </ul>
 
-        <div class="b-tabs-row">
-          <div class="b-tabs" role="tablist" aria-label="Fahm work"><button class="tab" type="button" role="tab" id="fahm-tab-posts" aria-controls="fahm-posts" aria-selected="true">Posts <span class="tab-n">5</span></button><button class="tab" type="button" role="tab" id="fahm-tab-identity" aria-controls="fahm-identity" aria-selected="false" tabindex="-1">Identity</button><button class="tab" type="button" role="tab" id="fahm-tab-process" aria-controls="fahm-process" aria-selected="false" tabindex="-1">How it was built</button></div>
-          <div class="posts-nav">
-            <button class="icon-btn" type="button" data-dir="-1" aria-label="Previous Fahm posts"><i class="ph ph-arrow-left" aria-hidden="true"></i></button>
-            <button class="icon-btn" type="button" data-dir="1" aria-label="Next Fahm posts"><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
-          </div>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="fahm-posts" aria-labelledby="fahm-tab-posts">
-          <h3 class="b-h3 panel-h">The posts</h3>
-          <ul class="strip" aria-label="Fahm social posts">
-              <li><button class="post" type="button" data-full="../assets/design/fahm/post-1.webp" data-caption="Fahm · post 1 of 5">
-                <img src="../assets/design/fahm/post-1.webp" width="864" height="1080" alt="“سمعت الطشة؟”, hear the sizzle? Kebab skewers and lamb chops spit over open flames." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/fahm/post-2.webp" data-caption="Fahm · post 2 of 5">
-                <img src="../assets/design/fahm/post-2.webp" width="864" height="1080" alt="“العزومة علينا”, tonight’s on us. Friends laugh at a rooftop table as a hand holds out a loaded grill platter." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/fahm/post-3.webp" data-caption="Fahm · post 3 of 5">
-                <img src="../assets/design/fahm/post-3.webp" width="864" height="1080" alt="“شغال على نار هادية”, slow fire, serious flavour. A grumpy lump of charcoal in a chef’s hat fans the coals under the skewers." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/fahm/post-4.webp" data-caption="Fahm · post 4 of 5">
-                <img src="../assets/design/fahm/post-4.webp" width="864" height="1080" alt="“صينية العيلة”, the family platter. “1KG” spelled out in grilled kebab and chicken, 129 SAR." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/fahm/post-5.webp" data-caption="Fahm · post 5 of 5">
-                <img src="../assets/design/fahm/post-5.webp" width="864" height="1080" alt="“فحم” glowing in the smoke above a grill master working a long charcoal grill." loading="lazy" decoding="async">
-              </button></li>
-          </ul>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="fahm-identity" aria-labelledby="fahm-tab-identity">
-          <h3 class="b-h3 panel-h">Identity</h3>
-          <div class="b-system">
-            <div>
-              <h4 class="b-h4">Palette</h4>
-              <ul class="swatches"><li><span class="sw" style="--c:#141110"></span><span class="sw-name">Charcoal</span><span class="sw-hex">#141110</span></li><li><span class="sw" style="--c:#FF6A1A"></span><span class="sw-name">Ember</span><span class="sw-hex">#FF6A1A</span></li><li><span class="sw" style="--c:#8A8580"></span><span class="sw-name">Smoke</span><span class="sw-hex">#8A8580</span></li><li><span class="sw" style="--c:#F4EEE6"></span><span class="sw-name">Cream</span><span class="sw-hex">#F4EEE6</span></li></ul>
-            </div>
-            <div>
-              <h4 class="b-h4">Lettering</h4>
-              <ul class="letters"><li><span class="lt-sample f-cairo"><span lang="ar" dir="rtl">سمعت الطشة؟</span></span><span class="lt-name">Cairo Black</span></li><li><span class="lt-sample f-bebas">Hear the sizzle?</span><span class="lt-name">Bebas Neue</span></li></ul>
-            </div>
-          </div>
-          <figure class="b-wide">
-            <img src="../assets/design/fahm/identity-board.webp" srcset="../assets/design/fahm/identity-board-960.webp 960w, ../assets/design/fahm/identity-board.webp 1920w" sizes="(max-width: 1500px) 100vw, 1440px" width="1920" height="1080" alt="Fahm identity board: logo, palette, lettering, packaging, shopfront and tone of voice." loading="lazy" decoding="async">
-            <figcaption>Logo, palette, lettering, pack, shopfront and voice on one board.</figcaption>
-          </figure>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="fahm-process" aria-labelledby="fahm-tab-process">
-          <h3 class="b-h3 panel-h">How it was built</h3>
-          <figure class="b-wide">
-            <img src="../assets/design/fahm/logo-final.webp" srcset="../assets/design/fahm/logo-final-960.webp 960w, ../assets/design/fahm/logo-final.webp 1920w" sizes="(max-width: 1500px) 100vw, 1440px" width="1920" height="1080" alt="The final Fahm Coal Bowl logo package: colour, cream, white and one-colour versions, Arabic and English only lockups, icons and app icons." loading="lazy" decoding="async">
-            <figcaption>The final Coal Bowl logo in ten versions, from full colour to a one-colour mark and app icons, tested at 200px.</figcaption>
-          </figure>
-        </div>
-
-        <nav class="b-pager" aria-label="More brands">
-          <a class="pager-link" href="#muddlezoo" rel="prev"><span class="pager-label"><i class="ph ph-arrow-left" aria-hidden="true"></i>Previous</span><span class="pager-name">Muddlezoo</span></a>
-          <a class="pager-link pager-next" href="#greggs" rel="next"><span class="pager-label">Next<i class="ph ph-arrow-right" aria-hidden="true"></i></span><span class="pager-name">Greggs</span></a>
-        </nav>
-      </section>
-      <section class="brand" id="greggs" data-brand="greggs" data-meta="#003C6C" data-sector="food" data-lang="en" aria-labelledby="greggs-title">
-        <nav class="b-nav" aria-label="Greggs">
-          <a class="back" href="#brands"><i class="ph ph-arrow-left" aria-hidden="true"></i>All brands</a>
-          <span class="b-count">10 of 11</span>
-        </nav>
-        <div class="b-intro">
-          <div class="b-text">
-          <header class="b-head">
-            <h2 id="greggs-title" class="b-name f-mont">Greggs</h2>
-            <p class="b-where">Unofficial social campaign, UK</p>
-            <p class="b-line">Ordinary, done brilliantly.</p>
-          </header>
-          <div class="b-story">
+        <ul class="extras" aria-label="More Greggs work">
+            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/greggs/breakdown.webp" data-caption="Greggs · Making of" data-wide>
+              <img src="../assets/design/greggs/breakdown-960.webp" width="960" height="540" alt="How Greggs post 1 was built: the rough sketch, the layers, and the finished post." loading="lazy" decoding="async">
+            </button><span class="x-cap">Making of</span></li>
+        </ul>
+        <details class="about">
+          <summary>About this brand <i class="ph ph-plus" aria-hidden="true"></i></summary>
+          <div class="about-body">
             <p><b>The problem.</b> Greggs is the nation’s favourite bakery, but it’s so everyday that people walk past it without a second thought. The job is to make the ordinary feel worth noticing.</p>
-            <p><b>The idea.</b> “Ordinary, done brilliantly” treats the commute, the tea break and the cold bus stop like they matter, with the sausage roll as the hero of every small moment.</p><p class="b-note">Unofficial concept work. Not affiliated with or endorsed by Greggs.</p>
+            <p><b>The idea.</b> “Ordinary, done brilliantly” treats the commute, the tea break and the cold bus stop like they matter, with the sausage roll as the hero of every small moment.</p>
+            <ul class="swatches" aria-label="Palette"><li><span class="sw" style="--c:#003C6C"></span>Greggs blue <span class="hex">#003C6C</span></li><li><span class="sw" style="--c:#FAB622"></span>Greggs yellow <span class="hex">#FAB622</span></li><li><span class="sw" style="--c:#FFFFFF"></span>White <span class="hex">#FFFFFF</span></li></ul>
+            
           </div>
-          </div>
-          <figure class="b-cover">
-            <img src="../assets/design/greggs/cover.webp" srcset="../assets/design/greggs/cover-960.webp 960w, ../assets/design/greggs/cover.webp 1920w" sizes="(max-width: 1500px) 100vw, 1440px" width="1920" height="1080" alt="Greggs cover: Unofficial social campaign, UK." loading="lazy" decoding="async">
-          </figure>
-        </div>
+        </details>
+      </div>
+    </section>
+    <section class="brand" id="monzo" data-brand="monzo" data-meta="#0F1A2B" aria-labelledby="monzo-title">
+      <figure class="b-cover">
+        <img src="../assets/design/monzo/cover.webp" srcset="../assets/design/monzo/cover-960.webp 960w, ../assets/design/monzo/cover.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Monzo cover: Unofficial social campaign, UK." loading="lazy" decoding="async">
+      </figure>
+      <div class="b-inner">
+        <header class="b-head">
+          <h2 id="monzo-title" class="b-name"><span class="f-ubuntu">Monzo</span></h2>
+          <p class="b-meta"><span class="b-num">11</span> Bank campaign · UK, unofficial</p>
+          <p class="b-note">Unofficial concept work. Not affiliated with or endorsed by Monzo.</p>
+        </header>
+        <ul class="grid" aria-label="Monzo posts">
+          <li class="lead"><button class="post" type="button" data-full="../assets/design/monzo/post-1.webp" data-caption="Monzo · post 1 of 5">
+            <img src="../assets/design/monzo/post-1.webp" width="864" height="1080" alt="“Hard to miss.” A giant coral Monzo card stands on a busy London street as a woman leans against it." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/monzo/post-2.webp" data-caption="Monzo · post 2 of 5">
+            <img src="../assets/design/monzo/post-2.webp" width="864" height="1080" alt="“Splitting the bill, minus the maths.” Friends laugh round a curry house table, one holding up a coral card." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/monzo/post-3.webp" data-caption="Monzo · post 3 of 5">
+            <img src="../assets/design/monzo/post-3.webp" width="864" height="1080" alt="“Pots, not piggy banks.” Coins drop into jars labelled Holiday, Rent and New trainers beside a piggy bank." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/monzo/post-4.webp" data-caption="Monzo · post 4 of 5">
+            <img src="../assets/design/monzo/post-4.webp" width="864" height="1080" alt="“Know where it went. Instantly.” A woman taps her card at a festival bar as a Monzo notification pops up." loading="lazy" decoding="async">
+          </button></li>
+          <li><button class="post" type="button" data-full="../assets/design/monzo/post-5.webp" data-caption="Monzo · post 5 of 5">
+            <img src="../assets/design/monzo/post-5.webp" width="864" height="1080" alt="“Know where it went. Instantly.” A shopkeeper takes a coral card at the corner shop, with a payment notification." loading="lazy" decoding="async">
+          </button></li>
+          <li class="line-tile" aria-hidden="true"><p class="f-ubuntu">Money that keeps up with real life.</p></li>
+        </ul>
 
-        <div class="b-tabs-row">
-          <div class="b-tabs" role="tablist" aria-label="Greggs work"><button class="tab" type="button" role="tab" id="greggs-tab-posts" aria-controls="greggs-posts" aria-selected="true">Posts <span class="tab-n">5</span></button><button class="tab" type="button" role="tab" id="greggs-tab-process" aria-controls="greggs-process" aria-selected="false" tabindex="-1">How it was built</button></div>
-          <div class="posts-nav">
-            <button class="icon-btn" type="button" data-dir="-1" aria-label="Previous Greggs posts"><i class="ph ph-arrow-left" aria-hidden="true"></i></button>
-            <button class="icon-btn" type="button" data-dir="1" aria-label="Next Greggs posts"><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
-          </div>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="greggs-posts" aria-labelledby="greggs-tab-posts">
-          <h3 class="b-h3 panel-h">The posts</h3>
-          <ul class="strip" aria-label="Greggs social posts">
-              <li><button class="post" type="button" data-full="../assets/design/greggs/post-1.webp" data-caption="Greggs · post 1 of 5">
-                <img src="../assets/design/greggs/post-1.webp" width="864" height="1080" alt="“Your 8am, sorted.” A double-decker bus made of sausage roll pastry on a rainy high street." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/greggs/post-2.webp" data-caption="Greggs · post 2 of 5">
-                <img src="../assets/design/greggs/post-2.webp" width="864" height="1080" alt="“Tea break, done properly.” Three builders laugh on scaffolding with Greggs bags and tea." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/greggs/post-3.webp" data-caption="Greggs · post 3 of 5">
-                <img src="../assets/design/greggs/post-3.webp" width="864" height="1080" alt="“Flakes everywhere. Worth it.” A steak bake bursts open in a shower of pastry flakes." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/greggs/post-4.webp" data-caption="Greggs · post 4 of 5">
-                <img src="../assets/design/greggs/post-4.webp" width="864" height="1080" alt="“Fine dining. No booking.” A waiter lifts a silver cloche to reveal a Greggs bake." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/greggs/post-5.webp" data-caption="Greggs · post 5 of 5">
-                <img src="../assets/design/greggs/post-5.webp" width="864" height="1080" alt="“Winter’s warmest handshake.” Mittened hands hold a steaming bake at a frosty bus stop." loading="lazy" decoding="async">
-              </button></li>
-          </ul>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="greggs-process" aria-labelledby="greggs-tab-process">
-          <h3 class="b-h3 panel-h">How it was built</h3>
-          <figure class="b-wide">
-            <img src="../assets/design/greggs/breakdown.webp" srcset="../assets/design/greggs/breakdown-960.webp 960w, ../assets/design/greggs/breakdown.webp 1920w" sizes="(max-width: 1500px) 100vw, 1440px" width="1920" height="1080" alt="How Greggs post 1 was built: the rough sketch, the layers, and the finished post." loading="lazy" decoding="async">
-            <figcaption>The first post, from rough sketch to separate layers to the finished post.</figcaption>
-          </figure>
-        </div>
-
-        <nav class="b-pager" aria-label="More brands">
-          <a class="pager-link" href="#fahm" rel="prev"><span class="pager-label"><i class="ph ph-arrow-left" aria-hidden="true"></i>Previous</span><span class="pager-name">Fahm</span></a>
-          <a class="pager-link pager-next" href="#monzo" rel="next"><span class="pager-label">Next<i class="ph ph-arrow-right" aria-hidden="true"></i></span><span class="pager-name">Monzo</span></a>
-        </nav>
-      </section>
-      <section class="brand" id="monzo" data-brand="monzo" data-meta="#0F1A2B" data-sector="finance" data-lang="en" aria-labelledby="monzo-title">
-        <nav class="b-nav" aria-label="Monzo">
-          <a class="back" href="#brands"><i class="ph ph-arrow-left" aria-hidden="true"></i>All brands</a>
-          <span class="b-count">11 of 11</span>
-        </nav>
-        <div class="b-intro">
-          <div class="b-text">
-          <header class="b-head">
-            <h2 id="monzo-title" class="b-name f-ubuntu">Monzo</h2>
-            <p class="b-where">Unofficial social campaign, UK</p>
-            <p class="b-line">Money that keeps up with real life.</p>
-          </header>
-          <div class="b-story">
+        <ul class="extras" aria-label="More Monzo work">
+            <li class="x-wide"><button class="post" type="button" data-full="../assets/design/monzo/breakdown.webp" data-caption="Monzo · Making of" data-wide>
+              <img src="../assets/design/monzo/breakdown-960.webp" width="960" height="540" alt="How Monzo post 1 was built: the rough sketch, the layers, and the finished post." loading="lazy" decoding="async">
+            </button><span class="x-cap">Making of</span></li>
+        </ul>
+        <details class="about">
+          <summary>About this brand <i class="ph ph-plus" aria-hidden="true"></i></summary>
+          <div class="about-body">
             <p><b>The problem.</b> Banks all sound the same: formal, distant, slightly scary, so people switch off before they’ve even started. The job is to make money feel like something you can talk about, not something to dread.</p>
-            <p><b>The idea.</b> “Money that keeps up with real life” puts Monzo quietly in the background of the moments that matter, like the bill split, the festival bar and the late-night shop, with the hot coral card as the one thing you always notice.</p><p class="b-note">Unofficial concept work. Not affiliated with or endorsed by Monzo.</p>
+            <p><b>The idea.</b> “Money that keeps up with real life” puts Monzo quietly in the background of the moments that matter, like the bill split, the festival bar and the late-night shop, with the hot coral card as the one thing you always notice.</p>
+            <ul class="swatches" aria-label="Palette"><li><span class="sw" style="--c:#0F1A2B"></span>Navy <span class="hex">#0F1A2B</span></li><li><span class="sw" style="--c:#F0533A"></span>Hot coral <span class="hex">#F0533A</span></li><li><span class="sw" style="--c:#FFFFFF"></span>White <span class="hex">#FFFFFF</span></li></ul>
+            
           </div>
-          </div>
-          <figure class="b-cover">
-            <img src="../assets/design/monzo/cover.webp" srcset="../assets/design/monzo/cover-960.webp 960w, ../assets/design/monzo/cover.webp 1920w" sizes="(max-width: 1500px) 100vw, 1440px" width="1920" height="1080" alt="Monzo cover: Unofficial social campaign, UK." loading="lazy" decoding="async">
-          </figure>
-        </div>
-
-        <div class="b-tabs-row">
-          <div class="b-tabs" role="tablist" aria-label="Monzo work"><button class="tab" type="button" role="tab" id="monzo-tab-posts" aria-controls="monzo-posts" aria-selected="true">Posts <span class="tab-n">5</span></button><button class="tab" type="button" role="tab" id="monzo-tab-process" aria-controls="monzo-process" aria-selected="false" tabindex="-1">How it was built</button></div>
-          <div class="posts-nav">
-            <button class="icon-btn" type="button" data-dir="-1" aria-label="Previous Monzo posts"><i class="ph ph-arrow-left" aria-hidden="true"></i></button>
-            <button class="icon-btn" type="button" data-dir="1" aria-label="Next Monzo posts"><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
-          </div>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="monzo-posts" aria-labelledby="monzo-tab-posts">
-          <h3 class="b-h3 panel-h">The posts</h3>
-          <ul class="strip" aria-label="Monzo social posts">
-              <li><button class="post" type="button" data-full="../assets/design/monzo/post-1.webp" data-caption="Monzo · post 1 of 5">
-                <img src="../assets/design/monzo/post-1.webp" width="864" height="1080" alt="“Hard to miss.” A giant coral Monzo card stands on a busy London street as a woman leans against it." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/monzo/post-2.webp" data-caption="Monzo · post 2 of 5">
-                <img src="../assets/design/monzo/post-2.webp" width="864" height="1080" alt="“Splitting the bill, minus the maths.” Friends laugh round a curry house table, one holding up a coral card." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/monzo/post-3.webp" data-caption="Monzo · post 3 of 5">
-                <img src="../assets/design/monzo/post-3.webp" width="864" height="1080" alt="“Pots, not piggy banks.” Coins drop into jars labelled Holiday, Rent and New trainers beside a piggy bank." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/monzo/post-4.webp" data-caption="Monzo · post 4 of 5">
-                <img src="../assets/design/monzo/post-4.webp" width="864" height="1080" alt="“Know where it went. Instantly.” A woman taps her card at a festival bar as a Monzo notification pops up." loading="lazy" decoding="async">
-              </button></li>
-              <li><button class="post" type="button" data-full="../assets/design/monzo/post-5.webp" data-caption="Monzo · post 5 of 5">
-                <img src="../assets/design/monzo/post-5.webp" width="864" height="1080" alt="“Know where it went. Instantly.” A shopkeeper takes a coral card at the corner shop, with a payment notification." loading="lazy" decoding="async">
-              </button></li>
-          </ul>
-        </div>
-
-        <div class="b-panel" role="tabpanel" id="monzo-process" aria-labelledby="monzo-tab-process">
-          <h3 class="b-h3 panel-h">How it was built</h3>
-          <figure class="b-wide">
-            <img src="../assets/design/monzo/breakdown.webp" srcset="../assets/design/monzo/breakdown-960.webp 960w, ../assets/design/monzo/breakdown.webp 1920w" sizes="(max-width: 1500px) 100vw, 1440px" width="1920" height="1080" alt="How Monzo post 1 was built: the rough sketch, the layers, and the finished post." loading="lazy" decoding="async">
-            <figcaption>The first post, from rough sketch to separate layers to the finished post.</figcaption>
-          </figure>
-        </div>
-
-        <nav class="b-pager" aria-label="More brands">
-          <a class="pager-link" href="#greggs" rel="prev"><span class="pager-label"><i class="ph ph-arrow-left" aria-hidden="true"></i>Previous</span><span class="pager-name">Greggs</span></a>
-          <a class="pager-link pager-next" href="#salt-gull" rel="next"><span class="pager-label">Next<i class="ph ph-arrow-right" aria-hidden="true"></i></span><span class="pager-name">Salt &amp; Gull</span></a>
-        </nav>
-      </section>
-    </div>
+        </details>
+      </div>
+    </section>
 
     <section class="outro" aria-labelledby="outro-title">
-      <div class="outro-text">
-        <h2 id="outro-title">Your brand, next.</h2>
-        <p>Looks like everyone else on the street? I’ll find the one idea that’s yours and build the brand around it.</p>
-      </div>
+      <h2 id="outro-title">Your brand, next.</h2>
       <div class="outro-row">
         <a class="btn btn-lg" href="mailto:s.ayrzpersonal@gmail.com?subject=A%20brand%20identity">Email me <i class="ph ph-paper-plane-tilt" aria-hidden="true"></i></a>
         <a class="foot-link" href="https://www.linkedin.com/in/samaeldesouki" target="_blank" rel="noopener"><i class="ph ph-linkedin-logo" aria-hidden="true"></i>LinkedIn</a>
@@ -1049,12 +594,12 @@
     <p>© 2026 Sama Eldesouki. Salt &amp; Gull, Drizzle, Naseeg, Ghasaq, Wathba, Rand, Plug &amp; Brew, Muddlezoo and Fahm are concepts made up for this portfolio. The Greggs and Monzo campaigns are unofficial concept work, not affiliated with or endorsed by either company. I also make <a href="../motion/">films</a>, <a href="../websites/">websites</a>, <a href="../#work">software</a> and <a href="../copy/">copy</a>.</p>
   </footer>
 
-  <dialog class="viewer" id="viewer" aria-label="Post viewer">
+  <dialog class="viewer" id="viewer" aria-label="Image viewer">
     <img class="viewer-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="">
     <p class="viewer-cap" aria-live="polite"></p>
     <button class="icon-btn viewer-close" type="button" aria-label="Close"><i class="ph ph-x" aria-hidden="true"></i></button>
-    <button class="icon-btn viewer-step" type="button" data-step="-1" aria-label="Previous post"><i class="ph ph-arrow-left" aria-hidden="true"></i></button>
-    <button class="icon-btn viewer-step" type="button" data-step="1" aria-label="Next post"><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
+    <button class="icon-btn viewer-step" type="button" data-step="-1" aria-label="Previous image"><i class="ph ph-arrow-left" aria-hidden="true"></i></button>
+    <button class="icon-btn viewer-step" type="button" data-step="1" aria-label="Next image"><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
   </dialog>
 
   <script src="design.js"></script>
