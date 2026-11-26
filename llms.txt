@@ -1,0 +1,31 @@
+# Sama Eldesouki
+
+> Full stack and AI developer. First Class BSc Computer Science, University of Birmingham (2026). Builds accessible tools, from fine-tuned language models to the interface, and also designs and builds websites, brand identities, motion graphics and copy for small businesses in the UK.
+
+Open to graduate roles in software, AI and anything that puts tech in front of people. Contact: s.ayrzpersonal@gmail.com. Based in the UK.
+
+## Pages
+
+- [Portfolio home](https://sayrz1.github.io/): projects, about, skills, experience and contact
+- [Websites for small shops](https://sayrz1.github.io/websites/): concept sites for a takeaway, a bakery and a slush bar; free demo first, from £300
+- [Graphic design](https://sayrz1.github.io/design/): 11 concept brand identities with logo, palette, packaging and social posts in English and Arabic
+- [Motion](https://sayrz1.github.io/motion/): motion graphics, ads for small shops and two short-film series, written, voiced, animated and scored by Sama
+- [Copywriting](https://sayrz1.github.io/copy/): ads, captions, web pages and scripts, shown as before-and-after rewrites
+
+## Projects
+
+- [Lunar Navigator](https://sayrz1.github.io/lunar-navigator): NASA Space Apps Challenge 2026 team project. A web app for choosing where and when to land on the Moon, using real NASA LOLA terrain horizons and Sun/Earth positions checked against NASA JPL Horizons. JavaScript, Three.js, Web Workers, Python, NumPy. Earned the Galactic Problem Solver certificate.
+- LexiLift: final year NLP project. A Chrome extension that rewrites web pages into simpler English at a chosen CEFR level (A2, B1, B2), served by a local FastAPI backend so nothing leaves the machine. Six fine-tuned T5-small and BART-base models; the deployed T5 model scores 56.43 SARI. Python, PyTorch, Hugging Face Transformers, ONNX.
+- RelAI: HCI team project. A dashboard that helps people keep their AI tool use in check, with a daily limit dial, streaks and reflection prompts. React, TypeScript, Tailwind, Supabase.
+- [Ember & Spit](https://sayrz1.github.io/ember-and-spit): concept site for a late-night shawarma shop in Birmingham, with a scroll animation, menu with prices and allergens, and collection or delivery times. HTML, CSS, JavaScript, GSAP.
+- [Crumbwell](https://sayrz1.github.io/crumbwell): concept site for an East London bakery with a live bake board, UK and US editions and order ahead. HTML, CSS, JavaScript, GSAP, Lenis.
+- [Brrr.](https://sayrz1.github.io/brrr): concept site for a Manchester slush bar built around a 3D cup that changes flavour as you scroll. Three.js, GSAP.
+- Campus Connect: team full stack app for university events and profiles. JHipster, Angular, TypeScript, Java, PostgreSQL, AWS.
+- Evolutionary computation: a population-based evolutionary algorithm for MAXSAT, tuned on MAXSAT Evaluation 2017 benchmarks, and a comparison of simulated annealing and genetic algorithms on airline crew scheduling. Python, Docker.
+- Teaching code: Year 10 Pygame lessons where students fix a deliberately broken game (a maze with 13 planted bugs, Pong with 6) to learn debugging.
+- Also built: an inventory management system (Java, JavaFX, PostgreSQL) and a news classifier using GloVe word embeddings (Java).
+
+## Links
+
+- [GitHub](https://github.com/Sayrz1)
+- [LinkedIn](https://www.linkedin.com/in/samaeldesouki)

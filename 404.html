@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found · Sama Eldesouki</title>
+  <meta name="description" content="This page doesn't exist. Head back to Sama Eldesouki's portfolio: websites, design, motion and copywriting.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#f6f6f3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d1015" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%239a3412'/%3E%3Ctext x='32' y='41' font-family='Arial' font-weight='700' font-size='24' fill='%23ffffff' text-anchor='middle'%3ESE%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Calistoga&family=Cormorant+Garamond:ital,wght@1,500&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <script>
+    try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+  <!-- Self-contained on purpose: GitHub Pages serves this file at any missing path, so relative links would break. -->
+  <style>
+    :root {
+      --bg: #f6f6f3; --surface: #ffffff; --ink: #0f1115; --muted: #4a505c; --line: #e2e3e8; --ghost: #ecedf1;
+      --accent: #2b55e6; --on-accent: #ffffff;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --gutter: clamp(16px, 4vw, 48px);
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --display: "Calistoga", Georgia, serif;
+      --sans: "IBM Plex Sans", system-ui, sans-serif;
+      --mono: "JetBrains Mono", ui-monospace, monospace;
+      color-scheme: light;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #0d1015; --surface: #151a22; --ink: #eef1f6; --muted: #a4adbb; --line: #252c37; --ghost: #141922;
+        --accent: #7d9bff; --on-accent: #0b1020; color-scheme: dark;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #0d1015; --surface: #151a22; --ink: #eef1f6; --muted: #a4adbb; --line: #252c37; --ghost: #141922;
+      --accent: #7d9bff; --on-accent: #0b1020; color-scheme: dark;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.6;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden; display: flex; flex-direction: column;
+    }
+    a { color: inherit; }
+    :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 6px; }
+
+    .nav { display: flex; align-items: center; padding: 16px var(--gutter); position: relative; z-index: 2; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 600; letter-spacing: -0.01em; min-height: 44px; }
+    .brand-mark { width: 38px; height: 38px; border-radius: 999px; display: grid; place-items: center; background: var(--ink); color: var(--bg); font-size: 13px; font-weight: 700; letter-spacing: .02em; }
+
+    main { flex: 1; position: relative; display: grid; place-items: center; padding: 24px var(--gutter) 64px; isolation: isolate; }
+    .ghost {
+      position: absolute; inset: 0; z-index: -1; display: flex; justify-content: center; align-items: center;
+      font-family: var(--sans); font-weight: 700; font-size: clamp(12rem, 42vw, 34rem); letter-spacing: -0.07em; line-height: .8;
+      color: var(--ghost); user-select: none; pointer-events: none; overflow: hidden;
+    }
+    .ghost span { display: inline-block; animation: ghostIn 1.4s var(--ease) both; }
+    .ghost span:nth-child(2) { animation-delay: .09s; transform-origin: 50% 60%; }
+    .ghost span:nth-child(3) { animation-delay: .18s; }
+    @keyframes ghostIn { from { opacity: 0; transform: translateY(30%) scale(.96); } }
+
+    .card { display: grid; grid-template-columns: auto 1fr; gap: clamp(24px, 5vw, 64px); align-items: center; max-width: 980px; width: 100%; }
+    .figure { position: relative; width: clamp(180px, 26vw, 320px); }
+    .figure img { display: block; width: 100%; height: auto; animation: tilt 5s ease-in-out infinite; transform-origin: 50% 90%; }
+    @keyframes tilt { 0%, 100% { transform: rotate(-1.5deg); } 50% { transform: rotate(1.5deg); } }
+    .bubble {
+      position: absolute; top: -6px; right: -18px; background: var(--surface); border: 1.5px solid var(--ink); border-radius: 18px 18px 18px 4px;
+      padding: 8px 14px; font-family: var(--mono); font-size: 13px; font-weight: 500; white-space: nowrap;
+      animation: pop .6s var(--ease) .7s both;
+    }
+    @keyframes pop { from { opacity: 0; transform: translateY(8px) scale(.9); } }
+
+    .label { font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; }
+    h1 { font-family: var(--display); font-weight: 400; font-size: clamp(2.5rem, 6vw, 4.8rem); line-height: 1.02; letter-spacing: -0.025em; margin: 0 0 18px; text-wrap: balance; }
+    h1 em { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 1.12em; line-height: 1; color: var(--accent); padding-right: .04em; }
+    .sub { color: var(--muted); max-width: 46ch; margin: 0 0 28px; }
+    .sub code { font-family: var(--mono); font-size: .85em; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; word-break: break-all; color: var(--ink); }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 13px 22px; border-radius: 999px;
+      font-weight: 550; font-size: 15px; text-decoration: none; border: 1.5px solid var(--ink);
+      transition: transform .35s var(--ease), background-color .3s, color .3s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0) scale(.98); }
+    .btn-solid { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+    .btn svg { width: 18px; height: 18px; }
+
+    .elsewhere { margin-top: 32px; padding-top: 20px; border-top: 1.5px solid var(--line); }
+    .elsewhere p { margin: 0 0 10px; font-size: 14px; color: var(--muted); }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
+    .chips a {
+      display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; text-decoration: none;
+      background: var(--surface); border: 1.5px solid var(--line); font-size: 15px; font-weight: 500;
+      transition: border-color .3s, transform .35s var(--ease);
+    }
+    .chips a:hover { border-color: var(--ink); transform: translateY(-2px); }
+
+    footer { padding: 24px var(--gutter) 32px; border-top: 1.5px solid var(--line); color: var(--muted); font-size: 14px; }
+
+    @media (max-width: 720px) {
+      .card { grid-template-columns: 1fr; justify-items: start; }
+      .figure { width: 170px; }
+      .bubble { right: -40px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="/" aria-label="Sama Eldesouki, home"><span class="brand-mark">SE</span><span>Sama Eldesouki</span></a>
+  </header>
+
+  <main id="main">
+    <div class="ghost" aria-hidden="true"><span>4</span><span>0</span><span>4</span></div>
+
+    <div class="card">
+      <div class="figure" aria-hidden="true">
+        <img src="/assets/sama.webp" width="1100" height="1065" alt="">
+        <span class="bubble">Hmm, not here&hellip;</span>
+      </div>
+
+      <div>
+        <p class="label">Error 404</p>
+        <h1>This page has <em>wandered off.</em></h1>
+        <p class="sub">The link might be old, or there's a typo in the address<span id="path"></span>. Everything I've made is still on the homepage.</p>
+        <a class="btn btn-solid" href="/">
+          Back to the homepage
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+
+        <nav class="elsewhere" aria-label="Other pages">
+          <p>Or go straight to the work:</p>
+          <ul class="chips">
+            <li><a href="/#work">Projects</a></li>
+            <li><a href="/websites/">Websites</a></li>
+            <li><a href="/design/">Design</a></li>
+            <li><a href="/motion/">Motion</a></li>
+            <li><a href="/copy/">Copywriting</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </main>
+
+  <footer>© 2026 Sama Eldesouki</footer>
+
+  <script>
+    // Show the address people tried, so a typo is easy to spot.
+    (function () {
+      var p = location.pathname;
+      if (p && p !== "/" && p !== "/404.html" && p.length < 120) {
+        var el = document.getElementById("path");
+        var code = document.createElement("code");
+        code.textContent = decodeURIComponent(p);
+        el.append(" (", code, ")");
+      }
+    })();
+  </script>
+  <script data-goatcounter="https://sayrz1.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
